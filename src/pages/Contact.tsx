@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Linkedin, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 
 const contactCards = [
   { icon: <Mail className="h-5 w-5" />, label: "Email", value: "gaganpsingh30@gmail.com", href: "mailto:gaganpsingh30@gmail.com" },
-  { icon: <Linkedin className="h-5 w-5" />, label: "LinkedIn", value: "linkedin.com/in/gagansingh26", href: "https://linkedin.com/in/gagansingh26" },
+  { icon: <Calendar className="h-5 w-5" />, label: "Book a Call", value: "cal.com/gagan.singh/15min", href: "https://cal.com/gagan.singh/15min" },
   { icon: <Phone className="h-5 w-5" />, label: "Phone", value: "437.995.0068", href: "tel:4379950068" },
   { icon: <MapPin className="h-5 w-5" />, label: "Location", value: "GTA, Canada", href: undefined },
 ];
@@ -30,7 +30,7 @@ const Contact = () => {
       <SectionWrapper>
         <h1 className="text-3xl font-bold md:text-4xl">Get in Touch</h1>
         <p className="mt-3 max-w-xl text-muted-foreground">
-          Ready to improve your SAP release quality? Let's start a conversation.
+          Ready to improve your release quality? Let's start a conversation.
         </p>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-2">

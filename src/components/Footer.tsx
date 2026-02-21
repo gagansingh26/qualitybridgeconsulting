@@ -6,9 +6,9 @@ const Footer = () => (
     <div className="container mx-auto px-4 py-12">
       <div className="grid gap-8 md:grid-cols-3">
         <div>
-          <h3 className="mb-3 text-lg font-bold text-foreground">SAP Test Governance</h3>
+          <h3 className="mb-3 text-lg font-bold text-foreground">QualityBridge Consulting</h3>
           <p className="text-sm text-muted-foreground">
-            AI-enabled test strategy, structured UAT, and risk-based release readiness for SAP programs.
+            SAP-led test governance, automation, and release readiness across enterprise platforms.
           </p>
         </div>
         <div>
@@ -45,7 +45,7 @@ const Footer = () => (
         </div>
       </div>
       <div className="mt-8 border-t border-border pt-6 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} SAP Test Governance & Automation. All rights reserved.
+        © {new Date().getFullYear()} QualityBridge Consulting. All rights reserved.
       </div>
     </div>
   </footer>
