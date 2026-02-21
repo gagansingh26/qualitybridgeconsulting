@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Mail, Phone, MapPin } from "lucide-react";
 
-const Footer = () => (
-  <footer className="border-t border-border bg-card">
+const Footer = () =>
+<footer className="border-t border-border bg-card">
     <div className="container mx-auto px-4 py-12">
       <div className="grid gap-8 md:grid-cols-3">
         <div>
@@ -15,15 +15,15 @@ const Footer = () => (
           <h4 className="mb-3 text-sm font-semibold text-foreground">Quick Links</h4>
           <div className="flex flex-col gap-2">
             {[
-              { label: "Delivery Approach", path: "/delivery" },
-              { label: "UAT Governance", path: "/uat" },
-              { label: "Release Readiness", path: "/release" },
-              { label: "About", path: "/about" },
-            ].map((l) => (
-              <Link key={l.path} to={l.path} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+          { label: "Delivery Approach", path: "/delivery" },
+          { label: "UAT Governance", path: "/uat" },
+          { label: "Release Readiness", path: "/release" },
+          { label: "About", path: "/about" }].
+          map((l) =>
+          <Link key={l.path} to={l.path} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 {l.label}
               </Link>
-            ))}
+          )}
           </div>
         </div>
         <div>
@@ -48,7 +48,7 @@ const Footer = () => (
         © {new Date().getFullYear()} QualityBridge Consulting. All rights reserved.
       </div>
     </div>
-  </footer>
-);
+  </footer>;
+
 
 export default Footer;
