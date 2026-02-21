@@ -16,10 +16,10 @@ const About = () => (
       <h1 className="text-3xl font-bold md:text-4xl">About</h1>
       <div className="mt-8 max-w-3xl space-y-5 text-muted-foreground leading-relaxed">
         <p>
-          I'm a Technology Delivery and Quality Engineering leader with over 10 years of experience driving AI-enabled DevTestOps, CI/CD transformation, and automation-first quality strategies. I help organizations ship faster with confidence by embedding quality earlier in the delivery lifecycle.
+          I'm a Technology Delivery and Quality Engineering professional with over 10 years of experience driving AI-enabled DevTestOps, CI/CD transformation, and automation-first quality strategies. I help organizations ship faster with confidence by embedding quality earlier in the delivery lifecycle.
         </p>
         <p>
-          My background spans enterprise delivery across SaaS, ERP, Insurance, HealthTech, FinTech, and e-commerce — working with platforms like Workday, SAP S/4HANA, Salesforce, and Dynamics 365. I've led cross-regional programs across Europe, Asia, and North America, aligning product, engineering, and QA teams around shared outcomes.
+          My background spans enterprise delivery across SaaS, ERP, Insurance, HealthTech, FinTech, and e-commerce — working with platforms like Workday, SAP S/4HANA, Salesforce, and Microsoft Dynamics 365. I've led cross-regional programs across Europe, Asia, and North America, aligning product, engineering, and QA teams around shared outcomes.
         </p>
         <p>
           Today, I focus on applying Generative AI and LLMs to improve test design, accelerate automation, enable predictive defect detection, and support risk-informed, metrics-based release governance across globally distributed teams.
