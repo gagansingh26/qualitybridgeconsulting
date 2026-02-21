@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle, ArrowRight, Cpu, Bug, Users, GitBranch, Brain } from "lucide-react";
+import { CheckCircle, ArrowRight, Cpu, Bug, Users, GitBranch, Brain, Code, TestTube, Settings } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
 
@@ -17,6 +17,13 @@ const capabilities = [
   { icon: <Users className="h-5 w-5" />, label: "Stakeholder reporting & metrics" },
   { icon: <GitBranch className="h-5 w-5" />, label: "CI/CD quality gates" },
   { icon: <Brain className="h-5 w-5" />, label: "AI for test optimization" },
+];
+
+const automationItems = [
+  { icon: <Settings className="h-5 w-5" />, label: "Automation-first regression planning" },
+  { icon: <Code className="h-5 w-5" />, label: "Cypress and Playwright implementation" },
+  { icon: <Cpu className="h-5 w-5" />, label: "SAP automation alignment" },
+  { icon: <GitBranch className="h-5 w-5" />, label: "CI/CD integration and quality gates" },
 ];
 
 const DeliveryApproach = () => (
@@ -68,8 +75,33 @@ const DeliveryApproach = () => (
       </div>
     </SectionWrapper>
 
-    {/* Core Capabilities */}
+    {/* Test Automation Strategy */}
     <SectionWrapper className="bg-accent/50">
+      <h2 className="text-2xl font-bold md:text-3xl">Test Automation Strategy</h2>
+      <p className="mt-2 max-w-2xl text-muted-foreground">
+        Cross-platform automation across SAP, web, and API layers using modern frameworks.
+      </p>
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        {automationItems.map((c, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3, delay: i * 0.08 }}
+            className="flex items-center gap-3 rounded-lg border border-border bg-card p-4 card-shadow"
+          >
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+              {c.icon}
+            </div>
+            <span className="text-sm font-medium text-card-foreground">{c.label}</span>
+          </motion.div>
+        ))}
+      </div>
+    </SectionWrapper>
+
+    {/* Core Capabilities */}
+    <SectionWrapper>
       <h2 className="text-2xl font-bold md:text-3xl">Core Capabilities</h2>
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {capabilities.map((c, i) => (
