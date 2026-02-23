@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Phone, MapPin, Send, Calendar } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Calendar, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -7,6 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
 import { motion } from "framer-motion";
+import { supabase } from "@/integrations/supabase/client";
 
 const EMAIL_TO = "qualitybridgeconsulting.ca@gmail.com";
 const BOOK_CALL_URL = "https://cal.com/gagan.singh/15min";
@@ -43,23 +44,34 @@ const isHttpUrl = (href: string) => /^https?:\/\//i.test(href);
 const Contact = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSending(true);
 
-    // Build a mailto link with prefilled subject + body
-    const subject = encodeURIComponent(`Website inquiry from ${form.name}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}\n`
-    );
+    try {
+      const { data, error } = await supabase.functions.invoke("send-contact-email", {
+        body: { name: form.name, email: form.email, message: form.message },
+      });
 
-    // Honest UX: we’re opening the visitor’s email client
-    toast({
-      title: "Opening your email app…",
-      description: "Review the message and click send to email me.",
-    });
+      if (error) throw error;
 
-    window.location.href = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error("Send error:", err);
+      toast({
+        title: "Failed to send",
+        description: "Something went wrong. Please try emailing directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -158,14 +170,13 @@ const Contact = () => {
                 />
               </div>
 
-              <Button type="submit" className="w-full">
-                <Send className="mr-2 h-4 w-4" /> Open Email to Send
+              <Button type="submit" className="w-full" disabled={sending}>
+                {sending ? (
+                  <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Sending…</>
+                ) : (
+                  <><Send className="mr-2 h-4 w-4" /> Send Message</>
+                )}
               </Button>
-
-              <p className="text-xs text-muted-foreground">
-                This form opens your email app with the message pre-filled (no
-                data is stored on this website).
-              </p>
             </div>
           </motion.form>
         </div>
