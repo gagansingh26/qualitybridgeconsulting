@@ -29,8 +29,8 @@ const Footer = () =>
         <div>
           <h4 className="mb-3 text-sm font-semibold text-foreground">Contact</h4>
           <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-            <a href="mailto:gaganpsingh30@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
-              <Mail className="h-4 w-4" /> gaganpsingh30@gmail.com
+            <a href="mailto:qualitybridgeconsulting.ca@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
+              <Mail className="h-4 w-4" /> qualitybridgeconsulting.ca@gmail.com
             </a>
             <a href="https://linkedin.com/in/gagansingh26" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
               <Linkedin className="h-4 w-4" /> linkedin.com/in/gagansingh26

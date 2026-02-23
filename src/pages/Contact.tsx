@@ -8,7 +8,7 @@ import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
 import { motion } from "framer-motion";
 
-const EMAIL_TO = "gaganpsingh30@gmail.com";
+const EMAIL_TO = "qualitybridgeconsulting.ca@gmail.com";
 const BOOK_CALL_URL = "https://cal.com/gagan.singh/15min";
 
 const contactCards = [
