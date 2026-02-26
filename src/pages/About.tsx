@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Brain, Shield, GitBranch, BarChart3, Monitor, Layers } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 const focusAreas = [
   { icon: <Shield className="h-5 w-5" />, label: "SAP test governance" },
@@ -12,7 +13,12 @@ const focusAreas = [
   { icon: <Layers className="h-5 w-5" />, label: "Digital transformation consulting" },
 ];
 
-const About = () => (
+const About = () => {
+  usePageMeta(
+    "About — QualityBridge Consulting | SAP Governance, Automation & Web Development",
+    "10+ years delivering SAP governance, AI-enabled test automation, and modern web development across enterprise platforms. Bridging complex systems with polished digital experiences."
+  );
+  return (
   <Layout>
     <SectionWrapper>
       <h1 className="text-3xl font-bold md:text-4xl">About</h1>
@@ -58,6 +64,7 @@ const About = () => (
       </div>
     </SectionWrapper>
   </Layout>
-);
+  );
+};
 
 export default About;

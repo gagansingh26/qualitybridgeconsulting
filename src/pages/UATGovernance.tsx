@@ -3,6 +3,7 @@ import { ArrowRight, CheckSquare, Shield, Users, Zap, ThumbsUp, ClipboardList, A
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
 import StatusBadge from "@/components/StatusBadge";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 const uatPhases = [
   { name: "Plan", desc: "Define UAT scope, timelines, resource needs, and entry criteria." },
@@ -32,7 +33,12 @@ const deliverables = [
   { icon: <ThumbsUp className="h-5 w-5" />, label: "Go-live confidence" },
 ];
 
-const UATGovernance = () => (
+const UATGovernance = () => {
+  usePageMeta(
+    "UAT Governance Framework — QualityBridge Consulting",
+    "Structured UAT operating model covering planning, execution, defect triage, and business sign-off. Ensure enterprise release readiness with clear governance and accountability."
+  );
+  return (
   <Layout>
     <SectionWrapper>
       <h1 className="text-3xl font-bold md:text-4xl">UAT Governance Framework</h1>
@@ -141,6 +147,7 @@ const UATGovernance = () => (
       </div>
     </SectionWrapper>
   </Layout>
-);
+  );
+};
 
 export default UATGovernance;

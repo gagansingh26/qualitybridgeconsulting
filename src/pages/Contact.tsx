@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { usePageMeta } from "@/hooks/use-page-meta";
 import { Mail, Phone, MapPin, Send, Calendar, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -42,6 +43,11 @@ const contactCards = [
 const isHttpUrl = (href: string) => /^https?:\/\//i.test(href);
 
 const Contact = () => {
+  usePageMeta(
+    "Contact — QualityBridge Consulting | Book a Consultation",
+    "Get in touch to discuss SAP governance, test automation, or web development projects. Book a free consultation with QualityBridge Consulting."
+  );
+
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);

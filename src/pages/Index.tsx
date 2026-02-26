@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
 import KpiWidget from "@/components/KpiWidget";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 const valueCards = [
   { icon: <Shield className="h-5 w-5" />, title: "SAP S/4HANA & Fiori Test Strategy", desc: "End-to-end test planning aligned with SAP best practices and business process coverage." },
@@ -48,6 +49,10 @@ const capabilityPillars = [
 ];
 
 const Index = () => {
+  usePageMeta(
+    "QualityBridge Consulting — SAP Governance, Test Automation & Web Development",
+    "End-to-end digital solutions: SAP S/4HANA governance, AI-enabled test automation, and modern website & web application development. Business-focused technology delivery built to scale."
+  );
   return (
     <Layout>
       {/* Hero */}
