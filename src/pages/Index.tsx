@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Shield, BarChart3, Users, CheckCircle, TrendingDown, Target, ThumbsUp, Globe, TestTube, Code, GitBranch } from "lucide-react";
+import { ArrowRight, Brain, Shield, BarChart3, Users, CheckCircle, TrendingDown, Target, ThumbsUp, Globe, TestTube, Code, GitBranch, Monitor, Layers, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
@@ -11,6 +11,19 @@ const valueCards = [
   { icon: <Brain className="h-5 w-5" />, title: "AI-Assisted Test Design & Optimization", desc: "Leverage generative AI to improve test coverage, reduce redundancy, and accelerate design." },
   { icon: <Users className="h-5 w-5" />, title: "UAT Governance & Stakeholder Alignment", desc: "Structured UAT coordination with clear entry/exit criteria and business sign-offs." },
   { icon: <BarChart3 className="h-5 w-5" />, title: "Metrics-Based Release Quality Gates", desc: "Data-driven go/no-go decisions using real-time KPIs and risk indicators." },
+  {
+    icon: <Monitor className="h-5 w-5" />,
+    title: "Website & Digital Experience Development",
+    desc: "Modern responsive websites, web applications, and dashboards — from rapid prototypes to production-ready digital products.",
+    detail: [
+      "Modern responsive business websites",
+      "Web applications and dashboards",
+      "No-code / low-code solutions",
+      "Automation-driven digital workflows",
+      "UX-focused, conversion-oriented design",
+      "Rapid prototyping and deployment",
+    ],
+  },
 ];
 
 const beyondSapCapabilities = [
@@ -27,19 +40,38 @@ const outcomes = [
   { icon: <ThumbsUp className="h-5 w-5" />, label: "Improved business confidence" },
 ];
 
+const capabilityPillars = [
+  { icon: <Layers className="h-4 w-4" />, label: "Enterprise Governance" },
+  { icon: <TestTube className="h-4 w-4" />, label: "Automation Engineering" },
+  { icon: <Monitor className="h-4 w-4" />, label: "Modern Web Development" },
+  { icon: <Zap className="h-4 w-4" />, label: "Digital Transformation" },
+];
+
 const Index = () => {
   return (
     <Layout>
       {/* Hero */}
       <section className="enterprise-gradient py-20 md:py-28">
         <div className="container mx-auto px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="mb-4 flex flex-wrap items-center justify-center gap-2"
+          >
+            {["SAP Governance & Compliance", "Test Automation & Quality Engineering", "Website & Web Application Development"].map((pill) => (
+              <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-3 py-1 text-xs font-medium text-primary-foreground/90">
+                {pill}
+              </span>
+            ))}
+          </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-3xl text-4xl font-bold leading-tight text-primary-foreground md:text-5xl lg:text-6xl"
           >
-            SAP Test Governance for Confident Releases
+            End-to-End Digital Solutions for Enterprise & Modern Web
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -47,7 +79,7 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mx-auto mt-5 max-w-2xl text-lg text-primary-foreground/80"
           >
-            Embed quality early with AI-enabled test strategy, structured UAT, and risk-based release readiness.
+            From SAP governance and AI-enabled test strategy to modern websites and web applications — business-focused technology delivery built to scale.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -69,13 +101,27 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Capabilities Strip */}
+      <div className="border-b border-t border-border bg-card">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+            {capabilityPillars.map((p, i) => (
+              <div key={i} className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+                <span className="text-primary">{p.icon}</span>
+                {p.label}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Value Cards */}
       <SectionWrapper>
         <h2 className="text-center text-2xl font-bold md:text-3xl">What We Deliver</h2>
         <p className="mx-auto mt-2 max-w-xl text-center text-muted-foreground">
-          Comprehensive test governance across the SAP delivery lifecycle.
+          Integrated expertise across enterprise governance, quality engineering, and digital product development.
         </p>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {valueCards.map((c, i) => (
             <motion.div
               key={i}
@@ -90,6 +136,16 @@ const Index = () => {
               </div>
               <h3 className="mt-4 font-semibold text-card-foreground">{c.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{c.desc}</p>
+              {c.detail && (
+                <ul className="mt-3 space-y-1">
+                  {c.detail.map((d) => (
+                    <li key={d} className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <CheckCircle className="h-3 w-3 shrink-0 text-primary" />
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </motion.div>
           ))}
         </div>
@@ -157,7 +213,7 @@ const Index = () => {
         <div className="text-center">
           <h2 className="text-2xl font-bold md:text-3xl">Ready to Strengthen Your Release Quality?</h2>
           <p className="mx-auto mt-3 max-w-lg text-muted-foreground">
-            Let's discuss how structured test governance can reduce risk and accelerate your delivery.
+            Let's discuss how structured test governance and modern web development can reduce risk and accelerate your delivery.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Link to="/contact">
