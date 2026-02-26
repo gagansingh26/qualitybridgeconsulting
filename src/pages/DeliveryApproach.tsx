@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { CheckCircle, ArrowRight, Cpu, Bug, Users, GitBranch, Brain, Code, TestTube, Settings } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 const phases = [
   { name: "Plan", desc: "Test strategy & scope alignment with business stakeholders.", color: "bg-primary" },
@@ -26,7 +27,12 @@ const automationItems = [
   { icon: <GitBranch className="h-5 w-5" />, label: "CI/CD integration and quality gates" },
 ];
 
-const DeliveryApproach = () => (
+const DeliveryApproach = () => {
+  usePageMeta(
+    "Delivery Approach — QualityBridge Consulting | Test Strategy & Automation",
+    "Structured test delivery lifecycle from planning through hypercare — SAP, web, and API automation using Cypress, Playwright, and CI/CD quality gates."
+  );
+  return (
   <Layout>
     <SectionWrapper>
       <h1 className="text-3xl font-bold md:text-4xl">Delivery Approach</h1>
@@ -120,6 +126,7 @@ const DeliveryApproach = () => (
       </div>
     </SectionWrapper>
   </Layout>
-);
+  );
+};
 
 export default DeliveryApproach;

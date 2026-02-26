@@ -3,6 +3,7 @@ import { ClipboardCheck, Bug, Users, Cpu, CheckCircle, AlertTriangle, XCircle } 
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
 import StatusBadge from "@/components/StatusBadge";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 const trackItems = [
   { icon: <ClipboardCheck className="h-5 w-5" />, title: "Test Execution Status", desc: "Tracking test progress by scope area — SIT, UAT, regression — with clear completion criteria for each phase." },
@@ -17,7 +18,12 @@ const releaseStatuses = [
   { variant: "blocked" as const, label: "NO-GO", desc: "Critical blockers present. Open P1/P2 defects, missing sign-offs, or insufficient test coverage." },
 ];
 
-const ReleaseReadiness = () => (
+const ReleaseReadiness = () => {
+  usePageMeta(
+    "Release Readiness Framework — QualityBridge Consulting",
+    "Risk-based release governance with structured go/no-go decision models. Track test coverage, defect severity, automation metrics, and business sign-offs for confident releases."
+  );
+  return (
   <Layout>
     <SectionWrapper>
       <h1 className="text-3xl font-bold md:text-4xl">Release Readiness Framework</h1>
@@ -89,6 +95,7 @@ const ReleaseReadiness = () => (
       </motion.div>
     </SectionWrapper>
   </Layout>
-);
+  );
+};
 
 export default ReleaseReadiness;
