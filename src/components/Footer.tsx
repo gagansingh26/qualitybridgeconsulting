@@ -8,7 +8,7 @@ const Footer = () =>
         <div>
           <h3 className="mb-3 text-lg font-bold text-foreground">QualityBridge Consulting</h3>
           <p className="text-sm text-muted-foreground">
-            SAP-led test governance, automation, and release readiness across enterprise platforms.
+            Enterprise governance, test automation, and modern web development — end-to-end digital solutions for confident delivery.
           </p>
         </div>
         <div>
@@ -18,7 +18,8 @@ const Footer = () =>
           { label: "Delivery Approach", path: "/delivery" },
           { label: "UAT Governance", path: "/uat" },
           { label: "Release Readiness", path: "/release" },
-          { label: "About", path: "/about" }].
+          { label: "About", path: "/about" },
+          { label: "Contact", path: "/contact" }].
           map((l) =>
           <Link key={l.path} to={l.path} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 {l.label}
