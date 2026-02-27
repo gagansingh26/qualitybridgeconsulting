@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { usePageMeta } from "@/hooks/use-page-meta";
-import { Mail, Phone, MapPin, Send, Calendar, Loader2 } from "lucide-react";
+import { Mail, MapPin, Send, Calendar, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -25,12 +25,6 @@ const contactCards = [
     label: "Book a Call",
     value: "cal.com/gagan.singh/15min",
     href: BOOK_CALL_URL,
-  },
-  {
-    icon: <Phone className="h-5 w-5" />,
-    label: "Phone",
-    value: "437.995.0068",
-    href: "tel:4379950068",
   },
   {
     icon: <MapPin className="h-5 w-5" />,
