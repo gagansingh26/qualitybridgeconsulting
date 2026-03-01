@@ -50,8 +50,8 @@ const capabilityPillars = [
 
 const Index = () => {
   usePageMeta(
-    "QualityBridge Consulting — SAP Governance, Test Automation & Web Development",
-    "End-to-end digital solutions: SAP S/4HANA governance, AI-enabled test automation, and modern website & web application development. Business-focused technology delivery built to scale."
+    "QualityBridge Consulting | SAP Governance · Test Automation · Web Development",
+    "Enterprise SAP S/4HANA governance, AI-enabled test automation, UAT management, and modern web application development. Based in GTA, Canada — serving global clients."
   );
   return (
     <Layout>
@@ -92,13 +92,13 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
           >
-            <Link to="/contact">
-              <Button size="lg" variant="secondary" className="font-semibold">
+            <Link to="/contact" className="w-full sm:w-auto">
+              <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto">
                 Book a Consultation <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="border-primary-foreground/50 font-semibold text-primary-foreground hover:bg-primary-foreground/10 bg-primary-foreground/10">
+            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full border-primary-foreground/60 bg-transparent font-semibold text-primary-foreground ring-offset-transparent hover:bg-primary-foreground/15 hover:text-primary-foreground sm:w-auto" variant="outline">
                 Book a Call <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
             </a>
