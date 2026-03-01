@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
@@ -48,7 +48,7 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className="ml-2"
           >
-            <Button size="sm">Book a Consultation</Button>
+            <Button size="sm">Book a Consultation <ExternalLink className="ml-1 h-3 w-3" /></Button>
           </a>
         </div>
 
@@ -88,7 +88,7 @@ const Navbar = () => {
               className="mt-2"
             >
               <Button size="sm" className="w-full">
-                Book a Consultation
+                Book a Consultation <ExternalLink className="ml-1 h-3 w-3" />
               </Button>
             </a>
           </div>
