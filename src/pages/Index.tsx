@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Shield, BarChart3, Users, CheckCircle, TrendingDown, Target, ThumbsUp, Globe, TestTube, Code, GitBranch, Monitor, Layers, Zap } from "lucide-react";
+import { ArrowRight, ExternalLink, Brain, Shield, BarChart3, Users, CheckCircle, TrendingDown, Target, ThumbsUp, Globe, TestTube, Code, GitBranch, Monitor, Layers, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
@@ -97,11 +97,11 @@ const Index = () => {
                 Book a Consultation <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link to="/delivery">
+            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="outline" className="border-primary-foreground/50 font-semibold text-primary-foreground hover:bg-primary-foreground/10 bg-primary-foreground/10">
-                View Delivery Approach
+                Book a Call <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
-            </Link>
+            </a>
           </motion.div>
         </div>
       </section>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { usePageMeta } from "@/hooks/use-page-meta";
-import { Mail, MapPin, Send, Calendar, Loader2 } from "lucide-react";
+import { Mail, MapPin, Send, Calendar, Loader2, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -106,9 +106,10 @@ const Contact = () => {
                     href={c.href}
                     target={isHttpUrl(c.href) ? "_blank" : undefined}
                     rel={isHttpUrl(c.href) ? "noopener noreferrer" : undefined}
-                    className="mt-2 block text-sm font-medium text-card-foreground transition-colors hover:text-primary"
+                    className="mt-2 flex items-center gap-1 text-sm font-medium text-card-foreground transition-colors hover:text-primary"
                   >
                     {c.value}
+                    {isHttpUrl(c.href) && <ExternalLink className="h-3 w-3 shrink-0" />}
                   </a>
                 ) : (
                   <p className="mt-2 text-sm font-medium text-card-foreground">
