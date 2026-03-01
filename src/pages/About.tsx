@@ -16,7 +16,8 @@ const focusAreas = [
 const About = () => {
   usePageMeta(
     "About — QualityBridge Consulting | SAP Governance, Automation & Web Development",
-    "10+ years delivering SAP governance, AI-enabled test automation, and modern web development across enterprise platforms. Bridging complex systems with polished digital experiences."
+    "10+ years delivering SAP governance, AI-enabled test automation, and modern web development across enterprise platforms. Bridging complex systems with polished digital experiences.",
+    "/about"
   );
   return (
   <Layout>

@@ -39,7 +39,8 @@ const isHttpUrl = (href: string) => /^https?:\/\//i.test(href);
 const Contact = () => {
   usePageMeta(
     "Contact — QualityBridge Consulting | Book a Consultation",
-    "Get in touch to discuss SAP governance, test automation, or web development projects. Book a free consultation with QualityBridge Consulting."
+    "Get in touch to discuss SAP governance, test automation, or web development projects. Book a free consultation with QualityBridge Consulting.",
+    "/contact"
   );
 
   const { toast } = useToast();

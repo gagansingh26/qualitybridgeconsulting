@@ -36,7 +36,8 @@ const deliverables = [
 const UATGovernance = () => {
   usePageMeta(
     "UAT Governance Framework — QualityBridge Consulting",
-    "Structured UAT operating model covering planning, execution, defect triage, and business sign-off. Ensure enterprise release readiness with clear governance and accountability."
+    "Structured UAT operating model covering planning, execution, defect triage, and business sign-off. Ensure enterprise release readiness with clear governance and accountability.",
+    "/uat"
   );
   return (
   <Layout>
