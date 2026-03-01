@@ -21,7 +21,8 @@ const releaseStatuses = [
 const ReleaseReadiness = () => {
   usePageMeta(
     "Release Readiness Framework — QualityBridge Consulting",
-    "Risk-based release governance with structured go/no-go decision models. Track test coverage, defect severity, automation metrics, and business sign-offs for confident releases."
+    "Risk-based release governance with structured go/no-go decision models. Track test coverage, defect severity, automation metrics, and business sign-offs for confident releases.",
+    "/release"
   );
   return (
   <Layout>

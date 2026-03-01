@@ -30,7 +30,8 @@ const automationItems = [
 const DeliveryApproach = () => {
   usePageMeta(
     "Delivery Approach — QualityBridge Consulting | Test Strategy & Automation",
-    "Structured test delivery lifecycle from planning through hypercare — SAP, web, and API automation using Cypress, Playwright, and CI/CD quality gates."
+    "Structured test delivery lifecycle from planning through hypercare — SAP, web, and API automation using Cypress, Playwright, and CI/CD quality gates.",
+    "/delivery"
   );
   return (
   <Layout>

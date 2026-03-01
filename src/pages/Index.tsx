@@ -51,7 +51,8 @@ const capabilityPillars = [
 const Index = () => {
   usePageMeta(
     "QualityBridge Consulting | SAP Governance · Test Automation · Web Development",
-    "Enterprise SAP S/4HANA governance, AI-enabled test automation, UAT management, and modern web application development. Based in GTA, Canada — serving global clients."
+    "Enterprise SAP S/4HANA governance, AI-enabled test automation, UAT management, and modern web application development. Based in GTA, Canada — serving global clients.",
+    "/"
   );
   return (
     <Layout>
