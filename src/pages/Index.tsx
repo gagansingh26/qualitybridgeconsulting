@@ -8,21 +8,35 @@ import KpiWidget from "@/components/KpiWidget";
 import { usePageMeta } from "@/hooks/use-page-meta";
 
 const valueCards = [
-  { icon: <Shield className="h-5 w-5" />, title: "SAP S/4HANA & Fiori Test Strategy", desc: "End-to-end test planning aligned with SAP best practices and business process coverage." },
-  { icon: <Brain className="h-5 w-5" />, title: "AI-Assisted Test Design & Optimization", desc: "Leverage generative AI to improve test coverage, reduce redundancy, and accelerate design." },
-  { icon: <Users className="h-5 w-5" />, title: "UAT Governance & Stakeholder Alignment", desc: "Structured UAT coordination with clear entry/exit criteria and business sign-offs." },
-  { icon: <BarChart3 className="h-5 w-5" />, title: "Metrics-Based Release Quality Gates", desc: "Data-driven go/no-go decisions using real-time KPIs and risk indicators." },
+  {
+    icon: <Users className="h-5 w-5" />,
+    title: "SAP S/4HANA UAT Governance",
+    desc: "Structured UAT programmes with defined entry/exit criteria, business sign-off processes, and cross-functional stakeholder coordination.",
+  },
+  {
+    icon: <BarChart3 className="h-5 w-5" />,
+    title: "Release Readiness & Quality Gates",
+    desc: "Metrics-driven go/no-go decisions using real-time defect trends, test coverage KPIs, and risk-based release criteria.",
+  },
+  {
+    icon: <Shield className="h-5 w-5" />,
+    title: "SAP Test Strategy & Regression Coverage",
+    desc: "Test planning aligned to SAP best practices — covering core business processes, integration scenarios, and Fiori user acceptance.",
+  },
+  {
+    icon: <Brain className="h-5 w-5" />,
+    title: "Intelligent Test Automation",
+    desc: "Automation frameworks using Cypress and Playwright, with AI-assisted test design to reduce manual effort and accelerate regression cycles.",
+  },
   {
     icon: <Monitor className="h-5 w-5" />,
-    title: "Website & Digital Experience Development",
-    desc: "Modern responsive websites, web applications, and dashboards — from rapid prototypes to production-ready digital products.",
+    title: "Web Application & Dashboard Development",
+    desc: "Purpose-built web applications, reporting dashboards, and business tools — delivered as a complementary capability alongside SAP engagements.",
     detail: [
-      "Modern responsive business websites",
-      "Web applications and dashboards",
-      "No-code / low-code solutions",
-      "Automation-driven digital workflows",
-      "UX-focused, conversion-oriented design",
+      "Business web applications and portals",
+      "Reporting and operational dashboards",
       "Rapid prototyping and deployment",
+      "UX-focused, stakeholder-ready design",
     ],
   },
 ];
