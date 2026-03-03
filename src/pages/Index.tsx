@@ -77,7 +77,7 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-3xl text-4xl font-bold leading-tight text-primary-foreground md:text-5xl lg:text-6xl"
           >
-            End-to-End Digital Solutions for Enterprise & Modern Web
+            SAP Governance, Quality Engineering & Intelligent Automation
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -85,7 +85,15 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mx-auto mt-5 max-w-2xl text-lg text-primary-foreground/80"
           >
-            From SAP governance and AI-enabled test strategy to modern websites and web applications — business-focused technology delivery built to scale.
+            Specialising in SAP S/4HANA UAT governance and release readiness — complemented by test automation and modern web delivery.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.22 }}
+            className="mx-auto mt-3 max-w-xl text-sm text-primary-foreground/60"
+          >
+            Delivery expertise supported through collaboration with EU-based SAP partners. Single point of contact for project coordination and client engagement in Canada.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
