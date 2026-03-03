@@ -29,7 +29,10 @@ const ReleaseReadiness = () => {
     <SectionWrapper>
       <h1 className="text-3xl font-bold md:text-4xl">Release Readiness Framework</h1>
       <p className="mt-3 max-w-2xl text-muted-foreground">
-        A structured approach to release governance — aligning test coverage, defect resolution, and business readiness into a clear decision model.
+        A structured governance model for SAP S/4HANA programmes — consolidating test coverage, defect resolution, and business readiness into a controlled, risk-based release decision.
+      </p>
+      <p className="mt-2 text-sm text-muted-foreground/70">
+        Supporting SAP implementation partners across Europe and North America.
       </p>
 
       {/* What We Track */}
@@ -86,12 +89,10 @@ const ReleaseReadiness = () => {
         viewport={{ once: true }}
         className="mt-10 rounded-lg border border-border bg-accent/50 p-6"
       >
-        <h3 className="text-lg font-semibold text-card-foreground">How Release Recommendations Are Made</h3>
+        <h3 className="text-lg font-semibold text-card-foreground">How Release Decisions Are Governed</h3>
         <p className="mt-2 text-sm text-muted-foreground">
-          Release recommendations are based on risk indicators, open defects, business readiness, and test coverage.
-          Each factor is assessed against predefined quality gates, and the overall recommendation reflects the combined
-          risk profile across all areas. This ensures release decisions are transparent, data-informed, and aligned with
-          business stakeholder expectations.
+          Each release recommendation is derived from structured quality gate assessments — evaluating risk indicators, open defect severity, business unit readiness, and test coverage thresholds.
+          The resulting go/no-go position is transparent, evidence-based, and formally aligned with business stakeholder sign-off requirements.
         </p>
       </motion.div>
     </SectionWrapper>
