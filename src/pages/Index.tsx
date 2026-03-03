@@ -91,7 +91,7 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-3xl text-4xl font-bold leading-tight text-primary-foreground md:text-5xl lg:text-6xl"
           >
-            SAP Governance, Quality Engineering & Intelligent Automation
+            SAP S/4HANA Governance & Intelligent Automation
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -99,7 +99,7 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mx-auto mt-5 max-w-2xl text-lg text-primary-foreground/80"
           >
-            Specialising in SAP S/4HANA UAT governance and release readiness — complemented by test automation and modern web delivery.
+            Structured UAT governance and release readiness for SAP programmes — supported by targeted automation and purposeful digital delivery.
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -107,7 +107,7 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.22 }}
             className="mx-auto mt-3 max-w-xl text-sm text-primary-foreground/60"
           >
-            Delivery expertise supported through collaboration with EU-based SAP partners. Single point of contact for project coordination and client engagement in Canada.
+            SAP delivery depth strengthened through EU-based partner collaboration — with all client engagement and project oversight managed locally in Canada.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
