@@ -107,7 +107,7 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.22 }}
             className="mx-auto mt-3 max-w-xl text-sm text-primary-foreground/60"
           >
-            SAP delivery depth strengthened through EU-based partner collaboration — with all client engagement and project oversight managed locally in Canada.
+            Supporting SAP implementation partners across Europe and North America. SAP delivery expertise strengthened through EU-based partner collaboration — with all client engagement and project oversight managed locally in Canada.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
