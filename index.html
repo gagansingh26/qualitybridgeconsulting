@@ -3,6 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        try {
+          var stored = localStorage.getItem('qb-theme');
+          var preferred = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          if (preferred === 'dark') document.documentElement.classList.add('dark');
+        } catch(e) {}
+      })();
+    </script>
     <title>QualityBridge Consulting | SAP Governance · Test Automation · Web Development</title>
     <meta name="description" content="Enterprise SAP S/4HANA governance, AI-enabled test automation, UAT management, and modern web development. GTA-based, serving global clients. Book a free consultation.">
     <meta name="author" content="QualityBridge Consulting" />
