@@ -66,8 +66,8 @@
     --card-foreground: 210 20% 96%;
     --popover: 213 35% 12%;
     --popover-foreground: 210 20% 96%;
-    --primary: 213 100% 60%;
-    --primary-foreground: 213 40% 8%;
+    --primary: 213 100% 62%;
+    --primary-foreground: 0 0% 100%;
     --secondary: 213 30% 18%;
     --secondary-foreground: 210 20% 96%;
     --muted: 213 30% 18%;
@@ -87,8 +87,8 @@
     --ring: 213 100% 60%;
     --sidebar-background: 213 40% 8%;
     --sidebar-foreground: 210 20% 96%;
-    --sidebar-primary: 213 100% 60%;
-    --sidebar-primary-foreground: 213 40% 8%;
+    --sidebar-primary: 213 100% 62%;
+    --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 213 40% 20%;
     --sidebar-accent-foreground: 213 100% 75%;
     --sidebar-border: 213 30% 22%;
