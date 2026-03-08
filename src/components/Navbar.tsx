@@ -5,13 +5,14 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
+import { FlagGB, FlagDE, FlagFR } from "@/components/FlagIcons";
 
 const BOOK_CALL_URL = "https://cal.com/gagan.singh/15min";
 
 const LANGUAGES = [
-  { code: "en", label: "EN", flag: "🇬🇧", full: "English" },
-  { code: "de", label: "DE", flag: "🇩🇪", full: "Deutsch" },
-  { code: "fr", label: "FR", flag: "🇫🇷", full: "Français" },
+  { code: "en", label: "EN", Flag: FlagGB, full: "English" },
+  { code: "de", label: "DE", Flag: FlagDE, full: "Deutsch" },
+  { code: "fr", label: "FR", Flag: FlagFR, full: "Français" },
 ];
 
 const Navbar = () => {
