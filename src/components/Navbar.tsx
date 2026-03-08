@@ -104,7 +104,7 @@ const Navbar = () => {
                           : "text-card-foreground"
                       }`}
                     >
-                      <span>{lang.flag}</span>
+                      <lang.Flag className="h-3.5 w-[22px] rounded-[2px] object-cover shadow-sm" />
                       <span>{lang.full}</span>
                     </button>
                   ))}
@@ -132,10 +132,10 @@ const Navbar = () => {
               type="button"
               onClick={() => setLangOpen((p) => !p)}
               aria-label="Select language"
-              className="flex h-9 items-center gap-1 rounded-full border border-border bg-background px-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+              className="flex h-9 items-center gap-1.5 rounded-full border border-border bg-background px-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
             >
-              <span>{currentLang.flag}</span>
-              <span className="text-xs">{currentLang.label}</span>
+              <currentLang.Flag className="h-3.5 w-[22px] rounded-[2px] object-cover shadow-sm" />
+              <span className="text-xs font-semibold">{currentLang.label}</span>
             </button>
 
             {langOpen && (
@@ -153,7 +153,7 @@ const Navbar = () => {
                           : "text-card-foreground"
                       }`}
                     >
-                      <span>{lang.flag}</span>
+                      <lang.Flag className="h-3.5 w-[22px] rounded-[2px] object-cover shadow-sm" />
                       <span>{lang.full}</span>
                     </button>
                   ))}
