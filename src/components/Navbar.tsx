@@ -42,7 +42,7 @@ const Navbar = () => {
   ];
 
   const linkClasses = (path: string) =>
-    `rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground ${
+    `rounded-md px-2.5 py-1.5 text-sm font-medium whitespace-nowrap transition-colors hover:bg-accent hover:text-accent-foreground ${
       location.pathname === path
         ? "bg-accent text-accent-foreground"
         : "text-muted-foreground"
@@ -50,22 +50,25 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+      <div className="container mx-auto flex min-h-16 items-center justify-between gap-2 px-4 py-2">
         {/* Brand */}
-        <Link to="/" className="text-lg font-bold text-primary shrink-0">
+        <Link to="/" className="shrink-0 text-base font-bold text-primary lg:text-lg">
           QualityBridge Consulting
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden flex-1 items-center justify-center gap-0.5 overflow-hidden md:flex lg:gap-1">
           {navItems.map((item) => (
             <Link key={item.path} to={item.path} className={linkClasses(item.path)}>
               {item.label}
             </Link>
           ))}
+        </div>
 
+        {/* Right-side actions */}
+        <div className="hidden shrink-0 items-center gap-1 md:flex">
           {/* External CTA */}
-          <a href={BOOK_CALL_URL} target="_blank" rel="noopener noreferrer" className="ml-2">
+          <a href={BOOK_CALL_URL} target="_blank" rel="noopener noreferrer">
             <Button size="sm">
               {t("nav.bookCall")} <ExternalLink className="ml-1 h-3 w-3" />
             </Button>
