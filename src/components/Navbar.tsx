@@ -104,7 +104,7 @@ const Navbar = () => {
                           : "text-card-foreground"
                       }`}
                     >
-                      <lang.Flag className="h-3.5 w-[22px] rounded-[2px] object-cover shadow-sm" />
+                      <lang.Flag className="h-[18px] w-[28px] rounded-[3px] shadow-sm ring-1 ring-border" />
                       <span>{lang.full}</span>
                     </button>
                   ))}
