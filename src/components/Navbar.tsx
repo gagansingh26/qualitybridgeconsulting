@@ -57,15 +57,18 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden flex-1 items-center justify-center gap-0.5 overflow-hidden md:flex lg:gap-1">
           {navItems.map((item) => (
             <Link key={item.path} to={item.path} className={linkClasses(item.path)}>
               {item.label}
             </Link>
           ))}
+        </div>
 
+        {/* Right-side actions */}
+        <div className="hidden shrink-0 items-center gap-1 md:flex">
           {/* External CTA */}
-          <a href={BOOK_CALL_URL} target="_blank" rel="noopener noreferrer" className="ml-2">
+          <a href={BOOK_CALL_URL} target="_blank" rel="noopener noreferrer">
             <Button size="sm">
               {t("nav.bookCall")} <ExternalLink className="ml-1 h-3 w-3" />
             </Button>
