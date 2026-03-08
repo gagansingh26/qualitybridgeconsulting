@@ -84,7 +84,7 @@ const Navbar = () => {
               aria-expanded={langOpen}
               className="flex h-9 items-center gap-1.5 rounded-full border border-border bg-background px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              <span>{currentLang.flag}</span>
+              <currentLang.Flag className="h-3.5 w-[22px] rounded-[2px] object-cover shadow-sm" />
               <span>{currentLang.label}</span>
               <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`} />
             </button>
