@@ -134,7 +134,7 @@ const Navbar = () => {
               aria-label="Select language"
               className="flex h-9 items-center gap-1.5 rounded-full border border-border bg-background px-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
             >
-              <currentLang.Flag className="h-3.5 w-[22px] rounded-[2px] object-cover shadow-sm" />
+              <currentLang.Flag className="h-4 w-[26px] rounded-[3px] shadow-sm ring-1 ring-border" />
               <span className="text-xs font-semibold">{currentLang.label}</span>
             </button>
 
