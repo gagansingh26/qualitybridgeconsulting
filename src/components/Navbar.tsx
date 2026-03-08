@@ -84,7 +84,7 @@ const Navbar = () => {
               aria-expanded={langOpen}
               className="flex h-9 items-center gap-1.5 rounded-full border border-border bg-background px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              <currentLang.Flag className="h-3.5 w-[22px] rounded-[2px] object-cover shadow-sm" />
+              <currentLang.Flag className="h-4 w-[26px] rounded-[3px] shadow-sm ring-1 ring-border" />
               <span>{currentLang.label}</span>
               <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`} />
             </button>
@@ -104,7 +104,7 @@ const Navbar = () => {
                           : "text-card-foreground"
                       }`}
                     >
-                      <lang.Flag className="h-3.5 w-[22px] rounded-[2px] object-cover shadow-sm" />
+                      <lang.Flag className="h-[18px] w-[28px] rounded-[3px] shadow-sm ring-1 ring-border" />
                       <span>{lang.full}</span>
                     </button>
                   ))}
@@ -134,7 +134,7 @@ const Navbar = () => {
               aria-label="Select language"
               className="flex h-9 items-center gap-1.5 rounded-full border border-border bg-background px-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
             >
-              <currentLang.Flag className="h-3.5 w-[22px] rounded-[2px] object-cover shadow-sm" />
+              <currentLang.Flag className="h-4 w-[26px] rounded-[3px] shadow-sm ring-1 ring-border" />
               <span className="text-xs font-semibold">{currentLang.label}</span>
             </button>
 
@@ -153,7 +153,7 @@ const Navbar = () => {
                           : "text-card-foreground"
                       }`}
                     >
-                      <lang.Flag className="h-3.5 w-[22px] rounded-[2px] object-cover shadow-sm" />
+                      <lang.Flag className="h-[18px] w-[28px] rounded-[3px] shadow-sm ring-1 ring-border" />
                       <span>{lang.full}</span>
                     </button>
                   ))}
