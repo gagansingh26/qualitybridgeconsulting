@@ -42,7 +42,7 @@ const Navbar = () => {
   ];
 
   const linkClasses = (path: string) =>
-    `rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground ${
+    `rounded-md px-2.5 py-1.5 text-sm font-medium whitespace-nowrap transition-colors hover:bg-accent hover:text-accent-foreground ${
       location.pathname === path
         ? "bg-accent text-accent-foreground"
         : "text-muted-foreground"
@@ -50,9 +50,9 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+      <div className="container mx-auto flex min-h-16 items-center justify-between gap-2 px-4 py-2">
         {/* Brand */}
-        <Link to="/" className="text-lg font-bold text-primary shrink-0">
+        <Link to="/" className="shrink-0 text-base font-bold text-primary lg:text-lg">
           QualityBridge Consulting
         </Link>
 
