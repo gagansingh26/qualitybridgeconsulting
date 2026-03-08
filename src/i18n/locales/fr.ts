@@ -11,7 +11,7 @@ const fr = {
   hero: {
     pills: ["Gouvernance SAP & Conformité", "Automatisation des tests & Ingénierie qualité", "Développement de sites & applications web"],
     title: "Gouvernance SAP S/4HANA & Automatisation Intelligente",
-    subtitle: "Gouvernance UAT structurée et préparation aux versions pour les programmes SAP — soutenues par une automatisation ciblée et une livraison digitale purposive.",
+    subtitle: "Gouvernance UAT structurée et préparation aux versions pour les programmes SAP — soutenues par une automatisation ciblée et une livraison numérique délibérée.",
     reach: "Soutien aux partenaires d'implémentation SAP en Europe et en Amérique du Nord. Expertise SAP renforcée par une collaboration avec des partenaires basés en UE — avec toute l'engagement client et la supervision de projet gérés localement au Canada.",
     bookConsultation: "Réserver une consultation",
     bookCall: "Réserver un appel",
