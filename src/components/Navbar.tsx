@@ -5,13 +5,14 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
+import { FlagGB, FlagDE, FlagFR } from "@/components/FlagIcons";
 
 const BOOK_CALL_URL = "https://cal.com/gagan.singh/15min";
 
 const LANGUAGES = [
-  { code: "en", label: "EN", flag: "🇬🇧", full: "English" },
-  { code: "de", label: "DE", flag: "🇩🇪", full: "Deutsch" },
-  { code: "fr", label: "FR", flag: "🇫🇷", full: "Français" },
+  { code: "en", label: "EN", Flag: FlagGB, full: "English" },
+  { code: "de", label: "DE", Flag: FlagDE, full: "Deutsch" },
+  { code: "fr", label: "FR", Flag: FlagFR, full: "Français" },
 ];
 
 const Navbar = () => {
@@ -83,7 +84,7 @@ const Navbar = () => {
               aria-expanded={langOpen}
               className="flex h-9 items-center gap-1.5 rounded-full border border-border bg-background px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              <span>{currentLang.flag}</span>
+              <currentLang.Flag className="h-3.5 w-[22px] rounded-[2px] object-cover shadow-sm" />
               <span>{currentLang.label}</span>
               <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`} />
             </button>
@@ -103,7 +104,7 @@ const Navbar = () => {
                           : "text-card-foreground"
                       }`}
                     >
-                      <span>{lang.flag}</span>
+                      <lang.Flag className="h-3.5 w-[22px] rounded-[2px] object-cover shadow-sm" />
                       <span>{lang.full}</span>
                     </button>
                   ))}
@@ -131,10 +132,10 @@ const Navbar = () => {
               type="button"
               onClick={() => setLangOpen((p) => !p)}
               aria-label="Select language"
-              className="flex h-9 items-center gap-1 rounded-full border border-border bg-background px-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+              className="flex h-9 items-center gap-1.5 rounded-full border border-border bg-background px-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
             >
-              <span>{currentLang.flag}</span>
-              <span className="text-xs">{currentLang.label}</span>
+              <currentLang.Flag className="h-3.5 w-[22px] rounded-[2px] object-cover shadow-sm" />
+              <span className="text-xs font-semibold">{currentLang.label}</span>
             </button>
 
             {langOpen && (
@@ -152,7 +153,7 @@ const Navbar = () => {
                           : "text-card-foreground"
                       }`}
                     >
-                      <span>{lang.flag}</span>
+                      <lang.Flag className="h-3.5 w-[22px] rounded-[2px] object-cover shadow-sm" />
                       <span>{lang.full}</span>
                     </button>
                   ))}
