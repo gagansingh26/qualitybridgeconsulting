@@ -1,27 +1,45 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ExternalLink, Moon, Sun } from "lucide-react";
+import { Menu, X, ExternalLink, Moon, Sun, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
-
-const navItems = [
-  { label: "Home", path: "/" },
-  { label: "Delivery Approach", path: "/delivery" },
-  { label: "UAT Governance", path: "/uat" },
-  { label: "Release Readiness", path: "/release" },
-  { label: "About", path: "/about" },
-  { label: "Contact", path: "/contact" },
-];
+import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
 
 const BOOK_CALL_URL = "https://cal.com/gagan.singh/15min";
 
+const LANGUAGES = [
+  { code: "en", label: "EN", flag: "🇬🇧", full: "English" },
+  { code: "de", label: "DE", flag: "🇩🇪", full: "Deutsch" },
+  { code: "fr", label: "FR", flag: "🇫🇷", full: "Français" },
+];
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const location = useLocation();
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const isDark = resolvedTheme === "dark";
+  const { t } = useTranslation();
+  const currentLang = LANGUAGES.find((l) => l.code === i18n.language) ?? LANGUAGES[0];
 
   const toggleTheme = () => setTheme(isDark ? "light" : "dark");
+
+  const switchLang = (code: string) => {
+    i18n.changeLanguage(code);
+    localStorage.setItem("qb-lang", code);
+    setLangOpen(false);
+    setOpen(false);
+  };
+
+  const navItems = [
+    { label: t("nav.home"), path: "/" },
+    { label: t("nav.delivery"), path: "/delivery" },
+    { label: t("nav.uat"), path: "/uat" },
+    { label: t("nav.release"), path: "/release" },
+    { label: t("nav.about"), path: "/about" },
+    { label: t("nav.contact"), path: "/contact" },
+  ];
 
   const linkClasses = (path: string) =>
     `rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground ${
@@ -34,7 +52,7 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Brand */}
-        <Link to="/" className="text-lg font-bold text-primary">
+        <Link to="/" className="text-lg font-bold text-primary shrink-0">
           QualityBridge Consulting
         </Link>
 
@@ -47,14 +65,49 @@ const Navbar = () => {
           ))}
 
           {/* External CTA */}
-          <a
-            href={BOOK_CALL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-2"
-          >
-            <Button size="sm">Book a Consultation <ExternalLink className="ml-1 h-3 w-3" /></Button>
+          <a href={BOOK_CALL_URL} target="_blank" rel="noopener noreferrer" className="ml-2">
+            <Button size="sm">
+              {t("nav.bookCall")} <ExternalLink className="ml-1 h-3 w-3" />
+            </Button>
           </a>
+
+          {/* Language Toggle */}
+          <div className="relative ml-1">
+            <button
+              type="button"
+              onClick={() => setLangOpen((p) => !p)}
+              aria-label="Select language"
+              aria-expanded={langOpen}
+              className="flex h-9 items-center gap-1.5 rounded-full border border-border bg-background px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <span>{currentLang.flag}</span>
+              <span>{currentLang.label}</span>
+              <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${langOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            {langOpen && (
+              <>
+                <div className="fixed inset-0 z-40" onClick={() => setLangOpen(false)} />
+                <div className="absolute right-0 top-11 z-50 min-w-[130px] overflow-hidden rounded-lg border border-border bg-card shadow-lg">
+                  {LANGUAGES.map((lang) => (
+                    <button
+                      key={lang.code}
+                      type="button"
+                      onClick={() => switchLang(lang.code)}
+                      className={`flex w-full items-center gap-2.5 px-4 py-2.5 text-sm transition-colors hover:bg-accent hover:text-accent-foreground ${
+                        i18n.language === lang.code
+                          ? "bg-accent/60 font-semibold text-accent-foreground"
+                          : "text-card-foreground"
+                      }`}
+                    >
+                      <span>{lang.flag}</span>
+                      <span>{lang.full}</span>
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
 
           {/* Dark mode toggle */}
           <button
@@ -63,25 +116,57 @@ const Navbar = () => {
             aria-label={isDark ? "Enable light mode" : "Enable dark mode"}
             className="ml-1 flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
-            <span className="transition-transform duration-300" style={{ display: isDark ? "none" : "flex" }}>
-              <Moon className="h-4 w-4" />
-            </span>
-            <span className="transition-transform duration-300" style={{ display: isDark ? "flex" : "none" }}>
-              <Sun className="h-4 w-4" />
-            </span>
+            {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
         </div>
 
         {/* Mobile toggle */}
-        <button
-          type="button"
-          className="md:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((prev) => !prev)}
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          {/* Mobile lang quick toggle */}
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setLangOpen((p) => !p)}
+              aria-label="Select language"
+              className="flex h-9 items-center gap-1 rounded-full border border-border bg-background px-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+            >
+              <span>{currentLang.flag}</span>
+              <span className="text-xs">{currentLang.label}</span>
+            </button>
+
+            {langOpen && (
+              <>
+                <div className="fixed inset-0 z-40" onClick={() => setLangOpen(false)} />
+                <div className="absolute right-0 top-11 z-50 min-w-[130px] overflow-hidden rounded-lg border border-border bg-card shadow-lg">
+                  {LANGUAGES.map((lang) => (
+                    <button
+                      key={lang.code}
+                      type="button"
+                      onClick={() => switchLang(lang.code)}
+                      className={`flex w-full items-center gap-2.5 px-4 py-2.5 text-sm transition-colors hover:bg-accent hover:text-accent-foreground ${
+                        i18n.language === lang.code
+                          ? "bg-accent/60 font-semibold text-accent-foreground"
+                          : "text-card-foreground"
+                      }`}
+                    >
+                      <span>{lang.flag}</span>
+                      <span>{lang.full}</span>
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+
+          <button
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((prev) => !prev)}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -108,7 +193,7 @@ const Navbar = () => {
               className="mt-2"
             >
               <Button size="sm" className="w-full">
-                Book a Consultation <ExternalLink className="ml-1 h-3 w-3" />
+                {t("nav.bookCall")} <ExternalLink className="ml-1 h-3 w-3" />
               </Button>
             </a>
 
