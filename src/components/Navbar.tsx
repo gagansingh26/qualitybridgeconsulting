@@ -126,17 +126,17 @@ const Navbar = () => {
         </div>
 
         {/* Mobile toggle */}
-        <div className="flex items-center gap-1.5 md:hidden">
+        <div className="flex items-center gap-1 md:hidden">
           {/* Mobile lang quick toggle */}
           <div className="relative">
             <button
               type="button"
               onClick={() => setLangOpen((p) => !p)}
               aria-label="Select language"
-              className="flex h-9 items-center gap-1.5 rounded-full border border-border bg-background px-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+              className="flex h-8 items-center gap-1 rounded-full border border-border bg-background px-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
             >
-              <currentLang.Flag className="h-4 w-[26px] rounded-[3px] shadow-sm ring-1 ring-border" />
-              <span className="text-xs font-semibold">{currentLang.label}</span>
+              <currentLang.Flag className="h-4 w-[22px] rounded-[3px] shadow-sm ring-1 ring-border" />
+              <span className="hidden text-xs font-semibold xs:inline">{currentLang.label}</span>
             </button>
 
             {langOpen && (
