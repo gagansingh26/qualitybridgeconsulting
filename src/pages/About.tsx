@@ -40,17 +40,17 @@ const About = () => {
     <Layout>
       <SectionWrapper>
         <motion.div {...fadeUp(0)}>
-          <h1 className="text-3xl font-bold md:text-4xl">{t("about.heading")}</h1>
-          <div className="mt-6 flex flex-wrap gap-2">
+          <h1 className="text-2xl font-bold md:text-4xl">{t("about.heading")}</h1>
+          <div className="mt-3 flex flex-wrap gap-1.5 md:mt-6 md:gap-2">
             {tags.map((tag) => (
-              <span key={tag} className="rounded-full border border-border bg-accent px-3 py-1 text-xs font-medium text-accent-foreground">
+              <span key={tag} className="rounded-full border border-border bg-accent px-2.5 py-0.5 text-[11px] font-medium text-accent-foreground md:px-3 md:py-1 md:text-xs">
                 {tag}
               </span>
             ))}
           </div>
         </motion.div>
 
-        <div className="mt-8 max-w-3xl space-y-5 text-muted-foreground leading-relaxed">
+        <div className="mt-5 max-w-3xl space-y-3 text-sm text-muted-foreground leading-relaxed md:mt-8 md:space-y-5 md:text-base">
           {bio.map((para, i) => (
             <motion.p key={i} {...fadeUp(i * 0.08)}>
               {para}
@@ -60,18 +60,18 @@ const About = () => {
       </SectionWrapper>
 
       <SectionWrapper className="bg-accent/50">
-        <motion.h2 {...fadeUp(0)} className="text-2xl font-bold md:text-3xl">
+        <motion.h2 {...fadeUp(0)} className="text-xl font-bold md:text-3xl">
           {t("about.focusHeading")}
         </motion.h2>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-5 grid grid-cols-2 gap-3 md:mt-8 md:grid-cols-3 md:gap-4">
           {focusAreas.map((f, i) => (
             <motion.div
               key={i}
               {...fadeUp(i * 0.08)}
-              className="flex items-center gap-3 rounded-lg border border-border bg-card p-4 card-shadow"
+              className="flex items-center gap-2.5 rounded-lg border border-border bg-card p-3 card-shadow md:p-4"
             >
-              <div className="text-primary">{f.icon}</div>
-              <span className="text-sm font-medium text-card-foreground">{f.label}</span>
+              <div className="shrink-0 text-primary">{f.icon}</div>
+              <span className="text-xs font-medium text-card-foreground md:text-sm">{f.label}</span>
             </motion.div>
           ))}
         </div>
