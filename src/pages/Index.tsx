@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink, Brain, Shield, BarChart3, Users, CheckCircle, TrendingDown, Target, ThumbsUp, Globe, TestTube, Code, GitBranch, Monitor, Layers, Zap } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, ExternalLink, Brain, Shield, BarChart3, Users, CheckCircle, TrendingDown, Target, ThumbsUp, Globe, TestTube, Code, GitBranch, Monitor, Layers, Zap, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
@@ -44,6 +45,52 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.45, delay },
 });
 
+const AccordionCard = ({ icon, title, desc, detail }: { icon: React.ReactNode; title: string; desc: string; detail?: string[] }) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="rounded-lg border border-border bg-card card-shadow overflow-hidden">
+      <button
+        type="button"
+        className="flex w-full items-center gap-3 p-4 text-left"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+      >
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-accent text-primary">
+          {icon}
+        </div>
+        <span className="flex-1 text-sm font-semibold text-card-foreground">{title}</span>
+        <ChevronDown className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="content"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="overflow-hidden"
+          >
+            <div className="border-t border-border px-4 pb-4 pt-3">
+              <p className="text-sm text-muted-foreground">{desc}</p>
+              {detail && (
+                <ul className="mt-2 space-y-1">
+                  {detail.map((d: string) => (
+                    <li key={d} className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <CheckCircle className="h-3 w-3 shrink-0 text-primary" />
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
 const Index = () => {
   const { t } = useTranslation();
   usePageMeta(
@@ -78,17 +125,17 @@ const Index = () => {
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="enterprise-gradient py-20 md:py-28">
+      {/* Hero — compact on mobile */}
+      <section className="enterprise-gradient py-10 md:py-20 lg:py-28">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="mb-4 flex flex-wrap items-center justify-center gap-2"
+            className="mb-3 flex flex-wrap items-center justify-center gap-1.5"
           >
             {(t("hero.pills", { returnObjects: true }) as string[]).map((pill) => (
-              <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-3 py-1 text-xs font-medium text-primary-foreground/90">
+              <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-2.5 py-0.5 text-[11px] font-medium text-primary-foreground/90 md:px-3 md:py-1 md:text-xs">
                 {pill}
               </span>
             ))}
@@ -97,7 +144,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mx-auto max-w-3xl text-4xl font-bold leading-tight text-primary-foreground md:text-5xl lg:text-6xl"
+            className="mx-auto max-w-3xl text-3xl font-bold leading-tight text-primary-foreground md:text-5xl lg:text-6xl"
           >
             {t("hero.title")}
           </motion.h1>
@@ -105,23 +152,16 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="mx-auto mt-5 max-w-2xl text-lg text-primary-foreground/80"
+            className="mx-auto mt-3 max-w-2xl text-base text-primary-foreground/80 md:text-lg"
           >
             {t("hero.subtitle")}
           </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.22 }}
-            className="mx-auto mt-3 max-w-xl text-sm text-primary-foreground/60"
-          >
-            {t("hero.reach")}
-          </motion.p>
+          {/* CTA buttons right under subtitle on mobile */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center"
           >
             <Link to="/contact" className="w-full sm:w-auto">
               <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto">
@@ -134,15 +174,23 @@ const Index = () => {
               </Button>
             </a>
           </motion.div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mx-auto mt-3 text-xs text-primary-foreground/50 md:text-sm"
+          >
+            {t("hero.reach")}
+          </motion.p>
         </div>
       </section>
 
-      {/* Capabilities Strip */}
+      {/* Capabilities Strip — scrollable on mobile */}
       <div className="border-b border-t border-border bg-card">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex items-center gap-4 overflow-x-auto scrollbar-none md:flex-wrap md:justify-center md:gap-10">
             {capabilityPillars.map((label, i) => (
-              <div key={i} className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+              <div key={i} className="flex shrink-0 items-center gap-1.5 text-xs font-medium text-muted-foreground md:text-sm">
                 <span className="text-primary">{capabilityIcons[i]}</span>
                 {label}
               </div>
@@ -151,15 +199,26 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Value Cards */}
+      {/* Value Cards — accordion on mobile, grid on md+ */}
       <SectionWrapper>
         <motion.div {...fadeUp(0)}>
-          <h2 className="text-center text-2xl font-bold md:text-3xl">{t("whatWeDeliver.heading")}</h2>
-          <p className="mx-auto mt-2 max-w-xl text-center text-muted-foreground">
+          <h2 className="text-center text-xl font-bold md:text-3xl">{t("whatWeDeliver.heading")}</h2>
+          <p className="mx-auto mt-1.5 max-w-xl text-center text-sm text-muted-foreground md:text-base">
             {t("whatWeDeliver.subheading")}
           </p>
         </motion.div>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+        {/* Mobile: accordion */}
+        <div className="mt-6 space-y-2 md:hidden">
+          {valueCards.map((c, i) => (
+            <motion.div key={i} {...fadeUp(i * 0.06)}>
+              <AccordionCard icon={c.icon} title={c.title} desc={c.desc} detail={c.detail} />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Desktop: grid */}
+        <div className="mt-8 hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
           {valueCards.map((c, i) => (
             <motion.div
               key={i}
@@ -186,39 +245,39 @@ const Index = () => {
         </div>
       </SectionWrapper>
 
-      {/* Beyond SAP */}
+      {/* Beyond SAP — 2-col grid on mobile */}
       <SectionWrapper className="bg-accent/50">
         <div className="mx-auto max-w-3xl text-center">
-          <motion.div {...fadeUp(0)} className="flex items-center justify-center gap-2 mb-3">
-            <Globe className="h-6 w-6 text-primary" />
-            <h2 className="text-2xl font-bold md:text-3xl">{t("beyondSap.heading")}</h2>
+          <motion.div {...fadeUp(0)} className="flex items-center justify-center gap-2 mb-2">
+            <Globe className="h-5 w-5 text-primary" />
+            <h2 className="text-xl font-bold md:text-3xl">{t("beyondSap.heading")}</h2>
           </motion.div>
-          <motion.p {...fadeUp(0.1)} className="text-muted-foreground">
+          <motion.p {...fadeUp(0.1)} className="text-sm text-muted-foreground md:text-base">
             {t("beyondSap.body")}
           </motion.p>
         </div>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-5 grid grid-cols-2 gap-3 md:mt-8 md:grid-cols-4 md:gap-4">
           {beyondSapCaps.map((c, i) => (
             <motion.div
               key={i}
               {...fadeUp(i * 0.08)}
-              className="flex items-center gap-3 rounded-lg border border-border bg-card p-4 card-shadow"
+              className="flex items-center gap-2.5 rounded-lg border border-border bg-card p-3 card-shadow md:p-4"
             >
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary md:h-8 md:w-8">
                 {c.icon}
               </div>
-              <span className="text-sm font-medium text-card-foreground">{c.label}</span>
+              <span className="text-xs font-medium text-card-foreground md:text-sm">{c.label}</span>
             </motion.div>
           ))}
         </div>
       </SectionWrapper>
 
-      {/* Outcomes */}
+      {/* Outcomes — 2-col on mobile */}
       <SectionWrapper>
-        <motion.h2 {...fadeUp(0)} className="text-center text-2xl font-bold md:text-3xl">
+        <motion.h2 {...fadeUp(0)} className="text-center text-xl font-bold md:text-3xl">
           {t("outcomes.heading")}
         </motion.h2>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-5 grid grid-cols-2 gap-3 md:mt-8 md:grid-cols-4 md:gap-6">
           {outcomes.map((o, i) => (
             <motion.div
               key={i}
@@ -226,12 +285,12 @@ const Index = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="flex items-center gap-3 rounded-lg border border-border bg-card p-5 card-shadow"
+              className="flex flex-col items-center gap-2 rounded-lg border border-border bg-card p-3 card-shadow text-center md:flex-row md:gap-3 md:p-5 md:text-left"
             >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-success/10 text-success">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-success/10 text-success md:h-10 md:w-10">
                 {o.icon}
               </div>
-              <span className="font-medium text-card-foreground">{o.label}</span>
+              <span className="text-xs font-medium text-card-foreground md:text-base">{o.label}</span>
             </motion.div>
           ))}
         </div>
@@ -240,16 +299,16 @@ const Index = () => {
       {/* CTA */}
       <SectionWrapper className="bg-accent/50">
         <motion.div {...fadeUp(0)} className="text-center">
-          <h2 className="text-2xl font-bold md:text-3xl">{t("cta.heading")}</h2>
-          <p className="mx-auto mt-3 max-w-lg text-muted-foreground">{t("cta.body")}</p>
-          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <Link to="/contact">
-              <Button size="lg">
+          <h2 className="text-xl font-bold md:text-3xl">{t("cta.heading")}</h2>
+          <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground md:mt-3 md:text-base">{t("cta.body")}</p>
+          <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center md:mt-8 md:gap-3">
+            <Link to="/contact" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full sm:w-auto">
                 {t("cta.bookConsultation")} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link to="/release">
-              <Button variant="outline" size="lg">
+            <Link to="/release" className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto">
                 {t("cta.viewRelease")} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>

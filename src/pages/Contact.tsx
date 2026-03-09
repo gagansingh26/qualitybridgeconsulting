@@ -15,9 +15,9 @@ const EMAIL_TO = "qualitybridgeconsulting.ca@gmail.com";
 const BOOK_CALL_URL = "https://cal.com/gagan.singh/15min";
 
 const contactCardIcons = [
-  <Mail className="h-5 w-5" />,
-  <Calendar className="h-5 w-5" />,
-  <MapPin className="h-5 w-5" />,
+  <Mail className="h-4 w-4" />,
+  <Calendar className="h-4 w-4" />,
+  <MapPin className="h-4 w-4" />,
 ];
 
 const contactCardHrefs = [
@@ -77,56 +77,56 @@ const Contact = () => {
     <Layout>
       <SectionWrapper>
         <motion.div {...fadeUp(0)}>
-          <h1 className="text-3xl font-bold md:text-4xl">{t("contact.heading")}</h1>
-          <p className="mt-3 max-w-xl text-muted-foreground">{t("contact.subheading")}</p>
+          <h1 className="text-2xl font-bold md:text-4xl">{t("contact.heading")}</h1>
+          <p className="mt-2 max-w-xl text-sm text-muted-foreground md:mt-3 md:text-base">{t("contact.subheading")}</p>
         </motion.div>
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-2">
-          {/* Contact Cards */}
-          <div className="grid gap-4 sm:grid-cols-2">
-            {cardLabels.map((label, i) => (
-              <motion.div
-                key={i}
-                {...fadeUp(i * 0.08)}
-                className="rounded-lg border border-border bg-card p-5 card-shadow"
-              >
-                <div className="flex items-center gap-2 text-primary">
-                  {contactCardIcons[i]}
-                  <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                    {label}
-                  </span>
-                </div>
+        {/* Contact info cards — 3-col compact strip on mobile */}
+        <div className="mt-4 grid grid-cols-3 gap-2 md:mt-6 md:grid-cols-3 md:gap-4">
+          {cardLabels.map((label, i) => (
+            <motion.div
+              key={i}
+              {...fadeUp(i * 0.08)}
+              className="rounded-lg border border-border bg-card p-3 card-shadow md:p-5"
+            >
+              <div className="flex items-center gap-1.5 text-primary md:gap-2">
+                {contactCardIcons[i]}
+                <span className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground md:text-xs">
+                  {label}
+                </span>
+              </div>
+              {contactCardHrefs[i] ? (
+                <a
+                  href={contactCardHrefs[i]}
+                  target={isHttpUrl(contactCardHrefs[i]!) ? "_blank" : undefined}
+                  rel={isHttpUrl(contactCardHrefs[i]!) ? "noopener noreferrer" : undefined}
+                  className="mt-1.5 flex items-center gap-1 text-[11px] font-medium text-card-foreground transition-colors hover:text-primary md:mt-2 md:text-sm"
+                >
+                  <span className="truncate">{contactCardValues[i]}</span>
+                  {isHttpUrl(contactCardHrefs[i]!) && <ExternalLink className="h-2.5 w-2.5 shrink-0 md:h-3 md:w-3" />}
+                </a>
+              ) : (
+                <p className="mt-1.5 text-[11px] font-medium text-card-foreground md:mt-2 md:text-sm">
+                  {contactCardValues[i]}
+                </p>
+              )}
+            </motion.div>
+          ))}
+        </div>
 
-                {contactCardHrefs[i] ? (
-                  <a
-                    href={contactCardHrefs[i]}
-                    target={isHttpUrl(contactCardHrefs[i]!) ? "_blank" : undefined}
-                    rel={isHttpUrl(contactCardHrefs[i]!) ? "noopener noreferrer" : undefined}
-                    className="mt-2 flex items-center gap-1 text-sm font-medium text-card-foreground transition-colors hover:text-primary"
-                  >
-                    {contactCardValues[i]}
-                    {isHttpUrl(contactCardHrefs[i]!) && <ExternalLink className="h-3 w-3 shrink-0" />}
-                  </a>
-                ) : (
-                  <p className="mt-2 text-sm font-medium text-card-foreground">
-                    {contactCardValues[i]}
-                  </p>
-                )}
-              </motion.div>
-            ))}
-          </div>
+        {/* Contact Form — full width on mobile */}
+        <motion.form
+          onSubmit={handleSubmit}
+          {...fadeUp(0.1)}
+          className="mt-4 rounded-lg border border-border bg-card p-4 card-shadow md:mt-8 md:p-6"
+        >
+          <h2 className="mb-3 text-base font-semibold md:mb-4 md:text-lg">{t("contact.formHeading")}</h2>
 
-          {/* Contact Form */}
-          <motion.form
-            onSubmit={handleSubmit}
-            {...fadeUp(0.1)}
-            className="rounded-lg border border-border bg-card p-6 card-shadow"
-          >
-            <h2 className="mb-4 text-lg font-semibold">{t("contact.formHeading")}</h2>
-
-            <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4">
+            {/* Name + Email side by side on mobile */}
+            <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="mb-1 block text-sm font-medium text-card-foreground">
+                <label className="mb-1 block text-xs font-medium text-card-foreground md:text-sm">
                   {t("contact.nameLabel")}
                 </label>
                 <Input
@@ -134,11 +134,11 @@ const Contact = () => {
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   placeholder={t("contact.namePlaceholder")}
                   required
+                  className="text-sm"
                 />
               </div>
-
               <div>
-                <label className="mb-1 block text-sm font-medium text-card-foreground">
+                <label className="mb-1 block text-xs font-medium text-card-foreground md:text-sm">
                   {t("contact.emailLabel")}
                 </label>
                 <Input
@@ -147,32 +147,34 @@ const Contact = () => {
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   placeholder={t("contact.emailPlaceholder")}
                   required
+                  className="text-sm"
                 />
               </div>
-
-              <div>
-                <label className="mb-1 block text-sm font-medium text-card-foreground">
-                  {t("contact.messageLabel")}
-                </label>
-                <Textarea
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  placeholder={t("contact.messagePlaceholder")}
-                  rows={4}
-                  required
-                />
-              </div>
-
-              <Button type="submit" className="w-full" disabled={sending}>
-                {sending ? (
-                  <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> {t("contact.sending")}</>
-                ) : (
-                  <><Send className="mr-2 h-4 w-4" /> {t("contact.send")}</>
-                )}
-              </Button>
             </div>
-          </motion.form>
-        </div>
+
+            <div>
+              <label className="mb-1 block text-xs font-medium text-card-foreground md:text-sm">
+                {t("contact.messageLabel")}
+              </label>
+              <Textarea
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                placeholder={t("contact.messagePlaceholder")}
+                rows={3}
+                required
+                className="text-sm"
+              />
+            </div>
+
+            <Button type="submit" className="w-full" disabled={sending}>
+              {sending ? (
+                <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> {t("contact.sending")}</>
+              ) : (
+                <><Send className="mr-2 h-4 w-4" /> {t("contact.send")}</>
+              )}
+            </Button>
+          </div>
+        </motion.form>
       </SectionWrapper>
     </Layout>
   );
