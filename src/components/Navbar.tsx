@@ -51,10 +51,11 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
-      <div className="container mx-auto flex min-h-16 items-center justify-between gap-2 px-4 py-2">
+      <div className="container mx-auto flex min-h-14 items-center justify-between gap-1 px-3 py-1.5 sm:px-4 sm:py-2">
         {/* Brand */}
-        <Link to="/" className="shrink-0 text-base font-bold text-primary lg:text-lg">
-          QualityBridge Consulting
+        <Link to="/" className="shrink-0 text-sm font-bold text-primary xs:text-base lg:text-lg">
+          <span className="hidden xs:inline">QualityBridge Consulting</span>
+          <span className="xs:hidden">QB Consulting</span>
         </Link>
 
         {/* Desktop nav */}
