@@ -24,7 +24,7 @@ const MobileBookCallFAB = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.25 }}
-          className="fixed bottom-5 left-1/2 z-50 -translate-x-1/2 md:hidden"
+          className="fixed bottom-20 left-1/2 z-50 -translate-x-1/2 md:hidden"
         >
           <a
             href={BOOK_CALL_URL}
