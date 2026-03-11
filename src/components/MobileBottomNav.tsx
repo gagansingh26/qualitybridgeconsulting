@@ -1,22 +1,23 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Truck, ClipboardCheck, Rocket, Mail } from "lucide-react";
-import { useTranslation } from "react-i18next";
+import { Home, Briefcase, Mail, CalendarCheck } from "lucide-react";
 import { motion } from "framer-motion";
+
+const BOOK_CALL_URL = "https://cal.com/gagan.singh/15min";
 
 const MobileBottomNav = () => {
   const location = useLocation();
-  const { t } = useTranslation();
 
   const items = [
-    { path: "/", label: t("nav.home"), Icon: Home },
-    { path: "/delivery", label: t("nav.delivery"), Icon: Truck },
-    { path: "/uat", label: t("nav.uat"), Icon: ClipboardCheck },
-    { path: "/release", label: t("nav.release"), Icon: Rocket },
-    { path: "/contact", label: t("nav.contact"), Icon: Mail },
+    { path: "/", label: "Home", Icon: Home, external: false },
+    { path: "/delivery", label: "Services", Icon: Briefcase, external: false },
+    { path: "/contact", label: "Contact", Icon: Mail, external: false },
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/85 md:hidden">
+    <nav
+      className="fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/85 md:hidden"
+      style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+    >
       <div className="flex items-stretch">
         {items.map(({ path, label, Icon }) => {
           const isActive = location.pathname === path;
@@ -24,7 +25,7 @@ const MobileBottomNav = () => {
             <Link
               key={path}
               to={path}
-              className="relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2 text-[10px] font-medium transition-colors"
+              className="relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2"
             >
               {isActive && (
                 <motion.span
@@ -34,16 +35,37 @@ const MobileBottomNav = () => {
                 />
               )}
               <Icon
-                className={`h-5 w-5 transition-colors ${
-                  isActive ? "text-primary" : "text-muted-foreground"
-                }`}
+                style={{ width: 20, height: 20 }}
+                className={`transition-colors ${isActive ? "text-primary" : "text-muted-foreground"}`}
               />
-              <span className={isActive ? "text-primary" : "text-muted-foreground"}>
+              <span
+                style={{ fontSize: 10, lineHeight: "14px", fontWeight: 500 }}
+                className={`truncate-none ${isActive ? "text-primary" : "text-muted-foreground"}`}
+              >
                 {label}
               </span>
             </Link>
           );
         })}
+
+        {/* Book CTA — external link */}
+        <a
+          href={BOOK_CALL_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative flex flex-1 flex-col items-center justify-center gap-0.5 py-2"
+        >
+          <CalendarCheck
+            style={{ width: 20, height: 20 }}
+            className="text-primary"
+          />
+          <span
+            style={{ fontSize: 10, lineHeight: "14px", fontWeight: 500 }}
+            className="text-primary"
+          >
+            Book
+          </span>
+        </a>
       </div>
     </nav>
   );

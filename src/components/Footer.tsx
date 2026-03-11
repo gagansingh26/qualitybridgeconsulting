@@ -17,24 +17,23 @@ const Footer = () => {
     <footer className="border-t border-border bg-card">
       <div className="container mx-auto px-4 py-8 md:py-12">
 
-        {/* 3-col on md+, stacked on mobile with tighter spacing */}
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-8">
+        {/* 3-col equal-ish grid: 40% / 30% / 30% */}
+        <div className="grid gap-6 md:grid-cols-[2fr_1.5fr_1.5fr] md:gap-8">
 
-          {/* Brand */}
-          <div className="sm:col-span-2 md:col-span-1">
+          {/* Brand — ~40% */}
+          <div>
             <h3 className="mb-1.5 text-base font-bold text-foreground md:mb-3 md:text-lg">
               QualityBridge Consulting
             </h3>
             <p className="text-xs text-muted-foreground md:text-sm">{t("footer.tagline")}</p>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links — ~30% */}
           <div>
             <h4 className="mb-2 text-xs font-semibold uppercase tracking-wide text-foreground md:mb-3 md:text-sm">
               {t("footer.quickLinks")}
             </h4>
-            {/* 2-column link grid on mobile to save vertical space */}
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 md:flex md:flex-col md:gap-2">
+            <div className="flex flex-col gap-1.5 md:gap-2">
               {quickLinks.map((l) => (
                 <Link
                   key={l.path}
@@ -47,7 +46,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contact */}
+          {/* Contact — ~30% */}
           <div>
             <h4 className="mb-2 text-xs font-semibold uppercase tracking-wide text-foreground md:mb-3 md:text-sm">
               {t("footer.contact")}
