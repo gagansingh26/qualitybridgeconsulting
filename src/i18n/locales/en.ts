@@ -72,7 +72,7 @@ const en = {
     heading: "Ready to Strengthen Your Release Quality?",
     body: "Let's discuss how structured test governance and modern web development can reduce risk and accelerate your delivery.",
     bookConsultation: "Book a Consultation",
-    viewRelease: "View Release Framework",
+    viewApproach: "View Our Approach",
   },
   delivery: {
     heading: "Delivery Approach",
