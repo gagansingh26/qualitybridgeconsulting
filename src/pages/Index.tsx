@@ -234,11 +234,12 @@ const Index = () => {
       {/* Capabilities Strip */}
       <div className="border-b border-t border-border bg-card">
         <div className="container mx-auto px-4 py-3">
-          <div className="flex items-center gap-4 overflow-x-auto scrollbar-none md:flex-wrap md:justify-center md:gap-10">
+          {/* 2×2 grid on mobile, single row on md+ */}
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2 md:flex md:flex-wrap md:items-center md:justify-center md:gap-10">
             {capabilityPillars.map((label, i) => (
-              <div key={i} className="flex shrink-0 items-center gap-1.5 text-xs font-medium text-muted-foreground md:text-sm">
-                <span className="text-primary">{capabilityIcons[i]}</span>
-                {label}
+              <div key={i} className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground md:text-sm">
+                <span className="shrink-0 text-primary">{capabilityIcons[i]}</span>
+                <span>{label}</span>
               </div>
             ))}
           </div>
