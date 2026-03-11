@@ -43,7 +43,7 @@ const Navbar = () => {
   ];
 
   const linkClasses = (path: string) =>
-    `rounded-md px-2.5 py-1.5 text-sm font-medium whitespace-nowrap transition-colors hover:bg-accent hover:text-accent-foreground ${
+    `rounded-md px-3 py-1.5 text-[14px] font-medium whitespace-nowrap transition-colors hover:bg-accent hover:text-accent-foreground ${
       location.pathname === path
         ? "bg-accent text-accent-foreground"
         : "text-muted-foreground"
@@ -51,7 +51,7 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
-      <div className="container mx-auto flex min-h-14 items-center justify-between gap-1 px-3 py-1.5 sm:px-4 sm:py-2">
+      <div className="container mx-auto flex min-h-14 items-center justify-between gap-2 px-3 py-1.5 lg:px-6">
         {/* Brand */}
         <Link to="/" className="shrink-0 text-sm font-bold text-primary xs:text-base lg:text-lg">
           <span className="hidden xs:inline">QualityBridge Consulting</span>
@@ -59,7 +59,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden flex-1 items-center justify-center gap-0.5 overflow-hidden md:flex lg:gap-1">
+        <div className="hidden flex-1 items-center justify-center md:flex" style={{ gap: "24px" }}>
           {navItems.map((item) => (
             <Link key={item.path} to={item.path} className={linkClasses(item.path)}>
               {item.label}
@@ -67,8 +67,8 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Right-side actions */}
-        <div className="hidden shrink-0 items-center gap-1 md:flex">
+        {/* Right-side actions — desktop */}
+        <div className="hidden shrink-0 items-center gap-2 md:flex">
           {/* External CTA */}
           <a href={BOOK_CALL_URL} target="_blank" rel="noopener noreferrer">
             <Button size="sm">
@@ -77,7 +77,7 @@ const Navbar = () => {
           </a>
 
           {/* Language Toggle */}
-          <div className="relative ml-1">
+          <div className="relative">
             <button
               type="button"
               onClick={() => setLangOpen((p) => !p)}
@@ -119,7 +119,7 @@ const Navbar = () => {
             type="button"
             onClick={toggleTheme}
             aria-label={isDark ? "Enable light mode" : "Enable dark mode"}
-            className="ml-1 flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
@@ -178,6 +178,7 @@ const Navbar = () => {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((prev) => !prev)}
+            className="flex h-8 w-8 items-center justify-center"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -187,19 +188,22 @@ const Navbar = () => {
       {/* Mobile menu */}
       {open && (
         <div className="border-t border-border bg-card md:hidden">
-          <div className="flex flex-col gap-1 p-4">
+          <div className="flex flex-col p-3">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={() => setOpen(false)}
-                className={linkClasses(item.path)}
+                className={`rounded-md px-4 py-[14px] text-[16px] font-medium transition-colors hover:bg-accent hover:text-accent-foreground ${
+                  location.pathname === item.path
+                    ? "bg-accent text-accent-foreground"
+                    : "text-muted-foreground"
+                }`}
               >
                 {item.label}
               </Link>
             ))}
 
-            {/* External CTA */}
             <a
               href={BOOK_CALL_URL}
               target="_blank"

@@ -72,7 +72,7 @@ const de = {
     heading: "Bereit, Ihre Release-Qualität zu stärken?",
     body: "Lassen Sie uns besprechen, wie strukturierte Test-Governance und moderne Webentwicklung Risiken reduzieren und Ihre Lieferung beschleunigen können.",
     bookConsultation: "Beratung buchen",
-    viewRelease: "Release-Framework ansehen",
+    viewApproach: "Unseren Ansatz ansehen",
   },
   delivery: {
     heading: "Lieferansatz",

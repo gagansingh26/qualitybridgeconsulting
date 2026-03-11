@@ -72,7 +72,7 @@ const fr = {
     heading: "Prêt à renforcer la qualité de vos versions ?",
     body: "Discutons de la façon dont une gouvernance des tests structurée et le développement web moderne peuvent réduire les risques et accélérer votre livraison.",
     bookConsultation: "Réserver une consultation",
-    viewRelease: "Voir le framework de version",
+    viewApproach: "Voir notre approche",
   },
   delivery: {
     heading: "Approche de livraison",
