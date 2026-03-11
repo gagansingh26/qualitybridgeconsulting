@@ -108,9 +108,11 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
+    overflow-x: hidden;
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 }
 
