@@ -172,7 +172,7 @@ const Index = () => {
       {/* Hero */}
       <section className="enterprise-gradient py-12 md:py-20 lg:py-28">
         <div className="container mx-auto px-4 text-center">
-          {/* Pills with 12px margin-bottom before heading */}
+          {/* Pills */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -204,7 +204,7 @@ const Index = () => {
             {t("hero.subtitle")}
           </motion.p>
 
-          {/* Single primary CTA */}
+          {/* Primary CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -292,7 +292,6 @@ const Index = () => {
         {/* Desktop: horizontal 3-step with connector */}
         <div className="mt-10 hidden md:block">
           <div className="relative grid grid-cols-3 gap-8">
-            {/* Connector line behind the circles */}
             <div className="absolute left-[16.67%] right-[16.67%] top-6 h-0.5 bg-primary/20" />
             {howWeWorkSteps.map((step, i) => (
               <motion.div key={i} {...fadeUp(i * 0.12)} className="relative flex flex-col items-center text-center">
@@ -309,7 +308,6 @@ const Index = () => {
         {/* Mobile: vertical stack with connector */}
         <div className="mt-8 md:hidden">
           <div className="relative flex flex-col gap-8 pl-6">
-            {/* Vertical connector */}
             <div className="absolute left-[18px] top-0 bottom-0 w-0.5 bg-primary/20" />
             {howWeWorkSteps.map((step, i) => (
               <motion.div key={i} {...fadeUp(i * 0.1)} className="relative flex gap-4">
@@ -388,9 +386,9 @@ const Index = () => {
                 {t("cta.bookConsultation")} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link to="/partners" className="w-full sm:w-auto">
+            <Link to="/delivery" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                {t("cta.viewApproach")} <ArrowRight className="ml-2 h-4 w-4" />
+                {t("cta.viewApproach")}
               </Button>
             </Link>
           </div>
