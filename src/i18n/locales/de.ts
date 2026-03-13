@@ -9,18 +9,18 @@ const de = {
     bookCall: "Beratung buchen",
   },
   hero: {
-    pills: ["SAP-Governance & Compliance", "Testautomatisierung & Qualitätssicherung", "Website- & Webanwendungsentwicklung"],
+    pills: ["SAP-Governance & Compliance", "Testautomatisierung & Qualitätssicherung", "Kanada HQ · Globale Partner"],
     title: "SAP S/4HANA Governance & Intelligente Automatisierung",
-    subtitle: "Strukturierte UAT-Governance und Release-Bereitschaft für SAP-Programme — unterstützt durch gezielte Automatisierung und zielgerichtete digitale Lieferung.",
-    reach: "Unterstützung von SAP-Implementierungspartnern in Europa und Nordamerika. SAP-Lieferkompetenz gestärkt durch EU-basierte Partnerkooperation — mit gesamter Kundenkommunikation und Projektsteuerung lokal in Kanada.",
+    subtitle: "Strukturierte UAT-Governance und Release-Bereitschaft für SAP-Programme — geliefert von einem kanadischen Team mit spezialisierten globalen Lieferpartnern.",
+    reach: "Kundenbetreuung lokal in Kanada · Lieferung unterstützt durch geprüfte globale SAP-Partner",
     bookConsultation: "Beratung buchen",
     bookCall: "Gespräch buchen",
   },
   capabilities: {
-    governance: "Enterprise-Governance",
-    automation: "Automatisierungstechnik",
-    webDev: "Moderne Webentwicklung",
-    digital: "Digitale Transformation",
+    sapDelivery: "SAP-fokussierte Lieferung",
+    globalNetwork: "Kanada HQ · Globales Partnernetzwerk",
+    clientOversight: "End-to-End-Kundenbetreuung",
+    rapidStart: "Schneller Projektstart",
   },
   whatWeDeliver: {
     heading: "Was wir liefern",
@@ -54,6 +54,24 @@ const de = {
       },
     ],
   },
+  howWeWork: {
+    heading: "Wie wir arbeiten",
+    subheading: "Ein einziger Ansprechpartner in Kanada, unterstützt durch ein spezialisiertes globales Partnernetzwerk — für erstklassige SAP-Expertise mit lokaler Verantwortung.",
+    steps: [
+      {
+        title: "Lokal engagieren",
+        desc: "Ihr fester Ansprechpartner sitzt in Kanada. Wir managen das gesamte Scoping, die Kommunikation und die Kundenbetreuung aus dem GTA.",
+      },
+      {
+        title: "Experten-Partner einsetzen",
+        desc: "Wir aktivieren geprüfte globale SAP-Spezialisten für Implementierung, Governance und Automatisierung — passend zu Ihren Programmanforderungen.",
+      },
+      {
+        title: "Mit Vertrauen liefern",
+        desc: "Strukturierte UAT-Governance, Qualitätstore und Release-Bereitschaft — mit voller Transparenz. Keine Überraschungen.",
+      },
+    ],
+  },
   beyondSap: {
     heading: "Über SAP hinaus",
     body: "Wir bieten Testautomatisierung und Qualitäts-Governance für Enterprise- und moderne Plattformen, einschließlich SAP S/4HANA, Fiori, Webanwendungen und APIs mit Cypress und Playwright. Unser Ansatz vereint Teststrategie, Automatisierung und Release-Governance unter einem einheitlichen Betriebsmodell.",
@@ -66,13 +84,18 @@ const de = {
   },
   outcomes: {
     heading: "Geschäftliche Ergebnisse",
-    items: ["Schnellere Regressionszyklen", "Reduziertes Release-Risiko", "Klare Go/No-Go-Entscheidungen", "Erhöhtes Vertrauen der Stakeholder"],
+    items: [
+      { label: "Schnellere Regressionszyklen", desc: "Automatisierte Abdeckung reduziert manuellen UAT-Aufwand erheblich" },
+      { label: "Reduziertes Release-Risiko", desc: "Strukturierte Qualitätstore verhindern kostspielige Post-Go-Live-Probleme" },
+      { label: "Klare Go/No-Go-Entscheidungen", desc: "Echtzeit-Fehlermetriken beseitigen Rätselraten bei Releases" },
+      { label: "Erhöhtes Vertrauen der Stakeholder", desc: "Stakeholder genehmigen Releases mit voller Transparenz" },
+    ],
   },
   cta: {
     heading: "Bereit, Ihre Release-Qualität zu stärken?",
-    body: "Lassen Sie uns besprechen, wie strukturierte Test-Governance und moderne Webentwicklung Risiken reduzieren und Ihre Lieferung beschleunigen können.",
+    body: "Lassen Sie uns besprechen, wie strukturierte SAP-Test-Governance und moderne Webentwicklung Ihr Release-Risiko reduzieren können — mit lokaler Betreuung in Kanada und spezialisierten globalen Lieferpartnern.",
     bookConsultation: "Beratung buchen",
-    viewApproach: "Unseren Ansatz ansehen",
+    viewApproach: "Unsere Partner kennenlernen →",
   },
   delivery: {
     heading: "Lieferansatz",

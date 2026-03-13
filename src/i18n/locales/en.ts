@@ -9,18 +9,18 @@ const en = {
     bookCall: "Book a Consultation",
   },
   hero: {
-    pills: ["SAP Governance & Compliance", "Test Automation & Quality Engineering", "Website & Web Application Development"],
+    pills: ["SAP Governance & Compliance", "Test Automation & Quality Engineering", "Canada HQ · Global Partners"],
     title: "SAP S/4HANA Governance & Intelligent Automation",
-    subtitle: "Structured UAT governance and release readiness for SAP programmes — supported by targeted automation and purposeful digital delivery.",
-    reach: "Supporting SAP implementation partners across Europe and North America. SAP delivery expertise strengthened through EU-based partner collaboration — with all client engagement and project oversight managed locally in Canada.",
+    subtitle: "Structured UAT governance and release readiness for SAP programmes — delivered by a Canada-based team with specialist global delivery partners.",
+    reach: "Client engagement managed locally in Canada · Delivery supported by vetted global SAP partners",
     bookConsultation: "Book a Consultation",
     bookCall: "Book a Call",
   },
   capabilities: {
-    governance: "Enterprise Governance",
-    automation: "Automation Engineering",
-    webDev: "Modern Web Development",
-    digital: "Digital Transformation",
+    sapDelivery: "SAP-Focused Delivery",
+    globalNetwork: "Canada HQ · Global Partner Network",
+    clientOversight: "End-to-End Client Oversight",
+    rapidStart: "Rapid Engagement Start",
   },
   whatWeDeliver: {
     heading: "What We Deliver",
@@ -54,6 +54,24 @@ const en = {
       },
     ],
   },
+  howWeWork: {
+    heading: "How We Work",
+    subheading: "A single point of contact in Canada, backed by a specialist global partner network — so you get world-class SAP expertise with local accountability.",
+    steps: [
+      {
+        title: "Engage Locally",
+        desc: "Your dedicated contact is based in Canada. We manage all scoping, communication, and client oversight from the GTA.",
+      },
+      {
+        title: "Deploy Expert Partners",
+        desc: "We activate vetted global SAP specialists for implementation, governance, and automation work — matched to your programme needs.",
+      },
+      {
+        title: "Deliver with Confidence",
+        desc: "Structured UAT governance, quality gates, and release readiness — with full visibility throughout. No surprises.",
+      },
+    ],
+  },
   beyondSap: {
     heading: "Beyond SAP",
     body: "We provide test automation and quality governance across enterprise and modern platforms, including SAP S/4HANA, Fiori, web applications, and APIs using Cypress and Playwright. Our approach unifies test strategy, automation, and release governance under a single operating model.",
@@ -66,13 +84,18 @@ const en = {
   },
   outcomes: {
     heading: "Business Outcomes",
-    items: ["Faster regression cycles", "Reduced release risk", "Clear go/no-go decisions", "Improved business confidence"],
+    items: [
+      { label: "Faster regression cycles", desc: "Automated coverage cuts manual UAT time significantly" },
+      { label: "Reduced release risk", desc: "Structured quality gates prevent costly post-go-live issues" },
+      { label: "Clear go/no-go decisions", desc: "Real-time defect metrics remove guesswork from releases" },
+      { label: "Improved business confidence", desc: "Stakeholders sign off on releases with full visibility" },
+    ],
   },
   cta: {
     heading: "Ready to Strengthen Your Release Quality?",
-    body: "Let's discuss how structured test governance and modern web development can reduce risk and accelerate your delivery.",
+    body: "Let's discuss how structured SAP test governance and modern web development can reduce your release risk — with local engagement in Canada and specialist global delivery partners.",
     bookConsultation: "Book a Consultation",
-    viewApproach: "View Our Approach",
+    viewApproach: "Meet Our Partners →",
   },
   delivery: {
     heading: "Delivery Approach",
