@@ -10,8 +10,8 @@ const de = {
   },
   hero: {
     pills: ["SAP-Governance & Compliance", "Testautomatisierung & Qualitätssicherung", "Kanada HQ · Globale Partner"],
-    title: "SAP S/4HANA Governance & Intelligente Automatisierung",
-    subtitle: "Strukturierte UAT-Governance und Release-Bereitschaft für SAP-Programme — geliefert von einem kanadischen Team mit spezialisierten globalen Lieferpartnern.",
+    title: "Enterprise-Lieferung, richtig gemacht.",
+    subtitle: "SAP-Governance, Testautomatisierung und Webentwicklung — lokal in Kanada gemanagt, mit globalen Spezialisten geliefert.",
     reach: "Kundenbetreuung lokal in Kanada · Lieferung unterstützt durch geprüfte globale SAP-Partner",
     bookConsultation: "Beratung buchen",
     bookCall: "Gespräch buchen",
@@ -24,7 +24,7 @@ const de = {
   },
   whatWeDeliver: {
     heading: "Was wir liefern",
-    subheading: "Integriertes Know-how in Enterprise-Governance, Qualitätssicherung und digitaler Produktentwicklung.",
+    subheading: "Integriertes Know-how in SAP-Enterprise-Governance, Qualitätssicherung und digitaler Produktentwicklung — mit vollständiger Kundenbetreuung aus Kanada.",
     cards: [
       {
         title: "SAP S/4HANA UAT-Governance",
@@ -44,7 +44,7 @@ const de = {
       },
       {
         title: "Webanwendungs- & Dashboard-Entwicklung",
-        desc: "Maßgeschneiderte Webanwendungen, Reporting-Dashboards und Business-Tools — als ergänzende Fähigkeit neben SAP-Engagements geliefert.",
+        desc: "Maßgeschneiderte Webanwendungen, Reporting-Dashboards und Business-Tools — als ergänzende Fähigkeit neben SAP-Engagements geliefert. Alle Projekte werden lokal in Kanada gemanagt.",
         detail: [
           "Geschäftliche Webanwendungen und Portale",
           "Reporting- und Betriebsdashboards",
@@ -56,15 +56,15 @@ const de = {
   },
   howWeWork: {
     heading: "Wie wir arbeiten",
-    subheading: "Ein einziger Ansprechpartner in Kanada, unterstützt durch ein spezialisiertes globales Partnernetzwerk — für erstklassige SAP-Expertise mit lokaler Verantwortung.",
+    subheading: "Ein Ansprechpartner in Kanada. Ein globales Netzwerk von Spezialisten dahinter.",
     steps: [
       {
         title: "Lokal engagieren",
         desc: "Ihr fester Ansprechpartner sitzt in Kanada. Wir managen das gesamte Scoping, die Kommunikation und die Kundenbetreuung aus dem GTA.",
       },
       {
-        title: "Experten-Partner einsetzen",
-        desc: "Wir aktivieren geprüfte globale SAP-Spezialisten für Implementierung, Governance und Automatisierung — passend zu Ihren Programmanforderungen.",
+        title: "Globale Spezialisten einsetzen",
+        desc: "Wir aktivieren geprüfte SAP- und Technologiespezialisten aus unserem globalen Partnernetzwerk — passend zu Ihren genauen Programmanforderungen.",
       },
       {
         title: "Mit Vertrauen liefern",
@@ -74,7 +74,7 @@ const de = {
   },
   beyondSap: {
     heading: "Über SAP hinaus",
-    body: "Wir bieten Testautomatisierung und Qualitäts-Governance für Enterprise- und moderne Plattformen, einschließlich SAP S/4HANA, Fiori, Webanwendungen und APIs mit Cypress und Playwright. Unser Ansatz vereint Teststrategie, Automatisierung und Release-Governance unter einem einheitlichen Betriebsmodell.",
+    body: "Wir bieten Testautomatisierung und Qualitäts-Governance für Enterprise- und moderne Plattformen, einschließlich SAP S/4HANA, Fiori, Webanwendungen und APIs mit Cypress und Playwright. Unser Ansatz vereint Teststrategie, Automatisierung und Release-Governance unter einem einheitlichen Betriebsmodell — aus Kanada gemanagt, mit globaler Expertise geliefert.",
     capabilities: [
       "SAP-Teststrategie und Regressionsautomatisierung",
       "Cypress- und Playwright-Frameworks",
@@ -88,14 +88,14 @@ const de = {
       { label: "Schnellere Regressionszyklen", desc: "Automatisierte Abdeckung reduziert manuellen UAT-Aufwand erheblich" },
       { label: "Reduziertes Release-Risiko", desc: "Strukturierte Qualitätstore verhindern kostspielige Post-Go-Live-Probleme" },
       { label: "Klare Go/No-Go-Entscheidungen", desc: "Echtzeit-Fehlermetriken beseitigen Rätselraten bei Releases" },
-      { label: "Erhöhtes Vertrauen der Stakeholder", desc: "Stakeholder genehmigen Releases mit voller Transparenz" },
+      { label: "Erhöhtes Vertrauen der Stakeholder", desc: "Stakeholder genehmigen mit voller Transparenz über die Systembereitschaft" },
     ],
   },
   cta: {
     heading: "Bereit, Ihre Release-Qualität zu stärken?",
-    body: "Lassen Sie uns besprechen, wie strukturierte SAP-Test-Governance und moderne Webentwicklung Ihr Release-Risiko reduzieren können — mit lokaler Betreuung in Kanada und spezialisierten globalen Lieferpartnern.",
+    body: "Lassen Sie uns besprechen, wie strukturierte SAP-Governance und moderne Webentwicklung Ihr Release-Risiko reduzieren können — mit lokaler Betreuung in Kanada und globalen Lieferspezialisten.",
     bookConsultation: "Beratung buchen",
-    viewApproach: "Unsere Partner kennenlernen →",
+    viewApproach: "Unsere Leistungen ansehen",
   },
   delivery: {
     heading: "Lieferansatz",
