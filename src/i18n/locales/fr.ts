@@ -13,13 +13,13 @@ const fr = {
     titlePrefix: "Livraison d'entreprise,",
     titleAccent: "faite comme il se doit.",
     subtitle: "Développement web, gouvernance SAP et automatisation des tests — gérés localement au Canada, livrés avec des spécialistes mondiaux.",
-    reach: "Engagement client géré localement au Canada · Livraison soutenue par des partenaires SAP mondiaux vérifiés",
+    reach: "Engagement client géré localement au Canada · Asie · Europe · Amérique du Nord",
     bookConsultation: "Réserver une consultation",
     bookCall: "Réserver un appel",
     stats: [
-      { value: "50+", label: "Projets livrés" },
-      { value: "Canada", label: "Géré localement" },
-      { value: "Global", label: "Spécialistes SAP" },
+      { value: "Canada", label: "Siège & direction client" },
+      { value: "3 régions", label: "Asie · UE · Amériques" },
+      { value: "End-to-End", label: "Dev · SAP · QA" },
     ],
   },
   capabilities: {
