@@ -154,8 +154,22 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="enterprise-gradient py-12 md:py-20 lg:py-28">
-        <div className="container mx-auto px-4 text-center">
+      <section className="enterprise-gradient relative overflow-hidden py-12 md:py-20 lg:py-28">
+
+        {/* Geometric background shapes */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+        >
+          {/* Large circle — top right */}
+          <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10 bg-white/[0.03] md:-right-10 md:-top-10 md:h-80 md:w-80" />
+          {/* Medium circle — top right, offset inward */}
+          <div className="absolute -right-4 top-8 h-40 w-40 rounded-full border border-white/[0.07] bg-white/[0.02] md:right-10 md:top-16 md:h-52 md:w-52" />
+          {/* Small circle — bottom left */}
+          <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full border border-white/[0.06] bg-white/[0.02] md:h-64 md:w-64" />
+        </div>
+
+        <div className="container relative mx-auto px-4 text-center">
           {/* Pills */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -171,14 +185,19 @@ const Index = () => {
             ))}
           </motion.div>
 
+          {/* Headline with accent on last word(s) */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-3xl text-[28px] font-bold leading-tight text-primary-foreground md:text-[36px] lg:text-5xl"
           >
-            {t("hero.title")}
+            {t("hero.titlePrefix") || "Enterprise Delivery,"}{" "}
+            <span style={{ color: "#93c5fd" }}>
+              {t("hero.titleAccent") || "Done Right."}
+            </span>
           </motion.h1>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -188,18 +207,27 @@ const Index = () => {
             {t("hero.subtitle")}
           </motion.p>
 
-          {/* Primary CTA */}
+          {/* CTAs — primary + secondary */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-5 flex justify-center"
+            className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3"
           >
             <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto">
                 {t("hero.bookConsultation")} <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
             </a>
+            <Link to="/delivery" className="w-full sm:w-auto">
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto"
+              >
+                {t("cta.viewApproach") || "View Our Approach"}
+              </Button>
+            </Link>
           </motion.div>
 
           {/* Trust line */}
@@ -212,6 +240,21 @@ const Index = () => {
           >
             {t("hero.reach")}
           </motion.p>
+
+          {/* Stats bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.55 }}
+            className="mx-auto mt-8 flex max-w-sm items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-md md:mt-10 md:max-w-lg"
+          >
+            {(t("hero.stats", { returnObjects: true }) as { value: string; label: string }[]).map((stat, i) => (
+              <div key={i} className="flex flex-1 flex-col items-center px-3 md:px-5">
+                <span className="text-base font-bold text-primary-foreground md:text-lg">{stat.value}</span>
+                <span className="mt-0.5 text-[10px] text-primary-foreground/60 md:text-xs">{stat.label}</span>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
@@ -230,7 +273,7 @@ const Index = () => {
       </div>
 
       {/* What We Deliver */}
-      <SectionWrapper className="pb-0">
+      <SectionWrapper>
         <motion.div {...fadeUp(0)}>
           <h2 className="text-center text-[28px] font-bold md:text-[36px]">{t("whatWeDeliver.heading")}</h2>
           <p className="mx-auto mt-1.5 max-w-2xl text-center text-sm text-muted-foreground md:text-base">
