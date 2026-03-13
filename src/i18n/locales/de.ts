@@ -9,47 +9,51 @@ const de = {
     bookCall: "Beratung buchen",
   },
   hero: {
-    pills: ["SAP-Governance & Compliance", "Testautomatisierung & Qualitätssicherung", "Kanada HQ · Globale Partner"],
+    pills: ["Digitale Entwicklung", "SAP-Governance & UAT", "Testautomatisierung & Qualität"],
     title: "Enterprise-Lieferung, richtig gemacht.",
-    subtitle: "SAP-Governance, Testautomatisierung und Webentwicklung — lokal in Kanada gemanagt, mit globalen Spezialisten geliefert.",
+    subtitle: "Webentwicklung, SAP-Governance und Testautomatisierung — lokal in Kanada gemanagt, mit globalen Spezialisten geliefert.",
     reach: "Kundenbetreuung lokal in Kanada · Lieferung unterstützt durch geprüfte globale SAP-Partner",
     bookConsultation: "Beratung buchen",
     bookCall: "Gespräch buchen",
   },
   capabilities: {
-    sapDelivery: "SAP-fokussierte Lieferung",
+    sapDelivery: "SAP-Governance & UAT",
     globalNetwork: "Kanada HQ · Globales Partnernetzwerk",
     clientOversight: "End-to-End-Kundenbetreuung",
     rapidStart: "Schneller Projektstart",
   },
   whatWeDeliver: {
     heading: "Was wir liefern",
-    subheading: "Integriertes Know-how in SAP-Enterprise-Governance, Qualitätssicherung und digitaler Produktentwicklung — mit vollständiger Kundenbetreuung aus Kanada.",
+    subheading: "Drei integrierte Fähigkeiten — digitale Entwicklung, SAP-Governance und Qualitätssicherung — in einem Engagement geliefert, aus Kanada gemanagt.",
     cards: [
       {
-        title: "SAP S/4HANA UAT-Governance",
-        desc: "Strukturierte UAT-Programme mit definierten Ein-/Ausstiegskriterien, Geschäftsabnahmeprozessen und funktionsübergreifender Stakeholder-Koordination.",
-      },
-      {
-        title: "Release-Bereitschaft & Qualitätstore",
-        desc: "Metrikgesteuerte Go/No-Go-Entscheidungen anhand von Echtzeit-Fehlerkurven, Testabdeckungs-KPIs und risikobasierten Release-Kriterien.",
-      },
-      {
-        title: "SAP-Teststrategie & Regressionstestabdeckung",
-        desc: "Testplanung nach SAP-Best-Practices — abdeckend Kerngeschäftsprozesse, Integrationsszenarien und Fiori-Nutzerakzeptanz.",
-      },
-      {
-        title: "Intelligente Testautomatisierung",
-        desc: "Automatisierungsframeworks mit Cypress und Playwright sowie KI-unterstütztem Testdesign zur Reduktion manuellen Aufwands und Beschleunigung von Regressionszyklen.",
-      },
-      {
-        title: "Webanwendungs- & Dashboard-Entwicklung",
-        desc: "Maßgeschneiderte Webanwendungen, Reporting-Dashboards und Business-Tools — als ergänzende Fähigkeit neben SAP-Engagements geliefert. Alle Projekte werden lokal in Kanada gemanagt.",
+        title: "Digitale Entwicklung",
+        desc: "Maßgeschneiderte Webanwendungen, Reporting-Dashboards und Business-Tools — konzipiert für Performance, Skalierbarkeit und Stakeholder-Bereitschaft.",
         detail: [
           "Geschäftliche Webanwendungen und Portale",
           "Reporting- und Betriebsdashboards",
           "Rapid Prototyping und Deployment",
           "UX-orientiertes, stakeholdergerechtes Design",
+        ],
+      },
+      {
+        title: "SAP-Governance",
+        desc: "Strukturierte UAT-Governance und Release-Bereitschaft für SAP S/4HANA-Programme — mit definierten Qualitätstoren, Stakeholder-Abnahmen und risikobasierten Entscheidungen.",
+        detail: [
+          "UAT-Governance und Geschäftsabnahme",
+          "Release-Bereitschaft und Qualitätstore",
+          "SAP-Teststrategie und Regressionstestabdeckung",
+          "Fehler-Triage und Governance",
+        ],
+      },
+      {
+        title: "Qualitätssicherung",
+        desc: "Automatisierungsorientierte Qualitätsstrategien mit modernen Frameworks und KI-unterstütztem Testdesign — manuellen Aufwand reduzieren und Releasezyklen beschleunigen.",
+        detail: [
+          "Cypress- und Playwright-Automatisierung",
+          "KI-unterstütztes Testdesign",
+          "API- und Integrationstests",
+          "CI/CD-Qualitätstore",
         ],
       },
     ],
@@ -70,16 +74,6 @@ const de = {
         title: "Mit Vertrauen liefern",
         desc: "Strukturierte UAT-Governance, Qualitätstore und Release-Bereitschaft — mit voller Transparenz. Keine Überraschungen.",
       },
-    ],
-  },
-  beyondSap: {
-    heading: "Über SAP hinaus",
-    body: "Wir bieten Testautomatisierung und Qualitäts-Governance für Enterprise- und moderne Plattformen, einschließlich SAP S/4HANA, Fiori, Webanwendungen und APIs mit Cypress und Playwright. Unser Ansatz vereint Teststrategie, Automatisierung und Release-Governance unter einem einheitlichen Betriebsmodell — aus Kanada gemanagt, mit globaler Expertise geliefert.",
-    capabilities: [
-      "SAP-Teststrategie und Regressionsautomatisierung",
-      "Cypress- und Playwright-Frameworks",
-      "API- und Integrationstests",
-      "CI/CD-Qualitätstore",
     ],
   },
   outcomes: {
