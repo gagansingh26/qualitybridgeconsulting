@@ -230,6 +230,7 @@ const Index = () => {
       </div>
 
       {/* What We Deliver */}
+      <SectionWrapper className="pb-0">
       <SectionWrapper>
         <motion.div {...fadeUp(0)}>
           <h2 className="text-center text-[28px] font-bold md:text-[36px]">{t("whatWeDeliver.heading")}</h2>
