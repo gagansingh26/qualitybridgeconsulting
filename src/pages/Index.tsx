@@ -22,8 +22,8 @@ const outcomeIcons = [
 ];
 
 const capabilityIcons = [
+  <Monitor className="h-4 w-4" />,
   <Shield className="h-4 w-4" />,
-  <Globe className="h-4 w-4" />,
   <Handshake className="h-4 w-4" />,
   <Clock className="h-4 w-4" />,
 ];
@@ -141,10 +141,10 @@ const Index = () => {
   }));
 
   const capabilityPillars = [
-    t("capabilities.sapDelivery"),
+    t("capabilities.digitalDev"),
+    t("capabilities.sapGovernance"),
     t("capabilities.globalNetwork"),
     t("capabilities.clientOversight"),
-    t("capabilities.rapidStart"),
   ];
 
   const outcomeItems = t("outcomes.items", { returnObjects: true }) as { label: string; desc: string }[];
