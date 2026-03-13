@@ -1,34 +1,24 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ExternalLink, Brain, Shield, BarChart3, Users, CheckCircle, TrendingDown, Target, ThumbsUp, TestTube, Code, GitBranch, Monitor, Layers, Zap, ChevronDown, Globe, Handshake, Clock } from "lucide-react";
+import { ArrowRight, ExternalLink, Brain, Shield, BarChart3, Users, CheckCircle, TrendingDown, Target, ThumbsUp, TestTube, Code, GitBranch, Monitor, ChevronDown, Globe, Handshake, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
-import KpiWidget from "@/components/KpiWidget";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { useTranslation } from "react-i18next";
 
 const valueCardIcons = [
-  <Users className="h-5 w-5" />,
-  <BarChart3 className="h-5 w-5" />,
+  <Monitor className="h-5 w-5" />,
   <Shield className="h-5 w-5" />,
   <Brain className="h-5 w-5" />,
-  <Monitor className="h-5 w-5" />,
-];
-
-const beyondSapIcons = [
-  <Shield className="h-4 w-4" />,
-  <Code className="h-4 w-4" />,
-  <TestTube className="h-4 w-4" />,
-  <GitBranch className="h-4 w-4" />,
 ];
 
 const outcomeIcons = [
   <TrendingDown className="h-6 w-6" />,
   <Shield className="h-6 w-6" />,
   <Target className="h-6 w-6" />,
-  <ThumbsUp className="h-6 w-6" />,
+  <TestTube className="h-6 w-6" />,
 ];
 
 const capabilityIcons = [
@@ -91,7 +81,6 @@ const AccordionCard = ({ icon, title, desc, detail }: { icon: React.ReactNode; t
   );
 };
 
-// Desktop card with collapsible detail
 const DesktopCard = ({ icon, title, desc, detail }: { icon: React.ReactNode; title: string; desc: string; detail?: string[] }) => {
   const [open, setOpen] = useState(false);
   return (
@@ -139,8 +128,8 @@ const DesktopCard = ({ icon, title, desc, detail }: { icon: React.ReactNode; tit
 const Index = () => {
   const { t } = useTranslation();
   usePageMeta(
-    "QualityBridge Consulting | SAP Governance · Test Automation · Web Development",
-    "Enterprise SAP S/4HANA governance, AI-enabled test automation, UAT management, and modern web application development. Based in GTA, Canada — serving global clients.",
+    "QualityBridge Consulting | Digital Development · SAP Governance · Test Automation",
+    "Web development, SAP S/4HANA governance, and test automation — managed locally in Canada, delivered with global specialists.",
     "/"
   );
 
@@ -157,11 +146,6 @@ const Index = () => {
     t("capabilities.clientOversight"),
     t("capabilities.rapidStart"),
   ];
-
-  const beyondSapCaps = (t("beyondSap.capabilities", { returnObjects: true }) as string[]).map((label, i) => ({
-    icon: beyondSapIcons[i],
-    label,
-  }));
 
   const outcomeItems = t("outcomes.items", { returnObjects: true }) as { label: string; desc: string }[];
 
@@ -218,7 +202,7 @@ const Index = () => {
             </a>
           </motion.div>
 
-          {/* Muted trust line below CTA */}
+          {/* Trust line */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -249,7 +233,7 @@ const Index = () => {
       <SectionWrapper>
         <motion.div {...fadeUp(0)}>
           <h2 className="text-center text-[28px] font-bold md:text-[36px]">{t("whatWeDeliver.heading")}</h2>
-          <p className="mx-auto mt-1.5 max-w-xl text-center text-sm text-muted-foreground md:text-base">
+          <p className="mx-auto mt-1.5 max-w-2xl text-center text-sm text-muted-foreground md:text-base">
             {t("whatWeDeliver.subheading")}
           </p>
         </motion.div>
@@ -263,16 +247,11 @@ const Index = () => {
           ))}
         </div>
 
-        {/* Desktop: auto-fill grid */}
+        {/* Desktop: 3-column grid */}
         <div className="mt-8 hidden md:block">
-          <div className="grid grid-cols-2 gap-6 lg:grid-cols-3">
-            {valueCards.slice(0, 4).map((c, i) => (
+          <div className="grid grid-cols-3 gap-6">
+            {valueCards.map((c, i) => (
               <motion.div key={i} {...fadeUp(i * 0.1)} className="flex">
-                <DesktopCard icon={c.icon} title={c.title} desc={c.desc} detail={c.detail} />
-              </motion.div>
-            ))}
-            {valueCards.slice(4).map((c, i) => (
-              <motion.div key={i + 4} {...fadeUp((i + 4) * 0.1)} className="flex lg:col-span-1 col-span-2">
                 <DesktopCard icon={c.icon} title={c.title} desc={c.desc} detail={c.detail} />
               </motion.div>
             ))}
@@ -321,32 +300,6 @@ const Index = () => {
               </motion.div>
             ))}
           </div>
-        </div>
-      </SectionWrapper>
-
-      {/* Beyond SAP */}
-      <SectionWrapper className="bg-accent/50">
-        <div className="mx-auto max-w-3xl text-center">
-          <motion.h2 {...fadeUp(0)} className="text-[28px] font-bold md:text-[36px]">
-            {t("beyondSap.heading")}
-          </motion.h2>
-          <motion.p {...fadeUp(0.1)} className="mt-2 text-sm text-muted-foreground md:text-base">
-            {t("beyondSap.body")}
-          </motion.p>
-        </div>
-        <div className="mt-5 grid grid-cols-2 gap-3 md:mt-8 md:grid-cols-4 md:gap-4">
-          {beyondSapCaps.map((c, i) => (
-            <motion.div
-              key={i}
-              {...fadeUp(i * 0.08)}
-              className="flex items-center gap-2.5 rounded-lg border border-border bg-card p-3 card-shadow md:p-4"
-            >
-              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary md:h-8 md:w-8">
-                {c.icon}
-              </div>
-              <span className="text-xs font-medium text-card-foreground md:text-sm">{c.label}</span>
-            </motion.div>
-          ))}
         </div>
       </SectionWrapper>
 
