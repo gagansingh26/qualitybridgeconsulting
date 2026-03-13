@@ -13,13 +13,13 @@ const de = {
     titlePrefix: "Enterprise-Lieferung,",
     titleAccent: "richtig gemacht.",
     subtitle: "Webentwicklung, SAP-Governance und Testautomatisierung — lokal in Kanada gemanagt, mit globalen Spezialisten geliefert.",
-    reach: "Kundenbetreuung lokal in Kanada · Lieferung unterstützt durch geprüfte globale SAP-Partner",
+    reach: "Kundenbetreuung lokal in Kanada · Asien · Europa · Nordamerika",
     bookConsultation: "Beratung buchen",
     bookCall: "Gespräch buchen",
     stats: [
-      { value: "50+", label: "Projekte geliefert" },
-      { value: "Kanada", label: "Lokal gemanagt" },
-      { value: "Global", label: "SAP-Spezialisten" },
+      { value: "Kanada", label: "HQ & Kundenleitung" },
+      { value: "3 Regionen", label: "Asien · EU · Amerika" },
+      { value: "End-to-End", label: "Entw. · SAP · QA" },
     ],
   },
   capabilities: {
