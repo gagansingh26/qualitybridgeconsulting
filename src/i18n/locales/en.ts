@@ -9,47 +9,51 @@ const en = {
     bookCall: "Book a Consultation",
   },
   hero: {
-    pills: ["SAP Governance & Compliance", "Test Automation & Quality Engineering", "Canada HQ · Global Partners"],
+    pills: ["Digital Development", "SAP Governance & UAT", "Test Automation & Quality"],
     title: "Enterprise Delivery, Done Right.",
-    subtitle: "SAP governance, test automation, and web development — managed locally in Canada, delivered with global specialists.",
+    subtitle: "Web development, SAP governance, and test automation — managed locally in Canada, delivered with global specialists.",
     reach: "Client engagement managed locally in Canada · Delivery supported by vetted global SAP partners",
     bookConsultation: "Book a Consultation",
     bookCall: "Book a Call",
   },
   capabilities: {
-    sapDelivery: "SAP-Focused Delivery",
+    sapDelivery: "SAP Governance & UAT",
     globalNetwork: "Canada HQ · Global Partner Network",
     clientOversight: "End-to-End Client Oversight",
     rapidStart: "Rapid Engagement Start",
   },
   whatWeDeliver: {
     heading: "What We Deliver",
-    subheading: "Integrated expertise across SAP enterprise governance, quality engineering, and digital product development — with all client oversight managed in Canada.",
+    subheading: "Three integrated capabilities — digital development, SAP governance, and quality engineering — delivered under one engagement, managed from Canada.",
     cards: [
       {
-        title: "SAP S/4HANA UAT Governance",
-        desc: "Structured UAT programmes with defined entry/exit criteria, business sign-off processes, and cross-functional stakeholder coordination.",
-      },
-      {
-        title: "Release Readiness & Quality Gates",
-        desc: "Metrics-driven go/no-go decisions using real-time defect trends, test coverage KPIs, and risk-based release criteria.",
-      },
-      {
-        title: "SAP Test Strategy & Regression Coverage",
-        desc: "Test planning aligned to SAP best practices — covering core business processes, integration scenarios, and Fiori user acceptance.",
-      },
-      {
-        title: "Intelligent Test Automation",
-        desc: "Automation frameworks using Cypress and Playwright, with AI-assisted test design to reduce manual effort and accelerate regression cycles.",
-      },
-      {
-        title: "Web Application & Dashboard Development",
-        desc: "Purpose-built web applications, reporting dashboards, and business tools — delivered as a complementary capability alongside SAP engagements. All projects managed locally in Canada.",
+        title: "Digital Development",
+        desc: "Purpose-built web applications, reporting dashboards, and business tools — designed for performance, scalability, and stakeholder readiness.",
         detail: [
           "Business web applications and portals",
           "Reporting and operational dashboards",
           "Rapid prototyping and deployment",
           "UX-focused, stakeholder-ready design",
+        ],
+      },
+      {
+        title: "SAP Governance",
+        desc: "Structured UAT governance and release readiness for SAP S/4HANA programmes — with defined quality gates, stakeholder sign-offs, and risk-based decisions.",
+        detail: [
+          "UAT governance and business sign-off",
+          "Release readiness and quality gates",
+          "SAP test strategy and regression coverage",
+          "Defect triage and governance",
+        ],
+      },
+      {
+        title: "Quality Engineering",
+        desc: "Automation-first quality strategies using modern frameworks and AI-assisted test design — reducing manual effort and accelerating release cycles.",
+        detail: [
+          "Cypress and Playwright automation",
+          "AI-assisted test design",
+          "API and integration testing",
+          "CI/CD quality gates",
         ],
       },
     ],
@@ -70,16 +74,6 @@ const en = {
         title: "Deliver with Confidence",
         desc: "Structured UAT governance, quality gates, and release readiness — with full visibility throughout. No surprises.",
       },
-    ],
-  },
-  beyondSap: {
-    heading: "Beyond SAP",
-    body: "We provide test automation and quality governance across enterprise and modern platforms, including SAP S/4HANA, Fiori, web applications, and APIs using Cypress and Playwright. Our approach unifies test strategy, automation, and release governance under a single operating model — managed from Canada, delivered with global expertise.",
-    capabilities: [
-      "SAP test strategy and regression automation",
-      "Cypress and Playwright frameworks",
-      "API and integration testing",
-      "CI/CD quality gates",
     ],
   },
   outcomes: {
