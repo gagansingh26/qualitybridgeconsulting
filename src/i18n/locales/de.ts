@@ -10,11 +10,17 @@ const de = {
   },
   hero: {
     pills: ["Digitale Entwicklung", "SAP-Governance & UAT", "Testautomatisierung & Qualität"],
-    title: "Enterprise-Lieferung, richtig gemacht.",
+    titlePrefix: "Enterprise-Lieferung,",
+    titleAccent: "richtig gemacht.",
     subtitle: "Webentwicklung, SAP-Governance und Testautomatisierung — lokal in Kanada gemanagt, mit globalen Spezialisten geliefert.",
     reach: "Kundenbetreuung lokal in Kanada · Lieferung unterstützt durch geprüfte globale SAP-Partner",
     bookConsultation: "Beratung buchen",
     bookCall: "Gespräch buchen",
+    stats: [
+      { value: "50+", label: "Projekte geliefert" },
+      { value: "Kanada", label: "Lokal gemanagt" },
+      { value: "Global", label: "SAP-Spezialisten" },
+    ],
   },
   capabilities: {
     digitalDev: "Digitale Entwicklung",
