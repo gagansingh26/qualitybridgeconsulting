@@ -17,10 +17,10 @@ const fr = {
     bookCall: "Réserver un appel",
   },
   capabilities: {
-    sapDelivery: "Gouvernance SAP & UAT",
+    digitalDev: "Développement digital",
+    sapGovernance: "Gouvernance SAP & UAT",
     globalNetwork: "Siège au Canada · Réseau mondial de partenaires",
     clientOversight: "Supervision client de bout en bout",
-    rapidStart: "Démarrage rapide d'engagement",
   },
   whatWeDeliver: {
     heading: "Ce que nous livrons",
