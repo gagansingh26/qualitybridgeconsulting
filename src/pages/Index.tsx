@@ -35,6 +35,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.45, delay },
 });
 
+// Mobile: expand/collapse accordion (unchanged)
 const AccordionCard = ({ icon, title, desc, detail }: { icon: React.ReactNode; title: string; desc: string; detail?: string[] }) => {
   const [open, setOpen] = useState(false);
   return (
@@ -81,8 +82,8 @@ const AccordionCard = ({ icon, title, desc, detail }: { icon: React.ReactNode; t
   );
 };
 
+// Desktop: details always visible, no toggle
 const DesktopCard = ({ icon, title, desc, detail }: { icon: React.ReactNode; title: string; desc: string; detail?: string[] }) => {
-  const [open, setOpen] = useState(false);
   return (
     <div className="flex flex-col rounded-lg border border-border bg-card p-6 card-shadow hover:card-shadow-hover transition-shadow">
       <div className="flex h-10 w-10 items-center justify-center rounded-md bg-accent text-primary">
@@ -91,35 +92,14 @@ const DesktopCard = ({ icon, title, desc, detail }: { icon: React.ReactNode; tit
       <h3 className="mt-4 font-semibold text-card-foreground">{title}</h3>
       <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
       {detail && (
-        <div className="mt-3">
-          <button
-            type="button"
-            onClick={() => setOpen((o) => !o)}
-            className="flex items-center gap-1 text-xs font-medium text-primary hover:underline"
-          >
-            {open ? "Hide details" : "Learn more"}
-            <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
-          </button>
-          <AnimatePresence initial={false}>
-            {open && (
-              <motion.ul
-                key="detail"
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="mt-2 space-y-1 overflow-hidden"
-              >
-                {detail.map((d: string) => (
-                  <li key={d} className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <CheckCircle className="h-3 w-3 shrink-0 text-primary" />
-                    {d}
-                  </li>
-                ))}
-              </motion.ul>
-            )}
-          </AnimatePresence>
-        </div>
+        <ul className="mt-3 space-y-1">
+          {detail.map((d: string) => (
+            <li key={d} className="flex items-center gap-2 text-xs text-muted-foreground">
+              <CheckCircle className="h-3 w-3 shrink-0 text-primary" />
+              {d}
+            </li>
+          ))}
+        </ul>
       )}
     </div>
   );
@@ -157,15 +137,9 @@ const Index = () => {
       <section className="enterprise-gradient relative overflow-hidden py-12 md:py-20 lg:py-28">
 
         {/* Geometric background shapes */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-        >
-          {/* Large circle — top right */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10 bg-white/[0.03] md:-right-10 md:-top-10 md:h-80 md:w-80" />
-          {/* Medium circle — top right, offset inward */}
           <div className="absolute -right-4 top-8 h-40 w-40 rounded-full border border-white/[0.07] bg-white/[0.02] md:right-10 md:top-16 md:h-52 md:w-52" />
-          {/* Small circle — bottom left */}
           <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full border border-white/[0.06] bg-white/[0.02] md:h-64 md:w-64" />
         </div>
 
@@ -185,7 +159,7 @@ const Index = () => {
             ))}
           </motion.div>
 
-          {/* Headline with accent on last word(s) */}
+          {/* Headline with accent */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
