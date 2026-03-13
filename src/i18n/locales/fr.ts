@@ -10,11 +10,17 @@ const fr = {
   },
   hero: {
     pills: ["Développement digital", "Gouvernance SAP & UAT", "Automatisation des tests & Qualité"],
-    title: "Livraison d'entreprise, faite comme il se doit.",
+    titlePrefix: "Livraison d'entreprise,",
+    titleAccent: "faite comme il se doit.",
     subtitle: "Développement web, gouvernance SAP et automatisation des tests — gérés localement au Canada, livrés avec des spécialistes mondiaux.",
     reach: "Engagement client géré localement au Canada · Livraison soutenue par des partenaires SAP mondiaux vérifiés",
     bookConsultation: "Réserver une consultation",
     bookCall: "Réserver un appel",
+    stats: [
+      { value: "50+", label: "Projets livrés" },
+      { value: "Canada", label: "Géré localement" },
+      { value: "Global", label: "Spécialistes SAP" },
+    ],
   },
   capabilities: {
     digitalDev: "Développement digital",
