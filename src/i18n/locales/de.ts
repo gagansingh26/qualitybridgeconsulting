@@ -17,10 +17,10 @@ const de = {
     bookCall: "Gespräch buchen",
   },
   capabilities: {
-    sapDelivery: "SAP-Governance & UAT",
+    digitalDev: "Digitale Entwicklung",
+    sapGovernance: "SAP-Governance & UAT",
     globalNetwork: "Kanada HQ · Globales Partnernetzwerk",
     clientOversight: "End-to-End-Kundenbetreuung",
-    rapidStart: "Schneller Projektstart",
   },
   whatWeDeliver: {
     heading: "Was wir liefern",
