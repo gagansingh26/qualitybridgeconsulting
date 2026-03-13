@@ -9,47 +9,51 @@ const fr = {
     bookCall: "Réserver une consultation",
   },
   hero: {
-    pills: ["Gouvernance SAP & Conformité", "Automatisation des tests & Ingénierie qualité", "Siège au Canada · Partenaires mondiaux"],
+    pills: ["Développement digital", "Gouvernance SAP & UAT", "Automatisation des tests & Qualité"],
     title: "Livraison d'entreprise, faite comme il se doit.",
-    subtitle: "Gouvernance SAP, automatisation des tests et développement web — gérés localement au Canada, livrés avec des spécialistes mondiaux.",
+    subtitle: "Développement web, gouvernance SAP et automatisation des tests — gérés localement au Canada, livrés avec des spécialistes mondiaux.",
     reach: "Engagement client géré localement au Canada · Livraison soutenue par des partenaires SAP mondiaux vérifiés",
     bookConsultation: "Réserver une consultation",
     bookCall: "Réserver un appel",
   },
   capabilities: {
-    sapDelivery: "Livraison axée SAP",
+    sapDelivery: "Gouvernance SAP & UAT",
     globalNetwork: "Siège au Canada · Réseau mondial de partenaires",
     clientOversight: "Supervision client de bout en bout",
     rapidStart: "Démarrage rapide d'engagement",
   },
   whatWeDeliver: {
     heading: "Ce que nous livrons",
-    subheading: "Expertise intégrée en gouvernance SAP d'entreprise, ingénierie qualité et développement de produits digitaux — avec toute la supervision client gérée au Canada.",
+    subheading: "Trois capacités intégrées — développement digital, gouvernance SAP et ingénierie qualité — livrées dans un seul engagement, géré depuis le Canada.",
     cards: [
       {
-        title: "Gouvernance UAT SAP S/4HANA",
-        desc: "Programmes UAT structurés avec des critères d'entrée/sortie définis, des processus d'approbation métier et une coordination multi-fonctionnelle.",
-      },
-      {
-        title: "Préparation aux versions & Portes qualité",
-        desc: "Décisions Go/No-Go basées sur les métriques — tendances de défauts en temps réel, KPI de couverture de tests et critères de version fondés sur les risques.",
-      },
-      {
-        title: "Stratégie de test SAP & Couverture de régression",
-        desc: "Planification des tests alignée sur les meilleures pratiques SAP — couvrant les processus métier essentiels, les scénarios d'intégration et l'acceptation utilisateur Fiori.",
-      },
-      {
-        title: "Automatisation intelligente des tests",
-        desc: "Frameworks d'automatisation avec Cypress et Playwright, et conception de tests assistée par IA pour réduire l'effort manuel et accélérer les cycles de régression.",
-      },
-      {
-        title: "Développement d'applications web & de tableaux de bord",
-        desc: "Applications web sur mesure, tableaux de bord de reporting et outils métier — livrés en complément des engagements SAP. Tous les projets sont gérés localement au Canada.",
+        title: "Développement digital",
+        desc: "Applications web sur mesure, tableaux de bord de reporting et outils métier — conçus pour la performance, la scalabilité et la préparation des parties prenantes.",
         detail: [
           "Applications web métier et portails",
           "Tableaux de bord de reporting et opérationnels",
           "Prototypage rapide et déploiement",
           "Design centré UX, prêt pour les parties prenantes",
+        ],
+      },
+      {
+        title: "Gouvernance SAP",
+        desc: "Gouvernance UAT structurée et préparation aux versions pour les programmes SAP S/4HANA — avec des portes qualité définies, des approbations des parties prenantes et des décisions fondées sur les risques.",
+        detail: [
+          "Gouvernance UAT et approbation métier",
+          "Préparation aux versions et portes qualité",
+          "Stratégie de test SAP et couverture de régression",
+          "Triage des défauts et gouvernance",
+        ],
+      },
+      {
+        title: "Ingénierie qualité",
+        desc: "Stratégies qualité axées sur l'automatisation avec des frameworks modernes et une conception de tests assistée par IA — réduisant l'effort manuel et accélérant les cycles de version.",
+        detail: [
+          "Automatisation Cypress et Playwright",
+          "Conception de tests assistée par IA",
+          "Tests API et d'intégration",
+          "Portes qualité CI/CD",
         ],
       },
     ],
@@ -70,16 +74,6 @@ const fr = {
         title: "Livrez avec confiance",
         desc: "Gouvernance UAT structurée, portes qualité et préparation aux versions — avec une visibilité totale. Pas de surprises.",
       },
-    ],
-  },
-  beyondSap: {
-    heading: "Au-delà de SAP",
-    body: "Nous fournissons l'automatisation des tests et la gouvernance qualité sur les plateformes d'entreprise et modernes, y compris SAP S/4HANA, Fiori, les applications web et les API avec Cypress et Playwright. Notre approche unifie la stratégie de test, l'automatisation et la gouvernance des versions sous un seul modèle opérationnel — géré depuis le Canada, livré avec une expertise mondiale.",
-    capabilities: [
-      "Stratégie de test SAP et automatisation de régression",
-      "Frameworks Cypress et Playwright",
-      "Tests API et d'intégration",
-      "Portes qualité CI/CD",
     ],
   },
   outcomes: {
