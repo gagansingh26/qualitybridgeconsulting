@@ -9,18 +9,18 @@ const fr = {
     bookCall: "Réserver une consultation",
   },
   hero: {
-    pills: ["Gouvernance SAP & Conformité", "Automatisation des tests & Ingénierie qualité", "Développement de sites & applications web"],
+    pills: ["Gouvernance SAP & Conformité", "Automatisation des tests & Ingénierie qualité", "Siège au Canada · Partenaires mondiaux"],
     title: "Gouvernance SAP S/4HANA & Automatisation Intelligente",
-    subtitle: "Gouvernance UAT structurée et préparation aux versions pour les programmes SAP — soutenues par une automatisation ciblée et une livraison numérique délibérée.",
-    reach: "Soutien aux partenaires d'implémentation SAP en Europe et en Amérique du Nord. Expertise SAP renforcée par une collaboration avec des partenaires basés en UE — avec toute l'engagement client et la supervision de projet gérés localement au Canada.",
+    subtitle: "Gouvernance UAT structurée et préparation aux versions pour les programmes SAP — livrées par une équipe basée au Canada avec des partenaires de livraison mondiaux spécialisés.",
+    reach: "Engagement client géré localement au Canada · Livraison soutenue par des partenaires SAP mondiaux vérifiés",
     bookConsultation: "Réserver une consultation",
     bookCall: "Réserver un appel",
   },
   capabilities: {
-    governance: "Gouvernance d'entreprise",
-    automation: "Ingénierie d'automatisation",
-    webDev: "Développement web moderne",
-    digital: "Transformation digitale",
+    sapDelivery: "Livraison axée SAP",
+    globalNetwork: "Siège au Canada · Réseau mondial de partenaires",
+    clientOversight: "Supervision client de bout en bout",
+    rapidStart: "Démarrage rapide d'engagement",
   },
   whatWeDeliver: {
     heading: "Ce que nous livrons",
@@ -54,6 +54,24 @@ const fr = {
       },
     ],
   },
+  howWeWork: {
+    heading: "Comment nous travaillons",
+    subheading: "Un point de contact unique au Canada, soutenu par un réseau mondial de partenaires spécialisés — pour une expertise SAP de classe mondiale avec une responsabilité locale.",
+    steps: [
+      {
+        title: "Engagez localement",
+        desc: "Votre contact dédié est basé au Canada. Nous gérons tout le cadrage, la communication et la supervision client depuis le GTA.",
+      },
+      {
+        title: "Déployez des partenaires experts",
+        desc: "Nous activons des spécialistes SAP mondiaux vérifiés pour l'implémentation, la gouvernance et l'automatisation — adaptés à vos besoins de programme.",
+      },
+      {
+        title: "Livrez avec confiance",
+        desc: "Gouvernance UAT structurée, portes qualité et préparation aux versions — avec une visibilité totale. Pas de surprises.",
+      },
+    ],
+  },
   beyondSap: {
     heading: "Au-delà de SAP",
     body: "Nous fournissons l'automatisation des tests et la gouvernance qualité sur les plateformes d'entreprise et modernes, y compris SAP S/4HANA, Fiori, les applications web et les API avec Cypress et Playwright. Notre approche unifie la stratégie de test, l'automatisation et la gouvernance des versions sous un seul modèle opérationnel.",
@@ -66,13 +84,18 @@ const fr = {
   },
   outcomes: {
     heading: "Résultats commerciaux",
-    items: ["Cycles de régression plus rapides", "Risque de version réduit", "Décisions Go/No-Go claires", "Confiance accrue des parties prenantes"],
+    items: [
+      { label: "Cycles de régression plus rapides", desc: "La couverture automatisée réduit considérablement le temps UAT manuel" },
+      { label: "Risque de version réduit", desc: "Les portes qualité structurées préviennent les problèmes coûteux post-go-live" },
+      { label: "Décisions Go/No-Go claires", desc: "Les métriques de défauts en temps réel éliminent les conjectures" },
+      { label: "Confiance accrue des parties prenantes", desc: "Les parties prenantes approuvent les versions avec une visibilité totale" },
+    ],
   },
   cta: {
     heading: "Prêt à renforcer la qualité de vos versions ?",
-    body: "Discutons de la façon dont une gouvernance des tests structurée et le développement web moderne peuvent réduire les risques et accélérer votre livraison.",
+    body: "Discutons de la façon dont une gouvernance des tests SAP structurée et le développement web moderne peuvent réduire votre risque de version — avec un engagement local au Canada et des partenaires de livraison mondiaux spécialisés.",
     bookConsultation: "Réserver une consultation",
-    viewApproach: "Voir notre approche",
+    viewApproach: "Rencontrer nos partenaires →",
   },
   delivery: {
     heading: "Approche de livraison",

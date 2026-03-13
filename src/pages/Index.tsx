@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ExternalLink, Brain, Shield, BarChart3, Users, CheckCircle, TrendingDown, Target, ThumbsUp, TestTube, Code, GitBranch, Monitor, Layers, Zap, ChevronDown } from "lucide-react";
+import { ArrowRight, ExternalLink, Brain, Shield, BarChart3, Users, CheckCircle, TrendingDown, Target, ThumbsUp, TestTube, Code, GitBranch, Monitor, Layers, Zap, ChevronDown, Globe, Handshake, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
@@ -32,10 +32,10 @@ const outcomeIcons = [
 ];
 
 const capabilityIcons = [
-  <Layers className="h-4 w-4" />,
-  <TestTube className="h-4 w-4" />,
-  <Monitor className="h-4 w-4" />,
-  <Zap className="h-4 w-4" />,
+  <Shield className="h-4 w-4" />,
+  <Globe className="h-4 w-4" />,
+  <Handshake className="h-4 w-4" />,
+  <Clock className="h-4 w-4" />,
 ];
 
 const fadeUp = (delay = 0) => ({
@@ -152,10 +152,10 @@ const Index = () => {
   }));
 
   const capabilityPillars = [
-    t("capabilities.governance"),
-    t("capabilities.automation"),
-    t("capabilities.webDev"),
-    t("capabilities.digital"),
+    t("capabilities.sapDelivery"),
+    t("capabilities.globalNetwork"),
+    t("capabilities.clientOversight"),
+    t("capabilities.rapidStart"),
   ];
 
   const beyondSapCaps = (t("beyondSap.capabilities", { returnObjects: true }) as string[]).map((label, i) => ({
@@ -163,10 +163,9 @@ const Index = () => {
     label,
   }));
 
-  const outcomes = (t("outcomes.items", { returnObjects: true }) as string[]).map((label, i) => ({
-    icon: outcomeIcons[i],
-    label,
-  }));
+  const outcomeItems = t("outcomes.items", { returnObjects: true }) as { label: string; desc: string }[];
+
+  const howWeWorkSteps = t("howWeWork.steps", { returnObjects: true }) as { title: string; desc: string }[];
 
   return (
     <Layout>
@@ -219,6 +218,7 @@ const Index = () => {
             </a>
           </motion.div>
 
+          {/* Muted trust line below CTA */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -234,7 +234,6 @@ const Index = () => {
       {/* Capabilities Strip */}
       <div className="border-b border-t border-border bg-card">
         <div className="container mx-auto px-4 py-3">
-          {/* 2×2 grid on mobile, single row on md+ */}
           <div className="grid grid-cols-2 gap-x-4 gap-y-2 md:flex md:flex-wrap md:items-center md:justify-center md:gap-10">
             {capabilityPillars.map((label, i) => (
               <div key={i} className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground md:text-sm">
@@ -264,7 +263,7 @@ const Index = () => {
           ))}
         </div>
 
-        {/* Desktop: auto-fill grid — last row centered via justify-center + inline-grid trick */}
+        {/* Desktop: auto-fill grid */}
         <div className="mt-8 hidden md:block">
           <div className="grid grid-cols-2 gap-6 lg:grid-cols-3">
             {valueCards.slice(0, 4).map((c, i) => (
@@ -272,10 +271,55 @@ const Index = () => {
                 <DesktopCard icon={c.icon} title={c.title} desc={c.desc} detail={c.detail} />
               </motion.div>
             ))}
-            {/* Last card: span 2 on lg (3-col) so it doesn't orphan, span 2 on 2-col naturally */}
             {valueCards.slice(4).map((c, i) => (
               <motion.div key={i + 4} {...fadeUp((i + 4) * 0.1)} className="flex lg:col-span-1 col-span-2">
                 <DesktopCard icon={c.icon} title={c.title} desc={c.desc} detail={c.detail} />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </SectionWrapper>
+
+      {/* How We Work */}
+      <SectionWrapper className="bg-muted/50">
+        <motion.div {...fadeUp(0)} className="text-center">
+          <h2 className="text-[28px] font-bold md:text-[36px]">{t("howWeWork.heading")}</h2>
+          <p className="mx-auto mt-1.5 max-w-2xl text-sm text-muted-foreground md:text-base">
+            {t("howWeWork.subheading")}
+          </p>
+        </motion.div>
+
+        {/* Desktop: horizontal 3-step with connector */}
+        <div className="mt-10 hidden md:block">
+          <div className="relative grid grid-cols-3 gap-8">
+            {/* Connector line behind the circles */}
+            <div className="absolute left-[16.67%] right-[16.67%] top-6 h-0.5 bg-primary/20" />
+            {howWeWorkSteps.map((step, i) => (
+              <motion.div key={i} {...fadeUp(i * 0.12)} className="relative flex flex-col items-center text-center">
+                <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
+                  {i + 1}
+                </div>
+                <h3 className="mt-4 text-base font-semibold text-card-foreground">{step.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{step.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile: vertical stack with connector */}
+        <div className="mt-8 md:hidden">
+          <div className="relative flex flex-col gap-8 pl-6">
+            {/* Vertical connector */}
+            <div className="absolute left-[18px] top-0 bottom-0 w-0.5 bg-primary/20" />
+            {howWeWorkSteps.map((step, i) => (
+              <motion.div key={i} {...fadeUp(i * 0.1)} className="relative flex gap-4">
+                <div className="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground -ml-6">
+                  {i + 1}
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-card-foreground">{step.title}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{step.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -314,19 +358,20 @@ const Index = () => {
           {t("outcomes.heading")}
         </motion.h2>
         <div className="mt-5 grid grid-cols-2 gap-3 md:mt-8 md:grid-cols-4 md:gap-6">
-          {outcomes.map((o, i) => (
+          {outcomeItems.map((o, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="flex flex-col items-center gap-2 rounded-lg border border-border bg-card p-3 card-shadow text-center md:flex-row md:gap-3 md:p-5 md:text-left"
+              className="flex flex-col items-center gap-2 rounded-lg border border-border bg-card p-4 card-shadow text-center md:p-5"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                {o.icon}
+                {outcomeIcons[i]}
               </div>
-              <span className="text-xs font-medium text-card-foreground md:text-sm">{o.label}</span>
+              <span className="text-xs font-semibold text-card-foreground md:text-sm">{o.label}</span>
+              <span className="text-[11px] leading-snug text-muted-foreground md:text-xs">{o.desc}</span>
             </motion.div>
           ))}
         </div>
@@ -343,7 +388,7 @@ const Index = () => {
                 {t("cta.bookConsultation")} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link to="/delivery" className="w-full sm:w-auto">
+            <Link to="/partners" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="w-full sm:w-auto">
                 {t("cta.viewApproach")} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
