@@ -13,13 +13,13 @@ const en = {
     titlePrefix: "Enterprise Delivery,",
     titleAccent: "Done Right.",
     subtitle: "Web development, SAP governance, and test automation — managed locally in Canada, delivered with global specialists.",
-    reach: "Client engagement managed locally in Canada · Delivery supported by vetted global SAP partners",
+    reach: "Client engagement managed locally in Canada · Asia · Europe · North America",
     bookConsultation: "Book a Consultation",
     bookCall: "Book a Call",
     stats: [
-      { value: "50+", label: "Projects Delivered" },
-      { value: "Canada", label: "Locally Managed" },
-      { value: "Global", label: "SAP Specialists" },
+      { value: "Canada", label: "HQ & Client Lead" },
+      { value: "3 Regions", label: "Asia · EU · Americas" },
+      { value: "End-to-End", label: "Dev · SAP · QA" },
     ],
   },
   capabilities: {
