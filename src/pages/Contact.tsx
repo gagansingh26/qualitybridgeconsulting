@@ -75,14 +75,36 @@ const Contact = () => {
 
   return (
     <Layout>
-      <SectionWrapper>
-        <motion.div {...fadeUp(0)}>
-          <h1 className="text-2xl font-bold md:text-4xl">{t("contact.heading")}</h1>
-          <p className="mt-2 max-w-xl text-sm text-muted-foreground md:mt-3 md:text-base">{t("contact.subheading")}</p>
-        </motion.div>
+      {/* Hero */}
+      <section className="enterprise-gradient relative overflow-hidden py-10 md:py-16">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10 bg-white/[0.03] md:-right-10 md:-top-10 md:h-80 md:w-80" />
+          <div className="absolute -right-4 top-8 h-40 w-40 rounded-full border border-white/[0.07] bg-white/[0.02] md:right-10 md:top-16 md:h-52 md:w-52" />
+          <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full border border-white/[0.06] bg-white/[0.02] md:h-64 md:w-64" />
+        </div>
+        <div className="container relative mx-auto px-4 md:px-6 text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto max-w-2xl text-[28px] font-bold leading-tight text-primary-foreground md:text-[36px] lg:text-5xl"
+          >
+            {t("contact.heading")}
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="mx-auto mt-3 max-w-xl text-sm text-primary-foreground/80 md:text-base"
+          >
+            {t("contact.subheading")}
+          </motion.p>
+        </div>
+      </section>
 
-        {/* Contact info cards — 3-col compact strip on mobile */}
-        <div className="mt-4 grid grid-cols-3 gap-2 md:mt-6 md:grid-cols-3 md:gap-4">
+      <SectionWrapper>
+        {/* Contact info cards */}
+        <div className="grid grid-cols-3 gap-2 md:grid-cols-3 md:gap-4">
           {cardLabels.map((label, i) => (
             <motion.div
               key={i}
@@ -114,16 +136,14 @@ const Contact = () => {
           ))}
         </div>
 
-        {/* Contact Form — full width on mobile */}
+        {/* Contact Form */}
         <motion.form
           onSubmit={handleSubmit}
           {...fadeUp(0.1)}
           className="mt-4 rounded-lg border border-border bg-card p-4 card-shadow md:mt-8 md:p-6"
         >
           <h2 className="mb-3 text-base font-semibold md:mb-4 md:text-lg">{t("contact.formHeading")}</h2>
-
           <div className="space-y-3 md:space-y-4">
-            {/* Name + Email side by side on mobile */}
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <label className="mb-1 block text-xs font-medium text-card-foreground md:text-sm">
@@ -151,7 +171,6 @@ const Contact = () => {
                 />
               </div>
             </div>
-
             <div>
               <label className="mb-1 block text-xs font-medium text-card-foreground md:text-sm">
                 {t("contact.messageLabel")}
@@ -165,7 +184,6 @@ const Contact = () => {
                 className="text-sm"
               />
             </div>
-
             <Button type="submit" className="w-full" disabled={sending}>
               {sending ? (
                 <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> {t("contact.sending")}</>
