@@ -32,6 +32,7 @@ const content = {
     founderName: "Gagan Singh",
     founderTitle: "Founder",
     founderLocation: "Greater Toronto Area, Canada",
+    founderExperience: "10+ years · Europe · Asia · North America",
     founderCta: "Connect on LinkedIn",
     intro: "QualityBridge Consulting was built on a simple frustration: too many enterprise programmes ship late, break in production, and leave business stakeholders without the visibility they need to make confident decisions. We exist to fix that.",
     bullets: [
@@ -97,6 +98,7 @@ const content = {
     founderName: "Gagan Singh",
     founderTitle: "Gründer",
     founderLocation: "Greater Toronto Area, Kanada",
+    founderExperience: "10+ Jahre · Europa · Asien · Nordamerika",
     founderCta: "Auf LinkedIn verbinden",
     intro: "QualityBridge Consulting entstand aus einer einfachen Frustration: Zu viele Enterprise-Programme liefern zu spät, scheitern in der Produktion und lassen Stakeholder ohne die Transparenz zurück, die sie für sichere Entscheidungen brauchen. Wir existieren, um das zu ändern.",
     bullets: [
@@ -162,6 +164,7 @@ const content = {
     founderName: "Gagan Singh",
     founderTitle: "Fondateur",
     founderLocation: "Grand Toronto, Canada",
+    founderExperience: "10+ ans · Europe · Asie · Amérique du Nord",
     founderCta: "Se connecter sur LinkedIn",
     intro: "QualityBridge Consulting est né d'une frustration simple : trop de programmes d'entreprise livrent en retard, échouent en production et laissent les parties prenantes sans la visibilité dont elles ont besoin pour prendre des décisions confiantes. Nous existons pour changer cela.",
     bullets: [
@@ -266,28 +269,30 @@ const About = () => {
         </div>
       </section>
 
-      {/* Founder strip — clean card layout */}
+      {/* Founder strip — matches home page capabilities strip exactly */}
       <div className="border-b border-t border-border bg-card">
-        <div className="container mx-auto px-4 md:px-6 py-4">
-          <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-8">
-            <div className="flex flex-col items-center sm:items-start">
-              <span className="text-[11px] uppercase tracking-wide text-muted-foreground font-medium">{a.founderTitle}</span>
-              <span className="text-sm font-semibold text-foreground mt-0.5">{a.founderName}</span>
+        <div className="container mx-auto px-4 py-3">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2 md:flex md:flex-wrap md:items-center md:justify-center md:gap-10">
+            <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground md:text-sm">
+              <span className="shrink-0 text-primary"><Briefcase className="h-4 w-4" /></span>
+              <span>{a.founderName} · {a.founderTitle}</span>
             </div>
-            <div className="hidden sm:block w-px h-8 bg-border" />
-            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-              <MapPin className="h-3 w-3 shrink-0 text-primary" />
+            <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground md:text-sm">
+              <span className="shrink-0 text-primary"><MapPin className="h-4 w-4" /></span>
               <span>{a.founderLocation}</span>
             </div>
-            <div className="hidden sm:block w-px h-8 bg-border" />
+            <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground md:text-sm">
+              <span className="shrink-0 text-primary"><Globe className="h-4 w-4" /></span>
+              <span>{a.founderExperience}</span>
+            </div>
             <a
               href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs font-medium text-primary hover:underline"
+              className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary md:text-sm"
             >
-              <ExternalLink className="h-3 w-3 shrink-0" />
-              {a.founderCta}
+              <span className="shrink-0 text-primary"><ExternalLink className="h-4 w-4" /></span>
+              <span>{a.founderCta}</span>
             </a>
           </div>
         </div>
@@ -324,13 +329,7 @@ const About = () => {
                 <p>{a.paragraph2}</p>
                 <p>{a.paragraph3}</p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-1">
-                <Button asChild size="sm" className="w-full sm:w-auto">
-                  <a href="/contact" className="inline-flex items-center justify-center gap-2">
-                    {a.ctaGetInTouch}<ArrowRight size={15} />
-                  </a>
-                </Button>
-              </div>
+
             </div>
 
             {/* Right — cards */}
@@ -460,11 +459,6 @@ const About = () => {
                     <Button asChild size="sm" className="w-full sm:w-auto">
                       <a href="/contact" className="inline-flex items-center justify-center gap-2">
                         {a.ctaContact}<ArrowRight size={15} />
-                      </a>
-                    </Button>
-                    <Button variant="outline" asChild size="sm" className="w-full sm:w-auto">
-                      <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2" aria-label="Open LinkedIn profile">
-                        {a.ctaLinkedIn}<ExternalLink size={15} />
                       </a>
                     </Button>
                   </div>
