@@ -44,15 +44,45 @@ const ReleaseReadiness = () => {
 
   return (
     <Layout>
-      <SectionWrapper>
-        <motion.div {...fadeUp(0)}>
-          <h1 className="text-2xl font-bold md:text-4xl">{t("release.heading")}</h1>
-          <p className="mt-2 max-w-2xl text-sm text-muted-foreground md:mt-3 md:text-base">{t("release.subheading")}</p>
-          <p className="mt-1.5 text-xs text-muted-foreground/70">{t("release.reach")}</p>
-        </motion.div>
+      {/* Hero */}
+      <section className="enterprise-gradient relative overflow-hidden py-10 md:py-16">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10 bg-white/[0.03] md:-right-10 md:-top-10 md:h-80 md:w-80" />
+          <div className="absolute -right-4 top-8 h-40 w-40 rounded-full border border-white/[0.07] bg-white/[0.02] md:right-10 md:top-16 md:h-52 md:w-52" />
+          <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full border border-white/[0.06] bg-white/[0.02] md:h-64 md:w-64" />
+        </div>
+        <div className="container relative mx-auto px-4 md:px-6 text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto max-w-2xl text-[28px] font-bold leading-tight text-primary-foreground md:text-[36px] lg:text-5xl"
+          >
+            {t("release.heading")}
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="mx-auto mt-3 max-w-xl text-sm text-primary-foreground/80 md:text-base"
+          >
+            {t("release.subheading")}
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mx-auto mt-2 text-[13px] md:text-sm"
+            style={{ color: "rgba(255,255,255,0.65)" }}
+          >
+            {t("release.reach")}
+          </motion.p>
+        </div>
+      </section>
 
-        {/* What We Track — 2-col on mobile */}
-        <div className="mt-6">
+      <SectionWrapper>
+        {/* What We Track */}
+        <div>
           <motion.h2 {...fadeUp(0)} className="mb-4 text-base font-semibold md:text-xl">
             {t("release.trackHeading")}
           </motion.h2>
@@ -96,7 +126,7 @@ const ReleaseReadiness = () => {
           </div>
         </div>
 
-        {/* Explanation Panel */}
+        {/* Governance explanation */}
         <motion.div
           {...fadeUp(0.1)}
           className="mt-6 rounded-lg border border-border bg-accent/50 p-4 md:mt-10 md:p-6"
