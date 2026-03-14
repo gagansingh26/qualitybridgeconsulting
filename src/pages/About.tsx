@@ -32,7 +32,7 @@ const content = {
     founderName: "Gagan Singh",
     founderTitle: "Founder",
     founderLocation: "Greater Toronto Area, Canada",
-    founderExperience: "10+ years · Europe · Asia · North America",
+    founderExperience: "10+ years · North America · Europe · Asia",
     founderCta: "Connect on LinkedIn",
     intro: "QualityBridge Consulting was built on a simple frustration: too many enterprise programmes ship late, break in production, and leave business stakeholders without the visibility they need to make confident decisions. We exist to fix that.",
     bullets: [
@@ -40,8 +40,8 @@ const content = {
       "Automation-first quality engineering using Cypress, Playwright, and AI-assisted test design.",
       "Purpose-built web applications, dashboards, and digital tools for enterprise and growing businesses.",
     ],
-    paragraph1: "The experience behind QualityBridge spans over a decade of enterprise delivery — working across Johnson & Johnson, Workday, Alight, and Aon, as well as programmes in medical devices, luxury retail, and financial services across teams in Germany, India, and North America. That breadth is what makes it possible to walk into a complex programme and know what good looks like.",
-    paragraph2: "We work with a carefully selected network of specialist partners across Europe, Asia, and North America — each vetted for their domain expertise and delivery track record. Clients get access to the right capability at every phase, without the overhead of managing multiple vendors.",
+    paragraph1: "The experience behind QualityBridge spans over a decade of enterprise delivery — working across <strong>Johnson & Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong>, and <strong>Aon</strong>, as well as programmes in medical devices, luxury retail, and financial services across teams in North America, Germany, and India. That breadth is what makes it possible to walk into a complex programme and know what good looks like.",
+    paragraph2: "We work with a carefully selected network of specialist partners across North America, Europe, and India — each vetted for their domain expertise and delivery track record. Clients get access to the right capability at every phase, without the overhead of managing multiple vendors.",
     paragraph3: "Whether you're running a SAP transformation, scaling a QA practice, or building a digital product — the standard doesn't change. Structure, transparency, and no surprises.",
     ctaGetInTouch: "Get in Touch",
     ctaViewWork: "View LinkedIn",
@@ -49,7 +49,7 @@ const content = {
     statsLabels: {
       experience: "Experience",
       regions: "Regions",
-      regionsSub: "Europe · Asia · North America",
+      regionsSub: "North America · Europe · India",
       strength: "Strength",
       focus: "Focus",
     },
@@ -74,10 +74,10 @@ const content = {
     toolboxIntro: "Tools and frameworks used across delivery engagements for automation, observability, and release governance.",
     focusAreas: "Focus Areas",
     focusAreasData: [
-      { id: "devtestops", title: "DevTestOps & CI/CD Quality Gates", content: "Embedding automated quality gates into CI/CD pipelines to enforce standards at every stage — from unit tests through to release readiness. Using Jenkins, GitHub Actions, and Docker to build repeatable, scalable delivery workflows." },
-      { id: "sap", title: "SAP & ERP Test Governance", content: "Structured UAT governance and release readiness for SAP S/4HANA programmes — with defined quality gates, stakeholder sign-offs, and risk-based go/no-go decisions. Experienced across full S/4HANA implementation and migration lifecycles." },
-      { id: "ai", title: "AI-Enabled Quality Engineering", content: "Applying Generative AI and LLMs to test design, risk identification, and automation acceleration. Reducing manual effort while improving coverage and feedback speed across complex enterprise platforms." },
-      { id: "web", title: "Digital Development & Web Applications", content: "Building modern, performant web applications and reporting dashboards — from rapid prototypes to production-grade tools. Bridging the gap between complex enterprise backends and polished, stakeholder-ready digital experiences." },
+      { id: "devtestops", title: "DevTestOps & CI/CD Quality Gates", outcome: "50–70% faster regression cycles achieved across engagements.", content: "Embedding automated quality gates into CI/CD pipelines to enforce standards at every stage — from unit tests through to release readiness. Using Jenkins, GitHub Actions, and Docker to build repeatable, scalable delivery workflows." },
+      { id: "sap", title: "SAP & ERP Test Governance", outcome: "Release cadence improved from quarterly to bi-weekly on SAP programmes.", content: "Structured UAT governance and release readiness for SAP S/4HANA programmes — with defined quality gates, stakeholder sign-offs, and risk-based go/no-go decisions. Experienced across full S/4HANA implementation and migration lifecycles." },
+      { id: "ai", title: "AI-Enabled Quality Engineering", outcome: "30–40% reduction in production defect leakage through shift-left validation.", content: "Applying Generative AI and LLMs to test design, risk identification, and automation acceleration. Reducing manual effort while improving coverage and feedback speed across complex enterprise platforms." },
+      { id: "web", title: "Digital Development & Web Applications", outcome: "End-to-end digital tools delivered from prototype to production.", content: "Building modern, performant web applications and reporting dashboards — from rapid prototypes to production-grade tools. Bridging the gap between complex enterprise backends and polished, stakeholder-ready digital experiences." },
     ],
     openToConversation: "Ready to work together?",
     openToConversationBody: "Whether you're planning a SAP programme, scaling your QA practice, or building a digital product — let's start with a conversation.",
@@ -98,7 +98,7 @@ const content = {
     founderName: "Gagan Singh",
     founderTitle: "Gründer",
     founderLocation: "Greater Toronto Area, Kanada",
-    founderExperience: "10+ Jahre · Europa · Asien · Nordamerika",
+    founderExperience: "10+ Jahre · Nordamerika · Europa · Asien",
     founderCta: "Auf LinkedIn verbinden",
     intro: "QualityBridge Consulting entstand aus einer einfachen Frustration: Zu viele Enterprise-Programme liefern zu spät, scheitern in der Produktion und lassen Stakeholder ohne die Transparenz zurück, die sie für sichere Entscheidungen brauchen. Wir existieren, um das zu ändern.",
     bullets: [
@@ -106,8 +106,8 @@ const content = {
       "Automatisierungsorientiertes Quality Engineering mit Cypress, Playwright und KI-gestütztem Testdesign.",
       "Maßgeschneiderte Webanwendungen, Dashboards und digitale Tools für Unternehmen.",
     ],
-    paragraph1: "Die Erfahrung hinter QualityBridge umfasst über ein Jahrzehnt Enterprise-Delivery — mit Einsätzen bei Johnson & Johnson, Workday, Alight und Aon sowie Programmen in Medizingeräten, Luxuseinzelhandel und Finanzdienstleistungen, in Teams in Deutschland, Indien und Nordamerika. Diese Breite ermöglicht es, in ein komplexes Programm einzusteigen und zu wissen, wie gut aussieht.",
-    paragraph2: "Wir arbeiten mit einem sorgfältig ausgewählten Netzwerk von Spezialisten aus Europa, Asien und Nordamerika — jeweils geprüft auf Fachkompetenz und Lieferbilanz. Kunden erhalten in jeder Phase Zugang zur richtigen Kompetenz, ohne den Aufwand mehrerer Lieferanten.",
+    paragraph1: "Die Erfahrung hinter QualityBridge umfasst über ein Jahrzehnt Enterprise-Delivery — mit Einsätzen bei <strong>Johnson & Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong> und <strong>Aon</strong> sowie Programmen in Medizingeräten, Luxuseinzelhandel und Finanzdienstleistungen, in Teams in Nordamerika, Deutschland und Indien. Diese Breite ermöglicht es, in ein komplexes Programm einzusteigen und zu wissen, wie gut aussieht.",
+    paragraph2: "Wir arbeiten mit einem sorgfältig ausgewählten Netzwerk von Spezialisten aus Nordamerika, Europa und Indien — jeweils geprüft auf Fachkompetenz und Lieferbilanz. Kunden erhalten in jeder Phase Zugang zur richtigen Kompetenz, ohne den Aufwand mehrerer Lieferanten.",
     paragraph3: "Ob SAP-Transformation, Skalierung einer QA-Praxis oder Aufbau eines digitalen Produkts — der Standard ändert sich nicht. Struktur, Transparenz und keine Überraschungen.",
     ctaGetInTouch: "Kontakt aufnehmen",
     ctaViewWork: "LinkedIn ansehen",
@@ -115,7 +115,7 @@ const content = {
     statsLabels: {
       experience: "Erfahrung",
       regions: "Regionen",
-      regionsSub: "Europa · Asien · Nordamerika",
+      regionsSub: "Nordamerika · Europa · Indien",
       strength: "Stärke",
       focus: "Fokus",
     },
@@ -140,10 +140,10 @@ const content = {
     toolboxIntro: "Tools und Frameworks für Automatisierung, Observability und Release-Governance.",
     focusAreas: "Schwerpunkte",
     focusAreasData: [
-      { id: "devtestops", title: "DevTestOps & CI/CD-Qualitätstore", content: "Automatisierte Qualitätstore in CI/CD-Pipelines einbetten — von Unit-Tests bis zur Release-Bereitschaft. Mit Jenkins, GitHub Actions und Docker für wiederholbare, skalierbare Delivery-Workflows." },
-      { id: "sap", title: "SAP & ERP-Test-Governance", content: "Strukturierte UAT-Governance und Release-Bereitschaft für SAP S/4HANA-Programme — mit definierten Qualitätstoren, Stakeholder-Abnahmen und risikobasierten Go/No-Go-Entscheidungen." },
-      { id: "ai", title: "KI-gestütztes Quality Engineering", content: "Generative KI und LLMs für Testdesign, Risikoerkennung und Automatisierungsbeschleunigung. Weniger manueller Aufwand bei besserer Abdeckung und schnellerem Feedback." },
-      { id: "web", title: "Digitale Entwicklung & Webanwendungen", content: "Moderne, performante Webanwendungen und Reporting-Dashboards — von Rapid Prototypes bis zu produktionsreifen Tools." },
+      { id: "devtestops", title: "DevTestOps & CI/CD-Qualitätstore", outcome: "50–70% schnellere Regressionszyklen in Engagements erreicht.", content: "Automatisierte Qualitätstore in CI/CD-Pipelines einbetten — von Unit-Tests bis zur Release-Bereitschaft. Mit Jenkins, GitHub Actions und Docker für wiederholbare, skalierbare Delivery-Workflows." },
+      { id: "sap", title: "SAP & ERP-Test-Governance", outcome: "Release-Kadenz von quartalsweise auf zweiwöchentlich verbessert.", content: "Strukturierte UAT-Governance und Release-Bereitschaft für SAP S/4HANA-Programme — mit definierten Qualitätstoren, Stakeholder-Abnahmen und risikobasierten Go/No-Go-Entscheidungen." },
+      { id: "ai", title: "KI-gestütztes Quality Engineering", outcome: "30–40% weniger Produktionsfehler durch Shift-Left-Validierung.", content: "Generative KI und LLMs für Testdesign, Risikoerkennung und Automatisierungsbeschleunigung. Weniger manueller Aufwand bei besserer Abdeckung und schnellerem Feedback." },
+      { id: "web", title: "Digitale Entwicklung & Webanwendungen", outcome: "End-to-End-Digitaltools vom Prototyp bis zur Produktion geliefert.", content: "Moderne, performante Webanwendungen und Reporting-Dashboards — von Rapid Prototypes bis zu produktionsreifen Tools." },
     ],
     openToConversation: "Bereit zusammenzuarbeiten?",
     openToConversationBody: "Ob Sie ein SAP-Programm planen, Ihre QA-Praxis skalieren oder ein digitales Produkt aufbauen — lassen Sie uns mit einem Gespräch beginnen.",
@@ -164,7 +164,7 @@ const content = {
     founderName: "Gagan Singh",
     founderTitle: "Fondateur",
     founderLocation: "Grand Toronto, Canada",
-    founderExperience: "10+ ans · Europe · Asie · Amérique du Nord",
+    founderExperience: "10+ ans · Amérique du Nord · Europe · Asie",
     founderCta: "Se connecter sur LinkedIn",
     intro: "QualityBridge Consulting est né d'une frustration simple : trop de programmes d'entreprise livrent en retard, échouent en production et laissent les parties prenantes sans la visibilité dont elles ont besoin pour prendre des décisions confiantes. Nous existons pour changer cela.",
     bullets: [
@@ -172,8 +172,8 @@ const content = {
       "Ingénierie qualité axée sur l'automatisation avec Cypress, Playwright et conception de tests assistée par IA.",
       "Applications web sur mesure, tableaux de bord et outils digitaux pour les entreprises.",
     ],
-    paragraph1: "L'expérience derrière QualityBridge couvre plus d'une décennie de livraison d'entreprise — avec des missions chez Johnson & Johnson, Workday, Alight et Aon, ainsi que des programmes dans les dispositifs médicaux, le luxe et les services financiers, dans des équipes en Allemagne, en Inde et en Amérique du Nord. Cette diversité permet d'entrer dans un programme complexe et de savoir à quoi ressemble la qualité.",
-    paragraph2: "Nous travaillons avec un réseau soigneusement sélectionné de partenaires spécialisés en Europe, Asie et Amérique du Nord — chacun vérifié pour son expertise et son bilan. Les clients accèdent à la bonne compétence à chaque phase, sans la complexité de gérer plusieurs fournisseurs.",
+    paragraph1: "L'expérience derrière QualityBridge couvre plus d'une décennie de livraison d'entreprise — avec des missions chez <strong>Johnson & Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong> et <strong>Aon</strong>, ainsi que des programmes dans les dispositifs médicaux, le luxe et les services financiers, dans des équipes en Amérique du Nord, en Allemagne et en Inde. Cette diversité permet d'entrer dans un programme complexe et de savoir à quoi ressemble la qualité.",
+    paragraph2: "Nous travaillons avec un réseau soigneusement sélectionné de partenaires spécialisés en Amérique du Nord, en Europe et en Inde — chacun vérifié pour son expertise et son bilan. Les clients accèdent à la bonne compétence à chaque phase, sans la complexité de gérer plusieurs fournisseurs.",
     paragraph3: "Que vous meniez une transformation SAP, développiez une pratique QA ou construisiez un produit digital — le standard ne change pas. Structure, transparence et sans surprises.",
     ctaGetInTouch: "Nous contacter",
     ctaViewWork: "Voir LinkedIn",
@@ -181,7 +181,7 @@ const content = {
     statsLabels: {
       experience: "Expérience",
       regions: "Régions",
-      regionsSub: "Europe · Asie · Amérique du Nord",
+      regionsSub: "Amérique du Nord · Europe · Inde",
       strength: "Force",
       focus: "Focus",
     },
@@ -206,10 +206,10 @@ const content = {
     toolboxIntro: "Outils et frameworks utilisés pour l'automatisation, l'observabilité et la gouvernance des versions.",
     focusAreas: "Domaines de spécialisation",
     focusAreasData: [
-      { id: "devtestops", title: "DevTestOps & Portes qualité CI/CD", content: "Intégrer des portes qualité automatisées dans les pipelines CI/CD — des tests unitaires à la préparation aux versions. Avec Jenkins, GitHub Actions et Docker pour des workflows de livraison répétables et évolutifs." },
-      { id: "sap", title: "Gouvernance des tests SAP & ERP", content: "Gouvernance UAT structurée et préparation aux versions pour les programmes SAP S/4HANA — avec des portes qualité définies, des approbations des parties prenantes et des décisions go/no-go basées sur les risques." },
-      { id: "ai", title: "Ingénierie qualité assistée par IA", content: "Appliquer l'IA générative et les LLMs à la conception des tests, l'identification des risques et l'accélération de l'automatisation." },
-      { id: "web", title: "Développement digital & Applications web", content: "Construire des applications web modernes et performantes — des prototypes rapides aux outils prêts pour la production." },
+      { id: "devtestops", title: "DevTestOps & Portes qualité CI/CD", outcome: "50–70% de cycles de régression plus rapides atteints.", content: "Intégrer des portes qualité automatisées dans les pipelines CI/CD — des tests unitaires à la préparation aux versions. Avec Jenkins, GitHub Actions et Docker pour des workflows de livraison répétables et évolutifs." },
+      { id: "sap", title: "Gouvernance des tests SAP & ERP", outcome: "Cadence de version améliorée de trimestrielle à bimensuelle.", content: "Gouvernance UAT structurée et préparation aux versions pour les programmes SAP S/4HANA — avec des portes qualité définies, des approbations des parties prenantes et des décisions go/no-go basées sur les risques." },
+      { id: "ai", title: "Ingénierie qualité assistée par IA", outcome: "30–40% de réduction des défauts en production grâce à la validation shift-left.", content: "Appliquer l'IA générative et les LLMs à la conception des tests, l'identification des risques et l'accélération de l'automatisation." },
+      { id: "web", title: "Développement digital & Applications web", outcome: "Outils digitaux end-to-end livrés du prototype à la production.", content: "Construire des applications web modernes et performantes — des prototypes rapides aux outils prêts pour la production." },
     ],
     openToConversation: "Prêt à travailler ensemble ?",
     openToConversationBody: "Que vous planifiez un programme SAP, développiez votre pratique QA ou construisiez un produit digital — commençons par une conversation.",
@@ -316,20 +316,11 @@ const About = () => {
                   </li>
                 ))}
               </ul>
-              <div className="flex flex-wrap gap-1.5 pt-1">
-                <Badge variant="secondary" className="text-xs">Digital Development</Badge>
-                <Badge variant="secondary" className="text-xs">SAP Governance</Badge>
-                <Badge variant="secondary" className="text-xs">Quality Engineering</Badge>
-                <Badge variant="secondary" className="text-xs">DevTestOps</Badge>
-                <Badge variant="secondary" className="text-xs">CI/CD</Badge>
-                <Badge variant="secondary" className="text-xs">GenAI / LLMs</Badge>
-              </div>
               <div className="space-y-3 text-sm text-muted-foreground leading-relaxed pt-1">
-                <p>{a.paragraph1}</p>
+                <p dangerouslySetInnerHTML={{ __html: a.paragraph1 }} />
                 <p>{a.paragraph2}</p>
-                <p>{a.paragraph3}</p>
+                <p className="italic border-l-2 border-primary/30 pl-3">{a.paragraph3}</p>
               </div>
-
             </div>
 
             {/* Right — cards */}
@@ -339,36 +330,13 @@ const About = () => {
                   <CardTitle className="font-display text-base md:text-lg">{a.atAGlance}</CardTitle>
                 </CardHeader>
                 <CardContent className="px-4 pb-4 space-y-4">
-                  <div className="grid grid-cols-2 gap-2 md:gap-3">
-                    <div className="rounded-lg border border-border bg-card p-3">
-                      <p className="text-xs text-muted-foreground mb-1">{a.statsLabels.experience}</p>
-                      <p className="text-xl font-semibold text-foreground">10+
-                        <span className="text-sm font-normal text-muted-foreground ml-1">
-                          {lang === "de" ? "J." : lang === "fr" ? "ans" : "yrs"}
-                        </span>
-                      </p>
-                    </div>
-                    <div className="rounded-lg border border-border bg-card p-3">
-                      <p className="text-xs text-muted-foreground mb-1">{a.statsLabels.regions}</p>
-                      <p className="text-xl font-semibold text-foreground">3</p>
-                      <p className="text-[10px] text-muted-foreground mt-0.5 leading-tight">{a.statsLabels.regionsSub}</p>
-                    </div>
-                    <div className="rounded-lg border border-border bg-card p-3">
-                      <p className="text-xs text-muted-foreground mb-1">{a.statsLabels.strength}</p>
-                      <p className="text-sm font-semibold text-foreground leading-tight">QE + Tech Delivery</p>
-                    </div>
-                    <div className="rounded-lg border border-border bg-card p-3">
-                      <p className="text-xs text-muted-foreground mb-1">{a.statsLabels.focus}</p>
-                      <p className="text-sm font-semibold text-foreground leading-tight">AI-enabled DevTestOps</p>
-                    </div>
-                  </div>
-                  <Separator />
                   <div>
                     <p className="text-xs font-medium text-foreground mb-2">{a.platforms}</p>
                     <div className="flex flex-wrap gap-1.5">
                       {platforms.map((p) => <Badge key={p} variant="outline" className="text-xs">{p}</Badge>)}
                     </div>
                   </div>
+                  <Separator />
                   <div>
                     <p className="text-xs font-medium text-foreground mb-2">{a.industries}</p>
                     <div className="flex flex-wrap gap-1.5">
@@ -437,8 +405,9 @@ const About = () => {
                         <span className="font-display font-semibold text-foreground text-sm text-left">{area.title}</span>
                       </div>
                     </AccordionTrigger>
-                    <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-4">
-                      {area.content}
+                    <AccordionContent className="pb-4">
+                      <p className="text-xs italic text-primary font-medium mb-2 border-l-2 border-primary/40 pl-3">{area.outcome}</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{area.content}</p>
                     </AccordionContent>
                   </AccordionItem>
                 );
