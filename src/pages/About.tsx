@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Briefcase, Settings, Brain, Building2, Globe, ShieldCheck, LineChart, Sparkles, CheckCircle2, ArrowRight, ExternalLink } from "lucide-react";
+import { Briefcase, Settings, Brain, Building2, Globe, ShieldCheck, LineChart, Sparkles, CheckCircle2, ArrowRight, ExternalLink, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,32 +12,36 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/gagansingh26/";
 
 const industries = ["SaaS", "ERP", "Insurance", "HealthTech", "FinTech", "eCommerce"];
 const platforms = ["Workday", "SAP S/4HANA", "Salesforce", "Microsoft Dynamics 365"];
-const toolbox = ["Jenkins", "GitHub Actions", "Docker", "Grafana", "Datadog", "Automation Frameworks", "Quality Gates", "Release Governance"];
+const toolbox = ["Cypress", "Playwright", "Jenkins", "GitHub Actions", "Docker", "Grafana", "Datadog", "Azure DevOps", "Quality Gates", "Release Governance"];
 
 const principleIcons = [ShieldCheck, LineChart, Sparkles, Globe];
 const focusIcons = [Briefcase, Settings, Brain, Building2];
 
 const content = {
   en: {
-    heading: "About QualityBridge",
+    heading: "About QualityBridge Consulting",
     heroPills: ["Digital Development", "SAP Governance & UAT", "Test Automation & Quality"],
-    heroTitle: "Enterprise Delivery,",
-    heroAccent: "Done Right.",
-    heroSubtitle: "Helping organisations deliver SAP programmes and digital products with confidence — managed locally in Canada, supported by a vetted global partner network.",
+    heroTitle: "10 years. 3 continents.",
+    heroAccent: "One standard.",
+    heroSubtitle: "Enterprise delivery built on real programmes, real outcomes, and a network of specialists who've done it before.",
     heroStats: [
-      { value: "10+", label: "Years Experience" },
-      { value: "EU · Asia · Americas", label: "Regions Delivered" },
-      { value: "6+", label: "Industries Served" },
+      { value: "50–70%", label: "Faster regression cycles" },
+      { value: "Quarterly → Bi-weekly", label: "Release cadence achieved" },
+      { value: "30–40%", label: "Less production defects" },
     ],
-    intro: "QualityBridge is a Canada-based delivery consultancy specialising in SAP governance, quality engineering, and digital development. We combine deep technical expertise with a vetted global partner network — so clients get world-class capability with a single, accountable point of contact.",
+    founderName: "Gagan Singh",
+    founderTitle: "Founder",
+    founderLocation: "Greater Toronto Area, Canada",
+    founderCta: "Connect on LinkedIn",
+    intro: "QualityBridge Consulting was built on a simple frustration: too many enterprise programmes ship late, break in production, and leave business stakeholders without the visibility they need to make confident decisions. We exist to fix that.",
     bullets: [
       "SAP S/4HANA UAT governance, release readiness, and structured go/no-go decisions.",
       "Automation-first quality engineering using Cypress, Playwright, and AI-assisted test design.",
       "Purpose-built web applications, dashboards, and digital tools for enterprise and growing businesses.",
     ],
-    paragraph1: "Our approach is built on one principle: quality should be embedded throughout delivery, not bolted on at the end. Every engagement starts with understanding your programme, your risks, and your definition of done — then we build the governance and automation framework around that.",
-    paragraph2: "We work with a carefully selected network of specialist partners across Europe, Asia, and North America — each vetted for their domain expertise and track record. This gives clients access to the right capability for every phase of delivery, without the overhead of managing multiple vendors.",
-    paragraph3: "Whether you're running a complex SAP transformation, scaling your QA practice, or building a digital product from scratch — we deliver with structure, transparency, and no surprises.",
+    paragraph1: "The experience behind QualityBridge spans over a decade of enterprise delivery — working across Johnson & Johnson, Workday, Alight, and Aon, as well as programmes in medical devices, luxury retail, and financial services across teams in Germany, India, and North America. That breadth is what makes it possible to walk into a complex programme and know what good looks like.",
+    paragraph2: "We work with a carefully selected network of specialist partners across Europe, Asia, and North America — each vetted for their domain expertise and delivery track record. Clients get access to the right capability at every phase, without the overhead of managing multiple vendors.",
+    paragraph3: "Whether you're running a SAP transformation, scaling a QA practice, or building a digital product — the standard doesn't change. Structure, transparency, and no surprises.",
     ctaGetInTouch: "Get in Touch",
     ctaViewWork: "View LinkedIn",
     atAGlance: "At a Glance",
@@ -58,7 +62,7 @@ const content = {
       "Access to vetted global specialists matched to your exact programme needs.",
     ],
     howIApproach: "How We Approach Delivery",
-    approachIntro: "Every engagement follows the same core model: local oversight, global expertise, and quality embedded at every stage — from initial scoping through to post go-live stabilisation.",
+    approachIntro: "Every engagement follows the same model: understand the programme, embed quality early, and never let a release decision be made on gut feel.",
     principles: [
       { title: "Shift-Left Quality", desc: "Catching issues early in the pipeline is cheaper, faster, and less disruptive than fixing them at UAT." },
       { title: "Metrics-Driven Decisions", desc: "Release decisions backed by defect trends, coverage data, and readiness signals — not gut feel." },
@@ -80,25 +84,29 @@ const content = {
     ctaLinkedIn: "LinkedIn",
   },
   de: {
-    heading: "Über QualityBridge",
+    heading: "Über QualityBridge Consulting",
     heroPills: ["Digitale Entwicklung", "SAP-Governance & UAT", "Testautomatisierung & Qualität"],
-    heroTitle: "Enterprise-Lieferung,",
-    heroAccent: "richtig gemacht.",
-    heroSubtitle: "Organisationen helfen, SAP-Programme und digitale Produkte mit Vertrauen zu liefern — lokal in Kanada gemanagt, unterstützt durch ein geprüftes globales Partnernetzwerk.",
+    heroTitle: "10 Jahre. 3 Kontinente.",
+    heroAccent: "Ein Standard.",
+    heroSubtitle: "Enterprise-Delivery auf Basis realer Programme, echter Ergebnisse und einem Netzwerk von Spezialisten, die es schon getan haben.",
     heroStats: [
-      { value: "10+", label: "Jahre Erfahrung" },
-      { value: "EU · Asien · Amerika", label: "Regionen" },
-      { value: "6+", label: "Branchen" },
+      { value: "50–70%", label: "Schnellere Regressionszyklen" },
+      { value: "Quartalsweise → Zweiwöchentlich", label: "Release-Kadenz erreicht" },
+      { value: "30–40%", label: "Weniger Produktionsfehler" },
     ],
-    intro: "QualityBridge ist eine kanadische Delivery-Beratung, spezialisiert auf SAP-Governance, Qualitätssicherung und digitale Entwicklung. Wir kombinieren tiefes technisches Know-how mit einem geprüften globalen Partnernetzwerk — damit Kunden erstklassige Kompetenz mit einem einzigen, verantwortlichen Ansprechpartner erhalten.",
+    founderName: "Gagan Singh",
+    founderTitle: "Gründer",
+    founderLocation: "Greater Toronto Area, Kanada",
+    founderCta: "Auf LinkedIn verbinden",
+    intro: "QualityBridge Consulting entstand aus einer einfachen Frustration: Zu viele Enterprise-Programme liefern zu spät, scheitern in der Produktion und lassen Stakeholder ohne die Transparenz zurück, die sie für sichere Entscheidungen brauchen. Wir existieren, um das zu ändern.",
     bullets: [
       "SAP S/4HANA UAT-Governance, Release-Bereitschaft und strukturierte Go/No-Go-Entscheidungen.",
       "Automatisierungsorientiertes Quality Engineering mit Cypress, Playwright und KI-gestütztem Testdesign.",
       "Maßgeschneiderte Webanwendungen, Dashboards und digitale Tools für Unternehmen.",
     ],
-    paragraph1: "Unser Ansatz basiert auf einem Prinzip: Qualität sollte von Anfang an im Delivery-Prozess verankert sein — nicht erst am Ende. Jedes Engagement beginnt damit, Ihr Programm, Ihre Risiken und Ihre Definition von Fertig zu verstehen — dann bauen wir darauf die passende Governance und den Automatisierungsrahmen auf.",
-    paragraph2: "Wir arbeiten mit einem sorgfältig ausgewählten Netzwerk von Spezialisten aus Europa, Asien und Nordamerika — jeweils geprüft auf Fachkompetenz und Erfolgsbilanz. Das gibt Kunden Zugang zur richtigen Kompetenz für jede Delivery-Phase, ohne den Aufwand mehrerer Lieferanten.",
-    paragraph3: "Ob komplexe SAP-Transformation, Skalierung Ihrer QA-Praxis oder Aufbau eines digitalen Produkts — wir liefern strukturiert, transparent und ohne Überraschungen.",
+    paragraph1: "Die Erfahrung hinter QualityBridge umfasst über ein Jahrzehnt Enterprise-Delivery — mit Einsätzen bei Johnson & Johnson, Workday, Alight und Aon sowie Programmen in Medizingeräten, Luxuseinzelhandel und Finanzdienstleistungen, in Teams in Deutschland, Indien und Nordamerika. Diese Breite ermöglicht es, in ein komplexes Programm einzusteigen und zu wissen, wie gut aussieht.",
+    paragraph2: "Wir arbeiten mit einem sorgfältig ausgewählten Netzwerk von Spezialisten aus Europa, Asien und Nordamerika — jeweils geprüft auf Fachkompetenz und Lieferbilanz. Kunden erhalten in jeder Phase Zugang zur richtigen Kompetenz, ohne den Aufwand mehrerer Lieferanten.",
+    paragraph3: "Ob SAP-Transformation, Skalierung einer QA-Praxis oder Aufbau eines digitalen Produkts — der Standard ändert sich nicht. Struktur, Transparenz und keine Überraschungen.",
     ctaGetInTouch: "Kontakt aufnehmen",
     ctaViewWork: "LinkedIn ansehen",
     atAGlance: "Auf einen Blick",
@@ -119,7 +127,7 @@ const content = {
       "Zugang zu geprüften globalen Spezialisten, passend zu Ihren Programmanforderungen.",
     ],
     howIApproach: "Unser Delivery-Ansatz",
-    approachIntro: "Jedes Engagement folgt demselben Kernmodell: lokale Übersicht, globale Expertise und Qualität in jeder Phase — vom ersten Scoping bis zur Post-Go-live-Stabilisierung.",
+    approachIntro: "Jedes Engagement folgt demselben Modell: das Programm verstehen, Qualität früh einbetten und Release-Entscheidungen nie aus dem Bauch heraus treffen.",
     principles: [
       { title: "Shift-Left-Qualität", desc: "Probleme früh in der Pipeline zu finden ist günstiger, schneller und weniger störend als sie im UAT zu beheben." },
       { title: "Datengetriebene Entscheidungen", desc: "Release-Entscheidungen auf Basis von Fehlertrends, Coverage-Daten und Bereitschaftssignalen — nicht nach Gefühl." },
@@ -141,25 +149,29 @@ const content = {
     ctaLinkedIn: "LinkedIn",
   },
   fr: {
-    heading: "À propos de QualityBridge",
+    heading: "À propos de QualityBridge Consulting",
     heroPills: ["Développement digital", "Gouvernance SAP & UAT", "Automatisation des tests & Qualité"],
-    heroTitle: "Livraison d'entreprise,",
-    heroAccent: "faite comme il se doit.",
-    heroSubtitle: "Aider les organisations à livrer des programmes SAP et des produits digitaux en toute confiance — géré localement au Canada, soutenu par un réseau mondial de partenaires vérifiés.",
+    heroTitle: "10 ans. 3 continents.",
+    heroAccent: "Un seul standard.",
+    heroSubtitle: "Une livraison d'entreprise fondée sur de vrais programmes, de vrais résultats et un réseau de spécialistes qui l'ont déjà fait.",
     heroStats: [
-      { value: "10+", label: "Ans d'expérience" },
-      { value: "UE · Asie · Amériques", label: "Régions" },
-      { value: "6+", label: "Industries" },
+      { value: "50–70%", label: "Cycles de régression plus rapides" },
+      { value: "Trimestriel → Bimensuel", label: "Cadence de version atteinte" },
+      { value: "30–40%", label: "Moins de défauts en production" },
     ],
-    intro: "QualityBridge est un cabinet de conseil en livraison basé au Canada, spécialisé dans la gouvernance SAP, l'ingénierie qualité et le développement digital. Nous combinons une expertise technique approfondie avec un réseau mondial de partenaires vérifiés — pour que les clients bénéficient d'une capacité de classe mondiale avec un seul point de contact responsable.",
+    founderName: "Gagan Singh",
+    founderTitle: "Fondateur",
+    founderLocation: "Grand Toronto, Canada",
+    founderCta: "Se connecter sur LinkedIn",
+    intro: "QualityBridge Consulting est né d'une frustration simple : trop de programmes d'entreprise livrent en retard, échouent en production et laissent les parties prenantes sans la visibilité dont elles ont besoin pour prendre des décisions confiantes. Nous existons pour changer cela.",
     bullets: [
       "Gouvernance UAT SAP S/4HANA, préparation aux versions et décisions go/no-go structurées.",
       "Ingénierie qualité axée sur l'automatisation avec Cypress, Playwright et conception de tests assistée par IA.",
       "Applications web sur mesure, tableaux de bord et outils digitaux pour les entreprises.",
     ],
-    paragraph1: "Notre approche repose sur un principe : la qualité doit être intégrée tout au long de la livraison, pas ajoutée à la fin. Chaque engagement commence par comprendre votre programme, vos risques et votre définition du fini — puis nous construisons le cadre de gouvernance et d'automatisation autour de cela.",
-    paragraph2: "Nous travaillons avec un réseau soigneusement sélectionné de partenaires spécialisés en Europe, Asie et Amérique du Nord — chacun vérifié pour son expertise et son bilan. Cela donne aux clients accès à la bonne compétence pour chaque phase de livraison, sans la complexité de gérer plusieurs fournisseurs.",
-    paragraph3: "Que vous meniez une transformation SAP complexe, développiez votre pratique QA ou construisiez un produit digital — nous livrons avec structure, transparence et sans surprises.",
+    paragraph1: "L'expérience derrière QualityBridge couvre plus d'une décennie de livraison d'entreprise — avec des missions chez Johnson & Johnson, Workday, Alight et Aon, ainsi que des programmes dans les dispositifs médicaux, le luxe et les services financiers, dans des équipes en Allemagne, en Inde et en Amérique du Nord. Cette diversité permet d'entrer dans un programme complexe et de savoir à quoi ressemble la qualité.",
+    paragraph2: "Nous travaillons avec un réseau soigneusement sélectionné de partenaires spécialisés en Europe, Asie et Amérique du Nord — chacun vérifié pour son expertise et son bilan. Les clients accèdent à la bonne compétence à chaque phase, sans la complexité de gérer plusieurs fournisseurs.",
+    paragraph3: "Que vous meniez une transformation SAP, développiez une pratique QA ou construisiez un produit digital — le standard ne change pas. Structure, transparence et sans surprises.",
     ctaGetInTouch: "Nous contacter",
     ctaViewWork: "Voir LinkedIn",
     atAGlance: "En un coup d'œil",
@@ -180,7 +192,7 @@ const content = {
       "Accès à des spécialistes mondiaux vérifiés adaptés à vos besoins de programme.",
     ],
     howIApproach: "Notre approche de livraison",
-    approachIntro: "Chaque engagement suit le même modèle : supervision locale, expertise mondiale et qualité intégrée à chaque étape — du cadrage initial à la stabilisation post go-live.",
+    approachIntro: "Chaque engagement suit le même modèle : comprendre le programme, intégrer la qualité tôt et ne jamais prendre une décision de version à l'instinct.",
     principles: [
       { title: "Qualité Shift-Left", desc: "Détecter les problèmes tôt dans le pipeline est moins coûteux, plus rapide et moins perturbateur qu'au stade UAT." },
       { title: "Décisions basées sur les métriques", desc: "Décisions de version basées sur les tendances des défauts, les données de couverture et les signaux de préparation." },
@@ -193,7 +205,7 @@ const content = {
     focusAreasData: [
       { id: "devtestops", title: "DevTestOps & Portes qualité CI/CD", content: "Intégrer des portes qualité automatisées dans les pipelines CI/CD — des tests unitaires à la préparation aux versions. Avec Jenkins, GitHub Actions et Docker pour des workflows de livraison répétables et évolutifs." },
       { id: "sap", title: "Gouvernance des tests SAP & ERP", content: "Gouvernance UAT structurée et préparation aux versions pour les programmes SAP S/4HANA — avec des portes qualité définies, des approbations des parties prenantes et des décisions go/no-go basées sur les risques." },
-      { id: "ai", title: "Ingénierie qualité assistée par IA", content: "Appliquer l'IA générative et les LLMs à la conception des tests, l'identification des risques et l'accélération de l'automatisation. Moins d'effort manuel avec une meilleure couverture." },
+      { id: "ai", title: "Ingénierie qualité assistée par IA", content: "Appliquer l'IA générative et les LLMs à la conception des tests, l'identification des risques et l'accélération de l'automatisation." },
       { id: "web", title: "Développement digital & Applications web", content: "Construire des applications web modernes et performantes — des prototypes rapides aux outils prêts pour la production." },
     ],
     openToConversation: "Prêt à travailler ensemble ?",
@@ -214,7 +226,7 @@ const About = () => {
     <div className="min-h-screen bg-background pb-20 md:pb-0">
       <Navbar />
 
-      {/* Hero banner — matches home page */}
+      {/* Hero */}
       <section className="enterprise-gradient relative overflow-hidden py-10 md:py-16">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10 bg-white/[0.03] md:-right-10 md:-top-10 md:h-80 md:w-80" />
@@ -222,47 +234,72 @@ const About = () => {
           <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full border border-white/[0.06] bg-white/[0.02] md:h-64 md:w-64" />
         </div>
         <div className="container relative mx-auto px-4 md:px-6 text-center">
+
           {/* Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-1.5 mb-3">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 mb-4">
             {a.heroPills.map((pill) => (
               <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-2.5 py-0.5 text-[11px] font-medium text-primary-foreground/90 md:px-3 md:py-1 md:text-xs">
                 {pill}
               </span>
             ))}
           </div>
+
           {/* Headline */}
-          <h1 className="mx-auto max-w-2xl text-[26px] font-bold leading-tight text-primary-foreground md:text-[36px] lg:text-5xl">
+          <h1 className="mx-auto max-w-2xl text-[28px] font-bold leading-tight text-primary-foreground md:text-[40px] lg:text-5xl">
             {a.heroTitle}{" "}
             <span style={{ color: "#93c5fd" }}>{a.heroAccent}</span>
           </h1>
-          {/* Subheading */}
+
           <p className="mx-auto mt-3 max-w-xl text-sm text-primary-foreground/80 md:text-base">
             {a.heroSubtitle}
           </p>
-          {/* Stats bar */}
-          <div className="mx-auto mt-6 flex max-w-sm items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-md md:mt-8 md:max-w-lg">
+
+          {/* Impact stats bar */}
+          <div className="mx-auto mt-6 flex max-w-xs items-stretch justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-2xl md:mt-8">
             {a.heroStats.map((s, i) => (
-              <div key={i} className="flex flex-1 flex-col items-center px-2 md:px-4">
-                <span className="text-sm font-bold text-primary-foreground md:text-base">{s.value}</span>
-                <span className="mt-0.5 text-[10px] text-primary-foreground/60 md:text-xs">{s.label}</span>
+              <div key={i} className="flex flex-1 flex-col items-center justify-center px-2 md:px-5">
+                <span className="text-sm font-bold text-primary-foreground md:text-base leading-tight text-center">{s.value}</span>
+                <span className="mt-0.5 text-[10px] text-primary-foreground/60 md:text-xs text-center leading-tight">{s.label}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Founder strip */}
+      <div className="border-b border-t border-border bg-card">
+        <div className="container mx-auto px-4 md:px-6 py-3">
+          <div className="flex flex-col items-center gap-1.5 sm:flex-row sm:justify-center sm:gap-5 text-sm">
+            <span className="font-semibold text-foreground">{a.founderName}</span>
+            <span className="hidden sm:inline text-muted-foreground/40">·</span>
+            <span className="text-muted-foreground text-xs">{a.founderTitle}</span>
+            <span className="hidden sm:inline text-muted-foreground/40">·</span>
+            <span className="flex items-center gap-1 text-muted-foreground text-xs">
+              <MapPin className="h-3 w-3 shrink-0" />{a.founderLocation}
+            </span>
+            <span className="hidden sm:inline text-muted-foreground/40">·</span>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-primary hover:underline text-xs font-medium"
+            >
+              <ExternalLink className="h-3 w-3 shrink-0" />{a.founderCta}
+            </a>
+          </div>
+        </div>
+      </div>
+
       <main className="pb-8 md:pb-14">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl pt-10 md:pt-14">
 
-          {/* Hero row */}
+          {/* Two-column layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-10 items-start">
 
-            {/* Left column — bio */}
+            {/* Left — bio */}
             <div className="lg:col-span-7 space-y-4">
               <h2 className="font-display text-2xl md:text-4xl font-bold text-foreground leading-tight">{a.heading}</h2>
-
               <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{a.intro}</p>
-
               <ul className="space-y-2">
                 {a.bullets.map((b, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -271,7 +308,6 @@ const About = () => {
                   </li>
                 ))}
               </ul>
-
               <div className="flex flex-wrap gap-1.5 pt-1">
                 <Badge variant="secondary" className="text-xs">Digital Development</Badge>
                 <Badge variant="secondary" className="text-xs">SAP Governance</Badge>
@@ -280,13 +316,11 @@ const About = () => {
                 <Badge variant="secondary" className="text-xs">CI/CD</Badge>
                 <Badge variant="secondary" className="text-xs">GenAI / LLMs</Badge>
               </div>
-
               <div className="space-y-3 text-sm text-muted-foreground leading-relaxed pt-1">
                 <p>{a.paragraph1}</p>
                 <p>{a.paragraph2}</p>
                 <p>{a.paragraph3}</p>
               </div>
-
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-1">
                 <Button asChild size="sm" className="w-full sm:w-auto">
                   <a href="/contact" className="inline-flex items-center justify-center gap-2">
@@ -301,7 +335,7 @@ const About = () => {
               </div>
             </div>
 
-            {/* Right column — stat cards */}
+            {/* Right — cards */}
             <div className="lg:col-span-5 space-y-4">
               <Card className="border-border">
                 <CardHeader className="pb-3 pt-4 px-4">
@@ -331,16 +365,13 @@ const About = () => {
                       <p className="text-sm font-semibold text-foreground leading-tight">AI-enabled DevTestOps</p>
                     </div>
                   </div>
-
                   <Separator />
-
                   <div>
                     <p className="text-xs font-medium text-foreground mb-2">{a.platforms}</p>
                     <div className="flex flex-wrap gap-1.5">
                       {platforms.map((p) => <Badge key={p} variant="outline" className="text-xs">{p}</Badge>)}
                     </div>
                   </div>
-
                   <div>
                     <p className="text-xs font-medium text-foreground mb-2">{a.industries}</p>
                     <div className="flex flex-wrap gap-1.5">
