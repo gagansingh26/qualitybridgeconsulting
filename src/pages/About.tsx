@@ -1,5 +1,3 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,6 +5,8 @@ import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Briefcase, Settings, Brain, Building2, Globe, ShieldCheck, LineChart, Sparkles, CheckCircle2, ArrowRight, ExternalLink } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/gagansingh26/";
 
@@ -19,16 +19,25 @@ const focusIcons = [Briefcase, Settings, Brain, Building2];
 
 const content = {
   en: {
-    heading: "About",
-    intro: "Technology Delivery & Quality Engineering professional with 10+ years building DevTestOps ways of working — automation-first testing, CI/CD quality gates, and observability — to ship predictable, low-risk releases.",
-    bullets: [
-      "Enterprise QA strategy for SaaS and ERP delivery (SAP S/4HANA, Workday).",
-      "Shift-left quality with pipeline governance and release readiness signals.",
-      "GenAI-assisted test design and automation acceleration for faster feedback.",
+    heading: "About QualityBridge",
+    heroPills: ["Digital Development", "SAP Governance & UAT", "Test Automation & Quality"],
+    heroTitle: "Enterprise Delivery,",
+    heroAccent: "Done Right.",
+    heroSubtitle: "Helping organisations deliver SAP programmes and digital products with confidence — managed locally in Canada, supported by a vetted global partner network.",
+    heroStats: [
+      { value: "10+", label: "Years Experience" },
+      { value: "EU · Asia · Americas", label: "Regions Delivered" },
+      { value: "6+", label: "Industries Served" },
     ],
-    paragraph1: "My focus is on embedding quality early in the delivery lifecycle to enable faster, more predictable, and risk-aware releases.",
-    paragraph2: "My background spans enterprise delivery across SaaS, ERP, Insurance, HealthTech, FinTech, and eCommerce — working with platforms like Workday, SAP S/4HANA, Salesforce, and Microsoft Dynamics 365. I have led cross-regional programs across Europe, Asia, and North America, aligning product, engineering, and QA teams around shared outcomes.",
-    paragraph3: "Today, I focus on applying Generative AI and LLMs to improve test design, accelerate automation, enable early risk detection, and support risk-informed, metrics-based release governance across globally distributed teams.",
+    intro: "QualityBridge is a Canada-based delivery consultancy specialising in SAP governance, quality engineering, and digital development. We combine deep technical expertise with a vetted global partner network — so clients get world-class capability with a single, accountable point of contact.",
+    bullets: [
+      "SAP S/4HANA UAT governance, release readiness, and structured go/no-go decisions.",
+      "Automation-first quality engineering using Cypress, Playwright, and AI-assisted test design.",
+      "Purpose-built web applications, dashboards, and digital tools for enterprise and growing businesses.",
+    ],
+    paragraph1: "Our approach is built on one principle: quality should be embedded throughout delivery, not bolted on at the end. Every engagement starts with understanding your programme, your risks, and your definition of done — then we build the governance and automation framework around that.",
+    paragraph2: "We work with a carefully selected network of specialist partners across Europe, Asia, and North America — each vetted for their domain expertise and track record. This gives clients access to the right capability for every phase of delivery, without the overhead of managing multiple vendors.",
+    paragraph3: "Whether you're running a complex SAP transformation, scaling your QA practice, or building a digital product from scratch — we deliver with structure, transparency, and no surprises.",
     ctaGetInTouch: "Get in Touch",
     ctaViewWork: "View LinkedIn",
     atAGlance: "At a Glance",
@@ -43,13 +52,13 @@ const content = {
     industries: "Industries",
     whatYouCanExpect: "What You Can Expect",
     expectations: [
-      "Automation-first quality strategies embedded in your CI/CD pipeline.",
+      "A single point of contact in Canada — accountable for the full engagement.",
       "Structured UAT governance and release readiness with clear go/no-go signals.",
-      "AI-assisted test design for faster feedback and reduced manual effort.",
-      "One point of contact — managed locally in Canada, delivered globally.",
+      "Automation-first quality strategies embedded in your CI/CD pipeline.",
+      "Access to vetted global specialists matched to your exact programme needs.",
     ],
-    howIApproach: "How I Approach Delivery",
-    approachIntro: "Quality is not a phase — it's a practice embedded throughout the delivery lifecycle, from pipeline design to post go-live stabilisation.",
+    howIApproach: "How We Approach Delivery",
+    approachIntro: "Every engagement follows the same core model: local oversight, global expertise, and quality embedded at every stage — from initial scoping through to post go-live stabilisation.",
     principles: [
       { title: "Shift-Left Quality", desc: "Catching issues early in the pipeline is cheaper, faster, and less disruptive than fixing them at UAT." },
       { title: "Metrics-Driven Decisions", desc: "Release decisions backed by defect trends, coverage data, and readiness signals — not gut feel." },
@@ -65,22 +74,31 @@ const content = {
       { id: "ai", title: "AI-Enabled Quality Engineering", content: "Applying Generative AI and LLMs to test design, risk identification, and automation acceleration. Reducing manual effort while improving coverage and feedback speed across complex enterprise platforms." },
       { id: "web", title: "Digital Development & Web Applications", content: "Building modern, performant web applications and reporting dashboards — from rapid prototypes to production-grade tools. Bridging the gap between complex enterprise backends and polished, stakeholder-ready digital experiences." },
     ],
-    openToConversation: "Open to a conversation?",
-    openToConversationBody: "Whether you're planning a SAP programme, scaling your QA practice, or building a digital product — let's talk about how I can help.",
+    openToConversation: "Ready to work together?",
+    openToConversationBody: "Whether you're planning a SAP programme, scaling your QA practice, or building a digital product — let's start with a conversation.",
     ctaContact: "Get in Touch",
     ctaLinkedIn: "LinkedIn",
   },
   de: {
-    heading: "Über mich",
-    intro: "Technology Delivery & Quality Engineering Profi mit 10+ Jahren Erfahrung im Aufbau von DevTestOps-Arbeitsweisen — automatisierungsorientiertes Testen, CI/CD-Qualitätstore und Observability — für vorhersehbare, risikoarme Releases.",
-    bullets: [
-      "Enterprise-QA-Strategie für SaaS- und ERP-Delivery (SAP S/4HANA, Workday).",
-      "Shift-Left-Qualität mit Pipeline-Governance und Release-Bereitschaftssignalen.",
-      "GenAI-gestütztes Testdesign und Automatisierungsbeschleunigung für schnelleres Feedback.",
+    heading: "Über QualityBridge",
+    heroPills: ["Digitale Entwicklung", "SAP-Governance & UAT", "Testautomatisierung & Qualität"],
+    heroTitle: "Enterprise-Lieferung,",
+    heroAccent: "richtig gemacht.",
+    heroSubtitle: "Organisationen helfen, SAP-Programme und digitale Produkte mit Vertrauen zu liefern — lokal in Kanada gemanagt, unterstützt durch ein geprüftes globales Partnernetzwerk.",
+    heroStats: [
+      { value: "10+", label: "Jahre Erfahrung" },
+      { value: "EU · Asien · Amerika", label: "Regionen" },
+      { value: "6+", label: "Branchen" },
     ],
-    paragraph1: "Mein Fokus liegt darauf, Qualität früh im Delivery-Lebenszyklus zu verankern, um schnellere, vorhersehbarere und risikobewusste Releases zu ermöglichen.",
-    paragraph2: "Mein Hintergrund umfasst Enterprise-Delivery in SaaS, ERP, Versicherung, HealthTech, FinTech und E-Commerce — mit Plattformen wie Workday, SAP S/4HANA, Salesforce und Microsoft Dynamics 365. Ich habe cross-regionale Programme in Europa, Asien und Nordamerika geleitet und dabei Produkt-, Engineering- und QA-Teams auf gemeinsame Ziele ausgerichtet.",
-    paragraph3: "Heute konzentriere ich mich auf den Einsatz von Generativer KI und LLMs zur Verbesserung des Testdesigns, Beschleunigung der Automatisierung, frühzeitigen Risikoerkennung und metrikbasierten Release-Governance in global verteilten Teams.",
+    intro: "QualityBridge ist eine kanadische Delivery-Beratung, spezialisiert auf SAP-Governance, Qualitätssicherung und digitale Entwicklung. Wir kombinieren tiefes technisches Know-how mit einem geprüften globalen Partnernetzwerk — damit Kunden erstklassige Kompetenz mit einem einzigen, verantwortlichen Ansprechpartner erhalten.",
+    bullets: [
+      "SAP S/4HANA UAT-Governance, Release-Bereitschaft und strukturierte Go/No-Go-Entscheidungen.",
+      "Automatisierungsorientiertes Quality Engineering mit Cypress, Playwright und KI-gestütztem Testdesign.",
+      "Maßgeschneiderte Webanwendungen, Dashboards und digitale Tools für Unternehmen.",
+    ],
+    paragraph1: "Unser Ansatz basiert auf einem Prinzip: Qualität sollte von Anfang an im Delivery-Prozess verankert sein — nicht erst am Ende. Jedes Engagement beginnt damit, Ihr Programm, Ihre Risiken und Ihre Definition von Fertig zu verstehen — dann bauen wir darauf die passende Governance und den Automatisierungsrahmen auf.",
+    paragraph2: "Wir arbeiten mit einem sorgfältig ausgewählten Netzwerk von Spezialisten aus Europa, Asien und Nordamerika — jeweils geprüft auf Fachkompetenz und Erfolgsbilanz. Das gibt Kunden Zugang zur richtigen Kompetenz für jede Delivery-Phase, ohne den Aufwand mehrerer Lieferanten.",
+    paragraph3: "Ob komplexe SAP-Transformation, Skalierung Ihrer QA-Praxis oder Aufbau eines digitalen Produkts — wir liefern strukturiert, transparent und ohne Überraschungen.",
     ctaGetInTouch: "Kontakt aufnehmen",
     ctaViewWork: "LinkedIn ansehen",
     atAGlance: "Auf einen Blick",
@@ -95,13 +113,13 @@ const content = {
     industries: "Branchen",
     whatYouCanExpect: "Was Sie erwarten können",
     expectations: [
-      "Automatisierungsorientierte Qualitätsstrategien in Ihrer CI/CD-Pipeline.",
+      "Ein einziger Ansprechpartner in Kanada — verantwortlich für das gesamte Engagement.",
       "Strukturierte UAT-Governance und Release-Bereitschaft mit klaren Go/No-Go-Signalen.",
-      "KI-gestütztes Testdesign für schnelleres Feedback und weniger manuellen Aufwand.",
-      "Ein Ansprechpartner — lokal in Kanada gemanagt, global geliefert.",
+      "Automatisierungsorientierte Qualitätsstrategien in Ihrer CI/CD-Pipeline.",
+      "Zugang zu geprüften globalen Spezialisten, passend zu Ihren Programmanforderungen.",
     ],
-    howIApproach: "Mein Delivery-Ansatz",
-    approachIntro: "Qualität ist keine Phase — sie ist eine Praxis, die den gesamten Delivery-Lebenszyklus durchzieht, vom Pipeline-Design bis zur Post-Go-live-Stabilisierung.",
+    howIApproach: "Unser Delivery-Ansatz",
+    approachIntro: "Jedes Engagement folgt demselben Kernmodell: lokale Übersicht, globale Expertise und Qualität in jeder Phase — vom ersten Scoping bis zur Post-Go-live-Stabilisierung.",
     principles: [
       { title: "Shift-Left-Qualität", desc: "Probleme früh in der Pipeline zu finden ist günstiger, schneller und weniger störend als sie im UAT zu beheben." },
       { title: "Datengetriebene Entscheidungen", desc: "Release-Entscheidungen auf Basis von Fehlertrends, Coverage-Daten und Bereitschaftssignalen — nicht nach Gefühl." },
@@ -117,22 +135,31 @@ const content = {
       { id: "ai", title: "KI-gestütztes Quality Engineering", content: "Generative KI und LLMs für Testdesign, Risikoerkennung und Automatisierungsbeschleunigung. Weniger manueller Aufwand bei besserer Abdeckung und schnellerem Feedback." },
       { id: "web", title: "Digitale Entwicklung & Webanwendungen", content: "Moderne, performante Webanwendungen und Reporting-Dashboards — von Rapid Prototypes bis zu produktionsreifen Tools." },
     ],
-    openToConversation: "Interesse an einem Gespräch?",
-    openToConversationBody: "Ob Sie ein SAP-Programm planen, Ihre QA-Praxis skalieren oder ein digitales Produkt aufbauen — lassen Sie uns sprechen.",
+    openToConversation: "Bereit zusammenzuarbeiten?",
+    openToConversationBody: "Ob Sie ein SAP-Programm planen, Ihre QA-Praxis skalieren oder ein digitales Produkt aufbauen — lassen Sie uns mit einem Gespräch beginnen.",
     ctaContact: "Kontakt aufnehmen",
     ctaLinkedIn: "LinkedIn",
   },
   fr: {
-    heading: "À propos",
-    intro: "Professionnel Technology Delivery & Quality Engineering avec 10+ ans d'expérience dans la construction de pratiques DevTestOps — tests automatisation-first, portes qualité CI/CD et observabilité — pour des releases prévisibles et à faible risque.",
-    bullets: [
-      "Stratégie QA enterprise pour la livraison SaaS et ERP (SAP S/4HANA, Workday).",
-      "Qualité shift-left avec gouvernance des pipelines et signaux de préparation aux versions.",
-      "Conception de tests assistée par GenAI et accélération de l'automatisation pour un feedback plus rapide.",
+    heading: "À propos de QualityBridge",
+    heroPills: ["Développement digital", "Gouvernance SAP & UAT", "Automatisation des tests & Qualité"],
+    heroTitle: "Livraison d'entreprise,",
+    heroAccent: "faite comme il se doit.",
+    heroSubtitle: "Aider les organisations à livrer des programmes SAP et des produits digitaux en toute confiance — géré localement au Canada, soutenu par un réseau mondial de partenaires vérifiés.",
+    heroStats: [
+      { value: "10+", label: "Ans d'expérience" },
+      { value: "UE · Asie · Amériques", label: "Régions" },
+      { value: "6+", label: "Industries" },
     ],
-    paragraph1: "Mon objectif est d'intégrer la qualité tôt dans le cycle de livraison pour permettre des releases plus rapides, plus prévisibles et plus conscientes des risques.",
-    paragraph2: "Mon parcours couvre la livraison enterprise dans SaaS, ERP, assurance, HealthTech, FinTech et eCommerce — avec des plateformes comme Workday, SAP S/4HANA, Salesforce et Microsoft Dynamics 365. J'ai dirigé des programmes interrégionaux en Europe, Asie et Amérique du Nord, alignant les équipes produit, engineering et QA autour d'objectifs communs.",
-    paragraph3: "Aujourd'hui, je me concentre sur l'application de l'IA générative et des LLMs pour améliorer la conception des tests, accélérer l'automatisation, détecter les risques tôt et soutenir une gouvernance des versions basée sur les métriques dans des équipes mondialement distribuées.",
+    intro: "QualityBridge est un cabinet de conseil en livraison basé au Canada, spécialisé dans la gouvernance SAP, l'ingénierie qualité et le développement digital. Nous combinons une expertise technique approfondie avec un réseau mondial de partenaires vérifiés — pour que les clients bénéficient d'une capacité de classe mondiale avec un seul point de contact responsable.",
+    bullets: [
+      "Gouvernance UAT SAP S/4HANA, préparation aux versions et décisions go/no-go structurées.",
+      "Ingénierie qualité axée sur l'automatisation avec Cypress, Playwright et conception de tests assistée par IA.",
+      "Applications web sur mesure, tableaux de bord et outils digitaux pour les entreprises.",
+    ],
+    paragraph1: "Notre approche repose sur un principe : la qualité doit être intégrée tout au long de la livraison, pas ajoutée à la fin. Chaque engagement commence par comprendre votre programme, vos risques et votre définition du fini — puis nous construisons le cadre de gouvernance et d'automatisation autour de cela.",
+    paragraph2: "Nous travaillons avec un réseau soigneusement sélectionné de partenaires spécialisés en Europe, Asie et Amérique du Nord — chacun vérifié pour son expertise et son bilan. Cela donne aux clients accès à la bonne compétence pour chaque phase de livraison, sans la complexité de gérer plusieurs fournisseurs.",
+    paragraph3: "Que vous meniez une transformation SAP complexe, développiez votre pratique QA ou construisiez un produit digital — nous livrons avec structure, transparence et sans surprises.",
     ctaGetInTouch: "Nous contacter",
     ctaViewWork: "Voir LinkedIn",
     atAGlance: "En un coup d'œil",
@@ -147,13 +174,13 @@ const content = {
     industries: "Industries",
     whatYouCanExpect: "Ce que vous pouvez attendre",
     expectations: [
-      "Stratégies qualité axées sur l'automatisation intégrées dans votre pipeline CI/CD.",
+      "Un seul point de contact au Canada — responsable de l'engagement complet.",
       "Gouvernance UAT structurée et préparation aux versions avec des signaux go/no-go clairs.",
-      "Conception de tests assistée par IA pour un feedback plus rapide et moins d'effort manuel.",
-      "Un point de contact — géré localement au Canada, livré globalement.",
+      "Stratégies qualité axées sur l'automatisation intégrées dans votre pipeline CI/CD.",
+      "Accès à des spécialistes mondiaux vérifiés adaptés à vos besoins de programme.",
     ],
-    howIApproach: "Mon approche de livraison",
-    approachIntro: "La qualité n'est pas une phase — c'est une pratique intégrée tout au long du cycle de livraison, de la conception du pipeline à la stabilisation post go-live.",
+    howIApproach: "Notre approche de livraison",
+    approachIntro: "Chaque engagement suit le même modèle : supervision locale, expertise mondiale et qualité intégrée à chaque étape — du cadrage initial à la stabilisation post go-live.",
     principles: [
       { title: "Qualité Shift-Left", desc: "Détecter les problèmes tôt dans le pipeline est moins coûteux, plus rapide et moins perturbateur qu'au stade UAT." },
       { title: "Décisions basées sur les métriques", desc: "Décisions de version basées sur les tendances des défauts, les données de couverture et les signaux de préparation." },
@@ -169,8 +196,8 @@ const content = {
       { id: "ai", title: "Ingénierie qualité assistée par IA", content: "Appliquer l'IA générative et les LLMs à la conception des tests, l'identification des risques et l'accélération de l'automatisation. Moins d'effort manuel avec une meilleure couverture." },
       { id: "web", title: "Développement digital & Applications web", content: "Construire des applications web modernes et performantes — des prototypes rapides aux outils prêts pour la production." },
     ],
-    openToConversation: "Ouvert à une conversation ?",
-    openToConversationBody: "Que vous planifiez un programme SAP, développiez votre pratique QA ou construisiez un produit digital — parlons-en.",
+    openToConversation: "Prêt à travailler ensemble ?",
+    openToConversationBody: "Que vous planifiez un programme SAP, développiez votre pratique QA ou construisiez un produit digital — commençons par une conversation.",
     ctaContact: "Nous contacter",
     ctaLinkedIn: "LinkedIn",
   },
@@ -187,15 +214,51 @@ const About = () => {
     <div className="min-h-screen bg-background pb-20 md:pb-0">
       <Navbar />
 
-      <main className="pt-16 md:pt-24 pb-8 md:pb-14">
-        <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+      {/* Hero banner — matches home page */}
+      <section className="enterprise-gradient relative overflow-hidden py-10 md:py-16">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10 bg-white/[0.03] md:-right-10 md:-top-10 md:h-80 md:w-80" />
+          <div className="absolute -right-4 top-8 h-40 w-40 rounded-full border border-white/[0.07] bg-white/[0.02] md:right-10 md:top-16 md:h-52 md:w-52" />
+          <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full border border-white/[0.06] bg-white/[0.02] md:h-64 md:w-64" />
+        </div>
+        <div className="container relative mx-auto px-4 md:px-6 text-center">
+          {/* Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-1.5 mb-3">
+            {a.heroPills.map((pill) => (
+              <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-2.5 py-0.5 text-[11px] font-medium text-primary-foreground/90 md:px-3 md:py-1 md:text-xs">
+                {pill}
+              </span>
+            ))}
+          </div>
+          {/* Headline */}
+          <h1 className="mx-auto max-w-2xl text-[26px] font-bold leading-tight text-primary-foreground md:text-[36px] lg:text-5xl">
+            {a.heroTitle}{" "}
+            <span style={{ color: "#93c5fd" }}>{a.heroAccent}</span>
+          </h1>
+          {/* Subheading */}
+          <p className="mx-auto mt-3 max-w-xl text-sm text-primary-foreground/80 md:text-base">
+            {a.heroSubtitle}
+          </p>
+          {/* Stats bar */}
+          <div className="mx-auto mt-6 flex max-w-sm items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-md md:mt-8 md:max-w-lg">
+            {a.heroStats.map((s, i) => (
+              <div key={i} className="flex flex-1 flex-col items-center px-2 md:px-4">
+                <span className="text-sm font-bold text-primary-foreground md:text-base">{s.value}</span>
+                <span className="mt-0.5 text-[10px] text-primary-foreground/60 md:text-xs">{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <main className="pb-8 md:pb-14">
+        <div className="container mx-auto px-4 md:px-6 max-w-6xl pt-10 md:pt-14">
 
           {/* Hero row */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-10 items-start">
 
             {/* Left column — bio */}
             <div className="lg:col-span-7 space-y-4">
-              <h1 className="sr-only">About Gagan Singh – Quality Engineering, DevTestOps and Technology Delivery</h1>
               <h2 className="font-display text-2xl md:text-4xl font-bold text-foreground leading-tight">{a.heading}</h2>
 
               <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{a.intro}</p>
@@ -210,12 +273,12 @@ const About = () => {
               </ul>
 
               <div className="flex flex-wrap gap-1.5 pt-1">
-                <Badge variant="secondary" className="text-xs">Technology Delivery</Badge>
+                <Badge variant="secondary" className="text-xs">Digital Development</Badge>
+                <Badge variant="secondary" className="text-xs">SAP Governance</Badge>
                 <Badge variant="secondary" className="text-xs">Quality Engineering</Badge>
                 <Badge variant="secondary" className="text-xs">DevTestOps</Badge>
                 <Badge variant="secondary" className="text-xs">CI/CD</Badge>
                 <Badge variant="secondary" className="text-xs">GenAI / LLMs</Badge>
-                <Badge variant="secondary" className="text-xs">Enterprise Platforms</Badge>
               </div>
 
               <div className="space-y-3 text-sm text-muted-foreground leading-relaxed pt-1">
@@ -303,7 +366,7 @@ const About = () => {
             </div>
           </div>
 
-          {/* How I Approach */}
+          {/* How We Approach */}
           <div className="mt-10 md:mt-14">
             <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mb-2">{a.howIApproach}</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-5 max-w-3xl">{a.approachIntro}</p>
