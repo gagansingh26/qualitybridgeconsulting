@@ -186,10 +186,10 @@ const About = () => {
   const a = content[lang];
 
   return (
-    <div className="min-h-screen bg-background pb-16 md:pb-0">
+    <div className="min-h-screen bg-background pb-20 md:pb-0">
       <Navbar />
 
-      <main className="pt-16 md:pt-24 pb-10 md:pb-20">
+      <main className="pt-16 md:pt-24 pb-8 md:pb-14">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl">
 
           {/* Hero row */}
@@ -363,7 +363,7 @@ const About = () => {
           </div>
 
           {/* Bottom CTA */}
-          <div className="mt-10 md:mt-16">
+          <div className="mt-8 md:mt-12">
             <Card className="border-border">
               <CardContent className="py-6 px-4 md:py-10 md:px-6">
                 <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
