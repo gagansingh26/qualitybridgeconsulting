@@ -266,25 +266,28 @@ const About = () => {
         </div>
       </section>
 
-      {/* Founder strip */}
+      {/* Founder strip — clean card layout */}
       <div className="border-b border-t border-border bg-card">
-        <div className="container mx-auto px-4 md:px-6 py-3">
-          <div className="flex flex-col items-center gap-1.5 sm:flex-row sm:justify-center sm:gap-5 text-sm">
-            <span className="font-semibold text-foreground">{a.founderName}</span>
-            <span className="hidden sm:inline text-muted-foreground/40">·</span>
-            <span className="text-muted-foreground text-xs">{a.founderTitle}</span>
-            <span className="hidden sm:inline text-muted-foreground/40">·</span>
-            <span className="flex items-center gap-1 text-muted-foreground text-xs">
-              <MapPin className="h-3 w-3 shrink-0" />{a.founderLocation}
-            </span>
-            <span className="hidden sm:inline text-muted-foreground/40">·</span>
+        <div className="container mx-auto px-4 md:px-6 py-4">
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-8">
+            <div className="flex flex-col items-center sm:items-start">
+              <span className="text-[11px] uppercase tracking-wide text-muted-foreground font-medium">{a.founderTitle}</span>
+              <span className="text-sm font-semibold text-foreground mt-0.5">{a.founderName}</span>
+            </div>
+            <div className="hidden sm:block w-px h-8 bg-border" />
+            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+              <MapPin className="h-3 w-3 shrink-0 text-primary" />
+              <span>{a.founderLocation}</span>
+            </div>
+            <div className="hidden sm:block w-px h-8 bg-border" />
             <a
               href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-primary hover:underline text-xs font-medium"
+              className="flex items-center gap-1.5 text-xs font-medium text-primary hover:underline"
             >
-              <ExternalLink className="h-3 w-3 shrink-0" />{a.founderCta}
+              <ExternalLink className="h-3 w-3 shrink-0" />
+              {a.founderCta}
             </a>
           </div>
         </div>
@@ -325,11 +328,6 @@ const About = () => {
                 <Button asChild size="sm" className="w-full sm:w-auto">
                   <a href="/contact" className="inline-flex items-center justify-center gap-2">
                     {a.ctaGetInTouch}<ArrowRight size={15} />
-                  </a>
-                </Button>
-                <Button variant="outline" asChild size="sm" className="w-full sm:w-auto">
-                  <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2">
-                    {a.ctaViewWork}<ExternalLink size={15} />
                   </a>
                 </Button>
               </div>
