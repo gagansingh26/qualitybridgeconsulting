@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -22,8 +21,6 @@ const focusIcons = [Briefcase, Settings, Brain, Building2];
 
 const content = {
   en: {
-    pageTitle: "About Gagan Singh — DevTestOps, QA Leadership & Enterprise Delivery",
-    pageDesc: "10+ years in Quality Engineering and Technology Delivery. Specialising in DevTestOps, CI/CD quality gates, AI-enabled automation, and enterprise platform delivery across SAP, Workday, and Salesforce.",
     heading: "About",
     intro: "Technology Delivery & Quality Engineering professional with 10+ years building DevTestOps ways of working — automation-first testing, CI/CD quality gates, and observability — to ship predictable, low-risk releases.",
     bullets: [
@@ -76,8 +73,6 @@ const content = {
     ctaLinkedIn: "LinkedIn",
   },
   de: {
-    pageTitle: "Über Gagan Singh — DevTestOps, QA-Leitung & Enterprise-Delivery",
-    pageDesc: "10+ Jahre in Quality Engineering und Technology Delivery. Spezialisiert auf DevTestOps, CI/CD-Qualitätstore, KI-gestützte Automatisierung und Enterprise-Plattform-Delivery für SAP, Workday und Salesforce.",
     heading: "Über mich",
     intro: "Technology Delivery & Quality Engineering Profi mit 10+ Jahren Erfahrung im Aufbau von DevTestOps-Arbeitsweisen — automatisierungsorientiertes Testen, CI/CD-Qualitätstore und Observability — für vorhersehbare, risikoarme Releases.",
     bullets: [
@@ -130,8 +125,6 @@ const content = {
     ctaLinkedIn: "LinkedIn",
   },
   fr: {
-    pageTitle: "À propos de Gagan Singh — DevTestOps, QA Leadership & Enterprise Delivery",
-    pageDesc: "10+ ans en Quality Engineering et Technology Delivery. Spécialisé en DevTestOps, portes qualité CI/CD, automatisation assistée par IA et livraison de plateformes enterprise SAP, Workday et Salesforce.",
     heading: "À propos",
     intro: "Professionnel Technology Delivery & Quality Engineering avec 10+ ans d'expérience dans la construction de pratiques DevTestOps — tests automatisation-first, portes qualité CI/CD et observabilité — pour des releases prévisibles et à faible risque.",
     bullets: [
@@ -192,18 +185,6 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-background pb-16 md:pb-0">
-      <Helmet>
-        <title>{a.pageTitle}</title>
-        <meta name="description" content={a.pageDesc} />
-        <link rel="canonical" href="https://gagansingh.lovable.app/about" />
-        <meta property="og:title" content={a.pageTitle} />
-        <meta property="og:description" content={a.pageDesc} />
-        <meta property="og:url" content="https://gagansingh.lovable.app/about" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={a.pageTitle} />
-        <meta name="twitter:description" content={a.pageDesc} />
-      </Helmet>
       <Navbar />
 
       <main className="pt-16 md:pt-24 pb-10 md:pb-20">
