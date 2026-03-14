@@ -1,20 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle, ArrowRight, Cpu, Bug, Users, GitBranch, Brain, Code, TestTube, Settings, ChevronDown } from "lucide-react";
+import { ArrowRight, Cpu, GitBranch, Code, Settings } from "lucide-react";
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { useTranslation } from "react-i18next";
 
 const phaseColors = ["bg-primary", "bg-info", "bg-success", "bg-warning", "bg-destructive"];
-
-const capabilityIcons = [
-  <CheckCircle className="h-5 w-5" />,
-  <Bug className="h-5 w-5" />,
-  <Users className="h-5 w-5" />,
-  <GitBranch className="h-5 w-5" />,
-  <Brain className="h-5 w-5" />,
-];
 
 const automationIcons = [
   <Settings className="h-5 w-5" />,
@@ -45,21 +37,39 @@ const DeliveryApproach = () => {
     icon: automationIcons[i],
     label,
   }));
-  const capabilities = (t("delivery.capabilities", { returnObjects: true }) as string[]).map((label, i) => ({
-    icon: capabilityIcons[i],
-    label,
-  }));
 
   return (
     <Layout>
-      <SectionWrapper>
-        <motion.div {...fadeUp(0)}>
-          <h1 className="text-2xl font-bold md:text-4xl">{t("delivery.heading")}</h1>
-          <p className="mt-2 max-w-2xl text-sm text-muted-foreground md:mt-3 md:text-base">{t("delivery.subheading")}</p>
-        </motion.div>
+      {/* Hero */}
+      <section className="enterprise-gradient relative overflow-hidden py-10 md:py-16">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10 bg-white/[0.03] md:-right-10 md:-top-10 md:h-80 md:w-80" />
+          <div className="absolute -right-4 top-8 h-40 w-40 rounded-full border border-white/[0.07] bg-white/[0.02] md:right-10 md:top-16 md:h-52 md:w-52" />
+          <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full border border-white/[0.06] bg-white/[0.02] md:h-64 md:w-64" />
+        </div>
+        <div className="container relative mx-auto px-4 md:px-6 text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto max-w-2xl text-[28px] font-bold leading-tight text-primary-foreground md:text-[36px] lg:text-5xl"
+          >
+            {t("delivery.heading")}
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="mx-auto mt-3 max-w-xl text-sm text-primary-foreground/80 md:text-base"
+          >
+            {t("delivery.subheading")}
+          </motion.p>
+        </div>
+      </section>
 
+      <SectionWrapper>
         {/* Mobile: Tab-style phase selector */}
-        <div className="mt-6 md:hidden">
+        <div className="md:hidden">
           <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-1">
             {phases.map((phase, i) => (
               <button
@@ -118,7 +128,7 @@ const DeliveryApproach = () => {
           </div>
         </div>
 
-        {/* Desktop flow */}
+        {/* Desktop flow bar */}
         <div className="mt-8 hidden overflow-x-auto lg:flex">
           {phases.map((phase, i) => (
             <div key={i} className="flex items-center">
@@ -137,7 +147,7 @@ const DeliveryApproach = () => {
           <h2 className="text-xl font-bold md:text-3xl">{t("delivery.automationHeading")}</h2>
           <p className="mt-1.5 max-w-2xl text-sm text-muted-foreground md:mt-2 md:text-base">{t("delivery.automationSubheading")}</p>
         </motion.div>
-        <div className="mt-5 grid grid-cols-2 gap-3 md:mt-8 md:grid-cols-2 md:gap-4">
+        <div className="mt-5 grid grid-cols-2 gap-3 md:mt-8 md:gap-4">
           {automationItems.map((c, i) => (
             <motion.div
               key={i}
@@ -147,25 +157,6 @@ const DeliveryApproach = () => {
               <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary md:h-10 md:w-10">
                 {c.icon}
               </div>
-              <span className="text-xs font-medium text-card-foreground md:text-sm">{c.label}</span>
-            </motion.div>
-          ))}
-        </div>
-      </SectionWrapper>
-
-      {/* Core Capabilities */}
-      <SectionWrapper>
-        <motion.h2 {...fadeUp(0)} className="text-xl font-bold md:text-3xl">
-          {t("delivery.coreCapabilities")}
-        </motion.h2>
-        <div className="mt-5 grid grid-cols-2 gap-3 md:mt-8 md:grid-cols-2 lg:grid-cols-3 md:gap-4">
-          {capabilities.map((c, i) => (
-            <motion.div
-              key={i}
-              {...fadeUp(i * 0.08)}
-              className="flex items-center gap-2.5 rounded-lg border border-border bg-card p-3 card-shadow md:p-4"
-            >
-              <div className="text-primary">{c.icon}</div>
               <span className="text-xs font-medium text-card-foreground md:text-sm">{c.label}</span>
             </motion.div>
           ))}
