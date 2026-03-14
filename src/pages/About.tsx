@@ -34,11 +34,11 @@ const platforms = [
   "Jira",
 ];
 
-const stats = [
+const aboutStats = [
   { value: "10+", label: "Years Experience" },
-  { value: "3", label: "Regions Delivered" },
+  { value: "EU · Asia · Americas", label: "Regions Delivered" },
   { value: "6+", label: "Industries Served" },
-  { value: "AI", label: "Test Design Focus" },
+  { value: "AI", label: "Powered Test Design" },
 ];
 
 const About = () => {
@@ -58,9 +58,19 @@ const About = () => {
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="enterprise-gradient py-12 md:py-20">
-        <div className="container mx-auto px-4 text-center">
+      {/* Hero — matches home page structure exactly */}
+      <section className="enterprise-gradient relative overflow-hidden py-12 md:py-20">
+
+        {/* Geometric background shapes — identical to home page */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10 bg-white/[0.03] md:-right-10 md:-top-10 md:h-80 md:w-80" />
+          <div className="absolute -right-4 top-8 h-40 w-40 rounded-full border border-white/[0.07] bg-white/[0.02] md:right-10 md:top-16 md:h-52 md:w-52" />
+          <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full border border-white/[0.06] bg-white/[0.02] md:h-64 md:w-64" />
+        </div>
+
+        <div className="container relative mx-auto px-4 text-center">
+
+          {/* Pills */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,34 +84,64 @@ const About = () => {
               </span>
             ))}
           </motion.div>
+
+          {/* Headline with accent — matches home page split style */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-2xl text-[28px] font-bold leading-tight text-primary-foreground md:text-[36px] lg:text-5xl"
           >
-            {t("about.heading")}
+            {t("about.titlePrefix")}{" "}
+            <span style={{ color: "#93c5fd" }}>
+              {t("about.titleAccent")}
+            </span>
           </motion.h1>
+
+          {/* Subheading */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mx-auto mt-3 max-w-xl text-base text-primary-foreground/80 md:text-lg"
           >
-            Technology delivery professional based in Canada — specialising in SAP governance, quality engineering, and digital development.
+            {t("about.heroSubheading")}
           </motion.p>
 
-          {/* Stats row */}
+          {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mx-auto mt-8 grid max-w-lg grid-cols-2 gap-3 md:grid-cols-4 md:gap-4"
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3"
           >
-            {stats.map((s, i) => (
-              <div key={i} className="rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 px-3 py-3 text-center">
-                <div className="text-2xl font-bold text-primary-foreground">{s.value}</div>
-                <div className="mt-0.5 text-[11px] text-primary-foreground/70 md:text-xs">{s.label}</div>
+            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto">
+                {t("about.ctaBook")} <ExternalLink className="ml-2 h-4 w-4" />
+              </Button>
+            </a>
+            <Link to="/contact" className="w-full sm:w-auto">
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto"
+              >
+                {t("about.ctaMessage")} <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </motion.div>
+
+          {/* Stats bar — matches home page style exactly */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.45 }}
+            className="mx-auto mt-8 flex max-w-sm items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-md md:mt-10 md:max-w-lg"
+          >
+            {aboutStats.map((stat, i) => (
+              <div key={i} className="flex flex-1 flex-col items-center px-3 md:px-5">
+                <span className="text-base font-bold text-primary-foreground md:text-lg">{stat.value}</span>
+                <span className="mt-0.5 text-[10px] text-primary-foreground/60 md:text-xs">{stat.label}</span>
               </div>
             ))}
           </motion.div>
@@ -122,8 +162,8 @@ const About = () => {
       {/* Platforms & tools strip */}
       <div className="border-b border-t border-border bg-card">
         <div className="container mx-auto px-4 py-4">
-          <p className="mb-3 text-center text-xs font-medium text-muted-foreground uppercase tracking-wide">
-            Platforms & tools experience
+          <p className="mb-3 text-center text-xs font-medium uppercase tracking-wide text-muted-foreground">
+            {t("about.platformsLabel")}
           </p>
           <div className="flex flex-wrap items-center justify-center gap-2">
             {platforms.map((p) => (
@@ -157,19 +197,19 @@ const About = () => {
       {/* CTA */}
       <SectionWrapper className="bg-accent/50 pt-8 pb-10">
         <motion.div {...fadeUp(0)} className="text-center">
-          <h2 className="text-[24px] font-bold md:text-[32px]">Ready to work together?</h2>
+          <h2 className="text-[24px] font-bold md:text-[32px]">{t("about.ctaHeading")}</h2>
           <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground md:text-base">
-            Whether you need SAP governance, test automation, or a purpose-built web application — let's start with a conversation.
+            {t("about.ctaBody")}
           </p>
           <div className="mt-6 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center">
             <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button size="lg" className="w-full sm:w-auto">
-                Book a Free Call <ExternalLink className="ml-2 h-4 w-4" />
+                {t("about.ctaBook")} <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
             </a>
             <Link to="/contact" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                Send a Message <ArrowRight className="ml-2 h-4 w-4" />
+                {t("about.ctaMessage")} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </div>
