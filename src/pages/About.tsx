@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Briefcase, Settings, Brain, Building2, Globe, ShieldCheck, LineChart, Sparkles, CheckCircle2, ArrowRight, ExternalLink } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "react-i18next";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/gagansingh26/";
 
@@ -179,8 +179,10 @@ const content = {
 };
 
 const About = () => {
-  const { language } = useLanguage();
-  const lang = (language as keyof typeof content) in content ? (language as keyof typeof content) : "en";
+  const { i18n } = useTranslation();
+  const lang = (i18n.language?.slice(0, 2) as keyof typeof content) in content
+    ? (i18n.language?.slice(0, 2) as keyof typeof content)
+    : "en";
   const a = content[lang];
 
   return (
