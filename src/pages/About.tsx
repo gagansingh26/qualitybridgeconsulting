@@ -82,7 +82,7 @@ const content = {
     ],
     paragraph1: "Mein Fokus liegt darauf, Qualität früh im Delivery-Lebenszyklus zu verankern, um schnellere, vorhersehbarere und risikobewusste Releases zu ermöglichen.",
     paragraph2: "Mein Hintergrund umfasst Enterprise-Delivery in SaaS, ERP, Versicherung, HealthTech, FinTech und E-Commerce — mit Plattformen wie Workday, SAP S/4HANA, Salesforce und Microsoft Dynamics 365. Ich habe cross-regionale Programme in Europa, Asien und Nordamerika geleitet und dabei Produkt-, Engineering- und QA-Teams auf gemeinsame Ziele ausgerichtet.",
-    paragraph3: "Heute konzentriere ich mich auf den Einsatz von Generativer KI und LLMs zur Verbesserung des Testdesigns, Beschleunigung der Automatisierung, frühzeitigen Risikoerkennung und metrикbasierten Release-Governance in global verteilten Teams.",
+    paragraph3: "Heute konzentriere ich mich auf den Einsatz von Generativer KI und LLMs zur Verbesserung des Testdesigns, Beschleunigung der Automatisierung, frühzeitigen Risikoerkennung und metrikbasierten Release-Governance in global verteilten Teams.",
     ctaGetInTouch: "Kontakt aufnehmen",
     ctaViewWork: "LinkedIn ansehen",
     atAGlance: "Auf einen Blick",
