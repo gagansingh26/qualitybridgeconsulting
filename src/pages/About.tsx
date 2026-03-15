@@ -5,6 +5,7 @@ import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Briefcase, Settings, Brain, Building2, Globe, ShieldCheck, LineChart, Sparkles, CheckCircle2, ArrowRight, ExternalLink, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { usePageMeta } from "@/hooks/use-page-meta";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -46,13 +47,7 @@ const content = {
     ctaGetInTouch: "Get in Touch",
     ctaViewWork: "View LinkedIn",
     atAGlance: "At a Glance",
-    statsLabels: {
-      experience: "Experience",
-      regions: "Regions",
-      regionsSub: "North America · Europe · India",
-      strength: "Strength",
-      focus: "Focus",
-    },
+    statsLabels: { experience: "Experience", regions: "Regions", regionsSub: "North America · Europe · India", strength: "Strength", focus: "Focus" },
     platforms: "Enterprise Platforms",
     industries: "Industries",
     whatYouCanExpect: "What You Can Expect",
@@ -112,13 +107,7 @@ const content = {
     ctaGetInTouch: "Kontakt aufnehmen",
     ctaViewWork: "LinkedIn ansehen",
     atAGlance: "Auf einen Blick",
-    statsLabels: {
-      experience: "Erfahrung",
-      regions: "Regionen",
-      regionsSub: "Nordamerika · Europa · Indien",
-      strength: "Stärke",
-      focus: "Fokus",
-    },
+    statsLabels: { experience: "Erfahrung", regions: "Regionen", regionsSub: "Nordamerika · Europa · Indien", strength: "Stärke", focus: "Fokus" },
     platforms: "Enterprise-Plattformen",
     industries: "Branchen",
     whatYouCanExpect: "Was Sie erwarten können",
@@ -178,13 +167,7 @@ const content = {
     ctaGetInTouch: "Nous contacter",
     ctaViewWork: "Voir LinkedIn",
     atAGlance: "En un coup d'œil",
-    statsLabels: {
-      experience: "Expérience",
-      regions: "Régions",
-      regionsSub: "Amérique du Nord · Europe · Inde",
-      strength: "Force",
-      focus: "Focus",
-    },
+    statsLabels: { experience: "Expérience", regions: "Régions", regionsSub: "Amérique du Nord · Europe · Inde", strength: "Force", focus: "Focus" },
     platforms: "Plateformes enterprise",
     industries: "Industries",
     whatYouCanExpect: "Ce que vous pouvez attendre",
@@ -224,6 +207,12 @@ const About = () => {
     ? (i18n.language?.slice(0, 2) as keyof typeof content)
     : "en";
   const a = content[lang];
+
+  usePageMeta(
+    "QualityBridge Consulting | About",
+    "Learn about QualityBridge Consulting — SAP governance, quality engineering, and digital development managed from Canada with global specialists.",
+    "/about"
+  );
 
   return (
     <div className="min-h-screen bg-background pb-20 md:pb-0">
@@ -269,7 +258,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Founder strip — matches home page capabilities strip exactly */}
+      {/* Founder strip */}
       <div className="border-b border-t border-border bg-card">
         <div className="container mx-auto px-4 py-3">
           <div className="grid grid-cols-2 gap-x-4 gap-y-2 md:flex md:flex-wrap md:items-center md:justify-center md:gap-10">
@@ -301,7 +290,6 @@ const About = () => {
       <main className="pb-8 md:pb-14">
         <div className="container mx-auto px-4 md:px-6 max-w-6xl pt-10 md:pt-14">
 
-          {/* Two-column layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-10 items-start">
 
             {/* Left — bio */}
