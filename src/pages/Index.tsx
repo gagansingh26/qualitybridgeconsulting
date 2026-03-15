@@ -199,7 +199,7 @@ const Index = () => {
                 variant="outline"
                 className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto"
               >
-                {t("cta.viewApproach") || "View Our Services"}
+                {t("cta.viewApproach") || "View Our Services"} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </motion.div>
