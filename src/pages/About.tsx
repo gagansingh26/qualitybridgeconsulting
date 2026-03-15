@@ -6,6 +6,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Briefcase, Settings, Brain, Building2, Globe, ShieldCheck, LineChart, Sparkles, CheckCircle2, ArrowRight, ExternalLink, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { usePageMeta } from "@/hooks/use-page-meta";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -46,6 +48,8 @@ const content = {
     paragraph3: "Whether you're running a SAP transformation, scaling a QA practice, or building a digital product — the standard doesn't change. Structure, transparency, and no surprises.",
     ctaGetInTouch: "Get in Touch",
     ctaViewWork: "View LinkedIn",
+    ctaBook: "Book a Consultation",
+    ctaViewServices: "View Our Services",
     atAGlance: "At a Glance",
     statsLabels: { experience: "Experience", regions: "Regions", regionsSub: "North America · Europe · India", strength: "Strength", focus: "Focus" },
     platforms: "Enterprise Platforms",
@@ -106,6 +110,8 @@ const content = {
     paragraph3: "Ob SAP-Transformation, Skalierung einer QA-Praxis oder Aufbau eines digitalen Produkts — der Standard ändert sich nicht. Struktur, Transparenz und keine Überraschungen.",
     ctaGetInTouch: "Kontakt aufnehmen",
     ctaViewWork: "LinkedIn ansehen",
+    ctaBook: "Beratung buchen",
+    ctaViewServices: "Unsere Leistungen ansehen",
     atAGlance: "Auf einen Blick",
     statsLabels: { experience: "Erfahrung", regions: "Regionen", regionsSub: "Nordamerika · Europa · Indien", strength: "Stärke", focus: "Fokus" },
     platforms: "Enterprise-Plattformen",
@@ -166,6 +172,8 @@ const content = {
     paragraph3: "Que vous meniez une transformation SAP, développiez une pratique QA ou construisiez un produit digital — le standard ne change pas. Structure, transparence et sans surprises.",
     ctaGetInTouch: "Nous contacter",
     ctaViewWork: "Voir LinkedIn",
+    ctaBook: "Réserver une consultation",
+    ctaViewServices: "Voir nos services",
     atAGlance: "En un coup d'œil",
     statsLabels: { experience: "Expérience", regions: "Régions", regionsSub: "Amérique du Nord · Europe · Inde", strength: "Force", focus: "Focus" },
     platforms: "Plateformes enterprise",
@@ -255,6 +263,25 @@ const About = () => {
               </div>
             ))}
           </div>
+
+          {/* CTAs */}
+          <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3">
+            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto">
+                {a.ctaBook} <ExternalLink className="ml-2 h-4 w-4" />
+              </Button>
+            </a>
+            <Link to="/services" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto">
+                {a.ctaViewServices} <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+
+          {/* Trust line */}
+          <p className="mx-auto mt-3 text-[13px] md:text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>
+            {a.founderExperience}
+          </p>
         </div>
       </section>
 
