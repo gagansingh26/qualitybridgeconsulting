@@ -256,7 +256,7 @@ const About = () => {
             <span style={{ color: "#93c5fd" }}>{a.heroAccent}</span>
           </h1>
 
-          <p className="mx-auto mt-3 max-w-xl text-sm text-primary-foreground/80 md:text-base">
+          <p className="mx-auto mt-3 max-w-xl text-base text-primary-foreground/80 md:text-lg">
             {a.heroSubtitle}
           </p>
 
