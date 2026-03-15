@@ -339,15 +339,34 @@ const DeliveryApproach = () => {
       {/* ── Tab selector ──────────────────────────────────────────────────── */}
       <div className="sticky top-14 z-40 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
         <div className="container mx-auto px-4 py-2.5 md:px-6">
-          {/* Scrollable on mobile, centred w-fit on desktop */}
-          <div className="overflow-x-auto scrollbar-none">
-            <div className="flex w-max min-w-full gap-1 rounded-lg enterprise-gradient p-1 md:mx-auto md:w-fit md:min-w-0">
+
+          {/* Mobile: vertical stack, full width */}
+          <div className="flex flex-col gap-1 md:hidden">
+            {tabs.map((tab) => (
+              <button
+                key={tab.key}
+                type="button"
+                onClick={() => setActiveTab(tab.key)}
+                className={`w-full rounded-md px-4 py-2.5 text-sm font-semibold text-left transition-all ${
+                  activeTab === tab.key
+                    ? "enterprise-gradient text-primary-foreground shadow-sm"
+                    : "bg-muted text-muted-foreground hover:text-foreground hover:bg-accent"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Desktop: horizontal pills, centred */}
+          <div className="hidden md:flex md:justify-center">
+            <div className="flex gap-1 rounded-lg enterprise-gradient p-1">
               {tabs.map((tab) => (
                 <button
                   key={tab.key}
                   type="button"
                   onClick={() => setActiveTab(tab.key)}
-                  className={`flex-1 whitespace-nowrap rounded-md px-3 py-2 text-[11px] font-semibold transition-all md:flex-none md:px-5 md:text-sm ${
+                  className={`whitespace-nowrap rounded-md px-5 py-2 text-sm font-semibold transition-all ${
                     activeTab === tab.key
                       ? "bg-white text-primary shadow-sm"
                       : "text-primary-foreground/75 hover:text-primary-foreground hover:bg-white/10"
@@ -358,6 +377,7 @@ const DeliveryApproach = () => {
               ))}
             </div>
           </div>
+
         </div>
       </div>
 
@@ -425,25 +445,22 @@ const DeliveryApproach = () => {
             </SectionWrapper>
 
             {/* CTA */}
-            <SectionWrapper>
-              <motion.div
-                {...fadeUp(0)}
-                className="rounded-lg border border-border bg-card p-5 card-shadow md:p-8"
-              >
-                <h2 className="text-lg font-bold md:text-2xl">
-                  {t("services.digitalCtaHeading")}
-                </h2>
-                <p className="mt-2 max-w-xl text-sm text-muted-foreground md:text-base">
-                  {t("services.digitalCtaBody")}
-                </p>
-                <a
-                  href="https://cal.com/gagan.singh/15min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex w-full items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 md:w-auto"
-                >
-                  {t("nav.bookCall")}
-                </a>
+            <SectionWrapper className="bg-accent/50">
+              <motion.div {...fadeUp(0)} className="text-center">
+                <h2 className="text-[22px] font-bold md:text-[28px]">{t("cta.heading")}</h2>
+                <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground md:mt-3 md:text-base">{t("cta.body")}</p>
+                <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center md:mt-6 md:gap-3">
+                  <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                    <Button size="lg" className="w-full font-semibold sm:w-auto">
+                      {t("hero.bookConsultation")} <ExternalLink className="ml-2 h-4 w-4" />
+                    </Button>
+                  </a>
+                  <Link to="/contact" className="w-full sm:w-auto">
+                    <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                      {t("cta.getInTouch")} <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
               </motion.div>
             </SectionWrapper>
           </motion.div>
