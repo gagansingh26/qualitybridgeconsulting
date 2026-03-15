@@ -24,7 +24,7 @@ const content = {
   en: {
     heading: "About QualityBridge Consulting",
     heroPills: ["Digital Development", "SAP Governance & UAT", "Test Automation & Quality"],
-    heroTitle: "10 years. 3 continents.",
+    heroTitle: "15+ years. 3 continents.",
     heroAccent: "One standard.",
     heroSubtitle: "Enterprise delivery built on real programmes, real outcomes, and a network of specialists who've done it before.",
     heroStats: [
@@ -35,7 +35,7 @@ const content = {
     founderName: "Gagan Singh",
     founderTitle: "Founder",
     founderLocation: "Greater Toronto Area, Canada",
-    founderExperience: "10+ years · North America · Europe · Asia",
+    founderExperience: "15+ years · North America · Europe · Asia",
     founderCta: "Connect on LinkedIn",
     intro: "QualityBridge Consulting was built on a simple frustration: too many enterprise programmes ship late, break in production, and leave business stakeholders without the visibility they need to make confident decisions. We exist to fix that.",
     bullets: [
@@ -43,7 +43,7 @@ const content = {
       "Automation-first quality engineering using Cypress, Playwright, and AI-assisted test design.",
       "Purpose-built web applications, dashboards, and digital tools for enterprise and growing businesses.",
     ],
-    paragraph1: "The experience behind QualityBridge spans over a decade of enterprise delivery — working across <strong>Johnson & Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong>, and <strong>Aon</strong>, as well as programmes in medical devices, luxury retail, and financial services across teams in North America, Germany, and India. That breadth is what makes it possible to walk into a complex programme and know what good looks like.",
+    paragraph1: "The experience behind QualityBridge spans over 15 years of enterprise delivery — working across <strong>Johnson & Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong>, and <strong>Aon</strong>, as well as programmes in medical devices, luxury retail, and financial services across teams in North America, Germany, and India. That breadth is what makes it possible to walk into a complex programme and know what good looks like.",
     paragraph2: "We work with a carefully selected network of specialist partners across North America, Europe, and India — each vetted for their domain expertise and delivery track record. Clients get access to the right capability at every phase, without the overhead of managing multiple vendors.",
     paragraph3: "Whether you're running a SAP transformation, scaling a QA practice, or building a digital product — the standard doesn't change. Structure, transparency, and no surprises.",
     ctaGetInTouch: "Get in Touch",
@@ -86,7 +86,7 @@ const content = {
   de: {
     heading: "Über QualityBridge Consulting",
     heroPills: ["Digitale Entwicklung", "SAP-Governance & UAT", "Testautomatisierung & Qualität"],
-    heroTitle: "10 Jahre. 3 Kontinente.",
+    heroTitle: "15+ Jahre. 3 Kontinente.",
     heroAccent: "Ein Standard.",
     heroSubtitle: "Enterprise-Delivery auf Basis realer Programme, echter Ergebnisse und einem Netzwerk von Spezialisten, die es schon getan haben.",
     heroStats: [
@@ -97,7 +97,7 @@ const content = {
     founderName: "Gagan Singh",
     founderTitle: "Gründer",
     founderLocation: "Greater Toronto Area, Kanada",
-    founderExperience: "10+ Jahre · Nordamerika · Europa · Asien",
+    founderExperience: "15+ Jahre · Nordamerika · Europa · Asien",
     founderCta: "Auf LinkedIn verbinden",
     intro: "QualityBridge Consulting entstand aus einer einfachen Frustration: Zu viele Enterprise-Programme liefern zu spät, scheitern in der Produktion und lassen Stakeholder ohne die Transparenz zurück, die sie für sichere Entscheidungen brauchen. Wir existieren, um das zu ändern.",
     bullets: [
@@ -105,7 +105,7 @@ const content = {
       "Automatisierungsorientiertes Quality Engineering mit Cypress, Playwright und KI-gestütztem Testdesign.",
       "Maßgeschneiderte Webanwendungen, Dashboards und digitale Tools für Unternehmen.",
     ],
-    paragraph1: "Die Erfahrung hinter QualityBridge umfasst über ein Jahrzehnt Enterprise-Delivery — mit Einsätzen bei <strong>Johnson & Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong> und <strong>Aon</strong> sowie Programmen in Medizingeräten, Luxuseinzelhandel und Finanzdienstleistungen, in Teams in Nordamerika, Deutschland und Indien. Diese Breite ermöglicht es, in ein komplexes Programm einzusteigen und zu wissen, wie gut aussieht.",
+    paragraph1: "Die Erfahrung hinter QualityBridge umfasst über 15 Jahre Enterprise-Delivery — mit Einsätzen bei <strong>Johnson & Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong> und <strong>Aon</strong> sowie Programmen in Medizingeräten, Luxuseinzelhandel und Finanzdienstleistungen, in Teams in Nordamerika, Deutschland und Indien. Diese Breite ermöglicht es, in ein komplexes Programm einzusteigen und zu wissen, wie gut aussieht.",
     paragraph2: "Wir arbeiten mit einem sorgfältig ausgewählten Netzwerk von Spezialisten aus Nordamerika, Europa und Indien — jeweils geprüft auf Fachkompetenz und Lieferbilanz. Kunden erhalten in jeder Phase Zugang zur richtigen Kompetenz, ohne den Aufwand mehrerer Lieferanten.",
     paragraph3: "Ob SAP-Transformation, Skalierung einer QA-Praxis oder Aufbau eines digitalen Produkts — der Standard ändert sich nicht. Struktur, Transparenz und keine Überraschungen.",
     ctaGetInTouch: "Kontakt aufnehmen",
@@ -148,7 +148,7 @@ const content = {
   fr: {
     heading: "À propos de QualityBridge Consulting",
     heroPills: ["Développement digital", "Gouvernance SAP & UAT", "Automatisation des tests & Qualité"],
-    heroTitle: "10 ans. 3 continents.",
+    heroTitle: "15+ ans. 3 continents.",
     heroAccent: "Un seul standard.",
     heroSubtitle: "Une livraison d'entreprise fondée sur de vrais programmes, de vrais résultats et un réseau de spécialistes qui l'ont déjà fait.",
     heroStats: [
@@ -159,7 +159,7 @@ const content = {
     founderName: "Gagan Singh",
     founderTitle: "Fondateur",
     founderLocation: "Grand Toronto, Canada",
-    founderExperience: "10+ ans · Amérique du Nord · Europe · Asie",
+    founderExperience: "15+ ans · Amérique du Nord · Europe · Asie",
     founderCta: "Se connecter sur LinkedIn",
     intro: "QualityBridge Consulting est né d'une frustration simple : trop de programmes d'entreprise livrent en retard, échouent en production et laissent les parties prenantes sans la visibilité dont elles ont besoin pour prendre des décisions confiantes. Nous existons pour changer cela.",
     bullets: [
@@ -167,7 +167,7 @@ const content = {
       "Ingénierie qualité axée sur l'automatisation avec Cypress, Playwright et conception de tests assistée par IA.",
       "Applications web sur mesure, tableaux de bord et outils digitaux pour les entreprises.",
     ],
-    paragraph1: "L'expérience derrière QualityBridge couvre plus d'une décennie de livraison d'entreprise — avec des missions chez <strong>Johnson & Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong> et <strong>Aon</strong>, ainsi que des programmes dans les dispositifs médicaux, le luxe et les services financiers, dans des équipes en Amérique du Nord, en Allemagne et en Inde. Cette diversité permet d'entrer dans un programme complexe et de savoir à quoi ressemble la qualité.",
+    paragraph1: "L'expérience derrière QualityBridge couvre plus de 15 ans de livraison d'entreprise — avec des missions chez <strong>Johnson & Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong> et <strong>Aon</strong>, ainsi que des programmes dans les dispositifs médicaux, le luxe et les services financiers, dans des équipes en Amérique du Nord, en Allemagne et en Inde. Cette diversité permet d'entrer dans un programme complexe et de savoir à quoi ressemble la qualité.",
     paragraph2: "Nous travaillons avec un réseau soigneusement sélectionné de partenaires spécialisés en Amérique du Nord, en Europe et en Inde — chacun vérifié pour son expertise et son bilan. Les clients accèdent à la bonne compétence à chaque phase, sans la complexité de gérer plusieurs fournisseurs.",
     paragraph3: "Que vous meniez une transformation SAP, développiez une pratique QA ou construisiez un produit digital — le standard ne change pas. Structure, transparence et sans surprises.",
     ctaGetInTouch: "Nous contacter",
