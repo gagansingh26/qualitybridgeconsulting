@@ -44,7 +44,7 @@ const fadeUp = (delay = 0) => ({
 const Contact = () => {
   const { t } = useTranslation();
   usePageMeta(
-    "Contact — QualityBridge Consulting | Book a Consultation",
+    "QualityBridge Consulting | Get in Touch",
     "Get in touch to discuss SAP governance, test automation, or web development projects. Book a free consultation with QualityBridge Consulting.",
     "/contact"
   );
