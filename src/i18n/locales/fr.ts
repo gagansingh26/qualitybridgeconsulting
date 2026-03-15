@@ -284,7 +284,7 @@ const fr = {
     stripNoCommitment: "Sans engagement",
   },
   footer: {
-    tagline: "Gouvernance d'entreprise, automatisation des tests et développement web moderne — solutions digitales de bout en bout pour une livraison confiante.",
+    tagline: "Développement digital, gouvernance SAP & UAT et automatisation des tests & qualité — solutions end-to-end pour une livraison d'entreprise confiante.",
     quickLinks: "Liens rapides",
     contact: "Contact",
     rights: "Tous droits réservés.",
