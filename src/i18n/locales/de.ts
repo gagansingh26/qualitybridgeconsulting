@@ -10,7 +10,7 @@ const de = {
     pills: ["Digitale Entwicklung", "SAP-Governance & UAT", "Testautomatisierung & Qualität"],
     titlePrefix: "Enterprise-Lieferung,",
     titleAccent: "richtig gemacht.",
-    subtitle: "Webentwicklung, SAP-Governance und Testautomatisierung — lokal in Kanada gemanagt, mit globalen Spezialisten geliefert.",
+    subtitle: "Digitale Entwicklung, SAP-Governance & UAT und Qualitätssicherung — lokal in Kanada gemanagt, global geliefert.",
     reach: "Kundenbetreuung lokal in Kanada · Nordamerika · Europa · Asien",
     bookConsultation: "Beratung buchen",
     bookCall: "Gespräch buchen",
@@ -103,7 +103,7 @@ const de = {
     subheading: "Digitale Entwicklung, SAP-Governance & UAT und Qualitätssicherung — drei Spezialisierungen, die gemeinsam für eine sichere und gut getestete Lieferung sorgen.",
 
     // Hero
-    heroPrefix: "Drei Spezialisierungen.",
+    heroPrefix: "Unsere Spezialisierungen.",
     heroAccent: "Ein Standard.",
     heroSubtitle: "Digitale Entwicklung, SAP-Governance & UAT und Qualitätssicherung — in einem Engagement geliefert, aus Kanada gemanagt.",
     heroStats: [
