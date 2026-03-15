@@ -339,22 +339,24 @@ const DeliveryApproach = () => {
       {/* ── Tab selector ──────────────────────────────────────────────────── */}
       <div className="sticky top-14 z-40 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
         <div className="container mx-auto px-4 py-2.5 md:px-6">
-          {/* Full-width on mobile, centred w-fit on desktop */}
-          <div className="flex w-full gap-1 rounded-lg enterprise-gradient p-1 md:mx-auto md:w-fit">
-            {tabs.map((tab) => (
-              <button
-                key={tab.key}
-                type="button"
-                onClick={() => setActiveTab(tab.key)}
-                className={`flex-1 rounded-md px-3 py-2 text-xs font-semibold transition-all whitespace-nowrap md:flex-none md:px-5 md:text-sm ${
-                  activeTab === tab.key
-                    ? "bg-white text-primary shadow-sm"
-                    : "text-primary-foreground/75 hover:text-primary-foreground hover:bg-white/10"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+          {/* Scrollable on mobile, centred w-fit on desktop */}
+          <div className="overflow-x-auto scrollbar-none">
+            <div className="flex w-max min-w-full gap-1 rounded-lg enterprise-gradient p-1 md:mx-auto md:w-fit md:min-w-0">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.key}
+                  type="button"
+                  onClick={() => setActiveTab(tab.key)}
+                  className={`flex-1 whitespace-nowrap rounded-md px-3 py-2 text-[11px] font-semibold transition-all md:flex-none md:px-5 md:text-sm ${
+                    activeTab === tab.key
+                      ? "bg-white text-primary shadow-sm"
+                      : "text-primary-foreground/75 hover:text-primary-foreground hover:bg-white/10"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
