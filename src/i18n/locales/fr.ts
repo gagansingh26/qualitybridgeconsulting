@@ -1,9 +1,7 @@
 const fr = {
   nav: {
     home: "Accueil",
-    delivery: "Approche de livraison",
-    uat: "Gouvernance UAT",
-    release: "Préparation à la version",
+    services: "Services",
     about: "À propos",
     contact: "Contact",
     bookCall: "Réserver une consultation",
@@ -97,6 +95,77 @@ const fr = {
     bookConsultation: "Réserver une consultation",
     viewApproach: "Voir nos services",
   },
+
+  // ─── NEW: Services page ───────────────────────────────────────────────────
+  services: {
+    heading: "Nos services",
+    subheading: "Développement digital, Gouvernance SAP & UAT et Ingénierie qualité — trois spécialisations travaillant ensemble pour une livraison confiante et bien testée.",
+
+    // Hero
+    heroPrefix: "Trois spécialisations.",
+    heroAccent: "Un seul standard.",
+    heroSubtitle: "Développement digital, Gouvernance SAP & UAT et Ingénierie qualité — livrés dans un seul engagement, gérés depuis le Canada.",
+    heroStats: [
+      { value: "10+ ans", label: "Livraison enterprise" },
+      { value: "3 régions", label: "Amériques · UE · Asie" },
+      { value: "End-to-End", label: "Dev · SAP · QA" },
+    ],
+
+    // Tab labels — order matches home page pills
+    tabDigital: "Développement digital",
+    tabSap: "Gouvernance SAP & UAT",
+    tabQuality: "Ingénierie qualité",
+
+    digitalIntro: "Nous concevons et développons les outils numériques qui entourent vos systèmes essentiels — portails, tableaux de bord, prototypes et pipelines pour les livrer de manière fiable.",
+    sapIntro: "Nous intégrons une gouvernance structurée dans chaque livraison SAP — de la planification initiale jusqu'à l'hypercare — garantissant des versions contrôlées, auditables et validées par les métiers.",
+    qualityIntro: "Notre pratique d'ingénierie qualité automatise le répétitif et accélère le critique, afin que vos équipes puissent se concentrer sur la création de valeur plutôt que sur la chasse aux défauts.",
+    qualityRelease: "Le même cadre de décision de version s'applique dans les engagements QE : chaque déploiement est contrôlé selon des critères de qualité mesurables avant qu'un go-live soit approuvé.",
+
+    stripDigital: [
+      { icon: "monitor", label: "Web · Tableaux de bord · Portails" },
+      { icon: "zap", label: "React · TypeScript · Tailwind" },
+      { icon: "settings", label: "Vite · Supabase · GitHub Actions" },
+      { icon: "rocket", label: "Prototypage rapide · CI/CD" },
+    ],
+    stripSap: [
+      { icon: "layers", label: "Plan · SIT · UAT · Version · Hypercare" },
+      { icon: "shield", label: "Gouvernance UAT · Portes qualité" },
+      { icon: "globe", label: "Amérique du Nord · Europe · Asie" },
+      { icon: "checkSquare", label: "Fondé sur les risques · Approbation par les preuves" },
+    ],
+    stripQuality: [
+      { icon: "cpu", label: "Cypress · Playwright · Automatisation" },
+      { icon: "bot", label: "Conception de tests assistée par IA" },
+      { icon: "gitBranch", label: "API · Intégration · Portes CI/CD" },
+      { icon: "barChart", label: "Décisions de version basées sur les métriques" },
+    ],
+
+    digitalItems: [
+      {
+        title: "Applications web & portails",
+        desc: "Applications React responsives et accessibles — des outils internes aux portails orientés clients — développées avec TypeScript et Tailwind CSS.",
+      },
+      {
+        title: "Tableaux de bord de reporting",
+        desc: "Tableaux de bord en temps réel et planifiés qui mettent en avant les métriques dont votre entreprise a besoin, connectés à vos sources de données existantes.",
+      },
+      {
+        title: "Prototypage rapide",
+        desc: "Du concept au prototype cliquable en quelques jours, en utilisant Lovable et Vite pour valider les idées avant de s'engager dans un développement complet.",
+      },
+      {
+        title: "Intégration CI/CD & DevOps",
+        desc: "Pipelines GitHub Actions, portes de tests automatisés et flux de déploiement qui maintiennent votre cadence de livraison rapide et sûre.",
+      },
+    ],
+    digitalStackHeading: "Développé avec des outils modernes",
+    digitalStackIntro: "Chaque projet s'appuie sur une stack open-source éprouvée, rapide à livrer, facile à maintenir et prête à évoluer.",
+    digitalStack: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Vite", "Lovable", "Supabase", "GitHub Actions"],
+    digitalCtaHeading: "Prêt à construire quelque chose ?",
+    digitalCtaBody: "Parlez-nous de votre projet et nous établirons un plan de livraison adapté à votre calendrier et à votre budget.",
+  },
+
+  // ─── Existing keys preserved as-is ───────────────────────────────────────
   delivery: {
     heading: "Approche de livraison",
     subheading: "Un cycle de vie structuré de la planification à l'hypercare — intégrant la qualité à chaque étape.",
