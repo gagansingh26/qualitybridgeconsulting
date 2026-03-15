@@ -94,6 +94,7 @@ const en = {
     body: "Let's discuss how structured SAP governance and modern web development can reduce your release risk — with local engagement in Canada and global delivery specialists.",
     bookConsultation: "Book a Consultation",
     viewApproach: "View Our Services",
+    getInTouch: "Get in Touch",
   },
 
   // ─── NEW: Services page ───────────────────────────────────────────────────
