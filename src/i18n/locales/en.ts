@@ -1,9 +1,7 @@
 const en = {
   nav: {
     home: "Home",
-    delivery: "Delivery Approach",
-    uat: "UAT Governance",
-    release: "Release Readiness",
+    services: "Services",
     about: "About",
     contact: "Contact",
     bookCall: "Book a Consultation",
@@ -97,6 +95,80 @@ const en = {
     bookConsultation: "Book a Consultation",
     viewApproach: "View Our Services",
   },
+
+  // ─── NEW: Services page ───────────────────────────────────────────────────
+  services: {
+    heading: "Our Services",
+    subheading: "Digital Development, SAP Governance & UAT, and Quality Engineering — three specialisations working together for confident, well-tested delivery.",
+
+    // Hero
+    heroPrefix: "Three Specialisations.",
+    heroAccent: "One Standard.",
+    heroSubtitle: "Digital Development, SAP Governance & UAT, and Quality Engineering — delivered under one engagement, managed from Canada.",
+    heroStats: [
+      { value: "10+ Years", label: "Enterprise delivery" },
+      { value: "3 Regions", label: "Americas · EU · Asia" },
+      { value: "End-to-End", label: "Dev · SAP · QA" },
+    ],
+
+    // Tab labels — order matches home page pills
+    tabDigital: "Digital Development",
+    tabSap: "SAP Governance & UAT",
+    tabQuality: "Quality Engineering",
+
+    // Per-tab intro text
+    digitalIntro: "We design and build the digital tooling that surrounds your core systems — portals, dashboards, prototypes, and the pipelines that ship them reliably.",
+    sapIntro: "We embed structured governance into every SAP delivery — from initial planning through hypercare — ensuring controlled, auditable, and business-validated releases.",
+    qualityIntro: "Our quality engineering practice automates the repetitive and accelerates the critical, so your teams can focus on delivering value rather than chasing defects.",
+    qualityRelease: "The same release decision framework applies in QE engagements: every deployment is gated against measurable quality criteria before a go-live is approved.",
+
+    // Context strip — 4 items per tab (icon key + label)
+    stripDigital: [
+      { icon: "monitor", label: "Web · Dashboards · Portals" },
+      { icon: "zap", label: "React · TypeScript · Tailwind" },
+      { icon: "settings", label: "Vite · Supabase · GitHub Actions" },
+      { icon: "rocket", label: "Rapid Prototyping · CI/CD" },
+    ],
+    stripSap: [
+      { icon: "layers", label: "Plan · SIT · UAT · Release · Hypercare" },
+      { icon: "shield", label: "UAT Governance · Quality Gates" },
+      { icon: "globe", label: "North America · Europe · Asia" },
+      { icon: "checkSquare", label: "Risk-Based · Evidence-Based Sign-off" },
+    ],
+    stripQuality: [
+      { icon: "cpu", label: "Cypress · Playwright · Automation" },
+      { icon: "bot", label: "AI-Assisted Test Design" },
+      { icon: "gitBranch", label: "API · Integration · CI/CD Gates" },
+      { icon: "barChart", label: "Metrics-Based Release Decisions" },
+    ],
+
+    // Digital tab content
+    digitalItems: [
+      {
+        title: "Web Applications & Portals",
+        desc: "Responsive, accessible React applications — from internal tools to client-facing portals — built with TypeScript and Tailwind CSS.",
+      },
+      {
+        title: "Reporting Dashboards",
+        desc: "Real-time and scheduled dashboards that surface the metrics your business needs, connected to your existing data sources.",
+      },
+      {
+        title: "Rapid Prototyping",
+        desc: "From concept to clickable prototype in days, using Lovable and Vite to validate ideas before committing to full development.",
+      },
+      {
+        title: "CI/CD & DevOps Integration",
+        desc: "GitHub Actions pipelines, automated testing gates, and deployment workflows that keep your delivery cadence fast and safe.",
+      },
+    ],
+    digitalStackHeading: "Built With Modern Tooling",
+    digitalStackIntro: "Every project leverages a proven, open-source stack that is fast to ship, easy to maintain, and ready to scale.",
+    digitalStack: ["React", "TypeScript", "Tailwind CSS", "Node.js", "Vite", "Lovable", "Supabase", "GitHub Actions"],
+    digitalCtaHeading: "Ready to Build Something?",
+    digitalCtaBody: "Tell us about your project and we will scope a delivery plan that fits your timeline and budget.",
+  },
+
+  // ─── Existing keys preserved as-is ───────────────────────────────────────
   delivery: {
     heading: "Delivery Approach",
     subheading: "A structured lifecycle from planning through hypercare — embedding quality at every stage.",
