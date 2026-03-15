@@ -106,9 +106,9 @@ const en = {
     heroAccent: "One Standard.",
     heroSubtitle: "Digital Development, SAP Governance & UAT, and Quality Engineering — delivered under one engagement, managed from Canada.",
     heroStats: [
-      { value: "React · TypeScript", label: "Digital Development" },
+      { value: "Modern Technologies", label: "Digital Development" },
       { value: "SAP S/4HANA", label: "Governance & UAT" },
-      { value: "Cypress · Playwright", label: "Quality Engineering" },
+      { value: "Modern Automation Frameworks", label: "Quality Engineering" },
     ],
 
     // Tab labels — order matches home page pills
