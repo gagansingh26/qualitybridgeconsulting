@@ -288,8 +288,7 @@ const DeliveryApproach = () => {
           >
             {(t("services.heroStats", { returnObjects: true }) as { value: string; label: string }[]).map((stat, i) => (
               <div key={i} className="flex flex-1 flex-col items-center px-3 md:px-5">
-                <span className="text-base font-bold text-primary-foreground md:text-lg">{stat.value}</span>
-                <span className="mt-0.5 text-[10px] text-primary-foreground/60 md:text-xs">{stat.label}</span>
+                <span className="text-xs font-bold text-primary-foreground md:text-sm">{stat.value}</span>
               </div>
             ))}
           </motion.div>
@@ -342,18 +341,18 @@ const DeliveryApproach = () => {
 
       {/* ── Tab selector ──────────────────────────────────────────────────── */}
       <div className="sticky top-14 z-40 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-        <div className="container mx-auto px-4 py-2 md:px-6">
+        <div className="container mx-auto px-4 py-2.5 md:px-6">
           {/* Full-width on mobile, centred w-fit on desktop */}
-          <div className="flex w-full gap-1 rounded-lg bg-muted p-1 md:mx-auto md:w-fit">
+          <div className="flex w-full gap-1 rounded-lg enterprise-gradient p-1 md:mx-auto md:w-fit">
             {tabs.map((tab) => (
               <button
                 key={tab.key}
                 type="button"
                 onClick={() => setActiveTab(tab.key)}
-                className={`flex-1 rounded-md px-3 py-2 text-xs font-semibold transition-colors whitespace-nowrap md:flex-none md:px-5 md:text-sm ${
+                className={`flex-1 rounded-md px-3 py-2 text-xs font-semibold transition-all whitespace-nowrap md:flex-none md:px-5 md:text-sm ${
                   activeTab === tab.key
-                    ? "bg-background text-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "bg-white text-primary shadow-sm"
+                    : "text-primary-foreground/75 hover:text-primary-foreground hover:bg-white/10"
                 }`}
               >
                 {tab.label}
