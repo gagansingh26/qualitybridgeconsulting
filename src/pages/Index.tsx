@@ -351,14 +351,14 @@ const Index = () => {
           <h2 className="text-[28px] font-bold md:text-[36px]">{t("cta.heading")}</h2>
           <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground md:mt-3 md:text-base">{t("cta.body")}</p>
           <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center md:mt-8 md:gap-3">
-            <Link to="/contact" className="w-full sm:w-auto">
-              <Button size="lg" className="w-full sm:w-auto">
-                {t("cta.bookConsultation")} <ArrowRight className="ml-2 h-4 w-4" />
+            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full font-semibold sm:w-auto">
+                {t("cta.bookConsultation")} <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
-            </Link>
+            </a>
             <Link to="/services" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                {t("cta.viewApproach")}
+                {t("cta.viewApproach")} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </div>
