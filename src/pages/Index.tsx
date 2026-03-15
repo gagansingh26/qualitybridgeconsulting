@@ -193,13 +193,13 @@ const Index = () => {
                 {t("hero.bookConsultation")} <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
             </a>
-            <Link to="/delivery" className="w-full sm:w-auto">
+            <Link to="/services" className="w-full sm:w-auto">
               <Button
                 size="lg"
                 variant="outline"
                 className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto"
               >
-                {t("cta.viewApproach") || "View Our Approach"}
+                {t("cta.viewApproach") || "View Our Services"}
               </Button>
             </Link>
           </motion.div>
@@ -356,7 +356,7 @@ const Index = () => {
                 {t("cta.bookConsultation")} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link to="/delivery" className="w-full sm:w-auto">
+            <Link to="/services" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="w-full sm:w-auto">
                 {t("cta.viewApproach")}
               </Button>
