@@ -273,6 +273,15 @@ const de = {
     successDesc: "Vielen Dank für Ihre Anfrage. Ich melde mich bald.",
     errorTitle: "Senden fehlgeschlagen",
     errorDesc: "Etwas ist schiefgelaufen. Bitte senden Sie direkt eine E-Mail.",
+    heroStats: [
+      { value: "Kostenlos", label: "15-Min-Beratung" },
+      { value: "< 24 Stunden", label: "Antwortzeit" },
+      { value: "Unverbindlich", label: "Nur ein Gespräch" },
+    ],
+    stripConsultation: "Kostenlose 15-Min-Beratung",
+    stripResponse: "Antwortet innerhalb von 24 Stunden",
+    stripReach: "Nordamerika · Europa · Asien",
+    stripNoCommitment: "Unverbindlich",
   },
   footer: {
     tagline: "Enterprise-Governance, Testautomatisierung und moderne Webentwicklung — End-to-End-Digitallösungen für sichere Lieferung.",
