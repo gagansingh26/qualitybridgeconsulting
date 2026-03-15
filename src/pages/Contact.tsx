@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { usePageMeta } from "@/hooks/use-page-meta";
-import { Mail, MapPin, Send, Calendar, Loader2, ExternalLink } from "lucide-react";
+import { Mail, MapPin, Send, Calendar, Clock, Globe, Shield, Loader2, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -76,7 +76,7 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="enterprise-gradient relative overflow-hidden py-10 md:py-16">
+      <section className="enterprise-gradient relative overflow-hidden py-12 md:py-20">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10 bg-white/[0.03] md:-right-10 md:-top-10 md:h-80 md:w-80" />
           <div className="absolute -right-4 top-8 h-40 w-40 rounded-full border border-white/[0.07] bg-white/[0.02] md:right-10 md:top-16 md:h-52 md:w-52" />
@@ -99,8 +99,47 @@ const Contact = () => {
           >
             {t("contact.subheading")}
           </motion.p>
+
+          {/* Stats bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className="mx-auto mt-8 flex max-w-xs items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-md md:mt-10"
+          >
+            {(t("contact.heroStats", { returnObjects: true }) as { value: string; label: string }[]).map((stat, i) => (
+              <div key={i} className="flex flex-1 flex-col items-center px-3 md:px-5">
+                <span className="text-sm font-bold text-primary-foreground md:text-base leading-tight text-center">{stat.value}</span>
+                <span className="mt-0.5 text-[10px] text-primary-foreground/60 md:text-xs text-center">{stat.label}</span>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
+
+      {/* ── Contact strip ─────────────────────────────────────────────────── */}
+      <div className="border-b border-t border-border bg-card">
+        <div className="container mx-auto px-4 py-3">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2 md:flex md:flex-wrap md:items-center md:justify-center md:gap-10">
+            <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground md:text-sm">
+              <span className="shrink-0 text-primary"><Calendar className="h-4 w-4" /></span>
+              <span>{t("contact.stripConsultation")}</span>
+            </div>
+            <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground md:text-sm">
+              <span className="shrink-0 text-primary"><Clock className="h-4 w-4" /></span>
+              <span>{t("contact.stripResponse")}</span>
+            </div>
+            <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground md:text-sm">
+              <span className="shrink-0 text-primary"><Globe className="h-4 w-4" /></span>
+              <span>{t("contact.stripReach")}</span>
+            </div>
+            <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground md:text-sm">
+              <span className="shrink-0 text-primary"><Shield className="h-4 w-4" /></span>
+              <span>{t("contact.stripNoCommitment")}</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <SectionWrapper>
         {/* Contact info cards */}
