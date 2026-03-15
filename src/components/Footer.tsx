@@ -24,9 +24,15 @@ const Footer = () => {
 
           {/* Brand */}
           <div>
-            <h3 className="mb-1.5 text-base font-bold text-foreground md:mb-3 md:text-lg">
-              QualityBridge Consulting
-            </h3>
+            <Link to="/" className="inline-flex flex-col leading-tight mb-1.5 md:mb-3">
+              <div className="flex items-baseline">
+                <span className="text-sm font-bold text-primary md:text-base">QualityBridge</span>
+                <span className="text-sm font-normal text-muted-foreground md:text-base"> Consulting</span>
+              </div>
+              <p className="text-[9px] font-medium uppercase tracking-widest text-muted-foreground/70 md:text-[10px]">
+                Build · Govern · Release
+              </p>
+            </Link>
             <p className="max-w-xs text-xs leading-relaxed text-muted-foreground md:text-sm">
               {t("footer.tagline")}
             </p>
