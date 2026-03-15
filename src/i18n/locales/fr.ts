@@ -94,6 +94,7 @@ const fr = {
     body: "Discutons de la façon dont une gouvernance SAP structurée et le développement web moderne peuvent réduire votre risque de version — avec un engagement local au Canada et des spécialistes de livraison mondiaux.",
     bookConsultation: "Réserver une consultation",
     viewApproach: "Voir nos services",
+    getInTouch: "Nous contacter",
   },
 
   // ─── NEW: Services page ───────────────────────────────────────────────────
