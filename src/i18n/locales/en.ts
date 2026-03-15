@@ -287,7 +287,7 @@ const en = {
     stripNoCommitment: "No commitment required",
   },
   footer: {
-    tagline: "Enterprise governance, test automation, and modern web development — end-to-end digital solutions for confident delivery.",
+    tagline: "Digital development, SAP governance & UAT, and test automation & quality — end-to-end solutions for confident enterprise delivery.",
     quickLinks: "Quick Links",
     contact: "Contact",
     rights: "All rights reserved.",
