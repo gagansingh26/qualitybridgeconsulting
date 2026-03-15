@@ -273,6 +273,15 @@ const fr = {
     successDesc: "Merci de m'avoir contacté. Je vous répondrai bientôt.",
     errorTitle: "Échec de l'envoi",
     errorDesc: "Une erreur s'est produite. Veuillez envoyer un e-mail directement.",
+    heroStats: [
+      { value: "Gratuit", label: "Consultation 15 min" },
+      { value: "< 24 heures", label: "Temps de réponse" },
+      { value: "Sans engagement", label: "Juste une conversation" },
+    ],
+    stripConsultation: "Consultation gratuite de 15 min",
+    stripResponse: "Répond sous 24 heures",
+    stripReach: "Amérique du Nord · Europe · Asie",
+    stripNoCommitment: "Sans engagement",
   },
   footer: {
     tagline: "Gouvernance d'entreprise, automatisation des tests et développement web moderne — solutions digitales de bout en bout pour une livraison confiante.",
