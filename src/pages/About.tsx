@@ -36,6 +36,7 @@ const content = {
     founderTitle: "Founder",
     founderLocation: "Greater Toronto Area, Canada",
     founderExperience: "10+ years · North America · Europe · Asia",
+    reach: "Client engagement managed locally in Canada · North America · Europe · Asia",
     founderCta: "Connect on LinkedIn",
     intro: "QualityBridge Consulting was built on a simple frustration: too many enterprise programmes ship late, break in production, and leave business stakeholders without the visibility they need to make confident decisions. We exist to fix that.",
     bullets: [
@@ -98,6 +99,7 @@ const content = {
     founderTitle: "Gründer",
     founderLocation: "Greater Toronto Area, Kanada",
     founderExperience: "10+ Jahre · Nordamerika · Europa · Asien",
+    reach: "Kundenbetreuung lokal in Kanada · Nordamerika · Europa · Asien",
     founderCta: "Auf LinkedIn verbinden",
     intro: "QualityBridge Consulting entstand aus einer einfachen Frustration: Zu viele Enterprise-Programme liefern zu spät, scheitern in der Produktion und lassen Stakeholder ohne die Transparenz zurück, die sie für sichere Entscheidungen brauchen. Wir existieren, um das zu ändern.",
     bullets: [
@@ -160,6 +162,7 @@ const content = {
     founderTitle: "Fondateur",
     founderLocation: "Grand Toronto, Canada",
     founderExperience: "10+ ans · Amérique du Nord · Europe · Asie",
+    reach: "Engagement client géré localement au Canada · Amérique du Nord · Europe · Asie",
     founderCta: "Se connecter sur LinkedIn",
     intro: "QualityBridge Consulting est né d'une frustration simple : trop de programmes d'entreprise livrent en retard, échouent en production et laissent les parties prenantes sans la visibilité dont elles ont besoin pour prendre des décisions confiantes. Nous existons pour changer cela.",
     bullets: [
@@ -270,7 +273,7 @@ const About = () => {
 
           {/* Trust line */}
           <p className="mx-auto mt-3 text-[13px] md:text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>
-            {a.founderExperience}
+            {a.reach}
           </p>
 
           {/* Impact stats bar */}
