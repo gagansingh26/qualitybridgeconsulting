@@ -123,7 +123,7 @@ const DeliveryApproach = () => {
   const [activePhase, setActivePhase] = useState(0);
 
   usePageMeta(
-    "Services — QualityBridge Consulting | Digital Development, SAP Governance & UAT, Quality Engineering",
+    "QualityBridge Consulting | Digital Development · SAP Governance · Quality Engineering",
     "Digital development, SAP governance & UAT, and quality engineering — three specialisations working together for confident, well-tested delivery.",
     "/services"
   );
