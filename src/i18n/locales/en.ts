@@ -90,8 +90,8 @@ const en = {
     ],
   },
   cta: {
-    heading: "Ready to Strengthen Your Release Quality?",
-    body: "Let's discuss how structured SAP governance and modern web development can reduce your release risk — with local engagement in Canada and global delivery specialists.",
+    heading: "Ready to Deliver With Confidence?",
+    body: "Digital development, SAP governance & UAT, and quality engineering — managed locally in Canada, delivered globally.",
     bookConsultation: "Book a Consultation",
     viewApproach: "View Our Services",
     getInTouch: "Get in Touch",
