@@ -10,7 +10,7 @@ const en = {
     pills: ["Digital Development", "SAP Governance & UAT", "Test Automation & Quality"],
     titlePrefix: "Enterprise Delivery,",
     titleAccent: "Done Right.",
-    subtitle: "Web development, SAP governance, and test automation — managed locally in Canada, delivered with global specialists.",
+    subtitle: "Digital Development, SAP Governance & UAT, and Quality Engineering — managed locally in Canada, delivered globally.",
     reach: "Client engagement managed locally in Canada · North America · Europe · Asia",
     bookConsultation: "Book a Consultation",
     bookCall: "Book a Call",
@@ -103,7 +103,7 @@ const en = {
     subheading: "Digital Development, SAP Governance & UAT, and Quality Engineering — three specialisations working together for confident, well-tested delivery.",
 
     // Hero
-    heroPrefix: "Three Specialisations.",
+    heroPrefix: "Expert Specialisations.",
     heroAccent: "One Standard.",
     heroSubtitle: "Digital Development, SAP Governance & UAT, and Quality Engineering — delivered under one engagement, managed from Canada.",
     heroStats: [
