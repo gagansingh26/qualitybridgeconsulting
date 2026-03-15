@@ -431,24 +431,21 @@ const About = () => {
           </div>
 
           {/* Bottom CTA */}
-          <div className="mt-8 md:mt-12">
-            <Card className="border-border">
-              <CardContent className="py-6 px-4 md:py-10 md:px-6">
-                <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                  <div>
-                    <p className="font-display text-base md:text-xl font-semibold text-foreground">{a.openToConversation}</p>
-                    <p className="text-sm text-muted-foreground mt-1.5 max-w-2xl leading-relaxed">{a.openToConversationBody}</p>
-                  </div>
-                  <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto shrink-0">
-                    <Button asChild size="sm" className="w-full sm:w-auto">
-                      <a href="/contact" className="inline-flex items-center justify-center gap-2">
-                        {a.ctaContact}<ArrowRight size={15} />
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+          <div className="mt-8 md:mt-12 rounded-lg bg-accent/50 px-6 py-8 text-center md:py-10">
+            <h2 className="text-[22px] font-bold text-foreground md:text-[28px]">{a.openToConversation}</h2>
+            <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground md:mt-3 md:text-base">{a.openToConversationBody}</p>
+            <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center md:mt-6 md:gap-3">
+              <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full font-semibold sm:w-auto">
+                  {a.ctaBook} <ExternalLink className="ml-2 h-4 w-4" />
+                </Button>
+              </a>
+              <Link to="/services" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                  {a.ctaViewServices} <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
           </div>
 
         </div>
