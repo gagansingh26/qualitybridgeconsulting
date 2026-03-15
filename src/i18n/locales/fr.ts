@@ -10,7 +10,7 @@ const fr = {
     pills: ["Développement digital", "Gouvernance SAP & UAT", "Automatisation des tests & Qualité"],
     titlePrefix: "Livraison d'entreprise,",
     titleAccent: "faite comme il se doit.",
-    subtitle: "Développement web, gouvernance SAP et automatisation des tests — gérés localement au Canada, livrés avec des spécialistes mondiaux.",
+    subtitle: "Développement digital, Gouvernance SAP & UAT et Ingénierie qualité — géré localement au Canada, livré à l'échelle mondiale.",
     reach: "Engagement client géré localement au Canada · Amérique du Nord · Europe · Asie",
     bookConsultation: "Réserver une consultation",
     bookCall: "Réserver un appel",
@@ -103,7 +103,7 @@ const fr = {
     subheading: "Développement digital, Gouvernance SAP & UAT et Ingénierie qualité — trois spécialisations travaillant ensemble pour une livraison confiante et bien testée.",
 
     // Hero
-    heroPrefix: "Trois spécialisations.",
+    heroPrefix: "Nos spécialisations.",
     heroAccent: "Un seul standard.",
     heroSubtitle: "Développement digital, Gouvernance SAP & UAT et Ingénierie qualité — livrés dans un seul engagement, gérés depuis le Canada.",
     heroStats: [
