@@ -1,167 +1,854 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Cpu, GitBranch, Code, Settings } from "lucide-react";
+import {
+  ExternalLink,
+  ArrowRight,
+  Monitor,
+  Zap,
+  Settings,
+  Rocket,
+  Layers,
+  Shield,
+  Globe,
+  CheckSquare,
+  ListChecks,
+  Cpu,
+  Bot,
+  GitBranch,
+  BarChart2,
+  AlertTriangle,
+  Users,
+  FileText,
+  ClipboardList,
+  ThumbsUp,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
+import StatusBadge from "@/components/StatusBadge";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { useTranslation } from "react-i18next";
 
-const phaseColors = ["bg-primary", "bg-info", "bg-success", "bg-warning", "bg-destructive"];
+// ─── Types ────────────────────────────────────────────────────────────────────
+type TabKey = "digital" | "sap" | "quality";
 
-const automationIcons = [
-  <Settings className="h-5 w-5" />,
-  <Code className="h-5 w-5" />,
+// ─── Icon map for context strip ───────────────────────────────────────────────
+const STRIP_ICONS: Record<string, React.ReactNode> = {
+  monitor: <Monitor className="h-4 w-4" />,
+  zap: <Zap className="h-4 w-4" />,
+  settings: <Settings className="h-4 w-4" />,
+  rocket: <Rocket className="h-4 w-4" />,
+  layers: <Layers className="h-4 w-4" />,
+  shield: <Shield className="h-4 w-4" />,
+  globe: <Globe className="h-4 w-4" />,
+  checkSquare: <CheckSquare className="h-4 w-4" />,
+  cpu: <Cpu className="h-4 w-4" />,
+  bot: <Bot className="h-4 w-4" />,
+  gitBranch: <GitBranch className="h-4 w-4" />,
+  barChart: <BarChart2 className="h-4 w-4" />,
+};
+
+// ─── Phase colours (delivery lifecycle) ──────────────────────────────────────
+const phaseColors = [
+  "bg-primary",
+  "bg-info",
+  "bg-success",
+  "bg-warning",
+  "bg-destructive",
+];
+
+// ─── UAT key-control icons ────────────────────────────────────────────────────
+const keyControlIcons = [
+  <ListChecks className="h-4 w-4" />,
+  <AlertTriangle className="h-4 w-4" />,
+  <Users className="h-4 w-4" />,
+  <Shield className="h-4 w-4" />,
+];
+
+// ─── UAT output icons ─────────────────────────────────────────────────────────
+const outputIcons = [
+  <FileText className="h-5 w-5" />,
+  <AlertTriangle className="h-5 w-5" />,
+  <ClipboardList className="h-5 w-5" />,
+];
+
+// ─── UAT deliverable icons ────────────────────────────────────────────────────
+const deliverableIcons = [
+  <Shield className="h-5 w-5" />,
+  <Users className="h-5 w-5" />,
+  <Zap className="h-5 w-5" />,
+  <ThumbsUp className="h-5 w-5" />,
+];
+
+// ─── Release track icons ──────────────────────────────────────────────────────
+const trackIcons = [
+  <ClipboardList className="h-5 w-5" />,
+  <AlertTriangle className="h-5 w-5" />,
+  <Users className="h-5 w-5" />,
   <Cpu className="h-5 w-5" />,
+];
+
+const statusVariants: ("on-track" | "conditional" | "blocked")[] = [
+  "on-track",
+  "conditional",
+  "blocked",
+];
+
+// ─── Digital service icons ────────────────────────────────────────────────────
+const digitalServiceIcons = [
+  <Monitor className="h-5 w-5" />,
+  <BarChart2 className="h-5 w-5" />,
+  <Rocket className="h-5 w-5" />,
   <GitBranch className="h-5 w-5" />,
 ];
 
+// ─── Animation helpers ────────────────────────────────────────────────────────
 const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 16 },
+  initial: { opacity: 0, y: 12 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.4, delay },
+  transition: { duration: 0.35, delay },
 });
 
+const tabVariants = {
+  initial: { opacity: 0, y: 10 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.25 } },
+  exit: { opacity: 0, y: -6, transition: { duration: 0.15 } },
+};
+
+// ─── Component ────────────────────────────────────────────────────────────────
 const DeliveryApproach = () => {
   const { t } = useTranslation();
+  const [activeTab, setActiveTab] = useState<TabKey>("digital");
   const [activePhase, setActivePhase] = useState(0);
 
   usePageMeta(
-    "Delivery Approach — QualityBridge Consulting | Test Strategy & Automation",
-    "Structured test delivery lifecycle from planning through hypercare — SAP, web, and API automation using Cypress, Playwright, and CI/CD quality gates.",
+    "Services — QualityBridge Consulting | Digital Development, SAP Governance & UAT, Quality Engineering",
+    "Digital development, SAP governance & UAT, and quality engineering — three specialisations working together for confident, well-tested delivery.",
     "/delivery"
   );
 
-  const phases = t("delivery.phases", { returnObjects: true }) as { name: string; desc: string }[];
-  const automationItems = (t("delivery.automationItems", { returnObjects: true }) as string[]).map((label, i) => ({
-    icon: automationIcons[i],
-    label,
-  }));
+  // ── Locale data ─────────────────────────────────────────────────────────────
+  const phases = t("delivery.phases", { returnObjects: true }) as {
+    name: string;
+    desc: string;
+  }[];
+
+  const uatPhases = t("uat.phases", { returnObjects: true }) as {
+    name: string;
+    desc: string;
+  }[];
+
+  const keyControls = (
+    t("uat.controls", { returnObjects: true }) as string[]
+  ).map((label, i) => ({ icon: keyControlIcons[i], label }));
+
+  const outputItems = (
+    t("uat.outputItems", { returnObjects: true }) as {
+      title: string;
+      desc: string;
+    }[]
+  ).map((o, i) => ({ icon: outputIcons[i], title: o.title, desc: o.desc }));
+
+  const deliverables = (
+    t("uat.deliverables", { returnObjects: true }) as string[]
+  ).map((label, i) => ({ icon: deliverableIcons[i], label }));
+
+  const trackItems = (
+    t("release.trackItems", { returnObjects: true }) as {
+      title: string;
+      desc: string;
+    }[]
+  ).map((item, i) => ({ icon: trackIcons[i], ...item }));
+
+  const releaseStatuses = (
+    t("release.statuses", { returnObjects: true }) as {
+      label: string;
+      desc: string;
+    }[]
+  ).map((s, i) => ({ variant: statusVariants[i], ...s }));
+
+  const digitalItems = t("services.digitalItems", {
+    returnObjects: true,
+  }) as { title: string; desc: string }[];
+
+  const digitalStack = t("services.digitalStack", {
+    returnObjects: true,
+  }) as string[];
+
+  // ── Context strip data ───────────────────────────────────────────────────────
+  const stripKey =
+    activeTab === "digital"
+      ? "services.stripDigital"
+      : activeTab === "sap"
+      ? "services.stripSap"
+      : "services.stripQuality";
+
+  const stripItems = t(stripKey, { returnObjects: true }) as {
+    icon: string;
+    label: string;
+  }[];
+
+  // ── Tab definitions (order matches home page pills) ──────────────────────────
+  const tabs: { key: TabKey; label: string }[] = [
+    { key: "digital", label: t("services.tabDigital") },
+    { key: "sap", label: t("services.tabSap") },
+    { key: "quality", label: t("services.tabQuality") },
+  ];
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="enterprise-gradient relative overflow-hidden py-10 md:py-16">
+      {/* ── Hero ──────────────────────────────────────────────────────────── */}
+      <section className="enterprise-gradient relative overflow-hidden py-12 md:py-20 lg:py-28">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10 bg-white/[0.03] md:-right-10 md:-top-10 md:h-80 md:w-80" />
           <div className="absolute -right-4 top-8 h-40 w-40 rounded-full border border-white/[0.07] bg-white/[0.02] md:right-10 md:top-16 md:h-52 md:w-52" />
           <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full border border-white/[0.06] bg-white/[0.02] md:h-64 md:w-64" />
         </div>
-        <div className="container relative mx-auto px-4 md:px-6 text-center">
+        <div className="container relative mx-auto px-4 text-center">
+
+          {/* Pills */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="flex flex-wrap items-center justify-center gap-1.5"
+            style={{ marginBottom: 12 }}
+          >
+            {(t("hero.pills", { returnObjects: true }) as string[]).map((pill) => (
+              <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-2.5 py-0.5 text-[11px] font-medium text-primary-foreground/90 md:px-3 md:py-1 md:text-xs">
+                {pill}
+              </span>
+            ))}
+          </motion.div>
+
+          {/* Headline with accent */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mx-auto max-w-2xl text-[28px] font-bold leading-tight text-primary-foreground md:text-[36px] lg:text-5xl"
+            className="mx-auto max-w-3xl text-[28px] font-bold leading-tight text-primary-foreground md:text-[36px] lg:text-5xl"
           >
-            {t("delivery.heading")}
+            {t("services.heroPrefix")}{" "}
+            <span style={{ color: "#93c5fd" }}>
+              {t("services.heroAccent")}
+            </span>
           </motion.h1>
+
+          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="mx-auto mt-3 max-w-xl text-sm text-primary-foreground/80 md:text-base"
+            className="mx-auto mt-3 max-w-2xl text-base text-primary-foreground/80 md:text-lg"
           >
-            {t("delivery.subheading")}
+            {t("services.heroSubtitle")}
           </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3"
+          >
+            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto">
+                {t("hero.bookConsultation")} <ExternalLink className="ml-2 h-4 w-4" />
+              </Button>
+            </a>
+            <a href="/contact" className="w-full sm:w-auto">
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto"
+              >
+                {t("nav.contact")}
+              </Button>
+            </a>
+          </motion.div>
+
+          {/* Trust line */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mx-auto mt-3 text-[13px] md:text-sm"
+            style={{ color: "rgba(255,255,255,0.75)" }}
+          >
+            {t("hero.reach")}
+          </motion.p>
+
+          {/* Stats bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.55 }}
+            className="mx-auto mt-8 flex max-w-sm items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-md md:mt-10 md:max-w-lg"
+          >
+            {(t("services.heroStats", { returnObjects: true }) as { value: string; label: string }[]).map((stat, i) => (
+              <div key={i} className="flex flex-1 flex-col items-center px-3 md:px-5">
+                <span className="text-base font-bold text-primary-foreground md:text-lg">{stat.value}</span>
+                <span className="mt-0.5 text-[10px] text-primary-foreground/60 md:text-xs">{stat.label}</span>
+              </div>
+            ))}
+          </motion.div>
+
         </div>
       </section>
 
-      <SectionWrapper>
-        {/* Mobile: Tab-style phase selector */}
-        <div className="md:hidden">
-          <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-1">
-            {phases.map((phase, i) => (
+      {/* ── Context strip (updates per tab) ───────────────────────────────── */}
+      <div className="border-b border-border bg-background">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab + "-strip"}
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="container mx-auto px-4 py-3 md:px-6"
+          >
+            {/* Mobile: 2-col grid */}
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2 md:hidden">
+              {stripItems.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-2 text-xs text-muted-foreground"
+                >
+                  <span className="shrink-0 text-primary">
+                    {STRIP_ICONS[item.icon]}
+                  </span>
+                  <span className="truncate">{item.label}</span>
+                </div>
+              ))}
+            </div>
+            {/* Desktop: centred flex row */}
+            <div className="hidden md:flex md:items-center md:justify-center md:gap-8">
+              {stripItems.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-2 text-sm text-muted-foreground"
+                >
+                  <span className="shrink-0 text-primary">
+                    {STRIP_ICONS[item.icon]}
+                  </span>
+                  <span>{item.label}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* ── Tab selector ──────────────────────────────────────────────────── */}
+      <div className="sticky top-14 z-40 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+        <div className="container mx-auto px-4 py-2 md:px-6">
+          {/* Full-width on mobile, centred w-fit on desktop */}
+          <div className="flex w-full gap-1 rounded-lg bg-muted p-1 md:mx-auto md:w-fit">
+            {tabs.map((tab) => (
               <button
-                key={i}
+                key={tab.key}
                 type="button"
-                onClick={() => setActivePhase(i)}
-                className={`flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
-                  activePhase === i
-                    ? `${phaseColors[i]} text-primary-foreground`
-                    : "bg-accent text-muted-foreground"
+                onClick={() => setActiveTab(tab.key)}
+                className={`flex-1 rounded-md px-3 py-2 text-xs font-semibold transition-colors whitespace-nowrap md:flex-none md:px-5 md:text-sm ${
+                  activeTab === tab.key
+                    ? "bg-background text-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                <span className={`h-2 w-2 rounded-full ${activePhase === i ? "bg-primary-foreground/60" : phaseColors[i]}`} />
-                {phase.name}
+                {tab.label}
               </button>
             ))}
           </div>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activePhase}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.2 }}
-              className="mt-3 rounded-lg border border-border bg-card p-4 card-shadow"
-            >
-              <div className="flex items-center gap-2">
-                <span className={`h-3 w-3 rounded-full ${phaseColors[activePhase]}`} />
-                <h3 className="font-semibold text-card-foreground">{phases[activePhase].name}</h3>
-              </div>
-              <p className="mt-2 text-sm text-muted-foreground">{phases[activePhase].desc}</p>
-            </motion.div>
-          </AnimatePresence>
         </div>
+      </div>
 
-        {/* Desktop: Timeline */}
-        <div className="relative mt-10 hidden md:block">
-          <div className="absolute left-4 top-0 h-full w-0.5 bg-border" />
-          <div className="space-y-6 ml-12">
-            {phases.map((phase, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="relative flex gap-4"
+      {/* ── Tab content ───────────────────────────────────────────────────── */}
+      <AnimatePresence mode="wait">
+        {/* ════════════════════════════════════════════════════════════════
+            TAB 1 — Digital Development
+        ════════════════════════════════════════════════════════════════ */}
+        {activeTab === "digital" && (
+          <motion.div key="digital" {...tabVariants}>
+            <SectionWrapper>
+              {/* Intro */}
+              <motion.p
+                {...fadeUp(0)}
+                className="max-w-2xl text-sm text-muted-foreground md:text-base"
               >
-                <div className={`absolute -left-12 mt-1.5 h-4 w-4 rounded-full ${phaseColors[i]} ring-4 ring-background`} />
-                <div className="flex-1 rounded-lg border border-border bg-card p-5 card-shadow">
-                  <h3 className="font-semibold text-card-foreground">{phase.name}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{phase.desc}</p>
-                </div>
+                {t("services.digitalIntro")}
+              </motion.p>
+
+              {/* Service items — 2-col mobile, 2-col desktop */}
+              <div className="mt-6 grid grid-cols-2 gap-3 md:mt-8 md:gap-5">
+                {digitalItems.map((item, i) => (
+                  <motion.div
+                    key={i}
+                    {...fadeUp(i * 0.08)}
+                    className="rounded-lg border border-border bg-card p-4 card-shadow md:p-5"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary md:h-10 md:w-10">
+                        {digitalServiceIcons[i]}
+                      </div>
+                      <h3 className="text-xs font-semibold text-card-foreground md:text-sm">
+                        {item.title}
+                      </h3>
+                    </div>
+                    <p className="mt-2 text-xs text-muted-foreground md:mt-3 md:text-sm">
+                      {item.desc}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </SectionWrapper>
+
+            {/* Tech stack */}
+            <SectionWrapper className="bg-accent/50">
+              <motion.div {...fadeUp(0)}>
+                <h2 className="text-lg font-bold md:text-2xl">
+                  {t("services.digitalStackHeading")}
+                </h2>
+                <p className="mt-1.5 max-w-xl text-sm text-muted-foreground">
+                  {t("services.digitalStackIntro")}
+                </p>
               </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Desktop flow bar */}
-        <div className="mt-8 hidden overflow-x-auto lg:flex">
-          {phases.map((phase, i) => (
-            <div key={i} className="flex items-center">
-              <div className={`flex h-10 items-center rounded-lg px-4 text-sm font-semibold text-primary-foreground ${phaseColors[i]}`}>
-                {phase.name}
+              <div className="mt-5 flex flex-wrap gap-2 md:mt-6">
+                {digitalStack.map((badge, i) => (
+                  <motion.span
+                    key={i}
+                    {...fadeUp(i * 0.05)}
+                    className="rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-card-foreground card-shadow md:text-sm"
+                  >
+                    {badge}
+                  </motion.span>
+                ))}
               </div>
-              {i < phases.length - 1 && <ArrowRight className="mx-1.5 h-4 w-4 text-muted-foreground" />}
-            </div>
-          ))}
-        </div>
-      </SectionWrapper>
+            </SectionWrapper>
 
-      {/* Test Automation Strategy */}
-      <SectionWrapper className="bg-accent/50">
-        <motion.div {...fadeUp(0)}>
-          <h2 className="text-xl font-bold md:text-3xl">{t("delivery.automationHeading")}</h2>
-          <p className="mt-1.5 max-w-2xl text-sm text-muted-foreground md:mt-2 md:text-base">{t("delivery.automationSubheading")}</p>
-        </motion.div>
-        <div className="mt-5 grid grid-cols-2 gap-3 md:mt-8 md:gap-4">
-          {automationItems.map((c, i) => (
-            <motion.div
-              key={i}
-              {...fadeUp(i * 0.08)}
-              className="flex items-center gap-2.5 rounded-lg border border-border bg-card p-3 card-shadow md:p-4"
-            >
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary md:h-10 md:w-10">
-                {c.icon}
+            {/* CTA */}
+            <SectionWrapper>
+              <motion.div
+                {...fadeUp(0)}
+                className="rounded-lg border border-border bg-card p-5 card-shadow md:p-8"
+              >
+                <h2 className="text-lg font-bold md:text-2xl">
+                  {t("services.digitalCtaHeading")}
+                </h2>
+                <p className="mt-2 max-w-xl text-sm text-muted-foreground md:text-base">
+                  {t("services.digitalCtaBody")}
+                </p>
+                <a
+                  href="https://cal.com/gagan.singh/15min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex w-full items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 md:w-auto"
+                >
+                  {t("nav.bookCall")}
+                </a>
+              </motion.div>
+            </SectionWrapper>
+          </motion.div>
+        )}
+
+        {/* ════════════════════════════════════════════════════════════════
+            TAB 2 — SAP Governance & UAT
+        ════════════════════════════════════════════════════════════════ */}
+        {activeTab === "sap" && (
+          <motion.div key="sap" {...tabVariants}>
+            <SectionWrapper>
+              {/* Intro */}
+              <motion.p
+                {...fadeUp(0)}
+                className="max-w-2xl text-sm text-muted-foreground md:text-base"
+              >
+                {t("services.sapIntro")}
+              </motion.p>
+
+              {/* ── Delivery lifecycle phases ── */}
+              <div className="mt-6">
+                <h2 className="mb-4 text-base font-semibold md:text-xl">
+                  {t("delivery.heading")}
+                </h2>
+
+                {/* Mobile: pill selector */}
+                <div className="md:hidden">
+                  <div className="flex gap-1.5 overflow-x-auto scrollbar-none pb-1">
+                    {phases.map((phase, i) => (
+                      <button
+                        key={i}
+                        type="button"
+                        onClick={() => setActivePhase(i)}
+                        className={`flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
+                          activePhase === i
+                            ? `${phaseColors[i]} text-primary-foreground`
+                            : "bg-accent text-muted-foreground"
+                        }`}
+                      >
+                        <span
+                          className={`h-2 w-2 rounded-full ${
+                            activePhase === i
+                              ? "bg-primary-foreground/60"
+                              : phaseColors[i]
+                          }`}
+                        />
+                        {phase.name}
+                      </button>
+                    ))}
+                  </div>
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activePhase}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.2 }}
+                      className="mt-3 rounded-lg border border-border bg-card p-4 card-shadow"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span
+                          className={`h-3 w-3 rounded-full ${phaseColors[activePhase]}`}
+                        />
+                        <h3 className="font-semibold text-card-foreground">
+                          {phases[activePhase].name}
+                        </h3>
+                      </div>
+                      <p className="mt-2 text-sm text-muted-foreground">
+                        {phases[activePhase].desc}
+                      </p>
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+
+                {/* Desktop: vertical timeline */}
+                <div className="relative hidden md:block">
+                  <div className="absolute left-4 top-0 h-full w-0.5 bg-border" />
+                  <div className="ml-12 space-y-5">
+                    {phases.map((phase, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: i * 0.1 }}
+                        className="relative flex gap-4"
+                      >
+                        <div
+                          className={`absolute -left-12 mt-1.5 h-4 w-4 rounded-full ${phaseColors[i]} ring-4 ring-background`}
+                        />
+                        <div className="flex-1 rounded-lg border border-border bg-card p-5 card-shadow">
+                          <h3 className="font-semibold text-card-foreground">
+                            {phase.name}
+                          </h3>
+                          <p className="mt-2 text-sm text-muted-foreground">
+                            {phase.desc}
+                          </p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Large screen: flow bar */}
+                <div className="mt-6 hidden overflow-x-auto lg:flex">
+                  {phases.map((phase, i) => (
+                    <div key={i} className="flex items-center">
+                      <div
+                        className={`flex h-10 items-center rounded-lg px-4 text-sm font-semibold text-primary-foreground ${phaseColors[i]}`}
+                      >
+                        {phase.name}
+                      </div>
+                      {i < phases.length - 1 && (
+                        <ArrowRight className="mx-1.5 h-4 w-4 text-muted-foreground" />
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
-              <span className="text-xs font-medium text-card-foreground md:text-sm">{c.label}</span>
-            </motion.div>
-          ))}
-        </div>
-      </SectionWrapper>
+            </SectionWrapper>
+
+            {/* ── UAT Operating Model ── */}
+            <SectionWrapper className="bg-accent/50">
+              <h2 className="mb-4 text-base font-semibold md:text-xl">
+                {t("uat.operatingModel")}
+              </h2>
+
+              {/* Mobile: 2-col grid */}
+              <div className="grid grid-cols-2 gap-2 md:hidden">
+                {uatPhases.map((phase, i) => (
+                  <div
+                    key={i}
+                    className="rounded-lg border border-border bg-card p-3 card-shadow"
+                  >
+                    <h3 className="text-xs font-semibold text-card-foreground">
+                      {phase.name}
+                    </h3>
+                    <p className="mt-1 text-xs leading-snug text-muted-foreground">
+                      {phase.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Desktop: flow bar + grid */}
+              <div className="hidden md:block">
+                <div className="mb-5 hidden overflow-x-auto lg:flex">
+                  {uatPhases.map((phase, i) => (
+                    <div key={i} className="flex items-center">
+                      <div className="flex h-10 items-center rounded-lg bg-primary px-4 text-sm font-semibold text-primary-foreground">
+                        {phase.name}
+                      </div>
+                      {i < uatPhases.length - 1 && (
+                        <ArrowRight className="mx-1.5 h-4 w-4 text-muted-foreground" />
+                      )}
+                    </div>
+                  ))}
+                </div>
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+                  {uatPhases.map((phase, i) => (
+                    <motion.div
+                      key={i}
+                      {...fadeUp(i * 0.06)}
+                      className="rounded-lg border border-border bg-card p-4 card-shadow"
+                    >
+                      <h3 className="text-sm font-semibold text-card-foreground">
+                        {phase.name}
+                      </h3>
+                      <p className="mt-2 text-xs text-muted-foreground">
+                        {phase.desc}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </SectionWrapper>
+
+            {/* ── Key Controls ── */}
+            <SectionWrapper>
+              <h2 className="mb-4 text-base font-semibold md:text-xl">
+                {t("uat.keyControls")}
+              </h2>
+              <div className="grid grid-cols-2 gap-3 md:gap-4">
+                {keyControls.map((c, i) => (
+                  <motion.div
+                    key={i}
+                    {...fadeUp(i * 0.06)}
+                    className="flex items-center gap-3 rounded-lg border border-border bg-card p-3 card-shadow md:p-4"
+                  >
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary md:h-8 md:w-8">
+                      {c.icon}
+                    </div>
+                    <span className="text-xs font-medium text-card-foreground md:text-sm">
+                      {c.label}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </SectionWrapper>
+
+            {/* ── Outputs ── */}
+            <SectionWrapper className="bg-accent/50">
+              <h2 className="mb-4 text-base font-semibold md:text-xl">
+                {t("uat.outputs")}
+              </h2>
+              <div className="grid gap-3 md:grid-cols-3 md:gap-4">
+                {outputItems.map((o, i) => (
+                  <motion.div
+                    key={i}
+                    {...fadeUp(i * 0.08)}
+                    className="rounded-lg border border-border bg-card p-4 card-shadow md:p-5"
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-accent text-primary md:h-10 md:w-10">
+                        {o.icon}
+                      </div>
+                      <h3 className="text-sm font-semibold text-card-foreground">
+                        {o.title}
+                      </h3>
+                    </div>
+                    <p className="mt-2.5 text-xs text-muted-foreground md:text-sm">
+                      {o.desc}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </SectionWrapper>
+
+            {/* ── What We Track ── */}
+            <SectionWrapper>
+              <h2 className="mb-4 text-base font-semibold md:text-xl">
+                {t("release.trackHeading")}
+              </h2>
+              <div className="grid grid-cols-2 gap-3 md:gap-5">
+                {trackItems.map((item, i) => (
+                  <motion.div
+                    key={i}
+                    {...fadeUp(i * 0.08)}
+                    className="rounded-lg border border-border bg-card p-3 card-shadow md:p-5"
+                  >
+                    <div className="flex items-center gap-2">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-accent text-primary md:h-10 md:w-10">
+                        {item.icon}
+                      </div>
+                      <h3 className="text-xs font-semibold text-card-foreground md:text-base">
+                        {item.title}
+                      </h3>
+                    </div>
+                    <p className="mt-2 text-xs text-muted-foreground md:mt-3 md:text-sm">
+                      {item.desc}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </SectionWrapper>
+
+            {/* ── Release Decision Model ── */}
+            <SectionWrapper className="bg-accent/50">
+              <h2 className="mb-4 text-base font-semibold md:mb-6 md:text-xl">
+                {t("release.decisionModel")}
+              </h2>
+              <div className="grid gap-3 sm:grid-cols-3 md:gap-4">
+                {releaseStatuses.map((s, i) => (
+                  <motion.div
+                    key={i}
+                    {...fadeUp(i * 0.1)}
+                    className="rounded-lg border border-border bg-card p-4 card-shadow md:p-5"
+                  >
+                    <div className="mb-2 md:mb-3">
+                      <StatusBadge variant={s.variant} label={s.label} />
+                    </div>
+                    <p className="text-xs text-muted-foreground md:text-sm">
+                      {s.desc}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Governance explanation */}
+              <motion.div
+                {...fadeUp(0.1)}
+                className="mt-5 rounded-lg border border-border bg-background p-4 md:mt-6 md:p-6"
+              >
+                <h3 className="text-base font-semibold text-card-foreground md:text-lg">
+                  {t("release.governanceHeading")}
+                </h3>
+                <p className="mt-1.5 text-xs text-muted-foreground md:mt-2 md:text-sm">
+                  {t("release.governanceBody")}
+                </p>
+              </motion.div>
+            </SectionWrapper>
+          </motion.div>
+        )}
+
+        {/* ════════════════════════════════════════════════════════════════
+            TAB 3 — Quality Engineering
+        ════════════════════════════════════════════════════════════════ */}
+        {activeTab === "quality" && (
+          <motion.div key="quality" {...tabVariants}>
+            <SectionWrapper>
+              {/* Intro */}
+              <motion.p
+                {...fadeUp(0)}
+                className="max-w-2xl text-sm text-muted-foreground md:text-base"
+              >
+                {t("services.qualityIntro")}
+              </motion.p>
+
+              {/* Test Automation Strategy */}
+              <div className="mt-6">
+                <motion.div {...fadeUp(0)}>
+                  <h2 className="text-base font-bold md:text-xl">
+                    {t("delivery.automationHeading")}
+                  </h2>
+                  <p className="mt-1.5 max-w-2xl text-sm text-muted-foreground">
+                    {t("delivery.automationSubheading")}
+                  </p>
+                </motion.div>
+                <div className="mt-4 grid grid-cols-2 gap-3 md:mt-6 md:gap-4">
+                  {(
+                    t("delivery.automationItems", {
+                      returnObjects: true,
+                    }) as string[]
+                  ).map((label, i) => (
+                    <motion.div
+                      key={i}
+                      {...fadeUp(i * 0.08)}
+                      className="flex items-center gap-2.5 rounded-lg border border-border bg-card p-3 card-shadow md:p-4"
+                    >
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary md:h-10 md:w-10">
+                        {
+                          [
+                            <Settings className="h-5 w-5" />,
+                            <Cpu className="h-5 w-5" />,
+                            <GitBranch className="h-5 w-5" />,
+                            <BarChart2 className="h-5 w-5" />,
+                          ][i]
+                        }
+                      </div>
+                      <span className="text-xs font-medium text-card-foreground md:text-sm">
+                        {label}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </SectionWrapper>
+
+            {/* Deliverables */}
+            <SectionWrapper className="bg-accent/50">
+              <motion.h2
+                {...fadeUp(0)}
+                className="text-base font-bold md:text-xl"
+              >
+                {t("uat.deliverablesHeading")}
+              </motion.h2>
+              <div className="mt-5 grid grid-cols-2 gap-3 md:mt-6 md:grid-cols-4 md:gap-4">
+                {deliverables.map((d, i) => (
+                  <motion.div
+                    key={i}
+                    {...fadeUp(i * 0.08)}
+                    className="flex flex-col items-center gap-2 rounded-lg border border-border bg-card p-3 text-center card-shadow md:flex-row md:gap-3 md:p-4 md:text-left"
+                  >
+                    <div className="text-primary">{d.icon}</div>
+                    <span className="text-xs font-medium text-card-foreground md:text-sm">
+                      {d.label}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </SectionWrapper>
+
+            {/* Release Decision Model (QE context) */}
+            <SectionWrapper>
+              <motion.p
+                {...fadeUp(0)}
+                className="mb-5 max-w-2xl text-sm text-muted-foreground md:mb-6 md:text-base"
+              >
+                {t("services.qualityRelease")}
+              </motion.p>
+              <h2 className="mb-4 text-base font-semibold md:mb-6 md:text-xl">
+                {t("release.decisionModel")}
+              </h2>
+              <div className="grid gap-3 sm:grid-cols-3 md:gap-4">
+                {releaseStatuses.map((s, i) => (
+                  <motion.div
+                    key={i}
+                    {...fadeUp(i * 0.1)}
+                    className="rounded-lg border border-border bg-card p-4 card-shadow md:p-5"
+                  >
+                    <div className="mb-2 md:mb-3">
+                      <StatusBadge variant={s.variant} label={s.label} />
+                    </div>
+                    <p className="text-xs text-muted-foreground md:text-sm">
+                      {s.desc}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </SectionWrapper>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Layout>
   );
 };
