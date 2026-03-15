@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, MapPin, Calendar, ExternalLink } from "lucide-react";
+import { Mail, MapPin, Calendar, ExternalLink, Languages } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const BOOK_CALL_URL = "https://cal.com/gagan.singh/15min";
@@ -83,7 +83,10 @@ const Footer = () => {
 
         {/* Translation disclaimer */}
         <div className="mt-6 rounded-lg border border-border bg-muted/40 px-3 py-2.5 text-center text-[11px] leading-relaxed text-muted-foreground md:mt-8 md:px-4 md:py-3 md:text-xs">
-          {t("footer.translationNote")}
+          <div className="flex items-start justify-center gap-1.5 md:items-center">
+            <Languages className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary md:mt-0 md:h-4 md:w-4" />
+            <span>{t("footer.translationNote")}</span>
+          </div>
         </div>
 
         {/* Copyright */}
