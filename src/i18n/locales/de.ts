@@ -106,9 +106,9 @@ const de = {
     heroAccent: "Ein Standard.",
     heroSubtitle: "Digitale Entwicklung, SAP-Governance & UAT und Qualitätssicherung — in einem Engagement geliefert, aus Kanada gemanagt.",
     heroStats: [
-      { value: "10+ Jahre", label: "Enterprise-Lieferung" },
-      { value: "3 Regionen", label: "Amerika · EU · Asien" },
-      { value: "End-to-End", label: "Entw. · SAP · QA" },
+      { value: "Moderne Technologien", label: "Digitale Entwicklung" },
+      { value: "SAP S/4HANA", label: "Governance & UAT" },
+      { value: "Moderne Automatisierungs-Frameworks", label: "Qualitätssicherung" },
     ],
 
     // Tab labels — order matches home page pills
