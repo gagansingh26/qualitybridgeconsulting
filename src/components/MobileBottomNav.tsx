@@ -8,9 +8,9 @@ const MobileBottomNav = () => {
   const location = useLocation();
 
   const items = [
-    { path: "/", label: "Home", Icon: Home, external: false },
-    { path: "/delivery", label: "Services", Icon: Briefcase, external: false },
-    { path: "/contact", label: "Contact", Icon: Mail, external: false },
+    { path: "/",         label: "Home",     Icon: Home,     external: false },
+    { path: "/services", label: "Services", Icon: Briefcase, external: false },
+    { path: "/contact",  label: "Contact",  Icon: Mail,     external: false },
   ];
 
   return (
