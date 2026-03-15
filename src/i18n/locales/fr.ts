@@ -275,11 +275,11 @@ const fr = {
     errorTitle: "Échec de l'envoi",
     errorDesc: "Une erreur s'est produite. Veuillez envoyer un e-mail directement.",
     heroStats: [
-      { value: "Gratuit", label: "Consultation 15 min" },
+      { value: "Consultation gratuite", label: "Sans obligation" },
       { value: "< 24 heures", label: "Temps de réponse" },
       { value: "Sans engagement", label: "Juste une conversation" },
     ],
-    stripConsultation: "Consultation gratuite de 15 min",
+    stripConsultation: "Réserver une consultation gratuite",
     stripResponse: "Répond sous 24 heures",
     stripReach: "Amérique du Nord · Europe · Asie",
     stripNoCommitment: "Sans engagement",
