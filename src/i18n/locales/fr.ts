@@ -106,9 +106,9 @@ const fr = {
     heroAccent: "Un seul standard.",
     heroSubtitle: "Développement digital, Gouvernance SAP & UAT et Ingénierie qualité — livrés dans un seul engagement, gérés depuis le Canada.",
     heroStats: [
-      { value: "10+ ans", label: "Livraison enterprise" },
-      { value: "3 régions", label: "Amériques · UE · Asie" },
-      { value: "End-to-End", label: "Dev · SAP · QA" },
+      { value: "Technologies modernes", label: "Développement digital" },
+      { value: "SAP S/4HANA", label: "Gouvernance & UAT" },
+      { value: "Frameworks d'automatisation modernes", label: "Ingénierie qualité" },
     ],
 
     // Tab labels — order matches home page pills
