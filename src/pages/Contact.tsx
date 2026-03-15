@@ -219,10 +219,10 @@ const Contact = () => {
       </div>
 
       <SectionWrapper>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-[1fr_2fr] md:gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:gap-10">
 
           {/* Left: Info cards stacked */}
-          <div className="flex flex-col gap-3 md:gap-4">
+          <div className="flex flex-col gap-3 md:gap-4 md:h-full">
 
             {/* Email */}
             <motion.a
