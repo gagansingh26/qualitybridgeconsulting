@@ -276,6 +276,15 @@ const en = {
     successDesc: "Thank you for reaching out. I'll get back to you soon.",
     errorTitle: "Failed to send",
     errorDesc: "Something went wrong. Please try emailing directly.",
+    heroStats: [
+      { value: "Free", label: "15-min consultation" },
+      { value: "< 24 hours", label: "Response time" },
+      { value: "No commitment", label: "Just a conversation" },
+    ],
+    stripConsultation: "Free 15-min consultation",
+    stripResponse: "Responds within 24 hours",
+    stripReach: "North America · Europe · Asia",
+    stripNoCommitment: "No commitment required",
   },
   footer: {
     tagline: "Enterprise governance, test automation, and modern web development — end-to-end digital solutions for confident delivery.",
