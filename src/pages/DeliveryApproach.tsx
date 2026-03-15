@@ -125,7 +125,7 @@ const DeliveryApproach = () => {
   usePageMeta(
     "Services — QualityBridge Consulting | Digital Development, SAP Governance & UAT, Quality Engineering",
     "Digital development, SAP governance & UAT, and quality engineering — three specialisations working together for confident, well-tested delivery.",
-    "/delivery"
+    "/services"
   );
 
   // ── Locale data ─────────────────────────────────────────────────────────────
