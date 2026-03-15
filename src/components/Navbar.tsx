@@ -35,9 +35,7 @@ const Navbar = () => {
 
   const navItems = [
     { label: t("nav.home"), path: "/" },
-    { label: t("nav.delivery"), path: "/delivery" },
-    { label: t("nav.uat"), path: "/uat" },
-    { label: t("nav.release"), path: "/release" },
+    { label: t("nav.services"), path: "/delivery" },
     { label: t("nav.about"), path: "/about" },
     { label: t("nav.contact"), path: "/contact" },
   ];
