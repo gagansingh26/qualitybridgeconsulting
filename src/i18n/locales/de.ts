@@ -90,8 +90,8 @@ const de = {
     ],
   },
   cta: {
-    heading: "Bereit, Ihre Release-Qualität zu stärken?",
-    body: "Lassen Sie uns besprechen, wie strukturierte SAP-Governance und moderne Webentwicklung Ihr Release-Risiko reduzieren können — mit lokaler Betreuung in Kanada und globalen Lieferspezialisten.",
+    heading: "Bereit, mit Vertrauen zu liefern?",
+    body: "Digitale Entwicklung, SAP-Governance & UAT und Qualitätssicherung — lokal in Kanada gemanagt, global geliefert.",
     bookConsultation: "Beratung buchen",
     viewApproach: "Unsere Leistungen ansehen",
     getInTouch: "Kontakt aufnehmen",
