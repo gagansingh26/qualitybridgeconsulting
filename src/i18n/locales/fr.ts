@@ -90,8 +90,8 @@ const fr = {
     ],
   },
   cta: {
-    heading: "Prêt à renforcer la qualité de vos versions ?",
-    body: "Discutons de la façon dont une gouvernance SAP structurée et le développement web moderne peuvent réduire votre risque de version — avec un engagement local au Canada et des spécialistes de livraison mondiaux.",
+    heading: "Prêt à livrer avec confiance ?",
+    body: "Développement digital, gouvernance SAP & UAT et ingénierie qualité — géré localement au Canada, livré à l'échelle mondiale.",
     bookConsultation: "Réserver une consultation",
     viewApproach: "Voir nos services",
     getInTouch: "Nous contacter",
