@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ExternalLink,
@@ -257,15 +258,11 @@ const DeliveryApproach = () => {
                 {t("hero.bookConsultation")} <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
             </a>
-            <a href="/contact" className="w-full sm:w-auto">
-              <Button
-                size="lg"
-                variant="outline"
-                className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto"
-              >
-                {t("nav.contact")}
+            <Link to="/contact" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto">
+                {t("cta.getInTouch")} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-            </a>
+            </Link>
           </motion.div>
 
           {/* Trust line */}
