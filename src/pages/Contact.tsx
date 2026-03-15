@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/use-page-meta";
-import { Mail, MapPin, Send, Calendar, Clock, Globe, Shield, Loader2, ExternalLink } from "lucide-react";
+import { Mail, MapPin, Send, Calendar, Clock, Globe, Shield, ArrowRight, Loader2, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -114,6 +115,36 @@ const Contact = () => {
               </div>
             ))}
           </motion.div>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3"
+          >
+            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto">
+                {t("hero.bookConsultation")} <ExternalLink className="ml-2 h-4 w-4" />
+              </Button>
+            </a>
+            <Link to="/services" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto">
+                {t("cta.viewApproach")} <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </motion.div>
+
+          {/* Trust line */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="mx-auto mt-3 text-[13px] md:text-sm"
+            style={{ color: "rgba(255,255,255,0.75)" }}
+          >
+            {t("hero.reach")}
+          </motion.p>
         </div>
       </section>
 
