@@ -284,7 +284,7 @@ const de = {
     stripNoCommitment: "Unverbindlich",
   },
   footer: {
-    tagline: "Enterprise-Governance, Testautomatisierung und moderne Webentwicklung — End-to-End-Digitallösungen für sichere Lieferung.",
+    tagline: "Digitale Entwicklung, SAP-Governance & UAT und Testautomatisierung & Qualität — End-to-End-Lösungen für sichere Enterprise-Lieferung.",
     quickLinks: "Schnellzugriff",
     contact: "Kontakt",
     rights: "Alle Rechte vorbehalten.",
