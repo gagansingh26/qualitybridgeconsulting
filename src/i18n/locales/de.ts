@@ -94,6 +94,7 @@ const de = {
     body: "Lassen Sie uns besprechen, wie strukturierte SAP-Governance und moderne Webentwicklung Ihr Release-Risiko reduzieren können — mit lokaler Betreuung in Kanada und globalen Lieferspezialisten.",
     bookConsultation: "Beratung buchen",
     viewApproach: "Unsere Leistungen ansehen",
+    getInTouch: "Kontakt aufnehmen",
   },
 
   // ─── NEW: Services page ───────────────────────────────────────────────────
