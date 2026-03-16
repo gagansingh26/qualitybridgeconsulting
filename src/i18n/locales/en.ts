@@ -279,7 +279,7 @@ const en = {
     errorDesc: "Something went wrong. Please try emailing directly.",
     heroStats: [
       { value: "Free Consultation", label: "No obligation" },
-      { value: "< 24 hours", label: "Response time" },
+      { value: "Quick Response", label: "Within 24 hours" },
       { value: "No Commitment", label: "Just a conversation" },
     ],
     stripConsultation: "Book a free consultation",
