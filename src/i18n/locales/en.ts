@@ -89,6 +89,25 @@ const en = {
       { label: "Improved business confidence", desc: "Stakeholders sign off with full visibility into system readiness" },
     ],
   },
+  problems: {
+    heading: "Problems We Solve",
+    subheading: "Enterprise programmes face the same challenges. We exist to fix them.",
+    items: [
+      {
+        title: "Long regression cycles slowing releases",
+        desc: "Manual testing backlogs delay go-lives and erode stakeholder confidence. We embed automation-first strategies that cut regression time by 50–70%.",
+      },
+      {
+        title: "Automation gaps in complex integrations",
+        desc: "SAP, Salesforce, and digital platform integrations are hard to test and easy to break. We build coverage that catches failures before production.",
+      },
+      {
+        title: "No clear go/no-go visibility at release",
+        desc: "Releases made on gut feel rather than data lead to costly post-go-live defects. We put structured quality gates and readiness signals in place.",
+      },
+    ],
+  },
+
   cta: {
     heading: "Ready to Deliver With Confidence?",
     body: "Digital development, SAP governance & UAT, and quality engineering — managed locally in Canada, delivered globally.",
