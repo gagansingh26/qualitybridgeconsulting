@@ -319,15 +319,18 @@ const Index = () => {
           </p>
         </motion.div>
 
-        {/* Mobile: accordion — title is the problem statement, no pill header */}
-        <div className="relative mt-6 flex flex-col gap-2 md:hidden">
+        {/* Mobile: plain stacked cards — icon + text, no expand/collapse */}
+        <div className="relative mt-6 flex flex-col gap-3 md:hidden">
           {problemItems.map((item, i) => (
-            <motion.div key={i} {...fadeUp(i * 0.06)}>
-              <AccordionCard
-                icon={problemIcons[i]}
-                title={item.desc}
-                desc=""
-              />
+            <motion.div
+              key={i}
+              {...fadeUp(i * 0.06)}
+              className="flex items-start gap-4 rounded-xl border border-border bg-card p-4 card-shadow"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
+                {problemIcons[i]}
+              </div>
+              <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -367,11 +370,11 @@ const Index = () => {
 
         <div className="relative mt-8 space-y-6 md:mt-10 md:space-y-8">
           {(t("platforms.groups", { returnObjects: true }) as { label: string; items: string[] }[]).map((group, gi) => (
-            <motion.div key={gi} {...fadeUp(gi * 0.1)}>
+            <motion.div key={gi} {...fadeUp(gi * 0.1)} className="text-center">
               <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                 {group.label}
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap justify-center gap-2">
                 {group.items.map((item, ii) => (
                   <span
                     key={ii}
