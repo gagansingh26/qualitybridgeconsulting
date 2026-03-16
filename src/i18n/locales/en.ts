@@ -24,7 +24,11 @@ const en = {
     digitalDev: "Digital Development",
     sapGovernance: "SAP Governance & UAT",
     globalNetwork: "Canada HQ · Global Partner Network",
-    clientOversight: "End-to-End Client Oversight",
+    clientOversight: "Retail · eCommerce · Enterprise",
+  },
+  partner: {
+    strip: "Working with SAP integrators, digital agencies, and Salesforce partners — matched to your programme.",
+    label: "Global Partner Network",
   },
   whatWeDeliver: {
     heading: "What We Deliver",
@@ -140,9 +144,9 @@ const en = {
     tabQuality: "Quality Engineering",
 
     // Per-tab intro text
-    digitalIntro: "We design and build the digital tooling that surrounds your core systems — portals, dashboards, prototypes, and the pipelines that ship them reliably.",
-    sapIntro: "We embed structured governance into every SAP delivery — from initial planning through hypercare — ensuring controlled, auditable, and business-validated releases.",
-    qualityIntro: "Our quality engineering practice automates the repetitive and accelerates the critical, so your teams can focus on delivering value rather than chasing defects.",
+    digitalIntro: "Modern web applications, reporting dashboards, and rapid prototypes — built for performance, scalability, and stakeholder readiness. From APIs and integrations to production-grade platforms, we deliver digital tools that work reliably at enterprise scale.",
+    sapIntro: "Structured testing and governance for SAP S/4HANA programmes and enterprise ERP integrations — with defined UAT frameworks, quality gates, stakeholder sign-offs, and risk-based go/no-go decisions at every stage of delivery.",
+    qualityIntro: "Automation frameworks, test strategy, and CI/CD quality integration across Salesforce, SAP, web, and API layers — using Cypress, Playwright, TOSCA, and many more to reduce manual effort and accelerate release confidence.",
     qualityRelease: "The same release decision framework applies in QE engagements: every deployment is gated against measurable quality criteria before a go-live is approved.",
 
     // Context strip — 4 items per tab (icon key + label)
@@ -206,8 +210,8 @@ const en = {
     automationSubheading: "Cross-platform automation across SAP, Salesforce, web, and API layers — using Cypress, Playwright, TOSCA, and many more, accelerated by AI-assisted test design.",
     automationItems: [
       "Cypress, Playwright, TOSCA, and many more",
-      "TOSCA test automation for SAP & enterprise platforms",
-      "Salesforce Commerce Cloud testing",
+      "Salesforce Commerce Cloud & enterprise platform testing",
+      "SAP test automation and regression coverage",
       "CI/CD integration and quality gates",
     ],
     coreCapabilities: "Core Capabilities",
