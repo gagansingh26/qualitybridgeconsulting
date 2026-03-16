@@ -103,13 +103,13 @@ const de = {
     subheading: "Digitale Entwicklung, SAP-Governance & UAT und Qualitätssicherung — drei Spezialisierungen, die gemeinsam für eine sichere und gut getestete Lieferung sorgen.",
 
     // Hero
-    heroPrefix: "Unsere Spezialisierungen.",
+    heroPrefix: "Unsere Spezialisierungen ·",
     heroAccent: "Ein Standard.",
     heroSubtitle: "Digitale Entwicklung, SAP-Governance & UAT und Qualitätssicherung — in einem Engagement geliefert, aus Kanada gemanagt.",
     heroStats: [
       { value: "Moderne Technologien", label: "Digitale Entwicklung" },
       { value: "SAP S/4HANA", label: "Governance & UAT" },
-      { value: "Moderne Automatisierungs-Frameworks", label: "Qualitätssicherung" },
+      { value: "Test-Automatisierung", label: "Qualitätssicherung" },
     ],
 
     // Tab labels — order matches home page pills
