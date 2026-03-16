@@ -64,19 +64,19 @@ const de = {
   },
   howWeWork: {
     heading: "Wie wir arbeiten",
-    subheading: "Ein Ansprechpartner in Kanada. Ein globales Netzwerk von Spezialisten dahinter.",
+    subheading: "Ein Engagement. Drei Spezialisierungen. Geliefert mit einem einzigen Verantwortlichen in Kanada.",
     steps: [
       {
-        title: "Lokal engagieren",
-        desc: "Ihr fester Ansprechpartner sitzt in Kanada. Wir managen das gesamte Scoping, die Kommunikation und die Kundenbetreuung aus dem GTA.",
+        title: "Digital entwickeln",
+        desc: "Wir entwerfen und liefern moderne Webanwendungen, Dashboards und Portale — gebaut mit React, TypeScript und Tailwind CSS, vom Rapid Prototype bis zur Produktion.",
       },
       {
-        title: "Globale Spezialisten einsetzen",
-        desc: "Wir aktivieren geprüfte SAP- und Technologiespezialisten aus unserem globalen Partnernetzwerk — passend zu Ihren genauen Programmanforderungen.",
+        title: "SAP-Programme steuern",
+        desc: "Wir integrieren strukturierte UAT-Governance und Release-Bereitschaft in SAP S/4HANA-Programme — mit Qualitätstoren, Stakeholder-Abnahmen und risikobasierten Go/No-Go-Entscheidungen.",
       },
       {
-        title: "Mit Vertrauen liefern",
-        desc: "Strukturierte UAT-Governance, Qualitätstore und Release-Bereitschaft — mit voller Transparenz. Keine Überraschungen.",
+        title: "Qualität einbetten",
+        desc: "Wir automatisieren Regression mit Cypress, Playwright und TOSCA — Testzyklen um 50–70 % reduziert und Qualitätstore in jede CI/CD-Pipeline eingebettet.",
       },
     ],
   },
@@ -91,19 +91,22 @@ const de = {
   },
   problems: {
     heading: "Probleme, die wir lösen",
-    subheading: "Enterprise-Programme stehen vor denselben Herausforderungen. Wir existieren, um sie zu lösen.",
+    subheading: "Digitale Entwicklung, SAP-Programme, Qualitätssicherung — das sind die Herausforderungen, für die wir gebaut wurden.",
     items: [
       {
-        title: "Lange Regressionszyklen verzögern Releases",
-        desc: "Manuelle Test-Backlogs verzögern Go-lives. Wir etablieren automatisierungsorientierte Strategien, die Regressionszeiten um 50–70 % reduzieren.",
+        pill: "Digitale Entwicklung",
+        title: "Digitale Tools, die zu spät liefern und in Produktion scheitern",
+        desc: "Stakeholder-gerechte Webanwendungen und Dashboards — vom Rapid Prototype zur produktionsreifen Plattform, mit CI/CD und Qualitätstoren von Anfang an.",
       },
       {
-        title: "Automatisierungslücken in komplexen Integrationen",
-        desc: "SAP-, Salesforce- und Digital-Plattform-Integrationen sind schwer zu testen. Wir bauen Testabdeckung, die Fehler vor der Produktion erkennt.",
+        pill: "SAP-Governance & UAT",
+        title: "SAP-Go-lives ohne strukturierten UAT- oder Abnahmeprozess",
+        desc: "Strukturierte UAT-Governance für SAP S/4HANA — definierte Qualitätstore, Stakeholder-Abnahmen und risikobasierte Go/No-Go-Entscheidungen statt Bauchgefühl.",
       },
       {
-        title: "Keine klare Go/No-Go-Sichtbarkeit bei Release",
-        desc: "Bauchgefühl-Entscheidungen führen zu kostspieligen Produktionsfehlern. Wir implementieren strukturierte Qualitätstore und Bereitschaftssignale.",
+        pill: "Qualitätssicherung",
+        title: "Regressionszyklen zu langsam für moderne Release-Kadenz",
+        desc: "Automatisierungsorientiertes Quality Engineering mit Cypress, Playwright, TOSCA und Salesforce-Tests — Regressionszeiten um 50–70 % reduziert und Qualitätstore in jede CI/CD-Pipeline eingebettet.",
       },
     ],
   },
@@ -154,7 +157,7 @@ const de = {
       { icon: "checkSquare", label: "Risikobasiert · Evidenzbasierte Abnahme" },
     ],
     stripQuality: [
-      { icon: "cpu", label: "Cypress · Playwright · Automatisierung" },
+      { icon: "cpu", label: "Cypress · Playwright · TOSCA" },
       { icon: "bot", label: "KI-unterstütztes Testdesign" },
       { icon: "gitBranch", label: "API · Integration · CI/CD-Gates" },
       { icon: "barChart", label: "Metrikbasierte Release-Entscheidungen" },
@@ -199,9 +202,9 @@ const de = {
     automationHeading: "Testautomatisierungsstrategie",
     automationSubheading: "Plattformübergreifende Automatisierung über SAP-, Web- und API-Ebenen mit modernen Frameworks.",
     automationItems: [
-      "Automatisierungsorientierte Regressionsplanung",
       "Cypress- und Playwright-Implementierung",
-      "SAP-Automatisierungsabstimmung",
+      "TOSCA-Testautomatisierung für SAP & Enterprise-Plattformen",
+      "Salesforce Commerce Cloud Testing",
       "CI/CD-Integration und Qualitätstore",
     ],
     coreCapabilities: "Kernkompetenzen",
