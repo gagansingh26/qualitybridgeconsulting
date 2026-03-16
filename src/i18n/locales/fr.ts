@@ -89,6 +89,25 @@ const fr = {
       { label: "Confiance accrue des parties prenantes", desc: "Les parties prenantes approuvent avec une visibilité totale sur la disponibilité du système" },
     ],
   },
+  problems: {
+    heading: "Problèmes que nous résolvons",
+    subheading: "Les programmes d'entreprise font face aux mêmes défis. Nous existons pour les résoudre.",
+    items: [
+      {
+        title: "Longs cycles de régression qui retardent les versions",
+        desc: "Les backlogs de tests manuels retardent les mises en production. Nous intégrons des stratégies axées sur l'automatisation qui réduisent le temps de régression de 50 à 70 %.",
+      },
+      {
+        title: "Lacunes d'automatisation dans les intégrations complexes",
+        desc: "Les intégrations SAP, Salesforce et plateformes digitales sont difficiles à tester. Nous construisons une couverture qui détecte les défaillances avant la production.",
+      },
+      {
+        title: "Aucune visibilité claire pour les décisions go/no-go",
+        desc: "Les versions prises à l'instinct entraînent des défauts coûteux après la mise en production. Nous mettons en place des portes qualité et des signaux de préparation structurés.",
+      },
+    ],
+  },
+
   cta: {
     heading: "Prêt à livrer avec confiance ?",
     body: "Développement digital, gouvernance SAP & UAT et ingénierie qualité — géré localement au Canada, livré à l'échelle mondiale avec un réseau de partenaires spécialisés.",
