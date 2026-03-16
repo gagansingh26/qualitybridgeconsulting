@@ -76,17 +76,17 @@ const de = {
       },
       {
         title: "Qualität einbetten",
-        desc: "Wir automatisieren Regression mit Cypress, Playwright und TOSCA — Testzyklen um 50–70 % reduziert und Qualitätstore in jede CI/CD-Pipeline eingebettet.",
+        desc: "Wir automatisieren Regression mit Cypress, Playwright, TOSCA und vielen mehr — Testzyklen um 50–70 % reduziert und Qualitätstore in jede CI/CD-Pipeline eingebettet.",
       },
     ],
   },
   outcomes: {
     heading: "Geschäftliche Ergebnisse",
     items: [
-      { label: "Schnellere Regressionszyklen", desc: "Automatisierte Abdeckung reduziert manuellen UAT-Aufwand erheblich" },
-      { label: "Reduziertes Release-Risiko", desc: "Strukturierte Qualitätstore verhindern kostspielige Post-Go-Live-Probleme" },
-      { label: "Klare Go/No-Go-Entscheidungen", desc: "Echtzeit-Fehlermetriken beseitigen Rätselraten bei Releases" },
-      { label: "Erhöhtes Vertrauen der Stakeholder", desc: "Stakeholder genehmigen mit voller Transparenz über die Systembereitschaft" },
+      { label: "Schnellere digitale Lieferung", desc: "Moderne Tools und Rapid Prototyping verkürzen die Zeit vom Konzept bis zur Produktion" },
+      { label: "Kontrollierte SAP-Go-lives", desc: "Strukturierte UAT-Governance ersetzt Bauchgefühl-Releases durch evidenzbasierte Abnahmen" },
+      { label: "Schnellere Regressionszyklen", desc: "Automatisierungsorientiertes Quality Engineering reduziert manuellen Testaufwand um 50–70 %" },
+      { label: "Erhöhtes Vertrauen der Stakeholder", desc: "Vollständige Transparenz über die Bereitschaft in jeder Phase — keine Überraschungen beim Go-live" },
     ],
   },
   problems: {
@@ -202,7 +202,7 @@ const de = {
     automationHeading: "Testautomatisierungsstrategie",
     automationSubheading: "Plattformübergreifende Automatisierung über SAP-, Web- und API-Ebenen mit modernen Frameworks.",
     automationItems: [
-      "Cypress- und Playwright-Implementierung",
+      "Cypress, Playwright, TOSCA und viele mehr",
       "TOSCA-Testautomatisierung für SAP & Enterprise-Plattformen",
       "Salesforce Commerce Cloud Testing",
       "CI/CD-Integration und Qualitätstore",
@@ -316,11 +316,11 @@ const de = {
       },
       {
         label: "SAP-Governance & UAT",
-        items: ["SAP S/4HANA", "Salesforce Commerce Cloud", "Workday", "Microsoft Dynamics 365", "Salesforce CRM"],
+        items: ["SAP S/4HANA", "SAP Activate", "UAT-Governance", "Qualitätstore", "Release-Bereitschaft"],
       },
       {
         label: "Qualitätssicherung",
-        items: ["Cypress", "Playwright", "TOSCA", "Selenium", "ServiceNow", "GitHub Actions", "Jenkins"],
+        items: ["Cypress", "Playwright", "TOSCA", "Selenium", "ServiceNow", "Salesforce Commerce Cloud", "Workday", "Microsoft Dynamics 365", "GitHub Actions", "Jenkins"],
       },
     ],
   },
