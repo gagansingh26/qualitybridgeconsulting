@@ -307,8 +307,9 @@ const Index = () => {
         {/* Decorative circles */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+          <div className="absolute -right-4 top-10 h-28 w-28 rounded-full border border-primary/[0.05] bg-transparent" />
           <div className="absolute -bottom-10 -left-10 h-44 w-44 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
-          <div className="absolute bottom-6 right-12 h-24 w-24 rounded-full border border-primary/[0.05] bg-transparent" />
+          <div className="absolute bottom-6 left-16 h-20 w-20 rounded-full border border-primary/[0.04] bg-transparent" />
         </div>
 
         <motion.div {...fadeUp(0)} className="relative text-center">
@@ -318,21 +319,20 @@ const Index = () => {
           </p>
         </motion.div>
 
-        {/* Mobile: accordion — same pattern as What We Deliver */}
+        {/* Mobile: accordion — title is the problem statement, no pill header */}
         <div className="relative mt-6 flex flex-col gap-2 md:hidden">
           {problemItems.map((item, i) => (
             <motion.div key={i} {...fadeUp(i * 0.06)}>
               <AccordionCard
                 icon={problemIcons[i]}
-                title={item.title}
-                desc={item.desc}
-                pill={item.pill}
+                title={item.desc}
+                desc=""
               />
             </motion.div>
           ))}
         </div>
 
-        {/* Desktop: 3-column grid */}
+        {/* Desktop: 3-column grid — icon + desc only, no pill or title */}
         <div className="relative mt-8 hidden md:grid md:grid-cols-3 md:gap-6">
           {problemItems.map((item, i) => (
             <motion.div
@@ -343,13 +343,44 @@ const Index = () => {
               <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
                 {problemIcons[i]}
               </div>
-              {item.pill && (
-                <span className="mt-4 inline-block self-start rounded-full bg-primary/10 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-primary">
-                  {item.pill}
-                </span>
-              )}
-              <h3 className="mt-2 text-base font-semibold text-card-foreground">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </SectionWrapper>
+
+      {/* ── Platforms We Work With ── */}
+      <SectionWrapper className="relative overflow-hidden">
+        {/* Decorative circles */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-14 -top-14 h-52 w-52 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+          <div className="absolute -right-10 -bottom-10 h-40 w-40 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+          <div className="absolute right-16 top-8 h-20 w-20 rounded-full border border-primary/[0.04] bg-transparent" />
+        </div>
+
+        <motion.div {...fadeUp(0)} className="relative text-center">
+          <h2 className="text-[28px] font-bold md:text-[36px]">{t("platforms.heading")}</h2>
+          <p className="mx-auto mt-1.5 max-w-2xl text-sm text-muted-foreground md:text-base">
+            {t("platforms.subheading")}
+          </p>
+        </motion.div>
+
+        <div className="relative mt-8 space-y-6 md:mt-10 md:space-y-8">
+          {(t("platforms.groups", { returnObjects: true }) as { label: string; items: string[] }[]).map((group, gi) => (
+            <motion.div key={gi} {...fadeUp(gi * 0.1)}>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                {group.label}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {group.items.map((item, ii) => (
+                  <span
+                    key={ii}
+                    className="rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-card-foreground card-shadow md:text-sm"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
