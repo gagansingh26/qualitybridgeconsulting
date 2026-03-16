@@ -468,13 +468,13 @@ const DeliveryApproach = () => {
               {/* Intro */}
               <motion.p
                 {...fadeIn(0)}
-                className="max-w-2xl text-sm text-muted-foreground md:text-base"
+                className="mx-auto max-w-3xl text-center text-sm text-muted-foreground md:text-base border-b border-border pb-6 mb-6 md:pb-8 md:mb-8"
               >
                 {t("services.digitalIntro")}
               </motion.p>
 
-              {/* Service items — 2-col mobile, 2-col desktop */}
-              <div className="mt-6 grid grid-cols-2 gap-3 md:mt-8 md:gap-5">
+              {/* Service items — 1-col mobile, 2-col desktop */}
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-5">
                 {digitalItems.map((item, i) => (
                   <motion.div
                     key={i}
@@ -499,19 +499,19 @@ const DeliveryApproach = () => {
 
             {/* Tech stack */}
             <SectionWrapper className="bg-accent/50">
-              <motion.div {...fadeIn(0)}>
+              <motion.div {...fadeIn(0)} className="text-center">
                 <h2 className="text-lg font-bold md:text-2xl">
                   {t("services.digitalStackHeading")}
                 </h2>
-                <p className="mt-1.5 max-w-xl text-sm text-muted-foreground">
+                <p className="mx-auto mt-2 max-w-2xl text-sm text-muted-foreground md:mt-3 md:text-base">
                   {t("services.digitalStackIntro")}
                 </p>
               </motion.div>
-              <div className="mt-5 flex flex-wrap gap-2 md:mt-6">
+              <div className="mt-5 flex flex-wrap justify-center gap-2 md:mt-6">
                 {digitalStack.map((badge, i) => (
                   <motion.span
                     key={i}
-                    {...fadeIn(i * 0.05)}
+                    {...fadeIn(i * 0.04)}
                     className="rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-card-foreground card-shadow md:text-sm"
                   >
                     {badge}
@@ -521,7 +521,7 @@ const DeliveryApproach = () => {
             </SectionWrapper>
 
             {/* CTA */}
-            <SectionWrapper className="bg-accent/50">
+            <SectionWrapper>
               <motion.div {...fadeIn(0)} className="text-center">
                 <h2 className="text-[22px] font-bold md:text-[28px]">{t("cta.heading")}</h2>
                 <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground md:mt-3 md:text-base">{t("cta.body")}</p>
@@ -551,7 +551,7 @@ const DeliveryApproach = () => {
               {/* Intro */}
               <motion.p
                 {...fadeIn(0)}
-                className="max-w-2xl text-sm text-muted-foreground md:text-base"
+                className="mx-auto max-w-2xl text-center text-sm text-muted-foreground md:text-base"
               >
                 {t("services.sapIntro")}
               </motion.p>
@@ -839,7 +839,7 @@ const DeliveryApproach = () => {
               {/* Intro */}
               <motion.p
                 {...fadeIn(0)}
-                className="max-w-2xl text-sm text-muted-foreground md:text-base"
+                className="mx-auto max-w-2xl text-center text-sm text-muted-foreground md:text-base"
               >
                 {t("services.qualityIntro")}
               </motion.p>
