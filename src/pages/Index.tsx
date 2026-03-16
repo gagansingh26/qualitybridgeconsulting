@@ -29,9 +29,9 @@ const capabilityIcons = [
 ];
 
 const problemIcons = [
-  <GitBranch className="h-6 w-6" />,
-  <Brain className="h-6 w-6" />,
+  <Monitor className="h-6 w-6" />,
   <Shield className="h-6 w-6" />,
+  <GitBranch className="h-6 w-6" />,
 ];
 
 const fadeUp = (delay = 0) => ({
@@ -41,7 +41,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.45, delay },
 });
 
-// Mobile: expand/collapse accordion (unchanged)
+// Mobile: expand/collapse accordion
 const AccordionCard = ({ icon, title, desc, detail }: { icon: React.ReactNode; title: string; desc: string; detail?: string[] }) => {
   const [open, setOpen] = useState(false);
   return (
@@ -88,7 +88,7 @@ const AccordionCard = ({ icon, title, desc, detail }: { icon: React.ReactNode; t
   );
 };
 
-// Desktop: details always visible, no toggle
+// Desktop: details always visible
 const DesktopCard = ({ icon, title, desc, detail }: { icon: React.ReactNode; title: string; desc: string; detail?: string[] }) => {
   return (
     <div className="flex flex-col rounded-lg border border-border bg-card p-6 card-shadow hover:card-shadow-hover transition-shadow">
@@ -135,7 +135,10 @@ const Index = () => {
 
   const outcomeItems = t("outcomes.items", { returnObjects: true }) as { label: string; desc: string }[];
   const howWeWorkSteps = t("howWeWork.steps", { returnObjects: true }) as { title: string; desc: string }[];
-  const problemItems = t("problems.items", { returnObjects: true }) as { title: string; desc: string }[];
+
+  // Safe array guard — prevents crash if locale key missing
+  const problemItemsRaw = t("problems.items", { returnObjects: true });
+  const problemItems: { pill?: string; title: string; desc: string }[] = Array.isArray(problemItemsRaw) ? problemItemsRaw : [];
 
   return (
     <Layout>
@@ -319,9 +322,14 @@ const Index = () => {
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
                 {problemIcons[i]}
               </div>
-              <div>
+              <div className="min-w-0">
+                {item.pill && (
+                  <span className="mb-1 inline-block rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary">
+                    {item.pill}
+                  </span>
+                )}
                 <h3 className="text-sm font-semibold text-card-foreground">{item.title}</h3>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground md:text-sm">{item.desc}</p>
+                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{item.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -338,7 +346,12 @@ const Index = () => {
               <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
                 {problemIcons[i]}
               </div>
-              <h3 className="mt-4 text-base font-semibold text-card-foreground">{item.title}</h3>
+              {item.pill && (
+                <span className="mt-4 inline-block self-start rounded-full bg-primary/10 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-primary">
+                  {item.pill}
+                </span>
+              )}
+              <h3 className="mt-2 text-base font-semibold text-card-foreground">{item.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
             </motion.div>
           ))}
@@ -382,7 +395,6 @@ const Index = () => {
 
       {/* ── How We Work ── */}
       <SectionWrapper className="relative overflow-hidden bg-muted/50">
-        {/* Decorative circles — aria-hidden, pointer-events-none, theme-safe opacity vars */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -left-16 -top-16 h-56 w-56 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
           <div className="absolute -left-4 top-12 h-32 w-32 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
@@ -431,7 +443,7 @@ const Index = () => {
         </div>
       </SectionWrapper>
 
-      {/* ── Quote — between How We Work and Business Outcomes ── */}
+      {/* ── Quote ── */}
       <motion.div
         {...fadeUp(0)}
         className="border-y border-border bg-background"
@@ -442,7 +454,6 @@ const Index = () => {
       >
         <div className="container mx-auto px-4 py-10 md:py-14">
           <div className="mx-auto max-w-2xl text-center">
-            {/* SVG quote mark */}
             <svg width="32" height="24" viewBox="0 0 32 24" fill="none" className="mx-auto mb-4 opacity-20" aria-hidden="true">
               <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l1.6 2.4C10.4 3.6 7.6 6.4 7.2 10.4H12V24H0zm20 0V14.4C20 6.4 24.8 1.6 34.4 0L36 2.4C30.4 3.6 27.6 6.4 27.2 10.4H32V24H20z" fill="currentColor" className="text-primary"/>
             </svg>
@@ -453,7 +464,7 @@ const Index = () => {
         </div>
       </motion.div>
 
-      {/* ── Business Outcomes — subtle dot background ── */}
+      {/* ── Business Outcomes ── */}
       <SectionWrapper
         style={{
           backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.06) 1px, transparent 1px)",
@@ -485,7 +496,6 @@ const Index = () => {
 
       {/* ── CTA ── */}
       <SectionWrapper className="relative overflow-hidden bg-accent/50">
-        {/* Decorative circles */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
           <div className="absolute -right-6 top-8 h-44 w-44 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
