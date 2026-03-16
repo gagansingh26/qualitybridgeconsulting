@@ -28,6 +28,12 @@ const capabilityIcons = [
   <Clock className="h-4 w-4" />,
 ];
 
+const problemIcons = [
+  <GitBranch className="h-6 w-6" />,
+  <Brain className="h-6 w-6" />,
+  <Shield className="h-6 w-6" />,
+];
+
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
@@ -129,6 +135,7 @@ const Index = () => {
 
   const outcomeItems = t("outcomes.items", { returnObjects: true }) as { label: string; desc: string }[];
   const howWeWorkSteps = t("howWeWork.steps", { returnObjects: true }) as { title: string; desc: string }[];
+  const problemItems = t("problems.items", { returnObjects: true }) as { title: string; desc: string }[];
 
   return (
     <Layout>
@@ -278,6 +285,65 @@ const Index = () => {
           </div>
         </div>
       </div>
+
+      {/* ── Problems We Solve ── */}
+      <SectionWrapper
+        className="relative overflow-hidden bg-muted/50"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)",
+          backgroundSize: "20px 20px",
+        }}
+      >
+        {/* Decorative circles */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+          <div className="absolute -bottom-10 -left-10 h-44 w-44 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+          <div className="absolute bottom-6 right-12 h-24 w-24 rounded-full border border-primary/[0.05] bg-transparent" />
+        </div>
+
+        <motion.div {...fadeUp(0)} className="relative text-center">
+          <h2 className="text-[28px] font-bold md:text-[36px]">{t("problems.heading")}</h2>
+          <p className="mx-auto mt-1.5 max-w-2xl text-sm text-muted-foreground md:text-base">
+            {t("problems.subheading")}
+          </p>
+        </motion.div>
+
+        {/* Mobile: single column */}
+        <div className="relative mt-6 flex flex-col gap-3 md:hidden">
+          {problemItems.map((item, i) => (
+            <motion.div
+              key={i}
+              {...fadeUp(i * 0.08)}
+              className="flex items-start gap-4 rounded-xl border border-border bg-card p-4 card-shadow"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
+                {problemIcons[i]}
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-card-foreground">{item.title}</h3>
+                <p className="mt-1 text-xs leading-relaxed text-muted-foreground md:text-sm">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Desktop: 3-column grid */}
+        <div className="relative mt-8 hidden md:grid md:grid-cols-3 md:gap-6">
+          {problemItems.map((item, i) => (
+            <motion.div
+              key={i}
+              {...fadeUp(i * 0.1)}
+              className="flex flex-col rounded-xl border border-border bg-card p-6 card-shadow"
+            >
+              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
+                {problemIcons[i]}
+              </div>
+              <h3 className="mt-4 text-base font-semibold text-card-foreground">{item.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </SectionWrapper>
 
       {/* ── What We Deliver — dot pattern background ── */}
       <SectionWrapper
