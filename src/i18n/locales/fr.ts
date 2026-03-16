@@ -64,19 +64,19 @@ const fr = {
   },
   howWeWork: {
     heading: "Comment nous travaillons",
-    subheading: "Un point de contact au Canada. Un réseau mondial de spécialistes derrière lui.",
+    subheading: "Un engagement. Trois spécialisations. Géré avec un seul point de responsabilité au Canada.",
     steps: [
       {
-        title: "Engagez localement",
-        desc: "Votre contact dédié est basé au Canada. Nous gérons tout le cadrage, la communication et la supervision client depuis le GTA.",
+        title: "Développer digitalement",
+        desc: "Nous concevons et livrons des applications web modernes, tableaux de bord et portails — construits avec React, TypeScript et Tailwind CSS, du prototype rapide à la production.",
       },
       {
-        title: "Déployez des spécialistes mondiaux",
-        desc: "Nous activons des spécialistes SAP et technologiques vérifiés de notre réseau mondial de partenaires — adaptés à vos besoins exacts de programme.",
+        title: "Gouverner les programmes SAP",
+        desc: "Nous intégrons une gouvernance UAT structurée et une préparation aux versions dans les programmes SAP S/4HANA — avec des portes qualité, des approbations et des décisions go/no-go basées sur les risques.",
       },
       {
-        title: "Livrez avec confiance",
-        desc: "Gouvernance UAT structurée, portes qualité et préparation aux versions — avec une visibilité totale. Pas de surprises.",
+        title: "Intégrer la qualité",
+        desc: "Nous automatisons la régression avec Cypress, Playwright et TOSCA — réduisant les cycles de test de 50 à 70 % et intégrant des portes qualité dans chaque pipeline CI/CD.",
       },
     ],
   },
