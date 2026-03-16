@@ -89,6 +89,25 @@ const de = {
       { label: "Erhöhtes Vertrauen der Stakeholder", desc: "Stakeholder genehmigen mit voller Transparenz über die Systembereitschaft" },
     ],
   },
+  problems: {
+    heading: "Probleme, die wir lösen",
+    subheading: "Enterprise-Programme stehen vor denselben Herausforderungen. Wir existieren, um sie zu lösen.",
+    items: [
+      {
+        title: "Lange Regressionszyklen verzögern Releases",
+        desc: "Manuelle Test-Backlogs verzögern Go-lives. Wir etablieren automatisierungsorientierte Strategien, die Regressionszeiten um 50–70 % reduzieren.",
+      },
+      {
+        title: "Automatisierungslücken in komplexen Integrationen",
+        desc: "SAP-, Salesforce- und Digital-Plattform-Integrationen sind schwer zu testen. Wir bauen Testabdeckung, die Fehler vor der Produktion erkennt.",
+      },
+      {
+        title: "Keine klare Go/No-Go-Sichtbarkeit bei Release",
+        desc: "Bauchgefühl-Entscheidungen führen zu kostspieligen Produktionsfehlern. Wir implementieren strukturierte Qualitätstore und Bereitschaftssignale.",
+      },
+    ],
+  },
+
   cta: {
     heading: "Bereit, mit Vertrauen zu liefern?",
     body: "Digitale Entwicklung, SAP-Governance & UAT und Qualitätssicherung — lokal in Kanada gemanagt, global geliefert.",
