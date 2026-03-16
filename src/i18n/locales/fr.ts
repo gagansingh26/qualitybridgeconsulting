@@ -103,13 +103,13 @@ const fr = {
     subheading: "Développement digital, Gouvernance SAP & UAT et Ingénierie qualité — trois spécialisations travaillant ensemble pour une livraison confiante et bien testée.",
 
     // Hero
-    heroPrefix: "Nos spécialisations.",
+    heroPrefix: "Nos spécialisations ·",
     heroAccent: "Un seul standard.",
     heroSubtitle: "Développement digital, Gouvernance SAP & UAT et Ingénierie qualité — livrés dans un seul engagement, gérés depuis le Canada.",
     heroStats: [
       { value: "Technologies modernes", label: "Développement digital" },
       { value: "SAP S/4HANA", label: "Gouvernance & UAT" },
-      { value: "Frameworks d'automatisation modernes", label: "Ingénierie qualité" },
+      { value: "Frameworks modernes", label: "Ingénierie qualité" },
     ],
 
     // Tab labels — order matches home page pills
