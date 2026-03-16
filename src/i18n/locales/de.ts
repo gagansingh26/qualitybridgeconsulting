@@ -276,11 +276,11 @@ const de = {
     errorDesc: "Etwas ist schiefgelaufen. Bitte senden Sie direkt eine E-Mail.",
     heroStats: [
       { value: "Kostenlose Beratung", label: "Unverbindlich" },
-      { value: "< 24 Stunden", label: "Antwortzeit" },
+      { value: "Schnelle Antwort", label: "Garantiert" },
       { value: "Kein Commitment", label: "Nur ein Gespräch" },
     ],
     stripConsultation: "Kostenlose Beratung buchen",
-    stripResponse: "Antwortet innerhalb von 24 Stunden",
+    stripResponse: "Persönliche Antwort — kein Bot",
     stripReach: "Nordamerika · Europa · Asien",
     stripNoCommitment: "Unverbindlich",
   },
