@@ -465,7 +465,7 @@ const DeliveryApproach = () => {
         ════════════════════════════════════════════════════════════════ */}
         {activeTab === "digital" && (
           <motion.div key="digital" {...tabVariants}>
-            <SectionWrapper>
+            <SectionWrapper style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
               {/* Intro */}
               <motion.p
                 {...fadeIn(0)}
@@ -473,6 +473,18 @@ const DeliveryApproach = () => {
               >
                 {t("services.digitalIntro")}
               </motion.p>
+
+
+              {/* Quote */}
+              <motion.blockquote
+                {...fadeIn(0.1)}
+                className="mx-auto mt-6 max-w-xl border-l-4 border-primary/30 bg-accent/40 px-5 py-4 rounded-r-lg md:mt-8"
+              >
+                <p className="text-sm font-medium italic leading-relaxed text-foreground md:text-base">
+                  "The best digital tools are invisible to the end user — they just work."
+                </p>
+
+              </motion.blockquote>
 
               {/* Service items — 1-col mobile, 2-col desktop */}
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-5">
@@ -522,7 +534,7 @@ const DeliveryApproach = () => {
             </SectionWrapper>
 
             {/* CTA */}
-            <SectionWrapper>
+            <SectionWrapper style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
               <motion.div {...fadeIn(0)} className="text-center">
                 <h2 className="text-[22px] font-bold md:text-[28px]">{t("cta.heading")}</h2>
                 <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground md:mt-3 md:text-base">{t("cta.body")}</p>
@@ -548,7 +560,7 @@ const DeliveryApproach = () => {
         ════════════════════════════════════════════════════════════════ */}
         {activeTab === "sap" && (
           <motion.div key="sap" {...tabVariants}>
-            <SectionWrapper>
+            <SectionWrapper style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
               {/* Intro */}
               <motion.p
                 {...fadeIn(0)}
@@ -556,6 +568,18 @@ const DeliveryApproach = () => {
               >
                 {t("services.sapIntro")}
               </motion.p>
+
+
+              {/* Quote */}
+              <motion.blockquote
+                {...fadeIn(0.1)}
+                className="mx-auto mt-6 max-w-xl border-l-4 border-primary/30 bg-accent/40 px-5 py-4 rounded-r-lg"
+              >
+                <p className="text-sm font-medium italic leading-relaxed text-foreground md:text-base">
+                  "A go-live isn't the finish line. It's where the real work begins."
+                </p>
+
+              </motion.blockquote>
 
               {/* ── Delivery lifecycle phases ── */}
               <div className="mt-6">
@@ -845,6 +869,18 @@ const DeliveryApproach = () => {
                 {t("services.qualityIntro")}
               </motion.p>
 
+
+              {/* Quote */}
+              <motion.blockquote
+                {...fadeIn(0.1)}
+                className="mx-auto mt-6 max-w-xl border-l-4 border-primary/30 bg-accent/40 px-5 py-4 rounded-r-lg"
+              >
+                <p className="text-sm font-medium italic leading-relaxed text-foreground md:text-base">
+                  "Catching a defect in testing costs a fraction of what it costs in production."
+                </p>
+
+              </motion.blockquote>
+
               {/* Test Automation Strategy */}
               <div className="mt-6">
                 <motion.div {...fadeIn(0)}>
@@ -910,7 +946,11 @@ const DeliveryApproach = () => {
             </SectionWrapper>
 
             {/* Release Decision Model (QE context) */}
-            <SectionWrapper>
+            <SectionWrapper className="relative overflow-hidden">
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+                <div className="absolute -left-12 -top-12 h-44 w-44 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+                <div className="absolute -right-10 bottom-0 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+              </div>
               <motion.p
                 {...fadeIn(0)}
                 className="mb-5 max-w-2xl text-sm text-muted-foreground md:mb-6 md:text-base"
