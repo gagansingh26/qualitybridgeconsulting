@@ -208,6 +208,75 @@ const DeliveryApproach = () => {
         </div>
         <div className="container relative mx-auto px-4 text-center">
 
+          {/* Three pillars illustration — absolute, desktop only */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 md:block lg:right-4"
+            aria-hidden="true"
+            style={{ width: 220 }}
+          >
+            <svg width="220" height="190" viewBox="0 0 210 175" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto", overflow: "visible" }}>
+              <style>{`
+                @keyframes p1float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+                @keyframes p2float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+                @keyframes p3float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+                @keyframes barGrow{0%,100%{opacity:0.5}50%{opacity:1}}
+                .pl1{animation:p1float 3.2s ease-in-out infinite}
+                .pl2{animation:p2float 3.8s ease-in-out infinite 0.5s}
+                .pl3{animation:p3float 4.2s ease-in-out infinite 1.1s}
+                .bar-a{animation:barGrow 2s ease-in-out infinite}
+                .bar-b{animation:barGrow 2s ease-in-out infinite 0.4s}
+                .bar-c{animation:barGrow 2s ease-in-out infinite 0.8s}
+              `}</style>
+              {/* Pillar 1 — Digital */}
+              <g className="pl1">
+                <rect x="12" y="42" width="52" height="104" rx="8" fill="rgba(147,197,253,0.13)" stroke="#93c5fd" strokeWidth="1.2"/>
+                {/* Screen icon */}
+                <rect x="20" y="54" width="36" height="22" rx="3" fill="none" stroke="#93c5fd" strokeWidth="1" opacity="0.65"/>
+                <line x1="38" y1="76" x2="38" y2="82" stroke="#93c5fd" strokeWidth="1.5" opacity="0.5"/>
+                <rect x="28" y="82" width="20" height="2.5" rx="1.2" fill="#93c5fd" opacity="0.5"/>
+                {/* Code lines */}
+                <rect x="18" y="94" width="32" height="2.5" rx="1.2" fill="rgba(255,255,255,0.3)"/>
+                <rect x="18" y="101" width="24" height="2.5" rx="1.2" fill="rgba(255,255,255,0.2)"/>
+                <rect x="18" y="108" width="28" height="2.5" rx="1.2" fill="rgba(255,255,255,0.18)"/>
+                <text x="38" y="138" fontSize="8" fill="#93c5fd" textAnchor="middle" fontWeight="600">Digital</text>
+              </g>
+              {/* Pillar 2 — SAP (tallest, centre) */}
+              <g className="pl2">
+                <rect x="79" y="24" width="52" height="122" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.55)" strokeWidth="1.5"/>
+                {/* Shield icon */}
+                <path d="M105 38 L118 44 L118 57 Q118 66 105 72 Q92 66 92 57 L92 44 Z" fill="none" stroke="rgba(255,255,255,0.7)" strokeWidth="1.2"/>
+                <line x1="105" y1="46" x2="105" y2="62" stroke="rgba(255,255,255,0.5)" strokeWidth="1"/>
+                <line x1="98" y1="54" x2="112" y2="54" stroke="rgba(255,255,255,0.5)" strokeWidth="1"/>
+                {/* Data rows */}
+                <rect x="87" y="82" width="36" height="2.5" rx="1.2" fill="rgba(255,255,255,0.38)"/>
+                <rect x="87" y="90" width="28" height="2.5" rx="1.2" fill="rgba(255,255,255,0.28)"/>
+                <rect x="87" y="98" width="32" height="2.5" rx="1.2" fill="rgba(255,255,255,0.22)"/>
+                <rect x="87" y="106" width="20" height="2.5" rx="1.2" fill="rgba(255,255,255,0.18)"/>
+                <text x="105" y="138" fontSize="8" fill="rgba(255,255,255,0.9)" textAnchor="middle" fontWeight="600">SAP</text>
+              </g>
+              {/* Pillar 3 — Quality */}
+              <g className="pl3">
+                <rect x="146" y="50" width="52" height="96" rx="8" fill="rgba(147,197,253,0.1)" stroke="#93c5fd" strokeWidth="1.2" opacity="0.8"/>
+                {/* Checkmark in circle */}
+                <circle cx="172" cy="72" r="14" fill="none" stroke="#93c5fd" strokeWidth="1.2" opacity="0.65"/>
+                <polyline points="165,72 170,78 180,64" fill="none" stroke="#93c5fd" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" opacity="0.85"/>
+                {/* Metric bars */}
+                <rect x="152" y="96" width="36" height="3" rx="1.5" fill="rgba(255,255,255,0.15)"/>
+                <rect x="152" y="96" width="28" height="3" rx="1.5" fill="#93c5fd" opacity="0.5" className="bar-a"/>
+                <rect x="152" y="104" width="36" height="3" rx="1.5" fill="rgba(255,255,255,0.15)"/>
+                <rect x="152" y="104" width="20" height="3" rx="1.5" fill="#93c5fd" opacity="0.4" className="bar-b"/>
+                <rect x="152" y="112" width="36" height="3" rx="1.5" fill="rgba(255,255,255,0.15)"/>
+                <rect x="152" y="112" width="30" height="3" rx="1.5" fill="#93c5fd" opacity="0.35" className="bar-c"/>
+                <text x="172" y="138" fontSize="8" fill="#93c5fd" textAnchor="middle" fontWeight="600" opacity="0.85">Quality</text>
+              </g>
+              {/* Base line */}
+              <line x1="12" y1="154" x2="198" y2="154" stroke="rgba(255,255,255,0.12)" strokeWidth="1"/>
+            </svg>
+          </motion.div>
+
           {/* Pills */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
