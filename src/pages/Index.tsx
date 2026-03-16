@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ExternalLink, Brain, Shield, BarChart3, Users, CheckCircle, TrendingDown, Target, ThumbsUp, TestTube, Code, GitBranch, Monitor, ChevronDown, Globe, Handshake, Clock } from "lucide-react";
+import { ArrowRight, ExternalLink, Brain, Shield, BarChart3, Users, CheckCircle, TrendingDown, Target, ThumbsUp, TestTube, Code, GitBranch, Monitor, ChevronDown, Globe, Handshake, Clock, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
@@ -15,10 +15,10 @@ const valueCardIcons = [
 ];
 
 const outcomeIcons = [
-  <TrendingDown className="h-6 w-6" />,
+  <Rocket className="h-6 w-6" />,
   <Shield className="h-6 w-6" />,
-  <Target className="h-6 w-6" />,
-  <TestTube className="h-6 w-6" />,
+  <TrendingDown className="h-6 w-6" />,
+  <Users className="h-6 w-6" />,
 ];
 
 const capabilityIcons = [
@@ -497,15 +497,23 @@ const Index = () => {
 
       {/* ── Business Outcomes ── */}
       <SectionWrapper
+        className="relative overflow-hidden"
         style={{
           backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.06) 1px, transparent 1px)",
           backgroundSize: "20px 20px",
         }}
       >
-        <motion.h2 {...fadeUp(0)} className="text-center text-[28px] font-bold md:text-[36px]">
+        {/* Decorative circles */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-16 -top-16 h-56 w-56 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+          <div className="absolute -right-12 -bottom-12 h-48 w-48 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+          <div className="absolute right-10 top-8 h-24 w-24 rounded-full border border-primary/[0.05] bg-transparent" />
+          <div className="absolute bottom-8 left-12 h-20 w-20 rounded-full border border-primary/[0.04] bg-transparent" />
+        </div>
+        <motion.h2 {...fadeUp(0)} className="relative text-center text-[28px] font-bold md:text-[36px]">
           {t("outcomes.heading")}
         </motion.h2>
-        <div className="mt-5 grid grid-cols-2 gap-3 md:mt-8 md:grid-cols-4 md:gap-6">
+        <div className="relative mt-5 grid grid-cols-2 gap-3 md:mt-8 md:grid-cols-4 md:gap-6">
           {outcomeItems.map((o, i) => (
             <motion.div
               key={i}
