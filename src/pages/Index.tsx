@@ -372,7 +372,7 @@ const Index = () => {
       </SectionWrapper>
 
       {/* ── Platforms We Work With ── */}
-      <SectionWrapper className="relative overflow-hidden">
+      <SectionWrapper className="relative overflow-hidden bg-muted/50">
         {/* Decorative circles */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -left-14 -top-14 h-52 w-52 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
