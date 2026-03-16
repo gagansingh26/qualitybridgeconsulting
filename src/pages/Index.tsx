@@ -128,15 +128,12 @@ const Index = () => {
   ];
 
   const outcomeItems = t("outcomes.items", { returnObjects: true }) as { label: string; desc: string }[];
-
   const howWeWorkSteps = t("howWeWork.steps", { returnObjects: true }) as { title: string; desc: string }[];
 
   return (
     <Layout>
       {/* Hero */}
       <section className="enterprise-gradient relative overflow-hidden py-12 md:py-20 lg:py-28">
-
-        {/* Geometric background shapes */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10 bg-white/[0.03] md:-right-10 md:-top-10 md:h-80 md:w-80" />
           <div className="absolute -right-4 top-8 h-40 w-40 rounded-full border border-white/[0.07] bg-white/[0.02] md:right-10 md:top-16 md:h-52 md:w-52" />
@@ -144,7 +141,6 @@ const Index = () => {
         </div>
 
         <div className="container relative mx-auto px-4 text-center">
-
           {/* Globe illustration — absolute, desktop only */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
@@ -167,32 +163,22 @@ const Index = () => {
                 .g-dash3{stroke-dasharray:5 4;animation:globeDash 2.8s linear infinite}
                 .g-node{animation:globeNodePop 2.4s ease-in-out infinite}
               `}</style>
-              {/* Globe outline */}
               <circle cx="105" cy="85" r="66" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1"/>
-              {/* Latitude rings */}
               <ellipse cx="105" cy="85" rx="66" ry="21" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8"/>
               <ellipse cx="105" cy="85" rx="66" ry="46" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="0.8"/>
-              {/* Meridians */}
               <line x1="105" y1="19" x2="105" y2="151" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8"/>
               <line x1="70" y1="22" x2="70" y2="148" stroke="rgba(255,255,255,0.05)" strokeWidth="0.8"/>
               <line x1="140" y1="22" x2="140" y2="148" stroke="rgba(255,255,255,0.05)" strokeWidth="0.8"/>
-              {/* Canada glow */}
               <circle cx="76" cy="54" r="18" fill="#93c5fd" opacity="0.10"/>
-              {/* Canada node — pulsing */}
               <circle className="g-ring" cx="76" cy="54" r="13" fill="none" stroke="#93c5fd" strokeWidth="1"/>
               <circle className="g-pulse" cx="76" cy="54" r="7" fill="#93c5fd"/>
-              {/* EU node */}
               <circle className="g-node" cx="126" cy="60" r="5" fill="rgba(255,255,255,0.75)" style={{animationDelay:"0.5s"}}/>
-              {/* Asia node */}
               <circle className="g-node" cx="158" cy="76" r="5" fill="rgba(255,255,255,0.65)" style={{animationDelay:"1s"}}/>
-              {/* S. America node */}
               <circle cx="82" cy="110" r="3.5" fill="rgba(255,255,255,0.4)"/>
-              {/* Connection lines */}
               <line x1="76" y1="54" x2="126" y2="60" stroke="#93c5fd" strokeWidth="1.2" opacity="0.7" className="g-dash"/>
               <line x1="76" y1="54" x2="158" y2="76" stroke="#93c5fd" strokeWidth="1" opacity="0.5" className="g-dash2"/>
               <line x1="126" y1="60" x2="158" y2="76" stroke="rgba(255,255,255,0.3)" strokeWidth="0.8" className="g-dash3"/>
               <line x1="76" y1="54" x2="82" y2="110" stroke="rgba(255,255,255,0.2)" strokeWidth="0.7" className="g-dash2" style={{animationDelay:"0.6s"}}/>
-              {/* Labels */}
               <text x="66" y="43" fontSize="9" fill="#93c5fd" fontWeight="700">CA</text>
               <text x="130" y="57" fontSize="8" fill="rgba(255,255,255,0.8)">EU</text>
               <text x="162" y="73" fontSize="8" fill="rgba(255,255,255,0.75)">AS</text>
@@ -214,7 +200,6 @@ const Index = () => {
             ))}
           </motion.div>
 
-          {/* Headline with accent */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -236,7 +221,6 @@ const Index = () => {
             {t("hero.subtitle")}
           </motion.p>
 
-          {/* CTAs — primary + secondary */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -249,17 +233,12 @@ const Index = () => {
               </Button>
             </a>
             <Link to="/services" className="w-full sm:w-auto">
-              <Button
-                size="lg"
-                variant="outline"
-                className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto"
-              >
+              <Button size="lg" variant="outline" className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto">
                 {t("cta.viewApproach") || "View Our Services"} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </motion.div>
 
-          {/* Trust line */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -270,7 +249,6 @@ const Index = () => {
             {t("hero.reach")}
           </motion.p>
 
-          {/* Stats bar */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -301,8 +279,13 @@ const Index = () => {
         </div>
       </div>
 
-      {/* What We Deliver */}
-      <SectionWrapper>
+      {/* ── What We Deliver — dot pattern background ── */}
+      <SectionWrapper
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.07) 1px, transparent 1px)",
+          backgroundSize: "22px 22px",
+        }}
+      >
         <motion.div {...fadeUp(0)}>
           <h2 className="text-center text-[28px] font-bold md:text-[36px]">{t("whatWeDeliver.heading")}</h2>
           <p className="mx-auto mt-1.5 max-w-2xl text-center text-sm text-muted-foreground md:text-base">
@@ -331,7 +314,7 @@ const Index = () => {
         </div>
       </SectionWrapper>
 
-      {/* How We Work */}
+      {/* ── How We Work ── */}
       <SectionWrapper className="bg-muted/50">
         <motion.div {...fadeUp(0)} className="text-center">
           <h2 className="text-[28px] font-bold md:text-[36px]">{t("howWeWork.heading")}</h2>
@@ -359,10 +342,10 @@ const Index = () => {
         {/* Mobile: vertical stack with connector */}
         <div className="mt-8 md:hidden">
           <div className="relative flex flex-col gap-8 pl-6">
-            <div className="absolute left-[18px] top-0 bottom-0 w-0.5 bg-primary/20" />
+            <div className="absolute bottom-0 left-[18px] top-0 w-0.5 bg-primary/20" />
             {howWeWorkSteps.map((step, i) => (
               <motion.div key={i} {...fadeUp(i * 0.1)} className="relative flex gap-4">
-                <div className="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground -ml-6">
+                <div className="relative z-10 -ml-6 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
                   {i + 1}
                 </div>
                 <div>
@@ -375,8 +358,38 @@ const Index = () => {
         </div>
       </SectionWrapper>
 
-      {/* Business Outcomes */}
-      <SectionWrapper>
+      {/* ── Quote — between How We Work and Business Outcomes ── */}
+      <motion.div
+        {...fadeUp(0)}
+        className="border-y border-border bg-background"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)",
+          backgroundSize: "18px 18px",
+        }}
+      >
+        <div className="container mx-auto px-4 py-10 md:py-14">
+          <div className="mx-auto max-w-2xl text-center">
+            {/* SVG quote mark */}
+            <svg width="32" height="24" viewBox="0 0 32 24" fill="none" className="mx-auto mb-4 opacity-20" aria-hidden="true">
+              <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l1.6 2.4C10.4 3.6 7.6 6.4 7.2 10.4H12V24H0zm20 0V14.4C20 6.4 24.8 1.6 34.4 0L36 2.4C30.4 3.6 27.6 6.4 27.2 10.4H32V24H20z" fill="currentColor" className="text-primary"/>
+            </svg>
+            <p className="text-lg font-medium leading-relaxed text-foreground md:text-xl lg:text-2xl">
+              "Quality isn't a phase at the end — it's the discipline you build in from the start."
+            </p>
+            <p className="mt-4 text-sm font-medium text-primary">
+              Gagan Singh · Founder, QualityBridge Consulting
+            </p>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* ── Business Outcomes — subtle dot background ── */}
+      <SectionWrapper
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.06) 1px, transparent 1px)",
+          backgroundSize: "20px 20px",
+        }}
+      >
         <motion.h2 {...fadeUp(0)} className="text-center text-[28px] font-bold md:text-[36px]">
           {t("outcomes.heading")}
         </motion.h2>
@@ -400,7 +413,7 @@ const Index = () => {
         </div>
       </SectionWrapper>
 
-      {/* CTA */}
+      {/* ── CTA ── */}
       <SectionWrapper className="bg-accent/50">
         <motion.div {...fadeUp(0)} className="text-center">
           <h2 className="text-[28px] font-bold md:text-[36px]">{t("cta.heading")}</h2>
