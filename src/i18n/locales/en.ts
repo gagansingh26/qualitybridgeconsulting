@@ -28,7 +28,7 @@ const en = {
   },
   whatWeDeliver: {
     heading: "What We Deliver",
-    subheading: "Three integrated capabilities — digital development, SAP governance, and quality engineering — delivered under one engagement, managed from Canada.",
+    subheading: "Three integrated capabilities — digital development, SAP governance, and quality engineering — delivered under one engagement, managed from Canada with a vetted global partner network.",
     cards: [
       {
         title: "Digital Development",
