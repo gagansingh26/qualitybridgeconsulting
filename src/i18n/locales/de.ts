@@ -10,7 +10,7 @@ const de = {
     pills: ["Digitale Entwicklung", "SAP-Governance & UAT", "Testautomatisierung & Qualität"],
     titlePrefix: "Enterprise-Lieferung,",
     titleAccent: "richtig gemacht.",
-    subtitle: "Digitale Entwicklung, SAP-Governance & UAT und Qualitätssicherung — lokal in Kanada gemanagt, global geliefert.",
+    subtitle: "Organisationen dabei helfen, zuverlässige digitale Plattformen zu liefern — durch Qualitätssicherung, SAP-Governance und moderne Webentwicklung, lokal in Kanada gemanagt, global geliefert.",
     reach: "Kundenbetreuung lokal in Kanada · Nordamerika · Europa · Asien",
     bookConsultation: "Beratung buchen",
     bookCall: "Gespräch buchen",
@@ -56,7 +56,7 @@ const de = {
       },
       {
         title: "Qualitätssicherung",
-        desc: "Automatisierungsorientierte Qualitätsstrategien mit modernen Frameworks und KI-unterstütztem Testdesign — manuellen Aufwand reduzieren und Releasezyklen beschleunigen.",
+        desc: "Zuverlässige Lieferung von Enterprise-Plattformen durch strukturiertes Quality Engineering — Automatisierungs-Frameworks, Teststrategie und CI/CD-Qualitätsintegration, die Fehler reduzieren und die Release-Sicherheit beschleunigen.",
         detail: [
           "Cypress- und Playwright-Automatisierung",
           "KI-unterstütztes Testdesign",
@@ -80,7 +80,7 @@ const de = {
       },
       {
         title: "Qualität einbetten",
-        desc: "Wir automatisieren Regression mit Cypress, Playwright, TOSCA und vielen mehr — Testzyklen um 50–70 % reduziert und Qualitätstore in jede CI/CD-Pipeline eingebettet.",
+        desc: "Wir bauen die Quality-Engineering-Grundlage, die Enterprise-Plattformen zuverlässig hält — automatisierte Regression, CI/CD-Qualitätstore und Release-Vertrauen mit Cypress, Playwright, TOSCA und vielen mehr.",
       },
     ],
   },
@@ -110,7 +110,7 @@ const de = {
       {
         pill: "Qualitätssicherung",
         title: "Regressionszyklen zu langsam für moderne Release-Kadenz",
-        desc: "Automatisierungsorientiertes Quality Engineering mit Cypress, Playwright, TOSCA und Salesforce-Tests — Regressionszeiten um 50–70 % reduziert und Qualitätstore in jede CI/CD-Pipeline eingebettet.",
+        desc: "Zuverlässigkeit von Enterprise-Plattformen durch strukturiertes Quality Engineering — mit Cypress, Playwright, TOSCA und vielen mehr, Regressionszyklen um 50–70 % reduziert und jede Version mit Beweisen statt Bauchgefühl freigegeben.",
       },
     ],
   },
@@ -145,7 +145,7 @@ const de = {
 
     digitalIntro: "Moderne Webanwendungen, Reporting-Dashboards und Rapid Prototypes — entwickelt für Performance, Skalierbarkeit und Stakeholder-Bereitschaft. Von APIs bis zur produktionsreifen Plattform liefern wir digitale Tools, die zuverlässig auf Enterprise-Niveau funktionieren.",
     sapIntro: "Strukturierte Tests und Governance für SAP S/4HANA-Programme und Enterprise-ERP-Integrationen — mit definierten UAT-Frameworks, Qualitätstoren, Stakeholder-Abnahmen und risikobasierten Go/No-Go-Entscheidungen in jeder Lieferphase.",
-    qualityIntro: "Automatisierungs-Frameworks, Teststrategie und CI/CD-Qualitätsintegration über Salesforce, SAP, Web und API-Schichten — mit Cypress, Playwright, TOSCA und vielen mehr, um manuelle Aufwände zu reduzieren und die Release-Sicherheit zu beschleunigen.",
+    qualityIntro: "Zuverlässigkeit von Enterprise-Plattformen durch strukturiertes Quality Engineering — über Salesforce, SAP, Web und API-Schichten. Wir bauen Automatisierungs-Frameworks, definieren Teststrategie und integrieren Qualität in jede CI/CD-Pipeline mit Cypress, Playwright, TOSCA und vielen mehr.",
     qualityRelease: "Dasselbe Release-Entscheidungsframework gilt auch in QE-Engagements: Jedes Deployment wird anhand messbarer Qualitätskriterien geprüft, bevor ein Go-Live genehmigt wird.",
 
     stripDigital: [
