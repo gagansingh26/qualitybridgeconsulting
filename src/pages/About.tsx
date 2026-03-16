@@ -20,6 +20,23 @@ const toolbox = ["Cypress", "Playwright", "Jenkins", "GitHub Actions", "Docker",
 const principleIcons = [ShieldCheck, LineChart, Sparkles, Globe];
 const focusIcons = [Briefcase, Settings, Brain, Building2];
 
+// Dot pattern style — theme-aware, works light & dark
+const dotBg = {
+  backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.07) 1px, transparent 1px)",
+  backgroundSize: "22px 22px",
+};
+const dotBgSubtle = {
+  backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)",
+  backgroundSize: "18px 18px",
+};
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 16 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.4, delay },
+});
+
 const content = {
   en: {
     heading: "About QualityBridge Consulting",
@@ -266,31 +283,24 @@ const About = () => {
                 .t-blink{animation:tBlink 1.6s ease-in-out infinite}
                 .t-node{animation:tNodeIn 2.4s ease-in-out infinite}
               `}</style>
-              {/* Spine */}
               <line x1="40" y1="18" x2="40" y2="172" stroke="rgba(255,255,255,0.18)" strokeWidth="1.5"/>
-              {/* Phase 1 — Plan */}
               <circle className="t-ring" cx="40" cy="30" r="14" fill="none" stroke="#93c5fd" strokeWidth="0.8"/>
               <circle className="t-pulse" cx="40" cy="30" r="8" fill="#93c5fd"/>
               <text x="60" y="27" fontSize="9" fill="rgba(255,255,255,0.92)" fontWeight="600">Plan</text>
               <text x="60" y="38" fontSize="7.5" fill="rgba(255,255,255,0.45)">Strategy & scope</text>
-              {/* Connector */}
               <line x1="40" y1="41" x2="40" y2="60" stroke="rgba(255,255,255,0.18)" strokeWidth="1" className="t-dash"/>
-              {/* Phase 2 — SIT */}
               <circle className="t-node" cx="40" cy="68" r="6" fill="rgba(255,255,255,0.6)" style={{animationDelay:"0.4s"}}/>
               <text x="60" y="65" fontSize="9" fill="rgba(255,255,255,0.82)" fontWeight="600">SIT</text>
               <text x="60" y="76" fontSize="7.5" fill="rgba(255,255,255,0.42)">Integration testing</text>
               <line x1="40" y1="74" x2="40" y2="96" stroke="rgba(255,255,255,0.16)" strokeWidth="1" className="t-dash2"/>
-              {/* Phase 3 — UAT */}
               <circle className="t-node" cx="40" cy="104" r="6" fill="rgba(255,255,255,0.72)" style={{animationDelay:"0.8s"}}/>
               <text x="60" y="101" fontSize="9" fill="rgba(255,255,255,0.85)" fontWeight="600">UAT</text>
               <text x="60" y="112" fontSize="7.5" fill="rgba(255,255,255,0.42)">Business sign-off</text>
               <line x1="40" y1="110" x2="40" y2="132" stroke="rgba(255,255,255,0.16)" strokeWidth="1" className="t-dash3"/>
-              {/* Phase 4 — Release */}
               <circle className="t-node" cx="40" cy="140" r="6" fill="rgba(255,255,255,0.6)" style={{animationDelay:"1.2s"}}/>
               <text x="60" y="137" fontSize="9" fill="rgba(255,255,255,0.8)" fontWeight="600">Release</text>
               <text x="60" y="148" fontSize="7.5" fill="rgba(255,255,255,0.42)">Go-live</text>
               <line x1="40" y1="146" x2="40" y2="162" stroke="rgba(255,255,255,0.14)" strokeWidth="1" className="t-dash4"/>
-              {/* Phase 5 — Hypercare (blinking) */}
               <circle className="t-blink" cx="40" cy="168" r="5" fill="#93c5fd" opacity="0.6"/>
               <text x="60" y="165" fontSize="9" fill="#93c5fd" fontWeight="600" opacity="0.8">Hypercare</text>
               <text x="60" y="176" fontSize="7.5" fill="#93c5fd" opacity="0.5">Ongoing support ✓</text>
@@ -298,7 +308,7 @@ const About = () => {
           </motion.div>
 
           {/* Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-1.5 mb-4">
+          <div className="mb-4 flex flex-wrap items-center justify-center gap-1.5">
             {a.heroPills.map((pill) => (
               <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-2.5 py-0.5 text-[11px] font-medium text-primary-foreground/90 md:px-3 md:py-1 md:text-xs">
                 {pill}
@@ -306,7 +316,6 @@ const About = () => {
             ))}
           </div>
 
-          {/* Headline */}
           <h1 className="mx-auto max-w-2xl text-[28px] font-bold leading-tight text-primary-foreground md:text-[40px] lg:text-5xl">
             {a.heroTitle}{" "}
             <span style={{ color: "#93c5fd" }}>{a.heroAccent}</span>
@@ -316,7 +325,6 @@ const About = () => {
             {a.heroSubtitle}
           </p>
 
-          {/* CTAs */}
           <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3">
             <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto">
@@ -330,17 +338,15 @@ const About = () => {
             </Link>
           </div>
 
-          {/* Trust line */}
           <p className="mx-auto mt-3 text-[13px] md:text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>
             {a.reach}
           </p>
 
-          {/* Impact stats bar */}
           <div className="mx-auto mt-8 flex max-w-xs items-stretch justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-2xl md:mt-10">
             {a.heroStats.map((s, i) => (
               <div key={i} className="flex flex-1 flex-col items-center justify-center px-2 md:px-5">
-                <span className="text-sm font-bold text-primary-foreground md:text-base leading-tight text-center">{s.value}</span>
-                <span className="mt-0.5 text-[10px] text-primary-foreground/60 md:text-xs text-center leading-tight">{s.label}</span>
+                <span className="text-center text-sm font-bold leading-tight text-primary-foreground md:text-base">{s.value}</span>
+                <span className="mt-0.5 text-center text-[10px] leading-tight text-primary-foreground/60 md:text-xs">{s.label}</span>
               </div>
             ))}
           </div>
@@ -350,7 +356,7 @@ const About = () => {
       {/* Founder strip */}
       <div className="border-b border-t border-border bg-card">
         <div className="container mx-auto px-4 py-3">
-          <div className="grid grid-cols-2 gap-x-4 gap-y-2 md:flex md:flex-wrap md:items-center md:justify-center md:gap-10">
+          <div className="flex flex-col gap-2 md:flex md:flex-row md:flex-wrap md:items-center md:justify-center md:gap-10">
             <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground md:text-sm">
               <span className="shrink-0 text-primary"><Briefcase className="h-4 w-4" /></span>
               <span>{a.founderName} · {a.founderTitle}</span>
@@ -363,12 +369,7 @@ const About = () => {
               <span className="shrink-0 text-primary"><Globe className="h-4 w-4" /></span>
               <span>{a.founderExperience}</span>
             </div>
-            <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary md:text-sm"
-            >
+            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary md:text-sm">
               <span className="shrink-0 text-primary"><ExternalLink className="h-4 w-4" /></span>
               <span>{a.founderCta}</span>
             </a>
@@ -377,45 +378,43 @@ const About = () => {
       </div>
 
       <main className="pb-8 md:pb-14">
-        <div className="container mx-auto px-4 md:px-6 max-w-6xl pt-10 md:pt-14">
+        <div className="container mx-auto max-w-6xl px-4 pt-10 md:px-6 md:pt-14">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-10 items-start">
-
-            {/* Left — bio */}
-            <div className="lg:col-span-7 space-y-4">
-              <h2 className="font-display text-2xl md:text-4xl font-bold text-foreground leading-tight">{a.heading}</h2>
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{a.intro}</p>
+          {/* Bio + Cards */}
+          <div className="grid grid-cols-1 items-start gap-6 md:gap-10 lg:grid-cols-12">
+            <div className="space-y-4 lg:col-span-7">
+              <h2 className="font-display text-2xl font-bold leading-tight text-foreground md:text-4xl">{a.heading}</h2>
+              <p className="text-sm leading-relaxed text-muted-foreground md:text-base">{a.intro}</p>
               <ul className="space-y-2">
                 {a.bullets.map((b, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <CheckCircle2 className="mt-0.5 text-primary shrink-0" size={14} />
+                    <CheckCircle2 className="mt-0.5 shrink-0 text-primary" size={14} />
                     <span>{b}</span>
                   </li>
                 ))}
               </ul>
-              <div className="space-y-3 text-sm text-muted-foreground leading-relaxed pt-1">
+              <div className="space-y-3 pt-1 text-sm leading-relaxed text-muted-foreground">
                 <p dangerouslySetInnerHTML={{ __html: a.paragraph1 }} />
                 <p>{a.paragraph2}</p>
-                <p className="italic border-l-2 border-primary/30 pl-3">{a.paragraph3}</p>
+                <p className="border-l-2 border-primary/30 pl-3 italic">{a.paragraph3}</p>
               </div>
             </div>
 
-            {/* Right — cards */}
-            <div className="lg:col-span-5 space-y-4">
+            <div className="space-y-4 lg:col-span-5">
               <Card className="border-border">
-                <CardHeader className="pb-3 pt-4 px-4">
+                <CardHeader className="px-4 pb-3 pt-4">
                   <CardTitle className="font-display text-base md:text-lg">{a.atAGlance}</CardTitle>
                 </CardHeader>
-                <CardContent className="px-4 pb-4 space-y-4">
+                <CardContent className="space-y-4 px-4 pb-4">
                   <div>
-                    <p className="text-xs font-medium text-foreground mb-2">{a.platforms}</p>
+                    <p className="mb-2 text-xs font-medium text-foreground">{a.platforms}</p>
                     <div className="flex flex-wrap gap-1.5">
                       {platforms.map((p) => <Badge key={p} variant="outline" className="text-xs">{p}</Badge>)}
                     </div>
                   </div>
                   <Separator />
                   <div>
-                    <p className="text-xs font-medium text-foreground mb-2">{a.industries}</p>
+                    <p className="mb-2 text-xs font-medium text-foreground">{a.industries}</p>
                     <div className="flex flex-wrap gap-1.5">
                       {industries.map((ind) => <Badge key={ind} variant="outline" className="text-xs">{ind}</Badge>)}
                     </div>
@@ -424,14 +423,14 @@ const About = () => {
               </Card>
 
               <Card className="border-border">
-                <CardHeader className="pb-2 pt-4 px-4">
+                <CardHeader className="px-4 pb-2 pt-4">
                   <CardTitle className="font-display text-base md:text-lg">{a.whatYouCanExpect}</CardTitle>
                 </CardHeader>
-                <CardContent className="px-4 pb-4 space-y-2.5">
+                <CardContent className="space-y-2.5 px-4 pb-4">
                   {a.expectations.map((text, i) => (
-                    <div key={i} className="flex gap-2 items-start">
-                      <CheckCircle2 className="mt-0.5 text-primary shrink-0" size={14} />
-                      <p className="text-sm text-muted-foreground leading-relaxed">{text}</p>
+                    <div key={i} className="flex items-start gap-2">
+                      <CheckCircle2 className="mt-0.5 shrink-0 text-primary" size={14} />
+                      <p className="text-sm leading-relaxed text-muted-foreground">{text}</p>
                     </div>
                   ))}
                 </CardContent>
@@ -439,19 +438,45 @@ const About = () => {
             </div>
           </div>
 
-          {/* How We Approach */}
-          <div className="mt-10 md:mt-14">
-            <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mb-2">{a.howIApproach}</h2>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-5 max-w-3xl">{a.approachIntro}</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {/* ── Quote before How We Approach ── */}
+          <motion.div
+            {...fadeUp(0)}
+            className="relative mt-10 overflow-hidden rounded-xl border border-border px-6 py-8 md:mt-14 md:px-10 md:py-10"
+            style={dotBgSubtle}
+          >
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
+              <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+            </div>
+            <div className="mx-auto max-w-2xl text-center">
+              <svg width="28" height="22" viewBox="0 0 32 24" fill="none" className="mx-auto mb-4 opacity-20" aria-hidden="true">
+                <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l1.6 2.4C10.4 3.6 7.6 6.4 7.2 10.4H12V24H0zm20 0V14.4C20 6.4 24.8 1.6 34.4 0L36 2.4C30.4 3.6 27.6 6.4 27.2 10.4H32V24H20z" fill="currentColor" className="text-primary"/>
+              </svg>
+              <p className="text-base font-medium leading-relaxed text-foreground md:text-lg lg:text-xl">
+                "Structure, transparency, and no surprises. That's the standard every engagement is held to — regardless of scale, location, or complexity."
+              </p>
+
+            </div>
+          </motion.div>
+
+          {/* ── How We Approach Delivery — dot background ── */}
+          <div className="relative mt-10 overflow-hidden rounded-xl px-6 py-8 md:mt-4 md:px-8 md:py-10" style={dotBg}>
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+              <div className="absolute -left-12 -top-12 h-48 w-48 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
+              <div className="absolute -right-10 bottom-0 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+              <div className="absolute right-16 top-6 h-20 w-20 rounded-full border border-primary/[0.05] bg-transparent" />
+            </div>
+            <h2 className="font-display text-xl font-bold text-foreground md:text-2xl">{a.howIApproach}</h2>
+            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">{a.approachIntro}</p>
+            <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
               {a.principles.map((p, i) => {
                 const Icon = principleIcons[i];
                 return (
-                  <Card key={i} className="border-border">
-                    <CardContent className="pt-4 px-4 pb-4">
-                      <Icon className="text-primary mb-2" size={16} />
-                      <p className="font-display font-semibold text-foreground text-sm leading-tight">{p.title}</p>
-                      <p className="text-muted-foreground text-xs leading-relaxed mt-1.5">{p.desc}</p>
+                  <Card key={i} className="border-border bg-card/80 backdrop-blur-sm">
+                    <CardContent className="px-4 pb-4 pt-4">
+                      <Icon className="mb-2 text-primary" size={16} />
+                      <p className="font-display text-sm font-semibold leading-tight text-foreground">{p.title}</p>
+                      <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{p.desc}</p>
                     </CardContent>
                   </Card>
                 );
@@ -459,32 +484,32 @@ const About = () => {
             </div>
           </div>
 
-          {/* Toolbox */}
-          <div className="mt-10 md:mt-14">
-            <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mb-2">{a.toolbox}</h2>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-4 max-w-3xl">{a.toolboxIntro}</p>
-            <div className="flex flex-wrap gap-1.5">
+          {/* ── Toolbox ── */}
+          <div className="mt-6 md:mt-8">
+            <h2 className="font-display text-xl font-bold text-foreground md:text-2xl">{a.toolbox}</h2>
+            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">{a.toolboxIntro}</p>
+            <div className="mt-4 flex flex-wrap gap-1.5">
               {toolbox.map((t) => <Badge key={t} variant="secondary" className="text-xs">{t}</Badge>)}
             </div>
           </div>
 
-          {/* Focus Areas */}
+          {/* ── Focus Areas ── */}
           <div className="mt-10 md:mt-14">
-            <h2 className="font-display text-xl md:text-2xl font-bold text-foreground mb-4">{a.focusAreas}</h2>
+            <h2 className="font-display mb-4 text-xl font-bold text-foreground md:text-2xl">{a.focusAreas}</h2>
             <Accordion type="multiple" className="space-y-2">
               {a.focusAreasData.map((area, i) => {
                 const Icon = focusIcons[i];
                 return (
-                  <AccordionItem key={area.id} value={area.id} className="bg-card border border-border rounded-lg px-4 shadow-sm">
-                    <AccordionTrigger className="hover:no-underline gap-3 py-3">
+                  <AccordionItem key={area.id} value={area.id} className="rounded-lg border border-border bg-card px-4 shadow-sm">
+                    <AccordionTrigger className="gap-3 py-3 hover:no-underline">
                       <div className="flex items-center gap-3">
-                        <Icon size={14} className="text-primary shrink-0" />
-                        <span className="font-display font-semibold text-foreground text-sm text-left">{area.title}</span>
+                        <Icon size={14} className="shrink-0 text-primary" />
+                        <span className="font-display text-left text-sm font-semibold text-foreground">{area.title}</span>
                       </div>
                     </AccordionTrigger>
                     <AccordionContent className="pb-4">
-                      <p className="text-xs italic text-primary font-medium mb-2 border-l-2 border-primary/40 pl-3">{area.outcome}</p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{area.content}</p>
+                      <p className="mb-2 border-l-2 border-primary/40 pl-3 text-xs font-medium italic text-primary">{area.outcome}</p>
+                      <p className="text-sm leading-relaxed text-muted-foreground">{area.content}</p>
                     </AccordionContent>
                   </AccordionItem>
                 );
@@ -492,8 +517,13 @@ const About = () => {
             </Accordion>
           </div>
 
-          {/* Bottom CTA */}
-          <div className="mt-8 md:mt-12 rounded-lg bg-accent/50 px-6 py-8 text-center md:py-10">
+          {/* ── Bottom CTA ── */}
+          <div className="relative mt-8 overflow-hidden rounded-lg bg-accent/50 px-6 py-8 text-center md:mt-12 md:py-10">
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+              <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
+              <div className="absolute -bottom-10 -left-10 h-44 w-44 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+              <div className="absolute bottom-4 right-12 h-24 w-24 rounded-full border border-primary/[0.05] bg-transparent" />
+            </div>
             <h2 className="text-[22px] font-bold text-foreground md:text-[28px]">{a.openToConversation}</h2>
             <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground md:mt-3 md:text-base">{a.openToConversationBody}</p>
             <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center md:mt-6 md:gap-3">
