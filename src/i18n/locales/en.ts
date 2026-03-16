@@ -64,19 +64,19 @@ const en = {
   },
   howWeWork: {
     heading: "How We Work",
-    subheading: "One point of contact in Canada. A global network of specialists behind it.",
+    subheading: "One engagement. Three specialisations. Delivered with a single point of accountability in Canada.",
     steps: [
       {
-        title: "Engage Locally",
-        desc: "Your dedicated contact is based in Canada. We manage all scoping, communication, and client oversight from the GTA.",
+        title: "Build Digitally",
+        desc: "We design and ship modern web applications, dashboards, and portals — built with React, TypeScript, and Tailwind CSS, from rapid prototype to production.",
       },
       {
-        title: "Deploy Global Specialists",
-        desc: "We activate vetted SAP and technology specialists from our global partner network — matched to your exact programme needs.",
+        title: "Govern SAP Programmes",
+        desc: "We embed structured UAT governance and release readiness into SAP S/4HANA programmes — with quality gates, stakeholder sign-offs, and risk-based go/no-go decisions.",
       },
       {
-        title: "Deliver with Confidence",
-        desc: "Structured UAT governance, quality gates, and release readiness — with full visibility throughout. No surprises.",
+        title: "Engineer Quality In",
+        desc: "We automate regression using Cypress, Playwright, and TOSCA — cutting test cycles by 50–70% and embedding quality gates into every CI/CD pipeline.",
       },
     ],
   },
