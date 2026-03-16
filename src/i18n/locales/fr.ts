@@ -24,7 +24,11 @@ const fr = {
     digitalDev: "Développement digital",
     sapGovernance: "Gouvernance SAP & UAT",
     globalNetwork: "Siège au Canada · Réseau mondial de partenaires",
-    clientOversight: "Supervision client de bout en bout",
+    clientOversight: "Retail · eCommerce · Enterprise",
+  },
+  partner: {
+    strip: "En collaboration avec des intégrateurs SAP, des agences digitales et des partenaires Salesforce — adaptés à votre programme.",
+    label: "Réseau mondial de partenaires",
   },
   whatWeDeliver: {
     heading: "Ce que nous livrons",
@@ -139,9 +143,9 @@ const fr = {
     tabSap: "Gouvernance SAP & UAT",
     tabQuality: "Ingénierie qualité",
 
-    digitalIntro: "Nous concevons et développons les outils numériques qui entourent vos systèmes essentiels — portails, tableaux de bord, prototypes et pipelines pour les livrer de manière fiable.",
-    sapIntro: "Nous intégrons une gouvernance structurée dans chaque livraison SAP — de la planification initiale jusqu'à l'hypercare — garantissant des versions contrôlées, auditables et validées par les métiers.",
-    qualityIntro: "Notre pratique d'ingénierie qualité automatise le répétitif et accélère le critique, afin que vos équipes puissent se concentrer sur la création de valeur plutôt que sur la chasse aux défauts.",
+    digitalIntro: "Applications web modernes, tableaux de bord et prototypes rapides — conçus pour la performance, la scalabilité et la préparation aux parties prenantes. Des APIs aux plateformes prêtes pour la production, nous livrons des outils digitaux fiables à l'échelle enterprise.",
+    sapIntro: "Tests structurés et gouvernance pour les programmes SAP S/4HANA et les intégrations ERP enterprise — avec des cadres UAT définis, des portes qualité, des approbations des parties prenantes et des décisions go/no-go basées sur les risques à chaque étape.",
+    qualityIntro: "Frameworks d'automatisation, stratégie de test et intégration qualité CI/CD sur Salesforce, SAP, web et couches API — avec Cypress, Playwright, TOSCA et bien plus pour réduire les efforts manuels et accélérer la confiance dans les versions.",
     qualityRelease: "Le même cadre de décision de version s'applique dans les engagements QE : chaque déploiement est contrôlé selon des critères de qualité mesurables avant qu'un go-live soit approuvé.",
 
     stripDigital: [
@@ -203,9 +207,8 @@ const fr = {
     automationSubheading: "Automatisation multiplateforme sur SAP, Salesforce, web et API — avec Cypress, Playwright, TOSCA et conception de tests assistée par IA.",
     automationItems: [
       "Cypress, Playwright, TOSCA et bien plus",
-      "Cypress, Playwright, TOSCA et bien plus",
-      "Automatisation TOSCA pour SAP et plateformes enterprise",
-      "Tests Salesforce Commerce Cloud",
+      "Tests Salesforce Commerce Cloud & plateformes enterprise",
+      "Automatisation des tests SAP et couverture de régression",
       "Intégration CI/CD et portes qualité",
     ],
     coreCapabilities: "Compétences clés",
