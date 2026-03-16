@@ -410,12 +410,20 @@ const Index = () => {
 
       {/* ── What We Deliver — dot pattern background ── */}
       <SectionWrapper
+        className="relative overflow-hidden"
         style={{
           backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.07) 1px, transparent 1px)",
           backgroundSize: "22px 22px",
         }}
       >
-        <motion.div {...fadeUp(0)}>
+        {/* Decorative circles */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -right-14 -top-14 h-52 w-52 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+          <div className="absolute -left-10 -bottom-10 h-44 w-44 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+          <div className="absolute left-12 top-8 h-24 w-24 rounded-full border border-primary/[0.05] bg-transparent" />
+          <div className="absolute bottom-6 right-16 h-16 w-16 rounded-full border border-primary/[0.04] bg-transparent" />
+        </div>
+        <motion.div {...fadeUp(0)} className="relative">
           <h2 className="text-center text-[28px] font-bold md:text-[36px]">{t("whatWeDeliver.heading")}</h2>
           <p className="mx-auto mt-1.5 max-w-2xl text-center text-sm text-muted-foreground md:text-base">
             {t("whatWeDeliver.subheading")}
@@ -423,7 +431,7 @@ const Index = () => {
         </motion.div>
 
         {/* Mobile: single-column accordion */}
-        <div className="mt-6 flex flex-col gap-2 md:hidden">
+        <div className="relative mt-6 flex flex-col gap-2 md:hidden">
           {valueCards.map((c, i) => (
             <motion.div key={i} {...fadeUp(i * 0.06)}>
               <AccordionCard icon={c.icon} title={c.title} desc={c.desc} detail={c.detail} />
@@ -432,7 +440,7 @@ const Index = () => {
         </div>
 
         {/* Desktop: 3-column grid */}
-        <div className="mt-8 hidden md:block">
+        <div className="relative mt-8 hidden md:block">
           <div className="grid grid-cols-3 gap-6">
             {valueCards.map((c, i) => (
               <motion.div key={i} {...fadeUp(i * 0.1)} className="flex">
@@ -502,7 +510,7 @@ const Index = () => {
           backgroundSize: "18px 18px",
         }}
       >
-        <div className="container mx-auto px-4 py-8 md:py-12">
+        <div className="container mx-auto px-4 py-6 md:py-10">
           <div className="mx-auto max-w-2xl text-center">
             <svg width="32" height="24" viewBox="0 0 32 24" fill="none" className="mx-auto mb-4 opacity-20" aria-hidden="true">
               <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l1.6 2.4C10.4 3.6 7.6 6.4 7.2 10.4H12V24H0zm20 0V14.4C20 6.4 24.8 1.6 34.4 0L36 2.4C30.4 3.6 27.6 6.4 27.2 10.4H32V24H20z" fill="currentColor" className="text-primary"/>
