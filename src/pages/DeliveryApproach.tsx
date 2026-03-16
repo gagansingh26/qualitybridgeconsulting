@@ -111,6 +111,13 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.35, delay },
 });
 
+// Used inside AnimatePresence tab content — whileInView doesn't fire there
+const fadeIn = (delay = 0) => ({
+  initial: { opacity: 0, y: 12 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.35, delay },
+});
+
 const tabVariants = {
   initial: { opacity: 0, y: 10 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.25 } },
@@ -460,7 +467,7 @@ const DeliveryApproach = () => {
             <SectionWrapper>
               {/* Intro */}
               <motion.p
-                {...fadeUp(0)}
+                {...fadeIn(0)}
                 className="max-w-2xl text-sm text-muted-foreground md:text-base"
               >
                 {t("services.digitalIntro")}
@@ -471,7 +478,7 @@ const DeliveryApproach = () => {
                 {digitalItems.map((item, i) => (
                   <motion.div
                     key={i}
-                    {...fadeUp(i * 0.08)}
+                    {...fadeIn(i * 0.08)}
                     className="rounded-lg border border-border bg-card p-4 card-shadow md:p-5"
                   >
                     <div className="flex items-center gap-2.5">
@@ -492,7 +499,7 @@ const DeliveryApproach = () => {
 
             {/* Tech stack */}
             <SectionWrapper className="bg-accent/50">
-              <motion.div {...fadeUp(0)}>
+              <motion.div {...fadeIn(0)}>
                 <h2 className="text-lg font-bold md:text-2xl">
                   {t("services.digitalStackHeading")}
                 </h2>
@@ -504,7 +511,7 @@ const DeliveryApproach = () => {
                 {digitalStack.map((badge, i) => (
                   <motion.span
                     key={i}
-                    {...fadeUp(i * 0.05)}
+                    {...fadeIn(i * 0.05)}
                     className="rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-card-foreground card-shadow md:text-sm"
                   >
                     {badge}
@@ -515,7 +522,7 @@ const DeliveryApproach = () => {
 
             {/* CTA */}
             <SectionWrapper className="bg-accent/50">
-              <motion.div {...fadeUp(0)} className="text-center">
+              <motion.div {...fadeIn(0)} className="text-center">
                 <h2 className="text-[22px] font-bold md:text-[28px]">{t("cta.heading")}</h2>
                 <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground md:mt-3 md:text-base">{t("cta.body")}</p>
                 <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center md:mt-6 md:gap-3">
@@ -543,7 +550,7 @@ const DeliveryApproach = () => {
             <SectionWrapper>
               {/* Intro */}
               <motion.p
-                {...fadeUp(0)}
+                {...fadeIn(0)}
                 className="max-w-2xl text-sm text-muted-foreground md:text-base"
               >
                 {t("services.sapIntro")}
@@ -612,8 +619,7 @@ const DeliveryApproach = () => {
                       <motion.div
                         key={i}
                         initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
+                        animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.4, delay: i * 0.1 }}
                         className="relative flex gap-4"
                       >
@@ -692,7 +698,7 @@ const DeliveryApproach = () => {
                   {uatPhases.map((phase, i) => (
                     <motion.div
                       key={i}
-                      {...fadeUp(i * 0.06)}
+                      {...fadeIn(i * 0.06)}
                       className="rounded-lg border border-border bg-card p-4 card-shadow"
                     >
                       <h3 className="text-sm font-semibold text-card-foreground">
@@ -716,7 +722,7 @@ const DeliveryApproach = () => {
                 {keyControls.map((c, i) => (
                   <motion.div
                     key={i}
-                    {...fadeUp(i * 0.06)}
+                    {...fadeIn(i * 0.06)}
                     className="flex items-center gap-3 rounded-lg border border-border bg-card p-3 card-shadow md:p-4"
                   >
                     <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary md:h-8 md:w-8">
@@ -739,7 +745,7 @@ const DeliveryApproach = () => {
                 {outputItems.map((o, i) => (
                   <motion.div
                     key={i}
-                    {...fadeUp(i * 0.08)}
+                    {...fadeIn(i * 0.08)}
                     className="rounded-lg border border-border bg-card p-4 card-shadow md:p-5"
                   >
                     <div className="flex items-center gap-2.5">
@@ -767,7 +773,7 @@ const DeliveryApproach = () => {
                 {trackItems.map((item, i) => (
                   <motion.div
                     key={i}
-                    {...fadeUp(i * 0.08)}
+                    {...fadeIn(i * 0.08)}
                     className="rounded-lg border border-border bg-card p-3 card-shadow md:p-5"
                   >
                     <div className="flex items-center gap-2">
@@ -795,7 +801,7 @@ const DeliveryApproach = () => {
                 {releaseStatuses.map((s, i) => (
                   <motion.div
                     key={i}
-                    {...fadeUp(i * 0.1)}
+                    {...fadeIn(i * 0.1)}
                     className="rounded-lg border border-border bg-card p-4 card-shadow md:p-5"
                   >
                     <div className="mb-2 md:mb-3">
@@ -810,7 +816,7 @@ const DeliveryApproach = () => {
 
               {/* Governance explanation */}
               <motion.div
-                {...fadeUp(0.1)}
+                {...fadeIn(0.1)}
                 className="mt-5 rounded-lg border border-border bg-background p-4 md:mt-6 md:p-6"
               >
                 <h3 className="text-base font-semibold text-card-foreground md:text-lg">
@@ -832,7 +838,7 @@ const DeliveryApproach = () => {
             <SectionWrapper>
               {/* Intro */}
               <motion.p
-                {...fadeUp(0)}
+                {...fadeIn(0)}
                 className="max-w-2xl text-sm text-muted-foreground md:text-base"
               >
                 {t("services.qualityIntro")}
@@ -840,7 +846,7 @@ const DeliveryApproach = () => {
 
               {/* Test Automation Strategy */}
               <div className="mt-6">
-                <motion.div {...fadeUp(0)}>
+                <motion.div {...fadeIn(0)}>
                   <h2 className="text-base font-bold md:text-xl">
                     {t("delivery.automationHeading")}
                   </h2>
@@ -856,7 +862,7 @@ const DeliveryApproach = () => {
                   ).map((label, i) => (
                     <motion.div
                       key={i}
-                      {...fadeUp(i * 0.08)}
+                      {...fadeIn(i * 0.08)}
                       className="flex items-center gap-2.5 rounded-lg border border-border bg-card p-3 card-shadow md:p-4"
                     >
                       <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary md:h-10 md:w-10">
@@ -881,7 +887,7 @@ const DeliveryApproach = () => {
             {/* Deliverables */}
             <SectionWrapper className="bg-accent/50">
               <motion.h2
-                {...fadeUp(0)}
+                {...fadeIn(0)}
                 className="text-base font-bold md:text-xl"
               >
                 {t("uat.deliverablesHeading")}
@@ -890,7 +896,7 @@ const DeliveryApproach = () => {
                 {deliverables.map((d, i) => (
                   <motion.div
                     key={i}
-                    {...fadeUp(i * 0.08)}
+                    {...fadeIn(i * 0.08)}
                     className="flex flex-col items-center gap-2 rounded-lg border border-border bg-card p-3 text-center card-shadow md:flex-row md:gap-3 md:p-4 md:text-left"
                   >
                     <div className="text-primary">{d.icon}</div>
@@ -905,7 +911,7 @@ const DeliveryApproach = () => {
             {/* Release Decision Model (QE context) */}
             <SectionWrapper>
               <motion.p
-                {...fadeUp(0)}
+                {...fadeIn(0)}
                 className="mb-5 max-w-2xl text-sm text-muted-foreground md:mb-6 md:text-base"
               >
                 {t("services.qualityRelease")}
@@ -917,7 +923,7 @@ const DeliveryApproach = () => {
                 {releaseStatuses.map((s, i) => (
                   <motion.div
                     key={i}
-                    {...fadeUp(i * 0.1)}
+                    {...fadeIn(i * 0.1)}
                     className="rounded-lg border border-border bg-card p-4 card-shadow md:p-5"
                   >
                     <div className="mb-2 md:mb-3">
