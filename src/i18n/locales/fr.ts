@@ -309,19 +309,19 @@ const fr = {
   },
   platforms: {
     heading: "Plateformes avec lesquelles nous travaillons",
-    subheading: "Des écosystèmes SAP et Salesforce aux stacks web modernes et aux frameworks d'automatisation — nous apportons les bons outils à chaque engagement.",
+    subheading: "Applications web modernes avec React et Next.js. Gouvernance SAP S/4HANA et Salesforce. Ingénierie qualité axée sur l'automatisation avec Cypress, Playwright et TOSCA — les bons outils pour chaque couche de livraison enterprise.",
     groups: [
-      {
-        label: "Plateformes enterprise",
-        items: ["SAP S/4HANA", "Salesforce Commerce Cloud", "Workday", "Microsoft Dynamics 365", "Salesforce CRM"],
-      },
-      {
-        label: "Tests & Automatisation",
-        items: ["Cypress", "Playwright", "TOSCA", "Selenium", "GitHub Actions", "Jenkins"],
-      },
       {
         label: "Développement digital",
         items: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Node.js", "Supabase"],
+      },
+      {
+        label: "Gouvernance SAP & UAT",
+        items: ["SAP S/4HANA", "Salesforce Commerce Cloud", "Workday", "Microsoft Dynamics 365", "Salesforce CRM"],
+      },
+      {
+        label: "Ingénierie qualité",
+        items: ["Cypress", "Playwright", "TOSCA", "Selenium", "ServiceNow", "GitHub Actions", "Jenkins"],
       },
     ],
   },
