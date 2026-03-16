@@ -54,7 +54,7 @@ const en = {
         title: "Quality Engineering",
         desc: "Automation-first quality strategies using modern frameworks and AI-assisted test design — reducing manual effort and accelerating release cycles.",
         detail: [
-          "Cypress and Playwright automation",
+          "Cypress, Playwright, and more",
           "AI-assisted test design",
           "API and integration testing",
           "CI/CD quality gates",
@@ -76,17 +76,17 @@ const en = {
       },
       {
         title: "Engineer Quality In",
-        desc: "We automate regression using Cypress, Playwright, and TOSCA — cutting test cycles by 50–70% and embedding quality gates into every CI/CD pipeline.",
+        desc: "We automate regression using Cypress, Playwright, TOSCA, and many more — cutting test cycles by 50–70% and embedding quality gates into every CI/CD pipeline.",
       },
     ],
   },
   outcomes: {
     heading: "Business Outcomes",
     items: [
-      { label: "Faster regression cycles", desc: "Automated coverage cuts manual UAT time significantly" },
-      { label: "Reduced release risk", desc: "Structured quality gates prevent costly post-go-live issues" },
-      { label: "Clear go/no-go decisions", desc: "Real-time defect metrics remove guesswork from releases" },
-      { label: "Improved business confidence", desc: "Stakeholders sign off with full visibility into system readiness" },
+      { label: "Faster digital delivery", desc: "Modern tooling and rapid prototyping cut time from concept to production" },
+      { label: "Controlled SAP go-lives", desc: "Structured UAT governance replaces gut-feel releases with evidence-based sign-offs" },
+      { label: "Faster regression cycles", desc: "Automation-first quality engineering cuts manual test effort by 50–70%" },
+      { label: "Improved stakeholder confidence", desc: "Full visibility into readiness at every stage — no surprises at go-live" },
     ],
   },
   problems: {
@@ -106,7 +106,7 @@ const en = {
       {
         pill: "Quality Engineering",
         title: "Regression cycles too slow to support modern release cadence",
-        desc: "Automation-first quality engineering using Cypress, Playwright, TOSCA, and Salesforce testing — cutting regression time by 50–70% and embedding quality gates into every CI/CD pipeline.",
+        desc: "Automation-first quality engineering using Cypress, Playwright, TOSCA, and many more — cutting regression time by 50–70% and embedding quality gates into every CI/CD pipeline.",
       },
     ],
   },
@@ -159,7 +159,7 @@ const en = {
       { icon: "checkSquare", label: "Risk-Based · Evidence-Based Sign-off" },
     ],
     stripQuality: [
-      { icon: "cpu", label: "Cypress · Playwright · TOSCA" },
+      { icon: "cpu", label: "Cypress · Playwright · and more" },
       { icon: "bot", label: "AI-Assisted Test Design" },
       { icon: "gitBranch", label: "API · Integration · CI/CD Gates" },
       { icon: "barChart", label: "Metrics-Based Release Decisions" },
@@ -203,9 +203,9 @@ const en = {
       { name: "Hypercare", desc: "Post go-live monitoring, defect triage, and stabilization." },
     ],
     automationHeading: "Test Automation Strategy",
-    automationSubheading: "Cross-platform automation across SAP, Salesforce, web, and API layers — using Cypress, Playwright, TOSCA, and AI-assisted test design.",
+    automationSubheading: "Cross-platform automation across SAP, Salesforce, web, and API layers — using Cypress, Playwright, TOSCA, and many more, accelerated by AI-assisted test design.",
     automationItems: [
-      "Cypress and Playwright implementation",
+      "Cypress, Playwright, TOSCA, and many more",
       "TOSCA test automation for SAP & enterprise platforms",
       "Salesforce Commerce Cloud testing",
       "CI/CD integration and quality gates",
@@ -311,7 +311,7 @@ const en = {
   },
   platforms: {
     heading: "Platforms We Work With",
-    subheading: "Modern web applications built with React and Next.js. SAP S/4HANA and Salesforce governance. Automation-first quality engineering with Cypress, Playwright, and TOSCA — the right tools for every layer of enterprise delivery.",
+    subheading: "Modern web applications built with React and Next.js. Structured SAP governance and UAT. Automation-first quality engineering with Cypress, Playwright, TOSCA, and many more — the right tools for every layer of enterprise delivery.",
     groups: [
       {
         label: "Digital Development",
@@ -319,11 +319,11 @@ const en = {
       },
       {
         label: "SAP Governance & UAT",
-        items: ["SAP S/4HANA", "Salesforce Commerce Cloud", "Workday", "Microsoft Dynamics 365", "Salesforce CRM"],
+        items: ["SAP S/4HANA", "SAP Activate", "UAT Governance", "Quality Gates", "Release Readiness"],
       },
       {
         label: "Quality Engineering",
-        items: ["Cypress", "Playwright", "TOSCA", "Selenium", "ServiceNow", "GitHub Actions", "Jenkins"],
+        items: ["Cypress", "Playwright", "TOSCA", "Selenium", "ServiceNow", "Salesforce Commerce Cloud", "Workday", "Microsoft Dynamics 365", "GitHub Actions", "Jenkins"],
       },
     ],
   },
