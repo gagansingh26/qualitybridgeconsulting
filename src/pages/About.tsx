@@ -9,6 +9,7 @@ import { usePageMeta } from "@/hooks/use-page-meta";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import SectionWrapper from "@/components/SectionWrapper";
 import Footer from "@/components/Footer";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/gagansingh26/";
@@ -438,110 +439,141 @@ const About = () => {
             </div>
           </div>
 
-          {/* ── Quote before How We Approach ── */}
-          <motion.div
-            {...fadeUp(0)}
-            className="relative mt-8 overflow-hidden rounded-xl border border-border px-6 py-7 md:mt-10 md:px-10 md:py-8"
-            style={dotBgSubtle}
-          >
-            <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
-              <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
             </div>
-            <div className="mx-auto max-w-2xl text-center">
-              <svg width="28" height="22" viewBox="0 0 32 24" fill="none" className="mx-auto mb-4 opacity-20" aria-hidden="true">
-                <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l1.6 2.4C10.4 3.6 7.6 6.4 7.2 10.4H12V24H0zm20 0V14.4C20 6.4 24.8 1.6 34.4 0L36 2.4C30.4 3.6 27.6 6.4 27.2 10.4H32V24H20z" fill="currentColor" className="text-primary"/>
-              </svg>
-              <p className="text-base font-medium leading-relaxed text-foreground md:text-lg lg:text-xl">
-                "Structure, transparency, and no surprises. That's the standard every engagement is held to — regardless of scale, location, or complexity."
-              </p>
-
-            </div>
-          </motion.div>
-
-          {/* ── How We Approach Delivery — dot background ── */}
-          <div className="relative mt-6 overflow-hidden rounded-xl px-6 py-7 md:mt-6 md:px-8 md:py-8" style={dotBg}>
-            <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-              <div className="absolute -left-12 -top-12 h-48 w-48 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
-              <div className="absolute -right-10 bottom-0 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
-              <div className="absolute right-16 top-6 h-20 w-20 rounded-full border border-primary/[0.05] bg-transparent" />
-            </div>
-            <h2 className="font-display text-xl font-bold text-foreground md:text-2xl">{a.howIApproach}</h2>
-            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">{a.approachIntro}</p>
-            <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
-              {a.principles.map((p, i) => {
-                const Icon = principleIcons[i];
-                return (
-                  <Card key={i} className="border-border bg-card/80 backdrop-blur-sm">
-                    <CardContent className="px-4 pb-4 pt-4">
-                      <Icon className="mb-2 text-primary" size={16} />
-                      <p className="font-display text-sm font-semibold leading-tight text-foreground">{p.title}</p>
-                      <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{p.desc}</p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* ── Toolbox ── */}
-          <div className="mt-5 md:mt-6">
-            <h2 className="font-display text-xl font-bold text-foreground md:text-2xl">{a.toolbox}</h2>
-            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">{a.toolboxIntro}</p>
-            <div className="mt-4 flex flex-wrap gap-1.5">
-              {toolbox.map((t) => <Badge key={t} variant="secondary" className="text-xs">{t}</Badge>)}
-            </div>
-          </div>
-
-          {/* ── Focus Areas ── */}
-          <div className="mt-8 md:mt-10">
-            <h2 className="font-display mb-4 text-xl font-bold text-foreground md:text-2xl">{a.focusAreas}</h2>
-            <Accordion type="multiple" className="space-y-2">
-              {a.focusAreasData.map((area, i) => {
-                const Icon = focusIcons[i];
-                return (
-                  <AccordionItem key={area.id} value={area.id} className="rounded-lg border border-border bg-card px-4 shadow-sm">
-                    <AccordionTrigger className="gap-3 py-3 hover:no-underline">
-                      <div className="flex items-center gap-3">
-                        <Icon size={14} className="shrink-0 text-primary" />
-                        <span className="font-display text-left text-sm font-semibold text-foreground">{area.title}</span>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="pb-4">
-                      <p className="mb-2 border-l-2 border-primary/40 pl-3 text-xs font-medium italic text-primary">{area.outcome}</p>
-                      <p className="text-sm leading-relaxed text-muted-foreground">{area.content}</p>
-                    </AccordionContent>
-                  </AccordionItem>
-                );
-              })}
-            </Accordion>
-          </div>
-
-          {/* ── Bottom CTA ── */}
-          <div className="relative mt-8 overflow-hidden rounded-lg bg-accent/50 px-6 py-8 text-center md:mt-10 md:py-10">
-            <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-              <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
-              <div className="absolute -bottom-10 -left-10 h-44 w-44 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
-              <div className="absolute bottom-4 right-12 h-24 w-24 rounded-full border border-primary/[0.05] bg-transparent" />
-            </div>
-            <h2 className="text-[22px] font-bold text-foreground md:text-[28px]">{a.openToConversation}</h2>
-            <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground md:mt-3 md:text-base">{a.openToConversationBody}</p>
-            <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center md:mt-6 md:gap-3">
-              <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full font-semibold sm:w-auto">
-                  {a.ctaBook} <ExternalLink className="ml-2 h-4 w-4" />
-                </Button>
-              </a>
-              <Link to="/services" className="w-full sm:w-auto">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                  {a.ctaViewServices} <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-
-        </div>
       </main>
+
+      {/* ── Quote — full-width strip matching Home page ── */}
+      <motion.div
+        {...fadeUp(0)}
+        className="border-y border-border bg-background"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)",
+          backgroundSize: "18px 18px",
+        }}
+      >
+        <div className="container mx-auto px-4 py-6 md:py-10">
+          <div className="mx-auto max-w-2xl text-center">
+            <svg width="32" height="24" viewBox="0 0 32 24" fill="none" className="mx-auto mb-4 opacity-20" aria-hidden="true">
+              <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l1.6 2.4C10.4 3.6 7.6 6.4 7.2 10.4H12V24H0zm20 0V14.4C20 6.4 24.8 1.6 34.4 0L36 2.4C30.4 3.6 27.6 6.4 27.2 10.4H32V24H20z" fill="currentColor" className="text-primary"/>
+            </svg>
+            <p className="text-lg font-medium leading-relaxed text-foreground md:text-xl lg:text-2xl">
+              "Structure, transparency, and no surprises. That's the standard every engagement is held to — regardless of scale, location, or complexity."
+            </p>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* ── How We Approach Delivery ── */}
+      <SectionWrapper
+        className="relative overflow-hidden bg-muted/50"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)",
+          backgroundSize: "20px 20px",
+        }}
+      >
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-12 -top-12 h-48 w-48 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
+          <div className="absolute -right-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+          <div className="absolute right-16 top-6 h-20 w-20 rounded-full border border-primary/[0.05] bg-transparent" />
+        </div>
+        <motion.div {...fadeUp(0)} className="relative text-center">
+          <h2 className="text-[28px] font-bold md:text-[36px]">{a.howIApproach}</h2>
+          <p className="mx-auto mt-1.5 max-w-2xl text-sm text-muted-foreground md:text-base">{a.approachIntro}</p>
+        </motion.div>
+        <div className="relative mt-6 grid grid-cols-2 gap-3 md:mt-8 md:grid-cols-4">
+          {a.principles.map((p, i) => {
+            const Icon = principleIcons[i];
+            return (
+              <motion.div key={i} {...fadeUp(i * 0.08)}>
+                <Card className="border-border bg-card/80 backdrop-blur-sm h-full">
+                  <CardContent className="px-4 pb-4 pt-4">
+                    <Icon className="mb-2 text-primary" size={16} />
+                    <p className="text-sm font-semibold leading-tight text-foreground">{p.title}</p>
+                    <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{p.desc}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
+        </div>
+      </SectionWrapper>
+
+      {/* ── Toolbox ── */}
+      <SectionWrapper className="relative overflow-hidden">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -right-14 -top-14 h-48 w-48 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+          <div className="absolute -left-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.05] bg-primary/[0.02]" />
+        </div>
+        <motion.div {...fadeUp(0)} className="relative text-center">
+          <h2 className="text-[28px] font-bold md:text-[36px]">{a.toolbox}</h2>
+          <p className="mx-auto mt-1.5 max-w-2xl text-sm text-muted-foreground md:text-base">{a.toolboxIntro}</p>
+          <div className="mt-5 flex flex-wrap justify-center gap-1.5">
+            {toolbox.map((tool) => <Badge key={tool} variant="secondary" className="text-xs">{tool}</Badge>)}
+          </div>
+        </motion.div>
+      </SectionWrapper>
+
+      {/* ── Focus Areas ── */}
+      <SectionWrapper
+        className="relative overflow-hidden bg-muted/50"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)",
+          backgroundSize: "20px 20px",
+        }}
+      >
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-14 -top-14 h-48 w-48 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+          <div className="absolute -right-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.05] bg-primary/[0.02]" />
+        </div>
+        <motion.div {...fadeUp(0)} className="relative text-center">
+          <h2 className="mb-6 text-[28px] font-bold md:text-[36px]">{a.focusAreas}</h2>
+        </motion.div>
+        <Accordion type="multiple" className="relative space-y-2">
+          {a.focusAreasData.map((area, i) => {
+            const Icon = focusIcons[i];
+            return (
+              <AccordionItem key={area.id} value={area.id} className="rounded-lg border border-border bg-card px-4 shadow-sm">
+                <AccordionTrigger className="gap-3 py-3 hover:no-underline">
+                  <div className="flex items-center gap-3">
+                    <Icon size={14} className="shrink-0 text-primary" />
+                    <span className="text-left text-sm font-semibold text-foreground">{area.title}</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="pb-4">
+                  <p className="mb-2 border-l-2 border-primary/40 pl-3 text-xs font-medium italic text-primary">{area.outcome}</p>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{area.content}</p>
+                </AccordionContent>
+              </AccordionItem>
+            );
+          })}
+        </Accordion>
+      </SectionWrapper>
+
+      {/* ── Bottom CTA — matching Home page exactly ── */}
+      <SectionWrapper className="relative overflow-hidden bg-accent/50">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
+          <div className="absolute -right-6 top-8 h-44 w-44 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+          <div className="absolute -bottom-16 -left-16 h-64 w-64 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+          <div className="absolute bottom-6 left-8 h-28 w-28 rounded-full border border-primary/[0.05] bg-transparent" />
+        </div>
+        <motion.div {...fadeUp(0)} className="relative text-center">
+          <h2 className="text-[28px] font-bold md:text-[36px]">{a.openToConversation}</h2>
+          <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground md:mt-3 md:text-base">{a.openToConversationBody}</p>
+          <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center md:mt-8 md:gap-3">
+            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full font-semibold sm:w-auto">
+                {a.ctaBook} <ExternalLink className="ml-2 h-4 w-4" />
+              </Button>
+            </a>
+            <Link to="/services" className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                {a.ctaViewServices} <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </motion.div>
+      </SectionWrapper>
       <Footer />
     </div>
   );
