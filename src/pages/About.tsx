@@ -7,7 +7,7 @@ import { Briefcase, Settings, Brain, Building2, Globe, ShieldCheck, LineChart, S
 import { useTranslation } from "react-i18next";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
