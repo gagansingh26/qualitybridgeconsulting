@@ -465,11 +465,16 @@ const DeliveryApproach = () => {
         ════════════════════════════════════════════════════════════════ */}
         {activeTab === "digital" && (
           <motion.div key="digital" {...tabVariants}>
-            <SectionWrapper style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
+            <SectionWrapper className="relative overflow-hidden" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+                <div className="absolute -right-14 -top-14 h-48 w-48 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+                <div className="absolute -left-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+                <div className="absolute left-12 top-8 h-20 w-20 rounded-full border border-primary/[0.04] bg-transparent" />
+              </div>
               {/* Intro */}
               <motion.p
                 {...fadeIn(0)}
-                className="mx-auto max-w-3xl text-center text-sm text-muted-foreground md:text-base border-b border-border pb-6 mb-6 md:pb-8 md:mb-8"
+                className="relative mx-auto max-w-3xl text-center text-sm text-muted-foreground md:text-base border-b border-border pb-6 mb-6 md:pb-8 md:mb-8"
               >
                 {t("services.digitalIntro")}
               </motion.p>
@@ -534,8 +539,13 @@ const DeliveryApproach = () => {
             </SectionWrapper>
 
             {/* CTA */}
-            <SectionWrapper style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
-              <motion.div {...fadeIn(0)} className="text-center">
+            <SectionWrapper className="relative overflow-hidden" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+                <div className="absolute -left-14 -top-14 h-48 w-48 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+                <div className="absolute -right-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+                <div className="absolute right-16 top-8 h-20 w-20 rounded-full border border-primary/[0.04] bg-transparent" />
+              </div>
+              <motion.div {...fadeIn(0)} className="relative text-center">
                 <h2 className="text-[22px] font-bold md:text-[28px]">{t("cta.heading")}</h2>
                 <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground md:mt-3 md:text-base">{t("cta.body")}</p>
                 <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center md:mt-6 md:gap-3">
@@ -560,11 +570,16 @@ const DeliveryApproach = () => {
         ════════════════════════════════════════════════════════════════ */}
         {activeTab === "sap" && (
           <motion.div key="sap" {...tabVariants}>
-            <SectionWrapper style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
+            <SectionWrapper className="relative overflow-hidden" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+                <div className="absolute -right-14 -top-14 h-48 w-48 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+                <div className="absolute -left-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+                <div className="absolute right-16 top-8 h-20 w-20 rounded-full border border-primary/[0.04] bg-transparent" />
+              </div>
               {/* Intro */}
               <motion.p
                 {...fadeIn(0)}
-                className="mx-auto max-w-2xl text-center text-sm text-muted-foreground md:text-base"
+                className="relative mx-auto max-w-2xl text-center text-sm text-muted-foreground md:text-base"
               >
                 {t("services.sapIntro")}
               </motion.p>
@@ -683,7 +698,7 @@ const DeliveryApproach = () => {
             </SectionWrapper>
 
             {/* ── UAT Operating Model ── */}
-            <SectionWrapper className="bg-accent/50">
+            <SectionWrapper className="bg-accent/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
               <h2 className="mb-4 text-base font-semibold md:text-xl">
                 {t("uat.operatingModel")}
               </h2>
@@ -766,7 +781,7 @@ const DeliveryApproach = () => {
             </SectionWrapper>
 
             {/* ── Outputs ── */}
-            <SectionWrapper className="bg-accent/50">
+            <SectionWrapper className="bg-accent/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
               <h2 className="mb-4 text-base font-semibold md:text-xl">
                 {t("uat.outputs")}
               </h2>
@@ -826,7 +841,7 @@ const DeliveryApproach = () => {
             </SectionWrapper>
 
             {/* ── Release Decision Model ── */}
-            <SectionWrapper className="bg-accent/50">
+            <SectionWrapper className="bg-accent/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
               <h2 className="mb-4 text-base font-semibold md:mb-6 md:text-xl">
                 {t("release.decisionModel")}
               </h2>
@@ -934,7 +949,11 @@ const DeliveryApproach = () => {
             </SectionWrapper>
 
             {/* Deliverables */}
-            <SectionWrapper className="bg-accent/50">
+            <SectionWrapper className="relative overflow-hidden bg-accent/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+                <div className="absolute -right-12 -top-12 h-44 w-44 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+                <div className="absolute -left-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.05] bg-transparent" />
+              </div>
               <motion.h2
                 {...fadeIn(0)}
                 className="text-base font-bold md:text-xl"
@@ -958,7 +977,7 @@ const DeliveryApproach = () => {
             </SectionWrapper>
 
             {/* Release Decision Model (QE context) */}
-            <SectionWrapper className="relative overflow-hidden">
+            <SectionWrapper className="relative overflow-hidden" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
               <div aria-hidden="true" className="pointer-events-none absolute inset-0">
                 <div className="absolute -left-12 -top-12 h-44 w-44 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
                 <div className="absolute -right-10 bottom-0 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
