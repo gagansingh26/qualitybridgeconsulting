@@ -103,13 +103,13 @@ const en = {
     subheading: "Digital Development, SAP Governance & UAT, and Quality Engineering — three specialisations working together for confident, well-tested delivery.",
 
     // Hero
-    heroPrefix: "Expert Specialisations.",
+    heroPrefix: "Expert Specialisations ·",
     heroAccent: "One Standard.",
     heroSubtitle: "Digital Development, SAP Governance & UAT, and Quality Engineering — delivered under one engagement, managed from Canada.",
     heroStats: [
-      { value: "Modern Technologies", label: "Digital Development" },
+      { value: "Modern Tech", label: "Digital Development" },
       { value: "SAP S/4HANA", label: "Governance & UAT" },
-      { value: "Modern Automation Frameworks", label: "Quality Engineering" },
+      { value: "Automation Frameworks", label: "Quality Engineering" },
     ],
 
     // Tab labels — order matches home page pills
