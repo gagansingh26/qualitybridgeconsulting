@@ -76,17 +76,17 @@ const fr = {
       },
       {
         title: "Intégrer la qualité",
-        desc: "Nous automatisons la régression avec Cypress, Playwright et TOSCA — réduisant les cycles de test de 50 à 70 % et intégrant des portes qualité dans chaque pipeline CI/CD.",
+        desc: "Nous automatisons la régression avec Cypress, Playwright, TOSCA et bien plus — réduisant les cycles de test de 50 à 70 % et intégrant des portes qualité dans chaque pipeline CI/CD.",
       },
     ],
   },
   outcomes: {
     heading: "Résultats commerciaux",
     items: [
-      { label: "Cycles de régression plus rapides", desc: "La couverture automatisée réduit considérablement le temps UAT manuel" },
-      { label: "Risque de version réduit", desc: "Les portes qualité structurées préviennent les problèmes coûteux post-go-live" },
-      { label: "Décisions Go/No-Go claires", desc: "Les métriques de défauts en temps réel éliminent les conjectures" },
-      { label: "Confiance accrue des parties prenantes", desc: "Les parties prenantes approuvent avec une visibilité totale sur la disponibilité du système" },
+      { label: "Livraison digitale plus rapide", desc: "Les outils modernes et le prototypage rapide réduisent le temps du concept à la production" },
+      { label: "Go-lives SAP maîtrisés", desc: "La gouvernance UAT structurée remplace les versions intuitives par des approbations basées sur les preuves" },
+      { label: "Cycles de régression plus rapides", desc: "L'ingénierie qualité axée sur l'automatisation réduit l'effort de test manuel de 50 à 70 %" },
+      { label: "Confiance accrue des parties prenantes", desc: "Visibilité totale sur la préparation à chaque étape — aucune surprise au go-live" },
     ],
   },
   problems: {
@@ -202,8 +202,8 @@ const fr = {
     automationHeading: "Stratégie d'automatisation des tests",
     automationSubheading: "Automatisation multiplateforme sur SAP, Salesforce, web et API — avec Cypress, Playwright, TOSCA et conception de tests assistée par IA.",
     automationItems: [
-      "Implémentation Cypress et Playwright",
-      "Implémentation Cypress et Playwright",
+      "Cypress, Playwright, TOSCA et bien plus",
+      "Cypress, Playwright, TOSCA et bien plus",
       "Automatisation TOSCA pour SAP et plateformes enterprise",
       "Tests Salesforce Commerce Cloud",
       "Intégration CI/CD et portes qualité",
@@ -317,11 +317,11 @@ const fr = {
       },
       {
         label: "Gouvernance SAP & UAT",
-        items: ["SAP S/4HANA", "Salesforce Commerce Cloud", "Workday", "Microsoft Dynamics 365", "Salesforce CRM"],
+        items: ["SAP S/4HANA", "SAP Activate", "Gouvernance UAT", "Portes qualité", "Préparation aux versions"],
       },
       {
         label: "Ingénierie qualité",
-        items: ["Cypress", "Playwright", "TOSCA", "Selenium", "ServiceNow", "GitHub Actions", "Jenkins"],
+        items: ["Cypress", "Playwright", "TOSCA", "Selenium", "ServiceNow", "Salesforce Commerce Cloud", "Workday", "Microsoft Dynamics 365", "GitHub Actions", "Jenkins"],
       },
     ],
   },
