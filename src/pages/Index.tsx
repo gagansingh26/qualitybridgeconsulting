@@ -144,6 +144,61 @@ const Index = () => {
         </div>
 
         <div className="container relative mx-auto px-4 text-center">
+
+          {/* Globe illustration — absolute, desktop only */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 md:block lg:right-4"
+            aria-hidden="true"
+            style={{ width: 240 }}
+          >
+            <svg width="240" height="200" viewBox="0 0 210 170" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto", overflow: "visible" }}>
+              <style>{`
+                @keyframes globePulse{0%,100%{r:7;opacity:1}50%{r:10;opacity:0.7}}
+                @keyframes globeRing{0%,100%{r:13;opacity:0.35}50%{r:20;opacity:0}}
+                @keyframes globeDash{to{stroke-dashoffset:-24}}
+                @keyframes globeNodePop{0%,100%{r:5}50%{r:7}}
+                .g-pulse{animation:globePulse 2s ease-in-out infinite}
+                .g-ring{animation:globeRing 2s ease-in-out infinite}
+                .g-dash{stroke-dasharray:5 4;animation:globeDash 1.6s linear infinite}
+                .g-dash2{stroke-dasharray:5 4;animation:globeDash 2.2s linear infinite}
+                .g-dash3{stroke-dasharray:5 4;animation:globeDash 2.8s linear infinite}
+                .g-node{animation:globeNodePop 2.4s ease-in-out infinite}
+              `}</style>
+              {/* Globe outline */}
+              <circle cx="105" cy="85" r="66" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1"/>
+              {/* Latitude rings */}
+              <ellipse cx="105" cy="85" rx="66" ry="21" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8"/>
+              <ellipse cx="105" cy="85" rx="66" ry="46" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="0.8"/>
+              {/* Meridians */}
+              <line x1="105" y1="19" x2="105" y2="151" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8"/>
+              <line x1="70" y1="22" x2="70" y2="148" stroke="rgba(255,255,255,0.05)" strokeWidth="0.8"/>
+              <line x1="140" y1="22" x2="140" y2="148" stroke="rgba(255,255,255,0.05)" strokeWidth="0.8"/>
+              {/* Canada glow */}
+              <circle cx="76" cy="54" r="18" fill="#93c5fd" opacity="0.10"/>
+              {/* Canada node — pulsing */}
+              <circle className="g-ring" cx="76" cy="54" r="13" fill="none" stroke="#93c5fd" strokeWidth="1"/>
+              <circle className="g-pulse" cx="76" cy="54" r="7" fill="#93c5fd"/>
+              {/* EU node */}
+              <circle className="g-node" cx="126" cy="60" r="5" fill="rgba(255,255,255,0.75)" style={{animationDelay:"0.5s"}}/>
+              {/* Asia node */}
+              <circle className="g-node" cx="158" cy="76" r="5" fill="rgba(255,255,255,0.65)" style={{animationDelay:"1s"}}/>
+              {/* S. America node */}
+              <circle cx="82" cy="110" r="3.5" fill="rgba(255,255,255,0.4)"/>
+              {/* Connection lines */}
+              <line x1="76" y1="54" x2="126" y2="60" stroke="#93c5fd" strokeWidth="1.2" opacity="0.7" className="g-dash"/>
+              <line x1="76" y1="54" x2="158" y2="76" stroke="#93c5fd" strokeWidth="1" opacity="0.5" className="g-dash2"/>
+              <line x1="126" y1="60" x2="158" y2="76" stroke="rgba(255,255,255,0.3)" strokeWidth="0.8" className="g-dash3"/>
+              <line x1="76" y1="54" x2="82" y2="110" stroke="rgba(255,255,255,0.2)" strokeWidth="0.7" className="g-dash2" style={{animationDelay:"0.6s"}}/>
+              {/* Labels */}
+              <text x="66" y="43" fontSize="9" fill="#93c5fd" fontWeight="700">CA</text>
+              <text x="130" y="57" fontSize="8" fill="rgba(255,255,255,0.8)">EU</text>
+              <text x="162" y="73" fontSize="8" fill="rgba(255,255,255,0.75)">AS</text>
+            </svg>
+          </motion.div>
+
           {/* Pills */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
