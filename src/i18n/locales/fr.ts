@@ -28,7 +28,7 @@ const fr = {
   },
   whatWeDeliver: {
     heading: "Ce que nous livrons",
-    subheading: "Trois capacités intégrées — développement digital, gouvernance SAP et ingénierie qualité — livrées dans un seul engagement, géré depuis le Canada.",
+    subheading: "Trois capacités intégrées — développement digital, gouvernance SAP et ingénierie qualité — livrées dans un seul engagement, géré depuis le Canada avec un réseau mondial de partenaires vérifiés.",
     cards: [
       {
         title: "Développement digital",
@@ -91,7 +91,7 @@ const fr = {
   },
   cta: {
     heading: "Prêt à livrer avec confiance ?",
-    body: "Développement digital, gouvernance SAP & UAT et ingénierie qualité — géré localement au Canada, livré à l'échelle mondiale.",
+    body: "Développement digital, gouvernance SAP & UAT et ingénierie qualité — géré localement au Canada, livré à l'échelle mondiale avec un réseau de partenaires spécialisés.",
     bookConsultation: "Réserver une consultation",
     viewApproach: "Voir nos services",
     getInTouch: "Nous contacter",
