@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ExternalLink, Brain, Shield, BarChart3, Users, CheckCircle, TrendingDown, Target, ThumbsUp, TestTube, Code, GitBranch, Monitor, ChevronDown, Globe, Handshake, Clock, Rocket } from "lucide-react";
+import { ArrowRight, ExternalLink, Brain, Shield, BarChart3, Users, CheckCircle, TrendingDown, Target, ThumbsUp, TestTube, Code, GitBranch, Monitor, ChevronDown, Globe, Handshake, Clock, Rocket, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
@@ -25,7 +25,7 @@ const capabilityIcons = [
   <Monitor className="h-4 w-4" />,
   <Shield className="h-4 w-4" />,
   <Handshake className="h-4 w-4" />,
-  <Clock className="h-4 w-4" />,
+  <ShoppingBag className="h-4 w-4" />,
 ];
 
 const problemIcons = [
@@ -293,6 +293,25 @@ const Index = () => {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* ── Partner Collaboration Strip ── */}
+      <div className="border-b border-border bg-accent/30">
+        <div className="container mx-auto px-4 py-4 md:py-5">
+          <motion.div
+            {...fadeUp(0)}
+            className="flex flex-col items-center gap-2 text-center md:flex-row md:justify-center md:gap-3"
+          >
+            <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+              <Handshake className="h-4 w-4 shrink-0 text-primary" />
+              <span>{t("partner.label")}</span>
+            </div>
+            <span className="hidden text-muted-foreground md:inline">—</span>
+            <p className="max-w-2xl text-xs text-muted-foreground md:text-sm">
+              {t("partner.strip")}
+            </p>
+          </motion.div>
         </div>
       </div>
 
