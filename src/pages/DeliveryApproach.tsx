@@ -361,7 +361,8 @@ const DeliveryApproach = () => {
           >
             {(t("services.heroStats", { returnObjects: true }) as { value: string; label: string }[]).map((stat, i) => (
               <div key={i} className="flex flex-1 flex-col items-center px-3 md:px-5">
-                <span className="text-xs font-bold text-primary-foreground md:text-sm">{stat.value}</span>
+                <span className="text-sm font-bold text-primary-foreground md:text-base leading-tight text-center">{stat.value}</span>
+                <span className="mt-0.5 text-[10px] text-primary-foreground/60 md:text-xs text-center">{stat.label}</span>
               </div>
             ))}
           </motion.div>
