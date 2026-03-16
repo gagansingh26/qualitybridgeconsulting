@@ -380,8 +380,8 @@ const DeliveryApproach = () => {
             transition={{ duration: 0.2 }}
             className="container mx-auto px-4 py-3 md:px-6"
           >
-            {/* Mobile: 2-col grid */}
-            <div className="grid grid-cols-2 gap-x-4 gap-y-2 md:hidden">
+            {/* Mobile: vertical stack — same pattern as all other page strips */}
+            <div className="flex flex-col gap-2 md:hidden">
               {stripItems.map((item, i) => (
                 <div
                   key={i}
@@ -390,7 +390,7 @@ const DeliveryApproach = () => {
                   <span className="shrink-0 text-primary">
                     {STRIP_ICONS[item.icon]}
                   </span>
-                  <span className="truncate">{item.label}</span>
+                  <span>{item.label}</span>
                 </div>
               ))}
             </div>
