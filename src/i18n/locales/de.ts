@@ -24,7 +24,11 @@ const de = {
     digitalDev: "Digitale Entwicklung",
     sapGovernance: "SAP-Governance & UAT",
     globalNetwork: "Kanada HQ · Globales Partnernetzwerk",
-    clientOversight: "End-to-End-Kundenbetreuung",
+    clientOversight: "Retail · eCommerce · Enterprise",
+  },
+  partner: {
+    strip: "Zusammenarbeit mit SAP-Integratoren, Digitalagenturen und Salesforce-Partnern — passend zu Ihrem Programm.",
+    label: "Globales Partnernetzwerk",
   },
   whatWeDeliver: {
     heading: "Was wir liefern",
@@ -139,9 +143,9 @@ const de = {
     tabSap: "SAP-Governance & UAT",
     tabQuality: "Qualitätssicherung",
 
-    digitalIntro: "Wir entwickeln die digitalen Tools rund um Ihre Kernsysteme — Portale, Dashboards, Prototypen und Pipelines, die diese zuverlässig ausliefern.",
-    sapIntro: "Wir integrieren strukturierte Governance in jede SAP-Lieferung — von der ersten Planung bis zur Hypercare — und gewährleisten kontrollierte, prüfbare und geschäftlich validierte Releases.",
-    qualityIntro: "Unsere Qualitätssicherungspraxis automatisiert das Repetitive und beschleunigt das Kritische, damit Ihre Teams sich auf die Wertschöpfung konzentrieren können, anstatt Fehler zu jagen.",
+    digitalIntro: "Moderne Webanwendungen, Reporting-Dashboards und Rapid Prototypes — entwickelt für Performance, Skalierbarkeit und Stakeholder-Bereitschaft. Von APIs bis zur produktionsreifen Plattform liefern wir digitale Tools, die zuverlässig auf Enterprise-Niveau funktionieren.",
+    sapIntro: "Strukturierte Tests und Governance für SAP S/4HANA-Programme und Enterprise-ERP-Integrationen — mit definierten UAT-Frameworks, Qualitätstoren, Stakeholder-Abnahmen und risikobasierten Go/No-Go-Entscheidungen in jeder Lieferphase.",
+    qualityIntro: "Automatisierungs-Frameworks, Teststrategie und CI/CD-Qualitätsintegration über Salesforce, SAP, Web und API-Schichten — mit Cypress, Playwright, TOSCA und vielen mehr, um manuelle Aufwände zu reduzieren und die Release-Sicherheit zu beschleunigen.",
     qualityRelease: "Dasselbe Release-Entscheidungsframework gilt auch in QE-Engagements: Jedes Deployment wird anhand messbarer Qualitätskriterien geprüft, bevor ein Go-Live genehmigt wird.",
 
     stripDigital: [
@@ -203,8 +207,8 @@ const de = {
     automationSubheading: "Plattformübergreifende Automatisierung über SAP-, Web- und API-Ebenen mit modernen Frameworks.",
     automationItems: [
       "Cypress, Playwright, TOSCA und viele mehr",
-      "TOSCA-Testautomatisierung für SAP & Enterprise-Plattformen",
-      "Salesforce Commerce Cloud Testing",
+      "Salesforce Commerce Cloud & Enterprise-Plattform-Tests",
+      "SAP-Testautomatisierung und Regressionsabdeckung",
       "CI/CD-Integration und Qualitätstore",
     ],
     coreCapabilities: "Kernkompetenzen",
