@@ -14,7 +14,7 @@ import Footer from "@/components/Footer";
 const LINKEDIN_URL = "https://www.linkedin.com/in/gagansingh26/";
 
 const industries = ["SaaS", "ERP", "Insurance", "HealthTech", "FinTech", "eCommerce"];
-const platforms = ["Workday", "SAP S/4HANA", "Salesforce", "Microsoft Dynamics 365"];
+const platforms = ["SAP S/4HANA", "Salesforce Commerce Cloud", "Workday", "Microsoft Dynamics 365", "Salesforce CRM"];
 const toolbox = ["Cypress", "Playwright", "Jenkins", "GitHub Actions", "Docker", "Grafana", "Datadog", "Azure DevOps", "Quality Gates", "Release Governance"];
 
 const principleIcons = [ShieldCheck, LineChart, Sparkles, Globe];
@@ -59,7 +59,7 @@ const content = {
     bullets: [
       "Modern web applications, reporting dashboards, and rapid prototypes — built with React, TypeScript, and Tailwind CSS.",
       "SAP S/4HANA UAT governance, release readiness, and structured go/no-go decisions.",
-      "Automation-first quality engineering using Cypress, Playwright, and AI-assisted test design.",
+      "Automation-first quality engineering using Cypress, Playwright, and many more — accelerated by AI-assisted test design.",
     ],
     paragraph1: "The experience behind QualityBridge spans over 10 years of enterprise delivery — working across <strong>Johnson & Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong>, and <strong>Aon</strong>, as well as programmes in medical devices, luxury retail, and financial services across teams in North America, Germany, and India. Beyond enterprise programmes, I design and build modern web applications and digital tools — from rapid prototypes to production-grade platforms. That breadth is what makes it possible to walk into any engagement and know what good looks like.",
     paragraph2: "We work with a carefully selected network of specialist partners across North America, Europe, and India — each vetted for their domain expertise and delivery track record. Clients get access to the right capability at every phase, without the overhead of managing multiple vendors.",
@@ -123,7 +123,7 @@ const content = {
     bullets: [
       "Moderne Webanwendungen, Reporting-Dashboards und Rapid Prototypes — entwickelt mit React, TypeScript und Tailwind CSS.",
       "SAP S/4HANA UAT-Governance, Release-Bereitschaft und strukturierte Go/No-Go-Entscheidungen.",
-      "Automatisierungsorientiertes Quality Engineering mit Cypress, Playwright und KI-gestütztem Testdesign.",
+      "Automatisierungsorientiertes Quality Engineering mit Cypress, Playwright und vielen mehr — beschleunigt durch KI-gestütztes Testdesign.",
     ],
     paragraph1: "Die Erfahrung hinter QualityBridge umfasst über 10 Jahre Enterprise-Delivery — mit Einsätzen bei <strong>Johnson & Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong> und <strong>Aon</strong> sowie Programmen in Medizingeräten, Luxuseinzelhandel und Finanzdienstleistungen, in Teams in Nordamerika, Deutschland und Indien. Über Enterprise-Programme hinaus entwickle ich moderne Webanwendungen und digitale Tools — vom Rapid Prototype bis zur produktionsreifen Plattform. Diese Breite ermöglicht es, in jedes Engagement einzusteigen und zu wissen, wie gut aussieht.",
     paragraph2: "Wir arbeiten mit einem sorgfältig ausgewählten Netzwerk von Spezialisten aus Nordamerika, Europa und Indien — jeweils geprüft auf Fachkompetenz und Lieferbilanz. Kunden erhalten in jeder Phase Zugang zur richtigen Kompetenz, ohne den Aufwand mehrerer Lieferanten.",
@@ -187,7 +187,7 @@ const content = {
     bullets: [
       "Applications web modernes, tableaux de bord et prototypes rapides — développés avec React, TypeScript et Tailwind CSS.",
       "Gouvernance UAT SAP S/4HANA, préparation aux versions et décisions go/no-go structurées.",
-      "Ingénierie qualité axée sur l'automatisation avec Cypress, Playwright et conception de tests assistée par IA.",
+      "Ingénierie qualité axée sur l'automatisation avec Cypress, Playwright et bien plus — accélérée par la conception de tests assistée par IA.",
     ],
     paragraph1: "L'expérience derrière QualityBridge couvre plus de 10 ans de livraison d'entreprise — avec des missions chez <strong>Johnson & Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong> et <strong>Aon</strong>, ainsi que des programmes dans les dispositifs médicaux, le luxe et les services financiers, dans des équipes en Amérique du Nord, en Allemagne et en Inde. Au-delà des programmes d'entreprise, je conçois et développe des applications web modernes et des outils digitaux — des prototypes rapides aux plateformes prêtes pour la production. Cette diversité permet d'entrer dans n'importe quel engagement et de savoir à quoi ressemble la qualité.",
     paragraph2: "Nous travaillons avec un réseau soigneusement sélectionné de partenaires spécialisés en Amérique du Nord, en Europe et en Inde — chacun vérifié pour son expertise et son bilan. Les clients accèdent à la bonne compétence à chaque phase, sans la complexité de gérer plusieurs fournisseurs.",
