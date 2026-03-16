@@ -10,7 +10,7 @@ const en = {
     pills: ["Digital Development", "SAP Governance & UAT", "Test Automation & Quality"],
     titlePrefix: "Enterprise Delivery,",
     titleAccent: "Done Right.",
-    subtitle: "Digital Development, SAP Governance & UAT, and Quality Engineering — managed locally in Canada, delivered globally.",
+    subtitle: "Helping organizations deliver reliable digital platforms through quality engineering, SAP governance, and modern web development — managed locally in Canada, delivered globally.",
     reach: "Client engagement managed locally in Canada · North America · Europe · Asia",
     bookConsultation: "Book a Consultation",
     bookCall: "Book a Call",
@@ -56,7 +56,7 @@ const en = {
       },
       {
         title: "Quality Engineering",
-        desc: "Automation-first quality strategies using modern frameworks and AI-assisted test design — reducing manual effort and accelerating release cycles.",
+        desc: "Reliable enterprise platform delivery through structured quality engineering — automation frameworks, test strategy, and CI/CD quality integration that reduce defect leakage and accelerate release confidence.",
         detail: [
           "Cypress, Playwright, and more",
           "AI-assisted test design",
@@ -80,7 +80,7 @@ const en = {
       },
       {
         title: "Engineer Quality In",
-        desc: "We automate regression using Cypress, Playwright, TOSCA, and many more — cutting test cycles by 50–70% and embedding quality gates into every CI/CD pipeline.",
+        desc: "We build the quality engineering foundation that keeps enterprise platforms reliable — automated regression, CI/CD quality gates, and release confidence using Cypress, Playwright, TOSCA, and many more.",
       },
     ],
   },
@@ -110,7 +110,7 @@ const en = {
       {
         pill: "Quality Engineering",
         title: "Regression cycles too slow to support modern release cadence",
-        desc: "Automation-first quality engineering using Cypress, Playwright, TOSCA, and many more — cutting regression time by 50–70% and embedding quality gates into every CI/CD pipeline.",
+        desc: "Enterprise platform reliability built through structured quality engineering — using Cypress, Playwright, TOSCA, and many more to reduce regression cycles by 50–70% and gate every release with evidence, not instinct.",
       },
     ],
   },
@@ -146,7 +146,7 @@ const en = {
     // Per-tab intro text
     digitalIntro: "Modern web applications, reporting dashboards, and rapid prototypes — built for performance, scalability, and stakeholder readiness. From APIs and integrations to production-grade platforms, we deliver digital tools that work reliably at enterprise scale.",
     sapIntro: "Structured testing and governance for SAP S/4HANA programmes and enterprise ERP integrations — with defined UAT frameworks, quality gates, stakeholder sign-offs, and risk-based go/no-go decisions at every stage of delivery.",
-    qualityIntro: "Automation frameworks, test strategy, and CI/CD quality integration across Salesforce, SAP, web, and API layers — using Cypress, Playwright, TOSCA, and many more to reduce manual effort and accelerate release confidence.",
+    qualityIntro: "Enterprise platform reliability through structured quality engineering — covering Salesforce, SAP, web, and API layers. We build automation frameworks, define test strategy, and integrate quality into every CI/CD pipeline using Cypress, Playwright, TOSCA, and many more.",
     qualityRelease: "The same release decision framework applies in QE engagements: every deployment is gated against measurable quality criteria before a go-live is approved.",
 
     // Context strip — 4 items per tab (icon key + label)
