@@ -306,6 +306,25 @@ const de = {
     stripReach: "Nordamerika · Europa · Asien",
     stripNoCommitment: "Unverbindlich",
   },
+  platforms: {
+    heading: "Plattformen, mit denen wir arbeiten",
+    subheading: "Von SAP- und Salesforce-Ökosystemen bis hin zu modernen Web-Stacks und Automatisierungs-Frameworks — wir bringen die richtigen Tools in jedes Engagement.",
+    groups: [
+      {
+        label: "Enterprise-Plattformen",
+        items: ["SAP S/4HANA", "Salesforce Commerce Cloud", "Workday", "Microsoft Dynamics 365", "Salesforce CRM"],
+      },
+      {
+        label: "Tests & Automatisierung",
+        items: ["Cypress", "Playwright", "TOSCA", "Selenium", "GitHub Actions", "Jenkins"],
+      },
+      {
+        label: "Digitale Entwicklung",
+        items: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Node.js", "Supabase"],
+      },
+    ],
+  },
+
   footer: {
     tagline: "Digitale Entwicklung, SAP-Governance & UAT und Testautomatisierung & Qualität — End-to-End-Lösungen für sichere Enterprise-Lieferung.",
     quickLinks: "Schnellzugriff",
