@@ -315,8 +315,15 @@ const Index = () => {
       </SectionWrapper>
 
       {/* ── How We Work ── */}
-      <SectionWrapper className="bg-muted/50">
-        <motion.div {...fadeUp(0)} className="text-center">
+      <SectionWrapper className="relative overflow-hidden bg-muted/50">
+        {/* Decorative circles — aria-hidden, pointer-events-none, theme-safe opacity vars */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-16 -top-16 h-56 w-56 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
+          <div className="absolute -left-4 top-12 h-32 w-32 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+          <div className="absolute -bottom-12 -right-12 h-64 w-64 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+          <div className="absolute bottom-8 right-8 h-36 w-36 rounded-full border border-primary/[0.05] bg-transparent" />
+        </div>
+        <motion.div {...fadeUp(0)} className="relative text-center">
           <h2 className="text-[28px] font-bold md:text-[36px]">{t("howWeWork.heading")}</h2>
           <p className="mx-auto mt-1.5 max-w-2xl text-sm text-muted-foreground md:text-base">
             {t("howWeWork.subheading")}
@@ -376,9 +383,6 @@ const Index = () => {
             <p className="text-lg font-medium leading-relaxed text-foreground md:text-xl lg:text-2xl">
               "Quality isn't a phase at the end — it's the discipline you build in from the start."
             </p>
-            <p className="mt-4 text-sm font-medium text-primary">
-              QualityBridge Consulting
-            </p>
           </div>
         </div>
       </motion.div>
@@ -414,8 +418,15 @@ const Index = () => {
       </SectionWrapper>
 
       {/* ── CTA ── */}
-      <SectionWrapper className="bg-accent/50">
-        <motion.div {...fadeUp(0)} className="text-center">
+      <SectionWrapper className="relative overflow-hidden bg-accent/50">
+        {/* Decorative circles */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
+          <div className="absolute -right-6 top-8 h-44 w-44 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+          <div className="absolute -bottom-16 -left-16 h-64 w-64 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+          <div className="absolute bottom-6 left-8 h-28 w-28 rounded-full border border-primary/[0.05] bg-transparent" />
+        </div>
+        <motion.div {...fadeUp(0)} className="relative text-center">
           <h2 className="text-[28px] font-bold md:text-[36px]">{t("cta.heading")}</h2>
           <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground md:mt-3 md:text-base">{t("cta.body")}</p>
           <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center md:mt-8 md:gap-3">
