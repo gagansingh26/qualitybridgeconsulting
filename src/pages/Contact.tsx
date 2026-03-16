@@ -197,7 +197,7 @@ const Contact = () => {
       {/* ── Contact strip ─────────────────────────────────────────────────── */}
       <div className="border-b border-t border-border bg-card">
         <div className="container mx-auto px-4 py-3">
-          <div className="grid grid-cols-2 gap-x-4 gap-y-2 md:flex md:flex-wrap md:items-center md:justify-center md:gap-10">
+          <div className="flex flex-col gap-2 md:flex md:flex-row md:flex-wrap md:items-center md:justify-center md:gap-10">
             <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground md:text-sm">
               <span className="shrink-0 text-primary"><Calendar className="h-4 w-4" /></span>
               <span>{t("contact.stripConsultation")}</span>
@@ -218,7 +218,48 @@ const Contact = () => {
         </div>
       </div>
 
-      <SectionWrapper>
+      {/* ── Quote ── */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.45 }}
+        className="relative overflow-hidden border-b border-border bg-background"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)",
+          backgroundSize: "18px 18px",
+        }}
+      >
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -right-14 -top-14 h-48 w-48 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+          <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+        </div>
+        <div className="container mx-auto px-4 py-10 md:py-12">
+          <div className="mx-auto max-w-xl text-center">
+            <svg width="28" height="22" viewBox="0 0 32 24" fill="none" className="mx-auto mb-4 opacity-20" aria-hidden="true">
+              <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l1.6 2.4C10.4 3.6 7.6 6.4 7.2 10.4H12V24H0zm20 0V14.4C20 6.4 24.8 1.6 34.4 0L36 2.4C30.4 3.6 27.6 6.4 27.2 10.4H32V24H20z" fill="currentColor" className="text-primary"/>
+            </svg>
+            <p className="text-base font-medium leading-relaxed text-foreground md:text-lg">
+              "Every conversation starts the same way: understanding your programme before proposing anything."
+            </p>
+
+          </div>
+        </div>
+      </motion.div>
+
+
+      <SectionWrapper
+        className="relative overflow-hidden"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.06) 1px, transparent 1px)",
+          backgroundSize: "20px 20px",
+        }}
+      >
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-16 -top-16 h-56 w-56 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+          <div className="absolute -right-12 top-8 h-40 w-40 rounded-full border border-primary/[0.05] bg-primary/[0.02]" />
+          <div className="absolute -bottom-14 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full border border-primary/[0.05] bg-transparent" />
+        </div>
         <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 md:gap-8 lg:gap-10">
 
           {/* Left: Info cards stacked */}
