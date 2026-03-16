@@ -378,10 +378,10 @@ const About = () => {
       </div>
 
       <main className="pb-8 md:pb-14">
-        <div className="container mx-auto max-w-6xl px-4 pt-10 md:px-6 md:pt-14">
+        <div className="container mx-auto max-w-6xl px-4 pt-8 md:px-6 md:pt-10">
 
           {/* Bio + Cards */}
-          <div className="grid grid-cols-1 items-start gap-6 md:gap-10 lg:grid-cols-12">
+          <div className="grid grid-cols-1 items-start gap-5 md:gap-8 lg:grid-cols-12">
             <div className="space-y-4 lg:col-span-7">
               <h2 className="font-display text-2xl font-bold leading-tight text-foreground md:text-4xl">{a.heading}</h2>
               <p className="text-sm leading-relaxed text-muted-foreground md:text-base">{a.intro}</p>
@@ -441,7 +441,7 @@ const About = () => {
           {/* ── Quote before How We Approach ── */}
           <motion.div
             {...fadeUp(0)}
-            className="relative mt-10 overflow-hidden rounded-xl border border-border px-6 py-8 md:mt-14 md:px-10 md:py-10"
+            className="relative mt-8 overflow-hidden rounded-xl border border-border px-6 py-7 md:mt-10 md:px-10 md:py-8"
             style={dotBgSubtle}
           >
             <div aria-hidden="true" className="pointer-events-none absolute inset-0">
@@ -460,7 +460,7 @@ const About = () => {
           </motion.div>
 
           {/* ── How We Approach Delivery — dot background ── */}
-          <div className="relative mt-10 overflow-hidden rounded-xl px-6 py-8 md:mt-4 md:px-8 md:py-10" style={dotBg}>
+          <div className="relative mt-6 overflow-hidden rounded-xl px-6 py-7 md:mt-6 md:px-8 md:py-8" style={dotBg}>
             <div aria-hidden="true" className="pointer-events-none absolute inset-0">
               <div className="absolute -left-12 -top-12 h-48 w-48 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
               <div className="absolute -right-10 bottom-0 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
@@ -485,7 +485,7 @@ const About = () => {
           </div>
 
           {/* ── Toolbox ── */}
-          <div className="mt-6 md:mt-8">
+          <div className="mt-5 md:mt-6">
             <h2 className="font-display text-xl font-bold text-foreground md:text-2xl">{a.toolbox}</h2>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">{a.toolboxIntro}</p>
             <div className="mt-4 flex flex-wrap gap-1.5">
@@ -494,7 +494,7 @@ const About = () => {
           </div>
 
           {/* ── Focus Areas ── */}
-          <div className="mt-10 md:mt-14">
+          <div className="mt-8 md:mt-10">
             <h2 className="font-display mb-4 text-xl font-bold text-foreground md:text-2xl">{a.focusAreas}</h2>
             <Accordion type="multiple" className="space-y-2">
               {a.focusAreasData.map((area, i) => {
@@ -518,7 +518,7 @@ const About = () => {
           </div>
 
           {/* ── Bottom CTA ── */}
-          <div className="relative mt-8 overflow-hidden rounded-lg bg-accent/50 px-6 py-8 text-center md:mt-12 md:py-10">
+          <div className="relative mt-8 overflow-hidden rounded-lg bg-accent/50 px-6 py-8 text-center md:mt-10 md:py-10">
             <div aria-hidden="true" className="pointer-events-none absolute inset-0">
               <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
               <div className="absolute -bottom-10 -left-10 h-44 w-44 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
