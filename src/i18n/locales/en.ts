@@ -91,19 +91,22 @@ const en = {
   },
   problems: {
     heading: "Problems We Solve",
-    subheading: "Enterprise programmes face the same challenges. We exist to fix them.",
+    subheading: "Across digital delivery, SAP programmes, and quality engineering — these are the challenges we're built to fix.",
     items: [
       {
-        title: "Long regression cycles slowing releases",
-        desc: "Manual testing backlogs delay go-lives and erode stakeholder confidence. We embed automation-first strategies that cut regression time by 50–70%.",
+        pill: "Digital Development",
+        title: "Digital tools that ship late and break in production",
+        desc: "Stakeholder-ready web apps and dashboards built with modern frameworks — from rapid prototype to production-grade platform, with CI/CD and quality gates from day one.",
       },
       {
-        title: "Automation gaps in complex integrations",
-        desc: "SAP, Salesforce, and digital platform integrations are hard to test and easy to break. We build coverage that catches failures before production.",
+        pill: "SAP Governance & UAT",
+        title: "SAP go-lives with no structured UAT or sign-off process",
+        desc: "Structured UAT governance and release readiness for SAP S/4HANA — defined quality gates, stakeholder sign-offs, and risk-based go/no-go decisions that replace gut feel with evidence.",
       },
       {
-        title: "No clear go/no-go visibility at release",
-        desc: "Releases made on gut feel rather than data lead to costly post-go-live defects. We put structured quality gates and readiness signals in place.",
+        pill: "Quality Engineering",
+        title: "Regression cycles too slow to support modern release cadence",
+        desc: "Automation-first quality engineering using Cypress, Playwright, TOSCA, and Salesforce testing — cutting regression time by 50–70% and embedding quality gates into every CI/CD pipeline.",
       },
     ],
   },
@@ -156,7 +159,7 @@ const en = {
       { icon: "checkSquare", label: "Risk-Based · Evidence-Based Sign-off" },
     ],
     stripQuality: [
-      { icon: "cpu", label: "Cypress · Playwright · Automation" },
+      { icon: "cpu", label: "Cypress · Playwright · TOSCA" },
       { icon: "bot", label: "AI-Assisted Test Design" },
       { icon: "gitBranch", label: "API · Integration · CI/CD Gates" },
       { icon: "barChart", label: "Metrics-Based Release Decisions" },
@@ -200,11 +203,11 @@ const en = {
       { name: "Hypercare", desc: "Post go-live monitoring, defect triage, and stabilization." },
     ],
     automationHeading: "Test Automation Strategy",
-    automationSubheading: "Cross-platform automation across SAP, web, and API layers using modern frameworks.",
+    automationSubheading: "Cross-platform automation across SAP, Salesforce, web, and API layers — using Cypress, Playwright, TOSCA, and AI-assisted test design.",
     automationItems: [
-      "Automation-first regression planning",
       "Cypress and Playwright implementation",
-      "SAP automation alignment",
+      "TOSCA test automation for SAP & enterprise platforms",
+      "Salesforce Commerce Cloud testing",
       "CI/CD integration and quality gates",
     ],
     coreCapabilities: "Core Capabilities",
