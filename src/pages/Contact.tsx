@@ -219,16 +219,16 @@ const Contact = () => {
       </div>
 
       <SectionWrapper>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 md:gap-8 lg:gap-10">
 
           {/* Left: Info cards stacked */}
-          <div className="flex flex-col gap-3 md:gap-4 md:h-full">
+          <div className="flex flex-col gap-3 md:gap-4">
 
             {/* Email */}
             <motion.a
               href={`mailto:${EMAIL_TO}`}
               {...fadeUp(0)}
-              className="group flex items-start gap-4 rounded-xl border border-border bg-card p-4 card-shadow transition-colors hover:border-primary/40 md:p-5"
+              className="group flex flex-1 items-start gap-4 rounded-xl border border-border bg-card p-4 card-shadow transition-colors hover:border-primary/40 md:p-5"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <Mail className="h-5 w-5" />
@@ -249,7 +249,7 @@ const Contact = () => {
               target="_blank"
               rel="noopener noreferrer"
               {...fadeUp(0.08)}
-              className="group flex items-start gap-4 rounded-xl border border-border bg-card p-4 card-shadow transition-colors hover:border-primary/40 md:p-5"
+              className="group flex flex-1 items-start gap-4 rounded-xl border border-border bg-card p-4 card-shadow transition-colors hover:border-primary/40 md:p-5"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <Calendar className="h-5 w-5" />
@@ -268,7 +268,7 @@ const Contact = () => {
             {/* Location */}
             <motion.div
               {...fadeUp(0.16)}
-              className="flex items-start gap-4 rounded-xl border border-border bg-card p-4 card-shadow md:p-5"
+              className="flex flex-1 items-start gap-4 rounded-xl border border-border bg-card p-4 card-shadow md:p-5"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                 <MapPin className="h-5 w-5" />
