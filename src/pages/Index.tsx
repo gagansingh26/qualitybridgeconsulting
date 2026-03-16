@@ -377,7 +377,7 @@ const Index = () => {
               "Quality isn't a phase at the end — it's the discipline you build in from the start."
             </p>
             <p className="mt-4 text-sm font-medium text-primary">
-              Gagan Singh · Founder, QualityBridge Consulting
+              QualityBridge Consulting
             </p>
           </div>
         </div>
