@@ -27,7 +27,7 @@ const de = {
     clientOversight: "Retail · eCommerce · Enterprise",
   },
   partner: {
-    strip: "Zusammenarbeit mit SAP-Integratoren, Digitalagenturen und Salesforce-Partnern — passend zu Ihrem Programm.",
+    strip: "Zusammenarbeit mit Digitalagenturen und Implementierungspartnern zur Stärkung der Lieferung mit spezialisiertem Quality Engineering.",
     label: "Globales Partnernetzwerk",
   },
   whatWeDeliver: {
