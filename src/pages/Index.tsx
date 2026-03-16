@@ -42,7 +42,7 @@ const fadeUp = (delay = 0) => ({
 });
 
 // Mobile: expand/collapse accordion
-const AccordionCard = ({ icon, title, desc, detail }: { icon: React.ReactNode; title: string; desc: string; detail?: string[] }) => {
+const AccordionCard = ({ icon, title, desc, detail, pill }: { icon: React.ReactNode; title: string; desc: string; detail?: string[]; pill?: string }) => {
   const [open, setOpen] = useState(false);
   return (
     <div className="rounded-lg border border-border bg-card card-shadow overflow-hidden">
@@ -55,7 +55,14 @@ const AccordionCard = ({ icon, title, desc, detail }: { icon: React.ReactNode; t
         <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-accent text-primary">
           {icon}
         </div>
-        <span className="flex-1 text-sm font-semibold text-card-foreground">{title}</span>
+        <div className="flex flex-1 flex-col min-w-0">
+          {pill && (
+            <span className="mb-0.5 inline-block self-start rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary">
+              {pill}
+            </span>
+          )}
+          <span className="text-sm font-semibold text-card-foreground">{title}</span>
+        </div>
         <ChevronDown className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
       </button>
       <AnimatePresence initial={false}>
@@ -311,26 +318,16 @@ const Index = () => {
           </p>
         </motion.div>
 
-        {/* Mobile: single column */}
-        <div className="relative mt-6 flex flex-col gap-3 md:hidden">
+        {/* Mobile: accordion — same pattern as What We Deliver */}
+        <div className="relative mt-6 flex flex-col gap-2 md:hidden">
           {problemItems.map((item, i) => (
-            <motion.div
-              key={i}
-              {...fadeUp(i * 0.08)}
-              className="flex items-start gap-4 rounded-xl border border-border bg-card p-4 card-shadow"
-            >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
-                {problemIcons[i]}
-              </div>
-              <div className="min-w-0">
-                {item.pill && (
-                  <span className="mb-1 inline-block rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary">
-                    {item.pill}
-                  </span>
-                )}
-                <h3 className="text-sm font-semibold text-card-foreground">{item.title}</h3>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{item.desc}</p>
-              </div>
+            <motion.div key={i} {...fadeUp(i * 0.06)}>
+              <AccordionCard
+                icon={problemIcons[i]}
+                title={item.title}
+                desc={item.desc}
+                pill={item.pill}
+              />
             </motion.div>
           ))}
         </div>
