@@ -28,7 +28,7 @@ const de = {
   },
   whatWeDeliver: {
     heading: "Was wir liefern",
-    subheading: "Drei integrierte Fähigkeiten — digitale Entwicklung, SAP-Governance und Qualitätssicherung — in einem Engagement geliefert, aus Kanada gemanagt.",
+    subheading: "Drei integrierte Fähigkeiten — digitale Entwicklung, SAP-Governance und Qualitätssicherung — in einem Engagement geliefert, aus Kanada gemanagt mit einem geprüften globalen Partnernetzwerk.",
     cards: [
       {
         title: "Digitale Entwicklung",
