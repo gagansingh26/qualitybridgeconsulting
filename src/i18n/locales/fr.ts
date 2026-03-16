@@ -10,7 +10,7 @@ const fr = {
     pills: ["Développement digital", "Gouvernance SAP & UAT", "Automatisation des tests & Qualité"],
     titlePrefix: "Livraison d'entreprise,",
     titleAccent: "faite comme il se doit.",
-    subtitle: "Développement digital, Gouvernance SAP & UAT et Ingénierie qualité — géré localement au Canada, livré à l'échelle mondiale.",
+    subtitle: "Aider les organisations à livrer des plateformes digitales fiables grâce à l'ingénierie qualité, la gouvernance SAP et le développement web moderne — géré localement au Canada, livré à l'échelle mondiale.",
     reach: "Engagement client géré localement au Canada · Amérique du Nord · Europe · Asie",
     bookConsultation: "Réserver une consultation",
     bookCall: "Réserver un appel",
@@ -56,7 +56,7 @@ const fr = {
       },
       {
         title: "Ingénierie qualité",
-        desc: "Stratégies qualité axées sur l'automatisation avec des frameworks modernes et une conception de tests assistée par IA — réduisant l'effort manuel et accélérant les cycles de version.",
+        desc: "Livraison fiable de plateformes enterprise grâce à une ingénierie qualité structurée — frameworks d'automatisation, stratégie de test et intégration qualité CI/CD qui réduisent les fuites de défauts et accélèrent la confiance dans les versions.",
         detail: [
           "Automatisation Cypress et Playwright",
           "Conception de tests assistée par IA",
@@ -80,7 +80,7 @@ const fr = {
       },
       {
         title: "Intégrer la qualité",
-        desc: "Nous automatisons la régression avec Cypress, Playwright, TOSCA et bien plus — réduisant les cycles de test de 50 à 70 % et intégrant des portes qualité dans chaque pipeline CI/CD.",
+        desc: "Nous construisons les fondations d'ingénierie qualité qui maintiennent la fiabilité des plateformes enterprise — régression automatisée, portes qualité CI/CD et confiance dans les versions avec Cypress, Playwright, TOSCA et bien plus.",
       },
     ],
   },
@@ -110,7 +110,7 @@ const fr = {
       {
         pill: "Ingénierie qualité",
         title: "Des cycles de régression trop lents pour un rythme de version moderne",
-        desc: "Ingénierie qualité axée sur l'automatisation avec Cypress, Playwright, TOSCA et tests Salesforce — réduisant le temps de régression de 50 à 70 % et intégrant des portes qualité dans chaque pipeline CI/CD.",
+        desc: "Fiabilité des plateformes enterprise grâce à une ingénierie qualité structurée — avec Cypress, Playwright, TOSCA et bien plus pour réduire les cycles de régression de 50 à 70 % et valider chaque version sur des preuves, pas sur l'instinct.",
       },
     ],
   },
@@ -145,7 +145,7 @@ const fr = {
 
     digitalIntro: "Applications web modernes, tableaux de bord et prototypes rapides — conçus pour la performance, la scalabilité et la préparation aux parties prenantes. Des APIs aux plateformes prêtes pour la production, nous livrons des outils digitaux fiables à l'échelle enterprise.",
     sapIntro: "Tests structurés et gouvernance pour les programmes SAP S/4HANA et les intégrations ERP enterprise — avec des cadres UAT définis, des portes qualité, des approbations des parties prenantes et des décisions go/no-go basées sur les risques à chaque étape.",
-    qualityIntro: "Frameworks d'automatisation, stratégie de test et intégration qualité CI/CD sur Salesforce, SAP, web et couches API — avec Cypress, Playwright, TOSCA et bien plus pour réduire les efforts manuels et accélérer la confiance dans les versions.",
+    qualityIntro: "Fiabilité des plateformes enterprise grâce à une ingénierie qualité structurée — couvrant Salesforce, SAP, web et couches API. Nous construisons des frameworks d'automatisation, définissons la stratégie de test et intégrons la qualité dans chaque pipeline CI/CD avec Cypress, Playwright, TOSCA et bien plus.",
     qualityRelease: "Le même cadre de décision de version s'applique dans les engagements QE : chaque déploiement est contrôlé selon des critères de qualité mesurables avant qu'un go-live soit approuvé.",
 
     stripDigital: [
