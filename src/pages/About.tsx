@@ -241,6 +241,62 @@ const About = () => {
         </div>
         <div className="container relative mx-auto px-4 md:px-6 text-center">
 
+          {/* Delivery timeline illustration — absolute, desktop only */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 md:block lg:right-4"
+            aria-hidden="true"
+            style={{ width: 200 }}
+          >
+            <svg width="200" height="200" viewBox="0 0 170 190" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto", overflow: "visible" }}>
+              <style>{`
+                @keyframes tDash{to{stroke-dashoffset:-20}}
+                @keyframes tPulse{0%,100%{r:8;opacity:1}50%{r:11;opacity:0.7}}
+                @keyframes tRing{0%,100%{r:14;opacity:0.3}50%{r:20;opacity:0}}
+                @keyframes tBlink{0%,100%{opacity:1}50%{opacity:0.3}}
+                @keyframes tNodeIn{0%,100%{r:6}50%{r:8}}
+                .t-dash{stroke-dasharray:4 4;animation:tDash 1.6s linear infinite}
+                .t-dash2{stroke-dasharray:4 4;animation:tDash 2s linear infinite 0.4s}
+                .t-dash3{stroke-dasharray:4 4;animation:tDash 2.4s linear infinite 0.8s}
+                .t-dash4{stroke-dasharray:4 4;animation:tDash 2.8s linear infinite 1.2s}
+                .t-pulse{animation:tPulse 2s ease-in-out infinite}
+                .t-ring{animation:tRing 2s ease-in-out infinite}
+                .t-blink{animation:tBlink 1.6s ease-in-out infinite}
+                .t-node{animation:tNodeIn 2.4s ease-in-out infinite}
+              `}</style>
+              {/* Spine */}
+              <line x1="40" y1="18" x2="40" y2="172" stroke="rgba(255,255,255,0.18)" strokeWidth="1.5"/>
+              {/* Phase 1 — Plan */}
+              <circle className="t-ring" cx="40" cy="30" r="14" fill="none" stroke="#93c5fd" strokeWidth="0.8"/>
+              <circle className="t-pulse" cx="40" cy="30" r="8" fill="#93c5fd"/>
+              <text x="60" y="27" fontSize="9" fill="rgba(255,255,255,0.92)" fontWeight="600">Plan</text>
+              <text x="60" y="38" fontSize="7.5" fill="rgba(255,255,255,0.45)">Strategy & scope</text>
+              {/* Connector */}
+              <line x1="40" y1="41" x2="40" y2="60" stroke="rgba(255,255,255,0.18)" strokeWidth="1" className="t-dash"/>
+              {/* Phase 2 — SIT */}
+              <circle className="t-node" cx="40" cy="68" r="6" fill="rgba(255,255,255,0.6)" style={{animationDelay:"0.4s"}}/>
+              <text x="60" y="65" fontSize="9" fill="rgba(255,255,255,0.82)" fontWeight="600">SIT</text>
+              <text x="60" y="76" fontSize="7.5" fill="rgba(255,255,255,0.42)">Integration testing</text>
+              <line x1="40" y1="74" x2="40" y2="96" stroke="rgba(255,255,255,0.16)" strokeWidth="1" className="t-dash2"/>
+              {/* Phase 3 — UAT */}
+              <circle className="t-node" cx="40" cy="104" r="6" fill="rgba(255,255,255,0.72)" style={{animationDelay:"0.8s"}}/>
+              <text x="60" y="101" fontSize="9" fill="rgba(255,255,255,0.85)" fontWeight="600">UAT</text>
+              <text x="60" y="112" fontSize="7.5" fill="rgba(255,255,255,0.42)">Business sign-off</text>
+              <line x1="40" y1="110" x2="40" y2="132" stroke="rgba(255,255,255,0.16)" strokeWidth="1" className="t-dash3"/>
+              {/* Phase 4 — Release */}
+              <circle className="t-node" cx="40" cy="140" r="6" fill="rgba(255,255,255,0.6)" style={{animationDelay:"1.2s"}}/>
+              <text x="60" y="137" fontSize="9" fill="rgba(255,255,255,0.8)" fontWeight="600">Release</text>
+              <text x="60" y="148" fontSize="7.5" fill="rgba(255,255,255,0.42)">Go-live</text>
+              <line x1="40" y1="146" x2="40" y2="162" stroke="rgba(255,255,255,0.14)" strokeWidth="1" className="t-dash4"/>
+              {/* Phase 5 — Hypercare (blinking) */}
+              <circle className="t-blink" cx="40" cy="168" r="5" fill="#93c5fd" opacity="0.6"/>
+              <text x="60" y="165" fontSize="9" fill="#93c5fd" fontWeight="600" opacity="0.8">Hypercare</text>
+              <text x="60" y="176" fontSize="7.5" fill="#93c5fd" opacity="0.5">Ongoing support ✓</text>
+            </svg>
+          </motion.div>
+
           {/* Pills */}
           <div className="flex flex-wrap items-center justify-center gap-1.5 mb-4">
             {a.heroPills.map((pill) => (
