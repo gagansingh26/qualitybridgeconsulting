@@ -739,7 +739,11 @@ const DeliveryApproach = () => {
             </SectionWrapper>
 
             {/* ── Key Controls ── */}
-            <SectionWrapper>
+            <SectionWrapper className="relative overflow-hidden" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+                <div className="absolute -left-12 -top-12 h-44 w-44 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+                <div className="absolute -right-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+              </div>
               <h2 className="mb-4 text-base font-semibold md:text-xl">
                 {t("uat.keyControls")}
               </h2>
@@ -790,7 +794,11 @@ const DeliveryApproach = () => {
             </SectionWrapper>
 
             {/* ── What We Track ── */}
-            <SectionWrapper>
+            <SectionWrapper className="relative overflow-hidden" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+                <div className="absolute -right-12 -top-12 h-44 w-44 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+                <div className="absolute -left-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+              </div>
               <h2 className="mb-4 text-base font-semibold md:text-xl">
                 {t("release.trackHeading")}
               </h2>
@@ -860,7 +868,11 @@ const DeliveryApproach = () => {
         ════════════════════════════════════════════════════════════════ */}
         {activeTab === "quality" && (
           <motion.div key="quality" {...tabVariants}>
-            <SectionWrapper>
+            <SectionWrapper className="relative overflow-hidden" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+                <div className="absolute -left-12 -top-12 h-44 w-44 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+                <div className="absolute -right-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+              </div>
               {/* Intro */}
               <motion.p
                 {...fadeIn(0)}
