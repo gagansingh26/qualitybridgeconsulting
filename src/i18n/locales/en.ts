@@ -8,7 +8,7 @@ const en = {
   },
   hero: {
     pills: ["Digital Development", "SAP Governance & UAT", "Test Automation & Quality"],
-    titlePrefix: "Built to Ship.",,
+    titlePrefix: "Built to Ship.",
     titleAccent: "Engineered to Last.",
     subtitle: "Helping SMEs and growing digital teams deliver reliable platforms through modern web development, SAP governance, and quality engineering — managed locally in Canada, delivered globally.",
     reach: "Client engagement managed locally in Canada · North America · Europe · Asia",
