@@ -10,7 +10,7 @@ const en = {
     pills: ["Digital Development", "SAP Governance & UAT", "Test Automation & Quality"],
     titlePrefix: "Enterprise Delivery,",
     titleAccent: "Done Right.",
-    subtitle: "Helping organizations deliver reliable digital platforms through modern web development, SAP governance, and quality engineering — managed locally in Canada, delivered globally.",
+    subtitle: "Helping SMEs and growing digital teams deliver reliable platforms through modern web development, SAP governance, and quality engineering — managed locally in Canada, delivered globally.",
     reach: "Client engagement managed locally in Canada · North America · Europe · Asia",
     bookConsultation: "Book a Consultation",
     bookCall: "Book a Call",
@@ -32,7 +32,7 @@ const en = {
   },
   whatWeDeliver: {
     heading: "What We Deliver",
-    subheading: "Digital development, SAP governance, and quality engineering — one conversation is all it takes to get started.",
+    subheading: "For SMEs, growing businesses, and digital teams running complex programmes — three integrated capabilities delivered under one engagement.",
     cards: [
       {
         title: "Digital Development",
@@ -286,7 +286,7 @@ const en = {
   },
   contact: {
     heading: "Get in Touch",
-    subheading: "Ready to improve your release quality? Let's start a conversation.",
+    subheading: "Digital development, SAP governance, and quality engineering — one conversation is all it takes to get started.",
     email: "Email",
     bookCall: "Book a Call",
     location: "Location",
