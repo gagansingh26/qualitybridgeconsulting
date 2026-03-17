@@ -474,7 +474,7 @@ const DeliveryApproach = () => {
               {/* Intro */}
               <motion.p
                 {...fadeIn(0)}
-                className="relative mx-auto max-w-3xl text-center text-sm text-muted-foreground md:text-base border-b border-border pb-6 mb-6 md:pb-8 md:mb-8"
+                className="relative mx-auto max-w-3xl text-center text-sm text-muted-foreground md:text-base"
               >
                 {t("services.digitalIntro")}
               </motion.p>
