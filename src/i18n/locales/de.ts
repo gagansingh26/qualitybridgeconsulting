@@ -8,8 +8,8 @@ const de = {
   },
   hero: {
     pills: ["Digitale Entwicklung", "SAP-Governance & UAT", "Testautomatisierung & Qualität"],
-    titlePrefix: "Enterprise-Lieferung,",
-    titleAccent: "richtig gemacht.",
+    titlePrefix: "Gebaut zum Liefern.",
+    titleAccent: "Entwickelt für Bestand.",
     subtitle: "KMU und wachsenden digitalen Teams helfen, zuverlässige Plattformen zu liefern — durch moderne Webentwicklung, SAP-Governance und Qualitätssicherung, lokal in Kanada gemanagt, global geliefert.",
     reach: "Kundenbetreuung lokal in Kanada · Nordamerika · Europa · Asien",
     bookConsultation: "Beratung buchen",
@@ -147,6 +147,12 @@ const de = {
     sapIntro: "Strukturierte Tests und Governance für SAP S/4HANA-Programme und Enterprise-ERP-Integrationen — mit definierten UAT-Frameworks, Qualitätstoren, Stakeholder-Abnahmen und risikobasierten Go/No-Go-Entscheidungen in jeder Lieferphase.",
     qualityIntro: "Zuverlässigkeit von Enterprise-Plattformen durch strukturiertes Quality Engineering — über Salesforce, SAP, Web und API-Schichten. Wir bauen Automatisierungs-Frameworks, definieren Teststrategie und integrieren Qualität in jede CI/CD-Pipeline mit Cypress, Playwright, TOSCA und vielen mehr.",
     qualityRelease: "Dasselbe Release-Entscheidungsframework gilt auch in QE-Engagements: Jedes Deployment wird anhand messbarer Qualitätskriterien geprüft, bevor ein Go-Live genehmigt wird.",
+    digitalEngagementFor: "Ideal für: KMU und wachsende Teams, die Web-Plattformen, interne Tools, Dashboards entwickeln oder schnell validierte Rapid Prototypes benötigen.",
+    digitalEngagementScope: "Typisches Engagement: 2–8 Wochen · Projektbasiert oder fortlaufend · Remote-first",
+    sapEngagementFor: "Ideal für: Organisationen, die SAP S/4HANA-Implementierungen, -Migrationen oder -Upgrades durchführen und strukturierte UAT- und Release-Governance benötigen.",
+    sapEngagementScope: "Typisches Engagement: 4–12 Wochen eingebettet · Beratung oder praktische Lieferung · Remote oder vor Ort",
+    qualityEngagementFor: "Ideal für: Teams mit langsamen Regressionszyklen, begrenzter Automatisierungsabdeckung oder komplexen ERP- und SaaS-Plattformen, die eine zuverlässige Test-Infrastruktur benötigen.",
+    qualityEngagementScope: "Typisches Engagement: 4–10 Wochen · Framework-Aufbau oder laufende Automatisierung · CI/CD-Integration inklusive",
 
     stripDigital: [
       { icon: "monitor", label: "Web · Dashboards · Portale" },
