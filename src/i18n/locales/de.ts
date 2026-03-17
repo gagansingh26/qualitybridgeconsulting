@@ -204,7 +204,7 @@ const de = {
       { name: "Hypercare", desc: "Überwachung nach dem Go-live, Fehler-Triage und Stabilisierung." },
     ],
     automationHeading: "Testautomatisierungsstrategie",
-    automationSubheading: "Plattformübergreifende Automatisierung über SAP-, Web- und API-Ebenen mit modernen Frameworks.",
+    automationSubheading: "Zuverlässige Enterprise-Plattform-Lieferung durch Automatisierungs-Frameworks über SAP, Salesforce, Web und API-Schichten — mit Cypress, Playwright, TOSCA und vielen mehr, beschleunigt durch KI-gestütztes Testdesign.",
     automationItems: [
       "Cypress, Playwright, TOSCA und viele mehr",
       "Salesforce Commerce Cloud & Enterprise-Plattform-Tests",
