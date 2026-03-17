@@ -523,7 +523,7 @@ const DeliveryApproach = () => {
                 <div className="absolute -left-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
               </div>
               <motion.div {...fadeIn(0)} className="relative text-center">
-                <h2 className="text-[28px] font-bold md:text-[36px]">
+                <h2 className="text-[28px] font-bold md:text-[36px] text-foreground">
                   {t("services.digitalStackHeading")}
                 </h2>
                 <p className="mx-auto mt-1.5 max-w-2xl text-center text-sm text-muted-foreground md:text-base">
@@ -551,7 +551,7 @@ const DeliveryApproach = () => {
                 <div className="absolute right-16 top-8 h-20 w-20 rounded-full border border-primary/[0.04] bg-transparent" />
               </div>
               <motion.div {...fadeIn(0)} className="relative text-center">
-                <h2 className="text-[28px] font-bold md:text-[36px]">{t("cta.heading")}</h2>
+                <h2 className="text-[28px] font-bold md:text-[36px] text-foreground">{t("cta.heading")}</h2>
                 <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground md:mt-3 md:text-base">{t("cta.body")}</p>
                 <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center md:mt-6 md:gap-3">
                   <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
@@ -604,7 +604,7 @@ const DeliveryApproach = () => {
 
               {/* ── Delivery lifecycle phases ── */}
               <div className="mt-6">
-                <h2 className="mb-4 text-base font-semibold md:text-xl">
+                <h2 className="mb-4 text-base font-semibold md:text-xl text-foreground">
                   {t("delivery.heading")}
                 </h2>
 
@@ -705,7 +705,7 @@ const DeliveryApproach = () => {
 
             {/* ── UAT Operating Model ── */}
             <SectionWrapper className="bg-accent/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
-              <h2 className="mb-4 text-base font-semibold md:text-xl">
+              <h2 className="mb-4 text-base font-semibold md:text-xl text-foreground">
                 {t("uat.operatingModel")}
               </h2>
 
@@ -765,7 +765,7 @@ const DeliveryApproach = () => {
                 <div className="absolute -left-12 -top-12 h-44 w-44 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
                 <div className="absolute -right-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
               </div>
-              <h2 className="mb-4 text-base font-semibold md:text-xl">
+              <h2 className="mb-4 text-base font-semibold md:text-xl text-foreground">
                 {t("uat.keyControls")}
               </h2>
               <div className="grid grid-cols-2 gap-3 md:gap-4">
@@ -788,7 +788,7 @@ const DeliveryApproach = () => {
 
             {/* ── Outputs ── */}
             <SectionWrapper className="bg-accent/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
-              <h2 className="mb-4 text-base font-semibold md:text-xl">
+              <h2 className="mb-4 text-base font-semibold md:text-xl text-foreground">
                 {t("uat.outputs")}
               </h2>
               <div className="grid gap-3 md:grid-cols-3 md:gap-4">
@@ -820,7 +820,7 @@ const DeliveryApproach = () => {
                 <div className="absolute -right-12 -top-12 h-44 w-44 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
                 <div className="absolute -left-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
               </div>
-              <h2 className="mb-4 text-base font-semibold md:text-xl">
+              <h2 className="mb-4 text-base font-semibold md:text-xl text-foreground">
                 {t("release.trackHeading")}
               </h2>
               <div className="grid grid-cols-2 gap-3 md:gap-5">
@@ -848,7 +848,7 @@ const DeliveryApproach = () => {
 
             {/* ── Release Decision Model ── */}
             <SectionWrapper className="bg-accent/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
-              <h2 className="mb-4 text-base font-semibold md:mb-6 md:text-xl">
+              <h2 className="mb-4 text-base font-semibold md:mb-6 md:text-xl text-foreground">
                 {t("release.decisionModel")}
               </h2>
               <div className="grid gap-3 sm:grid-cols-3 md:gap-4">
@@ -918,7 +918,7 @@ const DeliveryApproach = () => {
               {/* Test Automation Strategy */}
               <div className="mt-6">
                 <motion.div {...fadeIn(0)}>
-                  <h2 className="text-base font-bold md:text-xl">
+                  <h2 className="text-base font-bold md:text-xl text-foreground">
                     {t("delivery.automationHeading")}
                   </h2>
                   <p className="mt-1.5 max-w-2xl text-sm text-muted-foreground">
@@ -963,7 +963,7 @@ const DeliveryApproach = () => {
               </div>
               <motion.h2
                 {...fadeIn(0)}
-                className="text-base font-bold md:text-xl"
+                className="text-base font-bold md:text-xl text-foreground"
               >
                 {t("uat.deliverablesHeading")}
               </motion.h2>
@@ -995,7 +995,7 @@ const DeliveryApproach = () => {
               >
                 {t("services.qualityRelease")}
               </motion.p>
-              <h2 className="mb-4 text-base font-semibold md:mb-6 md:text-xl">
+              <h2 className="mb-4 text-base font-semibold md:mb-6 md:text-xl text-foreground">
                 {t("release.decisionModel")}
               </h2>
               <div className="grid gap-3 sm:grid-cols-3 md:gap-4">
