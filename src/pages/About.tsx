@@ -8,9 +8,8 @@ import { useTranslation } from "react-i18next";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import Navbar from "@/components/Navbar";
+import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
-import Footer from "@/components/Footer";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/gagansingh26/";
 
@@ -247,9 +246,7 @@ const About = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background pb-20 md:pb-0">
-      <Navbar />
-
+    <Layout>
       {/* Hero */}
       <section className="enterprise-gradient relative overflow-hidden py-10 md:py-16">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
@@ -574,8 +571,7 @@ const About = () => {
           </div>
         </motion.div>
       </SectionWrapper>
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 
