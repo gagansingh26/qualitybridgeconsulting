@@ -481,15 +481,16 @@ const DeliveryApproach = () => {
 
 
               {/* Quote */}
-              <motion.blockquote
-                {...fadeIn(0.1)}
-                className="mx-auto mt-6 max-w-xl border-l-4 border-primary/30 bg-accent/40 px-5 py-4 rounded-r-lg md:mt-8"
-              >
-                <p className="text-sm font-medium italic leading-relaxed text-foreground md:text-base">
-                  "The best digital tools are invisible to the end user — they just work."
-                </p>
-
-              </motion.blockquote>
+              <div className="border-y border-border bg-background -mx-4 px-4 py-8 md:py-10 mt-6 md:mt-8" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "18px 18px" }}>
+                <div className="mx-auto max-w-2xl text-center">
+                  <svg width="28" height="22" viewBox="0 0 32 24" fill="none" className="mx-auto mb-3 opacity-20" aria-hidden="true">
+                    <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l1.6 2.4C10.4 3.6 7.6 6.4 7.2 10.4H12V24H0zm20 0V14.4C20 6.4 24.8 1.6 34.4 0L36 2.4C30.4 3.6 27.6 6.4 27.2 10.4H32V24H20z" fill="currentColor" className="text-primary"/>
+                  </svg>
+                  <p className="text-base font-medium leading-relaxed text-foreground md:text-lg">
+                    "The best digital tools are invisible to the end user — they just work."
+                  </p>
+                </div>
+              </div>
 
               {/* Service items — 1-col mobile, 2-col desktop */}
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-5">
@@ -516,12 +517,16 @@ const DeliveryApproach = () => {
             </SectionWrapper>
 
             {/* Tech stack */}
-            <SectionWrapper className="bg-accent/50">
-              <motion.div {...fadeIn(0)} className="text-center">
-                <h2 className="text-lg font-bold md:text-2xl">
+            <SectionWrapper className="relative overflow-hidden bg-accent/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+                <div className="absolute -right-12 -top-12 h-44 w-44 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+                <div className="absolute -left-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+              </div>
+              <motion.div {...fadeIn(0)} className="relative text-center">
+                <h2 className="text-[28px] font-bold md:text-[36px]">
                   {t("services.digitalStackHeading")}
                 </h2>
-                <p className="mx-auto mt-2 max-w-2xl text-sm text-muted-foreground md:mt-3 md:text-base">
+                <p className="mx-auto mt-1.5 max-w-2xl text-center text-sm text-muted-foreground md:text-base">
                   {t("services.digitalStackIntro")}
                 </p>
               </motion.div>
@@ -546,7 +551,7 @@ const DeliveryApproach = () => {
                 <div className="absolute right-16 top-8 h-20 w-20 rounded-full border border-primary/[0.04] bg-transparent" />
               </div>
               <motion.div {...fadeIn(0)} className="relative text-center">
-                <h2 className="text-[22px] font-bold md:text-[28px]">{t("cta.heading")}</h2>
+                <h2 className="text-[28px] font-bold md:text-[36px]">{t("cta.heading")}</h2>
                 <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground md:mt-3 md:text-base">{t("cta.body")}</p>
                 <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center md:mt-6 md:gap-3">
                   <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
@@ -586,15 +591,16 @@ const DeliveryApproach = () => {
 
 
               {/* Quote */}
-              <motion.blockquote
-                {...fadeIn(0.1)}
-                className="mx-auto mt-6 max-w-xl border-l-4 border-primary/30 bg-accent/40 px-5 py-4 rounded-r-lg"
-              >
-                <p className="text-sm font-medium italic leading-relaxed text-foreground md:text-base">
-                  "A go-live isn't the finish line. It's where the real work begins."
-                </p>
-
-              </motion.blockquote>
+              <div className="border-y border-border bg-background -mx-4 px-4 py-8 md:py-10 mt-6 md:mt-8" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "18px 18px" }}>
+                <div className="mx-auto max-w-2xl text-center">
+                  <svg width="28" height="22" viewBox="0 0 32 24" fill="none" className="mx-auto mb-3 opacity-20" aria-hidden="true">
+                    <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l1.6 2.4C10.4 3.6 7.6 6.4 7.2 10.4H12V24H0zm20 0V14.4C20 6.4 24.8 1.6 34.4 0L36 2.4C30.4 3.6 27.6 6.4 27.2 10.4H32V24H20z" fill="currentColor" className="text-primary"/>
+                  </svg>
+                  <p className="text-base font-medium leading-relaxed text-foreground md:text-lg">
+                    "A go-live isn't the finish line. It's where the real work begins."
+                  </p>
+                </div>
+              </div>
 
               {/* ── Delivery lifecycle phases ── */}
               <div className="mt-6">
@@ -898,15 +904,16 @@ const DeliveryApproach = () => {
 
 
               {/* Quote */}
-              <motion.blockquote
-                {...fadeIn(0.1)}
-                className="mx-auto mt-6 max-w-xl border-l-4 border-primary/30 bg-accent/40 px-5 py-4 rounded-r-lg"
-              >
-                <p className="text-sm font-medium italic leading-relaxed text-foreground md:text-base">
-                  "Catching a defect in testing costs a fraction of what it costs in production."
-                </p>
-
-              </motion.blockquote>
+              <div className="border-y border-border bg-background -mx-4 px-4 py-8 md:py-10 mt-6 md:mt-8" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "18px 18px" }}>
+                <div className="mx-auto max-w-2xl text-center">
+                  <svg width="28" height="22" viewBox="0 0 32 24" fill="none" className="mx-auto mb-3 opacity-20" aria-hidden="true">
+                    <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l1.6 2.4C10.4 3.6 7.6 6.4 7.2 10.4H12V24H0zm20 0V14.4C20 6.4 24.8 1.6 34.4 0L36 2.4C30.4 3.6 27.6 6.4 27.2 10.4H32V24H20z" fill="currentColor" className="text-primary"/>
+                  </svg>
+                  <p className="text-base font-medium leading-relaxed text-foreground md:text-lg">
+                    "Catching a defect in testing costs a fraction of what it costs in production."
+                  </p>
+                </div>
+              </div>
 
               {/* Test Automation Strategy */}
               <div className="mt-6">
