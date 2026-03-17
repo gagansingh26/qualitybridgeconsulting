@@ -565,6 +565,15 @@ const DeliveryApproach = () => {
                     </Button>
                   </Link>
                 </div>
+              {/* ── Engagement context ── */}
+              <motion.div
+                {...fadeIn(0.2)}
+                className="relative mt-6 rounded-xl border border-primary/20 bg-primary/[0.03] px-5 py-4 md:mt-8"
+              >
+                <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-2">Engagement</p>
+                <p className="text-sm text-foreground mb-1">{t("services.digitalEngagementFor")}</p>
+                <p className="text-xs text-muted-foreground">{t("services.digitalEngagementScope")}</p>
+              </motion.div>
               </motion.div>
             </SectionWrapper>
           </motion.div>
@@ -701,6 +710,16 @@ const DeliveryApproach = () => {
                   ))}
                 </div>
               </div>
+
+              {/* ── Engagement context ── */}
+              <motion.div
+                {...fadeIn(0.2)}
+                className="relative mt-6 rounded-xl border border-primary/20 bg-primary/[0.03] px-5 py-4 md:mt-8"
+              >
+                <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-2">Engagement</p>
+                <p className="text-sm text-foreground mb-1">{t("services.sapEngagementFor")}</p>
+                <p className="text-xs text-muted-foreground">{t("services.sapEngagementScope")}</p>
+              </motion.div>
             </SectionWrapper>
 
             {/* ── UAT Operating Model ── */}
@@ -953,6 +972,16 @@ const DeliveryApproach = () => {
                   ))}
                 </div>
               </div>
+
+              {/* ── Engagement context ── */}
+              <motion.div
+                {...fadeIn(0.2)}
+                className="relative mt-6 rounded-xl border border-primary/20 bg-primary/[0.03] px-5 py-4 md:mt-8"
+              >
+                <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-2">Engagement</p>
+                <p className="text-sm text-foreground mb-1">{t("services.qualityEngagementFor")}</p>
+                <p className="text-xs text-muted-foreground">{t("services.qualityEngagementScope")}</p>
+              </motion.div>
             </SectionWrapper>
 
             {/* Deliverables */}
