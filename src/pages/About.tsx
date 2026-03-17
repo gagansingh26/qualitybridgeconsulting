@@ -474,7 +474,7 @@ const About = () => {
           <div className="absolute right-16 top-6 h-20 w-20 rounded-full border border-primary/[0.05] bg-transparent" />
         </div>
         <motion.div {...fadeUp(0)} className="relative text-center">
-          <h2 className="text-[28px] font-bold md:text-[36px]">{a.howIApproach}</h2>
+          <h2 className="text-[28px] font-bold md:text-[36px] text-foreground">{a.howIApproach}</h2>
           <p className="mx-auto mt-1.5 max-w-2xl text-sm text-muted-foreground md:text-base">{a.approachIntro}</p>
         </motion.div>
         <div className="relative mt-6 grid grid-cols-2 gap-3 md:mt-8 md:grid-cols-4">
@@ -502,7 +502,7 @@ const About = () => {
           <div className="absolute -left-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.05] bg-primary/[0.02]" />
         </div>
         <motion.div {...fadeUp(0)} className="relative text-center">
-          <h2 className="text-[28px] font-bold md:text-[36px]">{a.toolbox}</h2>
+          <h2 className="text-[28px] font-bold md:text-[36px] text-foreground">{a.toolbox}</h2>
           <p className="mx-auto mt-1.5 max-w-2xl text-sm text-muted-foreground md:text-base">{a.toolboxIntro}</p>
           <div className="mt-5 flex flex-wrap justify-center gap-1.5">
             {toolbox.map((tool) => <Badge key={tool} variant="secondary" className="text-xs">{tool}</Badge>)}
@@ -523,7 +523,7 @@ const About = () => {
           <div className="absolute -right-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.05] bg-primary/[0.02]" />
         </div>
         <motion.div {...fadeUp(0)} className="relative text-center">
-          <h2 className="mb-6 text-[28px] font-bold md:text-[36px]">{a.focusAreas}</h2>
+          <h2 className="mb-6 text-[28px] font-bold md:text-[36px] text-foreground">{a.focusAreas}</h2>
         </motion.div>
         <Accordion type="multiple" className="relative space-y-2">
           {a.focusAreasData.map((area, i) => {
@@ -555,7 +555,7 @@ const About = () => {
           <div className="absolute bottom-6 left-8 h-28 w-28 rounded-full border border-primary/[0.05] bg-transparent" />
         </div>
         <motion.div {...fadeUp(0)} className="relative text-center">
-          <h2 className="text-[28px] font-bold md:text-[36px]">{a.openToConversation}</h2>
+          <h2 className="text-[28px] font-bold md:text-[36px] text-foreground">{a.openToConversation}</h2>
           <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground md:mt-3 md:text-base">{a.openToConversationBody}</p>
           <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center md:mt-8 md:gap-3">
             <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
