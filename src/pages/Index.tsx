@@ -223,9 +223,9 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-3xl text-[28px] font-bold leading-tight text-primary-foreground md:text-[36px] lg:text-5xl"
           >
-            {t("hero.titlePrefix") || "Enterprise Delivery,"}{" "}
+            {t("hero.titlePrefix") || "Built to Ship."}{" "}
             <span style={{ color: "#93c5fd" }}>
-              {t("hero.titleAccent") || "Done Right."}
+              {t("hero.titleAccent") || "Engineered to Last."}
             </span>
           </motion.h1>
 
@@ -299,10 +299,7 @@ const Index = () => {
       {/* ── Partner Collaboration Strip ── */}
       <div className="border-b border-border bg-accent/30">
         <div className="container mx-auto px-4 py-4 md:py-5">
-          <motion.div
-            {...fadeUp(0)}
-            className="flex flex-col items-center gap-2 text-center md:flex-row md:justify-center md:gap-3"
-          >
+          <div className="flex flex-col items-center gap-2 text-center md:flex-row md:justify-center md:gap-3">
             <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
               <Handshake className="h-4 w-4 shrink-0 text-primary" />
               <span>{t("partner.label")}</span>
@@ -311,7 +308,7 @@ const Index = () => {
             <p className="max-w-2xl text-xs text-muted-foreground md:text-sm">
               {t("partner.strip")}
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
 
