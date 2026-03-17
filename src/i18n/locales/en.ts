@@ -8,8 +8,8 @@ const en = {
   },
   hero: {
     pills: ["Digital Development", "SAP Governance & UAT", "Test Automation & Quality"],
-    titlePrefix: "Enterprise Delivery,",
-    titleAccent: "Done Right.",
+    titlePrefix: "Built to Ship.",,
+    titleAccent: "Engineered to Last.",
     subtitle: "Helping SMEs and growing digital teams deliver reliable platforms through modern web development, SAP governance, and quality engineering — managed locally in Canada, delivered globally.",
     reach: "Client engagement managed locally in Canada · North America · Europe · Asia",
     bookConsultation: "Book a Consultation",
@@ -148,6 +148,12 @@ const en = {
     sapIntro: "Structured testing and governance for SAP S/4HANA programmes and enterprise ERP integrations — with defined UAT frameworks, quality gates, stakeholder sign-offs, and risk-based go/no-go decisions at every stage of delivery.",
     qualityIntro: "Enterprise platform reliability through structured quality engineering — covering Salesforce, SAP, web, and API layers. We build automation frameworks, define test strategy, and integrate quality into every CI/CD pipeline using Cypress, Playwright, TOSCA, and many more.",
     qualityRelease: "The same release decision framework applies in QE engagements: every deployment is gated against measurable quality criteria before a go-live is approved.",
+    digitalEngagementFor: "Best for: SMEs and growing teams building web platforms, internal tools, dashboards, or needing rapid prototypes validated quickly.",
+    digitalEngagementScope: "Typical engagement: 2–8 weeks · Project-based or ongoing · Remote-first",
+    sapEngagementFor: "Best for: Organisations running SAP S/4HANA implementations, migrations, or upgrades who need structured UAT and release governance.",
+    sapEngagementScope: "Typical engagement: 4–12 weeks embedded · Advisory or hands-on delivery · Remote or on-site",
+    qualityEngagementFor: "Best for: Teams with slow regression cycles, limited automation coverage, or complex ERP and SaaS platforms that need reliable test infrastructure.",
+    qualityEngagementScope: "Typical engagement: 4–10 weeks · Framework setup or ongoing automation · CI/CD integration included",
 
     // Context strip — 4 items per tab (icon key + label)
     stripDigital: [
