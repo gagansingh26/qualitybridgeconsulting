@@ -8,8 +8,8 @@ const fr = {
   },
   hero: {
     pills: ["Développement digital", "Gouvernance SAP & UAT", "Automatisation des tests & Qualité"],
-    titlePrefix: "Livraison d'entreprise,",
-    titleAccent: "faite comme il se doit.",
+    titlePrefix: "Conçu pour livrer.",
+    titleAccent: "Ingénierie pour durer.",
     subtitle: "Aider les PME et équipes digitales en croissance à livrer des plateformes fiables grâce au développement web moderne, à la gouvernance SAP et à l'ingénierie qualité — géré localement au Canada, livré à l'échelle mondiale.",
     reach: "Engagement client géré localement au Canada · Amérique du Nord · Europe · Asie",
     bookConsultation: "Réserver une consultation",
@@ -147,6 +147,12 @@ const fr = {
     sapIntro: "Tests structurés et gouvernance pour les programmes SAP S/4HANA et les intégrations ERP enterprise — avec des cadres UAT définis, des portes qualité, des approbations des parties prenantes et des décisions go/no-go basées sur les risques à chaque étape.",
     qualityIntro: "Fiabilité des plateformes enterprise grâce à une ingénierie qualité structurée — couvrant Salesforce, SAP, web et couches API. Nous construisons des frameworks d'automatisation, définissons la stratégie de test et intégrons la qualité dans chaque pipeline CI/CD avec Cypress, Playwright, TOSCA et bien plus.",
     qualityRelease: "Le même cadre de décision de version s'applique dans les engagements QE : chaque déploiement est contrôlé selon des critères de qualité mesurables avant qu'un go-live soit approuvé.",
+    digitalEngagementFor: "Idéal pour : les PME et équipes en croissance qui développent des plateformes web, des outils internes, des tableaux de bord, ou qui ont besoin de prototypes validés rapidement.",
+    digitalEngagementScope: "Engagement type : 2–8 semaines · Basé sur un projet ou continu · Première priorité au travail à distance",
+    sapEngagementFor: "Idéal pour : les organisations qui gèrent des implémentations, migrations ou mises à niveau SAP S/4HANA et qui ont besoin d'une gouvernance UAT et de release structurée.",
+    sapEngagementScope: "Engagement type : 4–12 semaines intégré · Conseil ou livraison pratique · À distance ou sur site",
+    qualityEngagementFor: "Idéal pour : les équipes avec des cycles de régression lents, une couverture d'automatisation limitée, ou des plateformes ERP et SaaS complexes nécessitant une infrastructure de test fiable.",
+    qualityEngagementScope: "Engagement type : 4–10 semaines · Mise en place de framework ou automatisation continue · Intégration CI/CD incluse",
 
     stripDigital: [
       { icon: "monitor", label: "Web · Tableaux de bord · Portails" },
