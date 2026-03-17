@@ -10,7 +10,7 @@ const fr = {
     pills: ["Développement digital", "Gouvernance SAP & UAT", "Automatisation des tests & Qualité"],
     titlePrefix: "Livraison d'entreprise,",
     titleAccent: "faite comme il se doit.",
-    subtitle: "Aider les organisations à livrer des plateformes digitales fiables grâce au développement web moderne, à la gouvernance SAP et à l'ingénierie qualité — géré localement au Canada, livré à l'échelle mondiale.",
+    subtitle: "Aider les PME et équipes digitales en croissance à livrer des plateformes fiables grâce au développement web moderne, à la gouvernance SAP et à l'ingénierie qualité — géré localement au Canada, livré à l'échelle mondiale.",
     reach: "Engagement client géré localement au Canada · Amérique du Nord · Europe · Asie",
     bookConsultation: "Réserver une consultation",
     bookCall: "Réserver un appel",
@@ -32,7 +32,7 @@ const fr = {
   },
   whatWeDeliver: {
     heading: "Ce que nous livrons",
-    subheading: "Développement digital, gouvernance SAP et ingénierie qualité — une conversation suffit pour commencer.",
+    subheading: "Pour les PME, entreprises en croissance et équipes digitales — trois capacités intégrées livrées dans un seul engagement.",
     cards: [
       {
         title: "Développement digital",
@@ -283,7 +283,7 @@ const fr = {
   },
   contact: {
     heading: "Nous contacter",
-    subheading: "Prêt à améliorer la qualité de vos versions ? Commençons une conversation.",
+    subheading: "Développement digital, gouvernance SAP et ingénierie qualité — une conversation suffit pour commencer.",
     email: "E-mail",
     bookCall: "Réserver un appel",
     location: "Localisation",
