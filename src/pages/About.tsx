@@ -61,9 +61,21 @@ const content = {
       "SAP S/4HANA UAT governance, release readiness, and structured go/no-go decisions.",
       "Automation-first quality engineering using Cypress, Playwright, and many more — accelerated by AI-assisted test design.",
     ],
-    paragraph1: "The experience behind QualityBridge spans over 10 years of enterprise delivery — working across <strong>Johnson & Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong>, and <strong>Aon</strong>, as well as programmes in medical devices, luxury retail, and financial services across teams in North America, Germany, and India. Beyond enterprise programmes, I design and build modern web applications and digital tools — from rapid prototypes to production-grade platforms. That breadth is what makes it possible to walk into any engagement and know what good looks like.",
+    paragraph1: "I've always been drawn to building things that work — not just functionally, but reliably, at scale, under pressure.",
+    paragraph1b: "Over 10 years working across enterprise programmes at companies like <strong>Johnson & Johnson</strong>, <strong>Aon</strong>, <strong>Workday</strong>, and <strong>Alight</strong> across North America, and at <strong>Hugo Boss</strong>, <strong>Check24</strong>, and <strong>Wellster Health</strong> in Germany — I worked as an engineer building automation frameworks, shipping digital products, and designing the infrastructure that gives teams confidence to release fast without breaking things.",
+    paragraph1c: "What I found consistently exciting was the intersection of engineering and delivery. Building automation frameworks that actually scale. Shipping modern web applications and internal tools that teams rely on daily. Designing test infrastructure for complex ERP and SaaS platforms that gives teams the confidence to release faster without the risk. That combination — engineering capability with delivery rigour — is what I kept coming back to.",
+    paragraph1d: "QualityBridge is the formalisation of that approach. Built for SMEs and growing teams who need the same engineering standards that large enterprise programmes run on, without the overhead of a large consultancy.",
     paragraph2: "We work with a carefully selected network of specialist partners across North America, Europe, and India — each vetted for their domain expertise and delivery track record. Clients get access to the right capability at every phase, without the overhead of managing multiple vendors.",
     paragraph3: "Whether you're running a SAP transformation, scaling a QA practice, or building a digital product — the standard doesn't change. Structure, transparency, and no surprises.",
+    founderStoryHeading: "The Story Behind QualityBridge",
+    founderStory: [
+      "I've always been drawn to building things that work — not just functionally, but reliably, at scale, under pressure.",
+      "Over 10 years working across enterprise programmes at companies like <strong>Johnson & Johnson</strong>, <strong>Aon</strong>, <strong>Workday</strong>, and <strong>Alight</strong> across North America, and at <strong>Hugo Boss</strong>, <strong>Check24</strong>, and <strong>Wellster Health</strong> in Germany — I worked as an engineer building automation frameworks, shipping digital products, and designing the test infrastructure that gives teams confidence to release fast without breaking things.",
+      "What I found consistently exciting was the intersection of engineering and delivery. Building automation frameworks that actually scale. Shipping modern web applications and internal tools that teams rely on daily. Designing test infrastructure for complex ERP and SaaS platforms that gives teams the confidence to release faster without the risk. That combination — engineering capability with delivery rigour — is what I kept coming back to.",
+      "QualityBridge is the formalisation of that approach. Built for SMEs and growing teams who need the same engineering standards that large enterprise programmes run on, without the overhead of a large consultancy.",
+      "If you're building something complex and want an engineer who understands both the code and the delivery — I'd love to talk.",
+    ],
+    founderSignoff: "Gagan Singh, Founder · Greater Toronto Area, Canada",
     ctaGetInTouch: "Get in Touch",
     ctaViewWork: "View LinkedIn",
     ctaBook: "Book a Consultation",
@@ -101,6 +113,17 @@ const content = {
     openToConversationBody: "Whether you're planning a SAP programme, scaling your QA practice, or building a digital product — let's start with a conversation.",
     ctaContact: "Get in Touch",
     ctaLinkedIn: "LinkedIn",
+    founderStory: {
+      heading: "The Story Behind QualityBridge",
+      paragraphs: [
+        "I've always been drawn to building things that work — not just functionally, but reliably, at scale, under pressure.",
+        "Over 10 years working across enterprise programmes at companies like <strong>Johnson & Johnson</strong>, <strong>Aon</strong>, <strong>Workday</strong>, and <strong>Alight</strong> across North America, and at <strong>Hugo Boss</strong>, <strong>Check24</strong>, and <strong>Wellster Health</strong> in Germany — I worked as an engineer building automation frameworks, shipping digital products, and designing the test infrastructure that gives teams confidence to release fast without breaking things.",
+        "What I found consistently exciting was the intersection of engineering and delivery. Building automation frameworks that actually scale. Shipping modern web applications and internal tools that teams rely on daily. Designing test infrastructure for complex ERP and SaaS platforms that gives teams the confidence to release faster without the risk. That combination — engineering capability with delivery rigour — is what I kept coming back to.",
+        "QualityBridge is the formalisation of that approach. Built for SMEs and growing teams who need the same engineering standards that large enterprise programmes run on, without the overhead of a large consultancy.",
+        "If you're building something complex and want an engineer who understands both the code and the delivery — I'd love to talk.",
+      ],
+      signature: "Gagan Singh, Founder · Greater Toronto Area, Canada",
+    },
   },
   de: {
     heading: "Über QualityBridge Consulting",
@@ -125,7 +148,10 @@ const content = {
       "SAP S/4HANA UAT-Governance, Release-Bereitschaft und strukturierte Go/No-Go-Entscheidungen.",
       "Automatisierungsorientiertes Quality Engineering mit Cypress, Playwright und vielen mehr — beschleunigt durch KI-gestütztes Testdesign.",
     ],
-    paragraph1: "Die Erfahrung hinter QualityBridge umfasst über 10 Jahre Enterprise-Delivery — mit Einsätzen bei <strong>Johnson & Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong> und <strong>Aon</strong> sowie Programmen in Medizingeräten, Luxuseinzelhandel und Finanzdienstleistungen, in Teams in Nordamerika, Deutschland und Indien. Über Enterprise-Programme hinaus entwickle ich moderne Webanwendungen und digitale Tools — vom Rapid Prototype bis zur produktionsreifen Plattform. Diese Breite ermöglicht es, in jedes Engagement einzusteigen und zu wissen, wie gut aussieht.",
+    paragraph1: "Ich war schon immer fasziniert davon, Dinge zu bauen, die funktionieren — nicht nur funktional, sondern zuverlässig, skalierbar und unter Druck.",
+    paragraph1b: "In über 10 Jahren arbeitete ich an Enterprise-Programmen bei Unternehmen wie <strong>Johnson & Johnson</strong>, <strong>Aon</strong>, <strong>Workday</strong> und <strong>Alight</strong> in Nordamerika sowie bei <strong>Hugo Boss</strong>, <strong>Check24</strong> und <strong>Wellster Health</strong> in Deutschland — als Ingenieur, der Automatisierungs-Frameworks aufgebaut, digitale Produkte geliefert und die Infrastruktur gestaltet hat, die Teams die Zuversicht gibt, schnell zu releasen ohne Dinge zu brechen.",
+    paragraph1c: "Was mich dabei immer wieder begeistert hat, ist die Schnittmenge von Engineering und Delivery. Automatisierungs-Frameworks bauen, die wirklich skalieren. Moderne Webanwendungen und interne Tools liefern, auf die Teams täglich vertrauen. Test-Infrastruktur für komplexe ERP- und SaaS-Plattformen gestalten, die Teams die Zuversicht gibt, schneller zu releasen — ohne Risiko. Diese Kombination — Engineering-Kompetenz und Delivery-Disziplin — ist es, zu der ich immer zurückgekehrt bin.",
+    paragraph1d: "QualityBridge ist die Formalisierung dieses Ansatzes. Entwickelt für KMU und wachsende Teams, die dieselben Engineering-Standards benötigen wie große Enterprise-Programme — ohne den Overhead einer großen Unternehmensberatung.",
     paragraph2: "Wir arbeiten mit einem sorgfältig ausgewählten Netzwerk von Spezialisten aus Nordamerika, Europa und Indien — jeweils geprüft auf Fachkompetenz und Lieferbilanz. Kunden erhalten in jeder Phase Zugang zur richtigen Kompetenz, ohne den Aufwand mehrerer Lieferanten.",
     paragraph3: "Ob SAP-Transformation, Skalierung einer QA-Praxis oder Aufbau eines digitalen Produkts — der Standard ändert sich nicht. Struktur, Transparenz und keine Überraschungen.",
     ctaGetInTouch: "Kontakt aufnehmen",
@@ -165,6 +191,17 @@ const content = {
     openToConversationBody: "Ob Sie ein SAP-Programm planen, Ihre QA-Praxis skalieren oder ein digitales Produkt aufbauen — lassen Sie uns mit einem Gespräch beginnen.",
     ctaContact: "Kontakt aufnehmen",
     ctaLinkedIn: "LinkedIn",
+    founderStory: {
+      heading: "Die Geschichte hinter QualityBridge",
+      paragraphs: [
+        "Mich hat es schon immer fasziniert, Dinge zu bauen, die funktionieren — nicht nur funktional, sondern zuverlässig, skalierbar und unter Druck.",
+        "Über 10 Jahre Arbeit an Enterprise-Programmen bei Unternehmen wie <strong>Johnson & Johnson</strong>, <strong>Aon</strong>, <strong>Workday</strong> und <strong>Alight</strong> in Nordamerika sowie bei <strong>Hugo Boss</strong>, <strong>Check24</strong> und <strong>Wellster Health</strong> in Deutschland — ich arbeitete als Ingenieur beim Aufbau von Automatisierungs-Frameworks, beim Ausliefern digitaler Produkte und beim Entwurf der Testinfrastruktur, die Teams das Vertrauen gibt, schnell zu liefern ohne Dinge zu beschädigen.",
+        "Was mich dabei immer wieder begeistert hat, war die Schnittstelle zwischen Engineering und Delivery. Automatisierungs-Frameworks bauen, die tatsächlich skalieren. Moderne Webanwendungen und interne Tools liefern, auf die Teams täglich angewiesen sind. Testinfrastruktur für komplexe ERP- und SaaS-Plattformen entwerfen, die Teams die Zuversicht gibt, schneller ohne Risiko zu liefern. Diese Kombination — Engineering-Kompetenz mit Delivery-Disziplin — ist das, wozu ich immer wieder zurückkehrte.",
+        "QualityBridge ist die Formalisierung dieses Ansatzes. Entwickelt für KMU und wachsende Teams, die dieselben Engineering-Standards benötigen, auf denen große Enterprise-Programme basieren, ohne den Overhead eines großen Beratungsunternehmens.",
+        "Wenn Sie etwas Komplexes aufbauen und einen Ingenieur suchen, der sowohl den Code als auch die Delivery versteht — ich freue mich auf ein Gespräch.",
+      ],
+      signature: "Gagan Singh, Gründer · Greater Toronto Area, Kanada",
+    },
   },
   fr: {
     heading: "À propos de QualityBridge Consulting",
@@ -189,7 +226,10 @@ const content = {
       "Gouvernance UAT SAP S/4HANA, préparation aux versions et décisions go/no-go structurées.",
       "Ingénierie qualité axée sur l'automatisation avec Cypress, Playwright et bien plus — accélérée par la conception de tests assistée par IA.",
     ],
-    paragraph1: "L'expérience derrière QualityBridge couvre plus de 10 ans de livraison d'entreprise — avec des missions chez <strong>Johnson & Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong> et <strong>Aon</strong>, ainsi que des programmes dans les dispositifs médicaux, le luxe et les services financiers, dans des équipes en Amérique du Nord, en Allemagne et en Inde. Au-delà des programmes d'entreprise, je conçois et développe des applications web modernes et des outils digitaux — des prototypes rapides aux plateformes prêtes pour la production. Cette diversité permet d'entrer dans n'importe quel engagement et de savoir à quoi ressemble la qualité.",
+    paragraph1: "J'ai toujours été attiré par la construction de choses qui fonctionnent — pas seulement fonctionnellement, mais de manière fiable, à grande échelle et sous pression.",
+    paragraph1b: "En plus de 10 ans de travail sur des programmes enterprise dans des entreprises comme <strong>Johnson & Johnson</strong>, <strong>Aon</strong>, <strong>Workday</strong> et <strong>Alight</strong> en Amérique du Nord, et chez <strong>Hugo Boss</strong>, <strong>Check24</strong> et <strong>Wellster Health</strong> en Allemagne — j'ai travaillé comme ingénieur en construisant des frameworks d'automatisation, en livrant des produits digitaux et en concevant l'infrastructure qui donne aux équipes la confiance de livrer rapidement sans casser les choses.",
+    paragraph1c: "Ce qui m'a toujours passionné, c'est l'intersection entre l'ingénierie et la livraison. Construire des frameworks d'automatisation qui s'adaptent vraiment. Livrer des applications web modernes et des outils internes sur lesquels les équipes comptent au quotidien. Concevoir une infrastructure de test pour des plateformes ERP et SaaS complexes qui donne aux équipes la confiance de livrer plus rapidement sans risque. Cette combinaison — compétence en ingénierie et rigueur de livraison — est ce à quoi je revenais sans cesse.",
+    paragraph1d: "QualityBridge est la formalisation de cette approche. Construit pour les PME et les équipes en croissance qui ont besoin des mêmes standards d'ingénierie que les grands programmes enterprise, sans les frais généraux d'un grand cabinet de conseil.",
     paragraph2: "Nous travaillons avec un réseau soigneusement sélectionné de partenaires spécialisés en Amérique du Nord, en Europe et en Inde — chacun vérifié pour son expertise et son bilan. Les clients accèdent à la bonne compétence à chaque phase, sans la complexité de gérer plusieurs fournisseurs.",
     paragraph3: "Que vous meniez une transformation SAP, développiez une pratique QA ou construisiez un produit digital — le standard ne change pas. Structure, transparence et sans surprises.",
     ctaGetInTouch: "Nous contacter",
@@ -229,6 +269,17 @@ const content = {
     openToConversationBody: "Que vous planifiez un programme SAP, développiez votre pratique QA ou construisiez un produit digital — commençons par une conversation.",
     ctaContact: "Nous contacter",
     ctaLinkedIn: "LinkedIn",
+    founderStory: {
+      heading: "L'histoire derrière QualityBridge",
+      paragraphs: [
+        "J'ai toujours été attiré par la construction de choses qui fonctionnent — pas seulement fonctionnellement, mais de manière fiable, à l'échelle, sous pression.",
+        "Plus de 10 ans de travail sur des programmes enterprise dans des entreprises comme <strong>Johnson & Johnson</strong>, <strong>Aon</strong>, <strong>Workday</strong> et <strong>Alight</strong> en Amérique du Nord, et chez <strong>Hugo Boss</strong>, <strong>Check24</strong> et <strong>Wellster Health</strong> en Allemagne — j'ai travaillé comme ingénieur en construisant des frameworks d'automatisation, en livrant des produits digitaux et en concevant l'infrastructure de test qui donne aux équipes la confiance pour livrer rapidement sans rien casser.",
+        "Ce qui m'a constamment passionné, c'est l'intersection entre l'ingénierie et la livraison. Construire des frameworks d'automatisation qui évoluent vraiment. Livrer des applications web modernes et des outils internes dont les équipes dépendent au quotidien. Concevoir une infrastructure de test pour des plateformes ERP et SaaS complexes qui donne aux équipes la confiance de livrer plus vite sans risque. Cette combinaison — capacité d'ingénierie et rigueur de livraison — est ce vers quoi je revenais toujours.",
+        "QualityBridge est la formalisation de cette approche. Conçu pour les PME et les équipes en croissance qui ont besoin des mêmes standards d'ingénierie que les grands programmes enterprise, sans les frais généraux d'un grand cabinet de conseil.",
+        "Si vous construisez quelque chose de complexe et souhaitez un ingénieur qui comprend à la fois le code et la livraison — je serais ravi d'en discuter.",
+      ],
+      signature: "Gagan Singh, Fondateur · Grand Toronto, Canada",
+    },
   },
 };
 
@@ -391,10 +442,33 @@ const About = () => {
                   </li>
                 ))}
               </ul>
+
+              {/* ── Founder story ── */}
+              <div className="mt-2 rounded-xl border border-border bg-card p-5 card-shadow md:p-6">
+                {/* Avatar + name */}
+                <div className="mb-4 flex items-center gap-3">
+                  <img
+                    src="/founder-avatar.jpg"
+                    alt="Gagan Singh — Founder, QualityBridge Consulting"
+                    className="h-12 w-12 rounded-full object-cover ring-2 ring-primary/20"
+                  />
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">{a.founderName}</p>
+                    <p className="text-xs text-muted-foreground">{a.founderTitle} · {a.founderLocation}</p>
+                  </div>
+                </div>
+                {/* Story paragraphs */}
+                <div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
+                  <p className="font-medium text-foreground italic">&ldquo;{a.paragraph1}&rdquo;</p>
+                  <p dangerouslySetInnerHTML={{ __html: a.paragraph1b }} />
+                  <p>{a.paragraph1c}</p>
+                  <p>{a.paragraph1d}</p>
+                </div>
+                <p className="mt-4 border-l-2 border-primary/30 pl-3 text-sm italic text-muted-foreground">{a.paragraph3}</p>
+              </div>
+
               <div className="space-y-3 pt-1 text-sm leading-relaxed text-muted-foreground">
-                <p dangerouslySetInnerHTML={{ __html: a.paragraph1 }} />
                 <p>{a.paragraph2}</p>
-                <p className="border-l-2 border-primary/30 pl-3 italic">{a.paragraph3}</p>
               </div>
             </div>
 
