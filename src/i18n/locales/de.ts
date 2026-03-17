@@ -10,7 +10,7 @@ const de = {
     pills: ["Digitale Entwicklung", "SAP-Governance & UAT", "Testautomatisierung & Qualität"],
     titlePrefix: "Enterprise-Lieferung,",
     titleAccent: "richtig gemacht.",
-    subtitle: "Organisationen dabei helfen, zuverlässige digitale Plattformen zu liefern — durch moderne Webentwicklung, SAP-Governance und Qualitätssicherung, lokal in Kanada gemanagt, global geliefert.",
+    subtitle: "KMU und wachsenden digitalen Teams helfen, zuverlässige Plattformen zu liefern — durch moderne Webentwicklung, SAP-Governance und Qualitätssicherung, lokal in Kanada gemanagt, global geliefert.",
     reach: "Kundenbetreuung lokal in Kanada · Nordamerika · Europa · Asien",
     bookConsultation: "Beratung buchen",
     bookCall: "Gespräch buchen",
@@ -32,7 +32,7 @@ const de = {
   },
   whatWeDeliver: {
     heading: "Was wir liefern",
-    subheading: "Digitale Entwicklung, SAP-Governance und Qualitätssicherung — ein Gespräch reicht, um loszulegen.",
+    subheading: "Für KMU, wachsende Unternehmen und digitale Teams — drei integrierte Fähigkeiten in einem Engagement.",
     cards: [
       {
         title: "Digitale Entwicklung",
@@ -283,7 +283,7 @@ const de = {
   },
   contact: {
     heading: "Kontakt aufnehmen",
-    subheading: "Bereit, Ihre Release-Qualität zu verbessern? Lassen Sie uns ins Gespräch kommen.",
+    subheading: "Digitale Entwicklung, SAP-Governance und Qualitätssicherung — ein Gespräch reicht, um loszulegen.",
     email: "E-Mail",
     bookCall: "Gespräch buchen",
     location: "Standort",
