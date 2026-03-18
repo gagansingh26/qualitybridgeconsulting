@@ -891,12 +891,12 @@ const DeliveryApproach = () => {
               {/* Governance explanation */}
               <motion.div
                 {...fadeIn(0.1)}
-                className="mt-5 rounded-lg border border-border bg-background p-4 md:mt-6 md:p-6"
+                className="mt-5 rounded-lg border border-primary/20 bg-primary/[0.02] p-5 md:mt-6 md:p-6"
               >
-                <h3 className="text-xl font-semibold text-foreground md:text-2xl">
+                <h3 className="text-[22px] font-bold text-foreground md:text-[26px]">
                   {t("release.governanceHeading")}
                 </h3>
-                <p className="mt-1.5 text-xs text-muted-foreground md:mt-2 md:text-sm">
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:mt-3 md:text-base">
                   {t("release.governanceBody")}
                 </p>
               </motion.div>
