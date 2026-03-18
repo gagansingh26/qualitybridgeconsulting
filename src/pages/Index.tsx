@@ -41,11 +41,14 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.45, delay },
 });
 
-// Mobile: expand/collapse accordion
+// Mobile accordion — now wrapped in motion.div for hover lift
 const AccordionCard = ({ icon, title, desc, detail, pill }: { icon: React.ReactNode; title: string; desc: string; detail?: string[]; pill?: string }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="rounded-lg border border-border bg-card card-shadow overflow-hidden">
+    <motion.div
+      whileHover={{ y: -4, transition: { duration: 0.25 } }}
+      className="rounded-lg border border-border bg-card card-shadow overflow-hidden"
+    >
       <button
         type="button"
         className="flex w-full items-center gap-3 p-4 text-left"
@@ -91,11 +94,11 @@ const AccordionCard = ({ icon, title, desc, detail, pill }: { icon: React.ReactN
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 };
 
-// Desktop: details always visible — with hover lift
+// Desktop card — hover lift
 const DesktopCard = ({ icon, title, desc, detail }: { icon: React.ReactNode; title: string; desc: string; detail?: string[] }) => {
   return (
     <motion.div
@@ -146,7 +149,6 @@ const Index = () => {
   const outcomeItems = t("outcomes.items", { returnObjects: true }) as { label: string; desc: string }[];
   const howWeWorkSteps = t("howWeWork.steps", { returnObjects: true }) as { title: string; desc: string }[];
 
-  // Safe array guard — prevents crash if locale key missing
   const problemItemsRaw = t("problems.items", { returnObjects: true });
   const problemItems: { pill?: string; title: string; desc: string }[] = Array.isArray(problemItemsRaw) ? problemItemsRaw : [];
 
@@ -161,7 +163,6 @@ const Index = () => {
         </div>
 
         <div className="container relative mx-auto px-4 text-center">
-          {/* Globe illustration — absolute, desktop only */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -205,7 +206,6 @@ const Index = () => {
             </svg>
           </motion.div>
 
-          {/* Pills */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -323,7 +323,6 @@ const Index = () => {
           backgroundSize: "20px 20px",
         }}
       >
-        {/* Decorative circles */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
           <div className="absolute -right-4 top-10 h-28 w-28 rounded-full border border-primary/[0.05] bg-transparent" />
@@ -338,7 +337,7 @@ const Index = () => {
           </p>
         </motion.div>
 
-        {/* Mobile: plain stacked cards — icon + text, no expand/collapse */}
+        {/* Mobile: stacked cards — hover lift */}
         <div className="relative mt-6 flex flex-col gap-3 md:hidden">
           {problemItems.map((item, i) => (
             <motion.div
@@ -355,7 +354,7 @@ const Index = () => {
           ))}
         </div>
 
-        {/* Desktop: 3-column grid — icon + desc only, no pill or title */}
+        {/* Desktop: 3-column grid — hover lift */}
         <div className="relative mt-8 hidden md:grid md:grid-cols-3 md:gap-6">
           {problemItems.map((item, i) => (
             <motion.div
@@ -375,7 +374,6 @@ const Index = () => {
 
       {/* ── Platforms We Work With ── */}
       <SectionWrapper className="relative overflow-hidden bg-muted/50">
-        {/* Decorative circles */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -left-14 -top-14 h-52 w-52 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
           <div className="absolute -right-10 -bottom-10 h-40 w-40 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
@@ -410,7 +408,7 @@ const Index = () => {
         </div>
       </SectionWrapper>
 
-      {/* ── What We Deliver — dot pattern background ── */}
+      {/* ── What We Deliver ── */}
       <SectionWrapper
         className="relative overflow-hidden"
         style={{
@@ -418,7 +416,6 @@ const Index = () => {
           backgroundSize: "22px 22px",
         }}
       >
-        {/* Decorative circles */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -right-14 -top-14 h-52 w-52 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
           <div className="absolute -left-10 -bottom-10 h-44 w-44 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
@@ -432,7 +429,7 @@ const Index = () => {
           </p>
         </motion.div>
 
-        {/* Mobile: single-column accordion */}
+        {/* Mobile: accordion — AccordionCard has hover lift built in */}
         <div className="relative mt-6 flex flex-col gap-2 md:hidden">
           {valueCards.map((c, i) => (
             <motion.div key={i} {...fadeUp(i * 0.06)}>
@@ -441,7 +438,7 @@ const Index = () => {
           ))}
         </div>
 
-        {/* Desktop: 3-column grid */}
+        {/* Desktop: 3-column grid — DesktopCard has hover lift built in */}
         <div className="relative mt-8 hidden md:block">
           <div className="grid grid-cols-3 gap-6">
             {valueCards.map((c, i) => (
@@ -468,7 +465,7 @@ const Index = () => {
           </p>
         </motion.div>
 
-        {/* Desktop: horizontal 3-step with connector */}
+        {/* Desktop: horizontal 3-step */}
         <div className="mt-10 hidden md:block">
           <div className="relative grid grid-cols-3 gap-8">
             <div className="absolute left-[16.67%] right-[16.67%] top-6 h-0.5 bg-primary/20" />
@@ -484,7 +481,7 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Mobile: vertical stack with connector */}
+        {/* Mobile: vertical stack */}
         <div className="mt-8 md:hidden">
           <div className="relative flex flex-col gap-8 pl-6">
             <div className="absolute bottom-0 left-[18px] top-0 w-0.5 bg-primary/20" />
@@ -532,7 +529,6 @@ const Index = () => {
           backgroundSize: "20px 20px",
         }}
       >
-        {/* Decorative circles */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -left-16 -top-16 h-56 w-56 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
           <div className="absolute -right-12 -bottom-12 h-48 w-48 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
@@ -542,6 +538,7 @@ const Index = () => {
         <motion.h2 {...fadeUp(0)} className="relative text-center text-[28px] font-bold md:text-[36px]">
           {t("outcomes.heading")}
         </motion.h2>
+        {/* Mobile + Desktop: same grid, hover lift on all */}
         <div className="relative mt-5 grid grid-cols-2 gap-3 md:mt-8 md:grid-cols-4 md:gap-6">
           {outcomeItems.map((o, i) => (
             <motion.div
