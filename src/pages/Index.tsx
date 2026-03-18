@@ -95,10 +95,13 @@ const AccordionCard = ({ icon, title, desc, detail, pill }: { icon: React.ReactN
   );
 };
 
-// Desktop: details always visible
+// Desktop: details always visible — with hover lift
 const DesktopCard = ({ icon, title, desc, detail }: { icon: React.ReactNode; title: string; desc: string; detail?: string[] }) => {
   return (
-    <div className="flex flex-col rounded-lg border border-border bg-card p-6 card-shadow hover:card-shadow-hover transition-shadow">
+    <motion.div
+      whileHover={{ y: -6, transition: { duration: 0.25 } }}
+      className="flex flex-col rounded-lg border border-border bg-card p-6 card-shadow hover:card-shadow-hover transition-shadow"
+    >
       <div className="flex h-10 w-10 items-center justify-center rounded-md bg-accent text-primary">
         {icon}
       </div>
@@ -114,7 +117,7 @@ const DesktopCard = ({ icon, title, desc, detail }: { icon: React.ReactNode; tit
           ))}
         </ul>
       )}
-    </div>
+    </motion.div>
   );
 };
 
@@ -341,6 +344,7 @@ const Index = () => {
             <motion.div
               key={i}
               {...fadeUp(i * 0.06)}
+              whileHover={{ y: -4, transition: { duration: 0.25 } }}
               className="flex items-start gap-4 rounded-xl border border-border bg-card p-4 card-shadow"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
@@ -357,6 +361,7 @@ const Index = () => {
             <motion.div
               key={i}
               {...fadeUp(i * 0.1)}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
               className="flex flex-col rounded-xl border border-border bg-card p-6 card-shadow"
             >
               <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
@@ -545,6 +550,7 @@ const Index = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
               className="flex flex-col items-center gap-2 rounded-lg border border-border bg-card p-4 card-shadow text-center md:p-5"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
