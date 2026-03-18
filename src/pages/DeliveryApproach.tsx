@@ -114,8 +114,15 @@ const tabVariants = {
   exit: { opacity: 0, y: -6, transition: { duration: 0.15 } },
 };
 
-const hoverLift = { whileHover: { y: -6, transition: { duration: 0.25 } } };
-const hoverLiftSm = { whileHover: { y: -4, transition: { duration: 0.25 } } };
+// Lift helpers — both whileHover (desktop) and whileTap (mobile)
+const hoverLift = {
+  whileHover: { y: -6, transition: { duration: 0.25 } },
+  whileTap: { y: -6, transition: { duration: 0.25 } },
+};
+const hoverLiftSm = {
+  whileHover: { y: -4, transition: { duration: 0.25 } },
+  whileTap: { y: -4, transition: { duration: 0.25 } },
+};
 
 const DeliveryApproach = () => {
   const { t } = useTranslation();
@@ -138,9 +145,12 @@ const DeliveryApproach = () => {
   const digitalItems = t("services.digitalItems", { returnObjects: true }) as { title: string; desc: string }[];
   const digitalStack = t("services.digitalStack", { returnObjects: true }) as string[];
 
-  const stripKey = activeTab === "digital" ? "services.stripDigital" : activeTab === "sap" ? "services.stripSap" : "services.stripQuality";
-  const stripItems = t(stripKey, { returnObjects: true }) as { icon: string; label: string }[];
+  const stripKey =
+    activeTab === "digital" ? "services.stripDigital"
+    : activeTab === "sap" ? "services.stripSap"
+    : "services.stripQuality";
 
+  const stripItems = t(stripKey, { returnObjects: true }) as { icon: string; label: string }[];
   const tabs: { key: TabKey; label: string }[] = [
     { key: "digital", label: t("services.tabDigital") },
     { key: "sap", label: t("services.tabSap") },
@@ -215,22 +225,45 @@ const DeliveryApproach = () => {
             </svg>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="flex flex-wrap items-center justify-center gap-1.5" style={{ marginBottom: 12 }}>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="flex flex-wrap items-center justify-center gap-1.5"
+            style={{ marginBottom: 12 }}
+          >
             {(t("hero.pills", { returnObjects: true }) as string[]).map((pill) => (
-              <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-2.5 py-0.5 text-[11px] font-medium text-primary-foreground/90 md:px-3 md:py-1 md:text-xs">{pill}</span>
+              <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-2.5 py-0.5 text-[11px] font-medium text-primary-foreground/90 md:px-3 md:py-1 md:text-xs">
+                {pill}
+              </span>
             ))}
           </motion.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mx-auto max-w-3xl text-[28px] font-bold leading-tight text-primary-foreground md:text-[36px] lg:text-5xl">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto max-w-3xl text-[28px] font-bold leading-tight text-primary-foreground md:text-[36px] lg:text-5xl"
+          >
             {t("services.heroPrefix")}{" "}
             <span style={{ color: "#93c5fd" }}>{t("services.heroAccent")}</span>
           </motion.h1>
 
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }} className="mx-auto mt-3 max-w-2xl text-base text-primary-foreground/80 md:text-lg">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="mx-auto mt-3 max-w-2xl text-base text-primary-foreground/80 md:text-lg"
+          >
             {t("services.heroSubtitle")}
           </motion.p>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }} className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3"
+          >
             <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto">
                 {t("hero.bookConsultation")} <ExternalLink className="ml-2 h-4 w-4" />
@@ -243,11 +276,22 @@ const DeliveryApproach = () => {
             </Link>
           </motion.div>
 
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.4 }} className="mx-auto mt-3 text-[13px] md:text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mx-auto mt-3 text-[13px] md:text-sm"
+            style={{ color: "rgba(255,255,255,0.75)" }}
+          >
             {t("hero.reach")}
           </motion.p>
 
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.55 }} className="mx-auto mt-8 flex max-w-sm items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-md md:mt-10 md:max-w-lg">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.55 }}
+            className="mx-auto mt-8 flex max-w-sm items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-md md:mt-10 md:max-w-lg"
+          >
             {(t("services.heroStats", { returnObjects: true }) as { value: string; label: string }[]).map((stat, i) => (
               <div key={i} className="flex flex-1 flex-col items-center px-3 md:px-5">
                 <span className="text-sm font-bold text-primary-foreground md:text-base leading-tight text-center">{stat.value}</span>
@@ -261,7 +305,14 @@ const DeliveryApproach = () => {
       {/* ── Context strip ── */}
       <div className="border-b border-border bg-background">
         <AnimatePresence mode="wait">
-          <motion.div key={activeTab + "-strip"} initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} className="container mx-auto px-4 py-3 md:px-6">
+          <motion.div
+            key={activeTab + "-strip"}
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="container mx-auto px-4 py-3 md:px-6"
+          >
             <div className="flex flex-col gap-2 md:hidden">
               {stripItems.map((item, i) => (
                 <div key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
@@ -287,8 +338,16 @@ const DeliveryApproach = () => {
         <div className="container mx-auto px-4 py-2.5 md:px-6">
           <div className="flex flex-col gap-1 md:hidden">
             {tabs.map((tab) => (
-              <button key={tab.key} type="button" onClick={() => setActiveTab(tab.key)}
-                className={`w-full rounded-md px-4 py-2.5 text-sm font-semibold text-left transition-all ${activeTab === tab.key ? "enterprise-gradient text-primary-foreground shadow-sm" : "bg-muted text-muted-foreground hover:text-foreground hover:bg-accent"}`}>
+              <button
+                key={tab.key}
+                type="button"
+                onClick={() => setActiveTab(tab.key)}
+                className={`w-full rounded-md px-4 py-2.5 text-sm font-semibold text-left transition-all ${
+                  activeTab === tab.key
+                    ? "enterprise-gradient text-primary-foreground shadow-sm"
+                    : "bg-muted text-muted-foreground hover:text-foreground hover:bg-accent"
+                }`}
+              >
                 {tab.label}
               </button>
             ))}
@@ -296,8 +355,16 @@ const DeliveryApproach = () => {
           <div className="hidden md:flex md:justify-center">
             <div className="flex gap-1 rounded-lg enterprise-gradient p-1">
               {tabs.map((tab) => (
-                <button key={tab.key} type="button" onClick={() => setActiveTab(tab.key)}
-                  className={`whitespace-nowrap rounded-md px-5 py-2 text-sm font-semibold transition-all ${activeTab === tab.key ? "bg-white text-primary shadow-sm" : "text-primary-foreground/75 hover:text-primary-foreground hover:bg-white/10"}`}>
+                <button
+                  key={tab.key}
+                  type="button"
+                  onClick={() => setActiveTab(tab.key)}
+                  className={`whitespace-nowrap rounded-md px-5 py-2 text-sm font-semibold transition-all ${
+                    activeTab === tab.key
+                      ? "bg-white text-primary shadow-sm"
+                      : "text-primary-foreground/75 hover:text-primary-foreground hover:bg-white/10"
+                  }`}
+                >
                   {tab.label}
                 </button>
               ))}
@@ -331,7 +398,6 @@ const DeliveryApproach = () => {
                   </p>
                 </div>
               </div>
-              {/* Digital items — mobile + desktop hover lift */}
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-5">
                 {digitalItems.map((item, i) => (
                   <motion.div key={i} {...fadeIn(i * 0.08)} {...hoverLiftSm} className="rounded-lg border border-border bg-card p-4 card-shadow md:p-5">
@@ -419,24 +485,38 @@ const DeliveryApproach = () => {
                 </div>
               </div>
 
-              {/* Delivery lifecycle phases */}
               <div className="mt-6">
                 <h2 className="mb-4 text-[28px] font-bold md:text-[36px] text-foreground">{t("delivery.heading")}</h2>
 
-                {/* Mobile: 3-col grid */}
+                {/* Mobile phase selector */}
                 <div className="md:hidden">
                   <div className="grid grid-cols-3 gap-1.5">
                     {phases.map((phase, i) => (
-                      <button key={i} type="button" onClick={() => setActivePhase(i)}
-                        className={`flex w-full items-center justify-center gap-1.5 rounded-full px-2 py-1.5 text-xs font-semibold transition-colors ${activePhase === i ? `${phaseColors[i]} text-primary-foreground` : "bg-accent text-muted-foreground"}`}>
+                      <button
+                        key={i}
+                        type="button"
+                        onClick={() => setActivePhase(i)}
+                        className={`flex w-full items-center justify-center gap-1.5 rounded-full px-2 py-1.5 text-xs font-semibold transition-colors ${
+                          activePhase === i
+                            ? `${phaseColors[i]} text-primary-foreground`
+                            : "bg-accent text-muted-foreground"
+                        }`}
+                      >
                         <span className={`h-2 w-2 shrink-0 rounded-full ${activePhase === i ? "bg-primary-foreground/60" : phaseColors[i]}`} />
                         {phase.name}
                       </button>
                     ))}
                   </div>
                   <AnimatePresence mode="wait">
-                    <motion.div key={activePhase} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.2 }}
-                      className="mt-3 rounded-lg border border-border bg-card p-4 card-shadow">
+                    <motion.div
+                      key={activePhase}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.2 }}
+                      {...hoverLiftSm}
+                      className="mt-3 rounded-lg border border-border bg-card p-4 card-shadow"
+                    >
                       <div className="flex items-center gap-2">
                         <span className={`h-3 w-3 rounded-full ${phaseColors[activePhase]}`} />
                         <h3 className="font-semibold text-card-foreground">{phases[activePhase].name}</h3>
@@ -446,14 +526,19 @@ const DeliveryApproach = () => {
                   </AnimatePresence>
                 </div>
 
-                {/* Desktop: vertical timeline — hover lift */}
+                {/* Desktop: vertical timeline with hover+tap lift */}
                 <div className="relative hidden md:block">
                   <div className="absolute left-4 top-0 h-full w-0.5 bg-border" />
                   <div className="ml-12 space-y-5">
                     {phases.map((phase, i) => (
-                      <motion.div key={i} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4, delay: i * 0.1 }}
-                        whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                        className="relative flex gap-4">
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: i * 0.1 }}
+                        {...hoverLiftSm}
+                        className="relative flex gap-4"
+                      >
                         <div className={`absolute -left-12 mt-1.5 h-4 w-4 rounded-full ${phaseColors[i]} ring-4 ring-background`} />
                         <div className="flex-1 rounded-lg border border-border bg-card p-5 card-shadow">
                           <h3 className="font-semibold text-card-foreground">{phase.name}</h3>
@@ -468,7 +553,9 @@ const DeliveryApproach = () => {
                 <div className="mt-6 hidden overflow-x-auto lg:flex">
                   {phases.map((phase, i) => (
                     <div key={i} className="flex items-center">
-                      <div className={`flex h-10 items-center rounded-lg px-4 text-sm font-semibold text-primary-foreground ${phaseColors[i]}`}>{phase.name}</div>
+                      <div className={`flex h-10 items-center rounded-lg px-4 text-sm font-semibold text-primary-foreground ${phaseColors[i]}`}>
+                        {phase.name}
+                      </div>
                       {i < phases.length - 1 && <ArrowRight className="mx-1.5 h-4 w-4 text-muted-foreground" />}
                     </div>
                   ))}
@@ -485,7 +572,7 @@ const DeliveryApproach = () => {
             {/* UAT Operating Model */}
             <SectionWrapper className="bg-accent/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
               <h2 className="mb-4 text-[28px] font-bold md:text-[36px] text-foreground">{t("uat.operatingModel")}</h2>
-              {/* Mobile UAT cards — hover lift */}
+              {/* Mobile: 2-col with hover+tap */}
               <div className="grid grid-cols-2 gap-2 md:hidden">
                 {uatPhases.map((phase, i) => (
                   <motion.div key={i} {...hoverLiftSm} className="rounded-lg border border-border bg-card p-3 card-shadow">
@@ -494,6 +581,7 @@ const DeliveryApproach = () => {
                   </motion.div>
                 ))}
               </div>
+              {/* Desktop: flow bar + grid with hover+tap */}
               <div className="hidden md:block">
                 <div className="mb-5 hidden overflow-x-auto lg:flex">
                   {uatPhases.map((phase, i) => (
@@ -503,10 +591,9 @@ const DeliveryApproach = () => {
                     </div>
                   ))}
                 </div>
-                {/* Desktop UAT cards — hover lift */}
                 <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
                   {uatPhases.map((phase, i) => (
-                    <motion.div key={i} {...fadeIn(i * 0.06)} {...hoverLift} className="rounded-lg border border-border bg-card p-4 card-shadow">
+                    <motion.div key={i} {...fadeIn(i * 0.06)} {...hoverLiftSm} className="rounded-lg border border-border bg-card p-4 card-shadow">
                       <h3 className="text-sm font-semibold text-card-foreground">{phase.name}</h3>
                       <p className="mt-2 text-xs text-muted-foreground">{phase.desc}</p>
                     </motion.div>
@@ -515,7 +602,7 @@ const DeliveryApproach = () => {
               </div>
             </SectionWrapper>
 
-            {/* Key Controls — mobile + desktop hover lift */}
+            {/* Key Controls — mobile + desktop hover+tap */}
             <SectionWrapper className="relative overflow-hidden" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
               <div aria-hidden="true" className="pointer-events-none absolute inset-0">
                 <div className="absolute -left-12 -top-12 h-44 w-44 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
@@ -532,7 +619,7 @@ const DeliveryApproach = () => {
               </div>
             </SectionWrapper>
 
-            {/* Outputs — mobile + desktop hover lift */}
+            {/* Outputs — mobile + desktop hover+tap */}
             <SectionWrapper className="bg-accent/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
               <h2 className="mb-4 text-[28px] font-bold md:text-[36px] text-foreground">{t("uat.outputs")}</h2>
               <div className="grid gap-3 md:grid-cols-3 md:gap-4">
@@ -548,7 +635,7 @@ const DeliveryApproach = () => {
               </div>
             </SectionWrapper>
 
-            {/* What We Track — mobile + desktop hover lift */}
+            {/* What We Track — mobile + desktop hover+tap */}
             <SectionWrapper className="relative overflow-hidden" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
               <div aria-hidden="true" className="pointer-events-none absolute inset-0">
                 <div className="absolute -right-12 -top-12 h-44 w-44 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
@@ -568,7 +655,7 @@ const DeliveryApproach = () => {
               </div>
             </SectionWrapper>
 
-            {/* Release Decision Model — mobile + desktop hover lift */}
+            {/* Release Decision Model — mobile + desktop hover+tap */}
             <SectionWrapper className="bg-accent/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
               <h2 className="mb-4 text-[28px] font-bold md:mb-6 md:text-[36px] text-foreground">{t("release.decisionModel")}</h2>
               <div className="grid gap-3 sm:grid-cols-3 md:gap-4">
@@ -613,7 +700,7 @@ const DeliveryApproach = () => {
                   <h2 className="text-[28px] font-bold md:text-[36px] text-foreground">{t("delivery.automationHeading")}</h2>
                   <p className="mt-1.5 max-w-2xl text-sm text-muted-foreground">{t("delivery.automationSubheading")}</p>
                 </motion.div>
-                {/* Automation items — mobile + desktop hover lift */}
+                {/* Mobile + Desktop: hover+tap */}
                 <div className="mt-4 grid grid-cols-2 gap-3 md:mt-6 md:gap-4">
                   {(t("delivery.automationItems", { returnObjects: true }) as string[]).map((label, i) => (
                     <motion.div key={i} {...fadeIn(i * 0.08)} {...hoverLiftSm} className="flex items-center gap-2.5 rounded-lg border border-border bg-card p-3 card-shadow md:p-4">
@@ -632,13 +719,13 @@ const DeliveryApproach = () => {
               </motion.div>
             </SectionWrapper>
 
-            {/* Deliverables — mobile + desktop hover lift */}
             <SectionWrapper className="relative overflow-hidden bg-accent/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
               <div aria-hidden="true" className="pointer-events-none absolute inset-0">
                 <div className="absolute -right-12 -top-12 h-44 w-44 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
                 <div className="absolute -left-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.05] bg-transparent" />
               </div>
               <motion.h2 {...fadeIn(0)} className="text-[28px] font-bold md:text-[36px] text-foreground">{t("uat.deliverablesHeading")}</motion.h2>
+              {/* Mobile + Desktop: hover+tap */}
               <div className="mt-5 grid grid-cols-2 gap-3 md:mt-6 md:grid-cols-4 md:gap-4">
                 {deliverables.map((d, i) => (
                   <motion.div key={i} {...fadeIn(i * 0.08)} {...hoverLiftSm} className="flex flex-col items-center gap-2 rounded-lg border border-border bg-card p-3 text-center card-shadow md:flex-row md:gap-3 md:p-4 md:text-left">
@@ -649,13 +736,13 @@ const DeliveryApproach = () => {
               </div>
             </SectionWrapper>
 
-            {/* Release Decision Model — mobile + desktop hover lift */}
             <SectionWrapper className="relative overflow-hidden" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
               <div aria-hidden="true" className="pointer-events-none absolute inset-0">
                 <div className="absolute -left-12 -top-12 h-44 w-44 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
                 <div className="absolute -right-10 bottom-0 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
               </div>
               <h2 className="mb-4 text-[28px] font-bold md:mb-6 md:text-[36px] text-foreground">{t("release.decisionModel")}</h2>
+              {/* Mobile + Desktop: hover+tap */}
               <div className="grid gap-3 sm:grid-cols-3 md:gap-4">
                 {releaseStatuses.map((s, i) => (
                   <motion.div key={i} {...fadeIn(i * 0.1)} {...hoverLiftSm} className="rounded-lg border border-border bg-card p-4 card-shadow md:p-5">
