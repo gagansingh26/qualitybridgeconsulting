@@ -41,12 +41,13 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.45, delay },
 });
 
-// Mobile accordion — now wrapped in motion.div for hover lift
+// Mobile accordion card — hover + tap lift
 const AccordionCard = ({ icon, title, desc, detail, pill }: { icon: React.ReactNode; title: string; desc: string; detail?: string[]; pill?: string }) => {
   const [open, setOpen] = useState(false);
   return (
     <motion.div
       whileHover={{ y: -4, transition: { duration: 0.25 } }}
+      whileTap={{ y: -4, transition: { duration: 0.25 } }}
       className="rounded-lg border border-border bg-card card-shadow overflow-hidden"
     >
       <button
@@ -98,11 +99,12 @@ const AccordionCard = ({ icon, title, desc, detail, pill }: { icon: React.ReactN
   );
 };
 
-// Desktop card — hover lift
+// Desktop card — hover + tap lift
 const DesktopCard = ({ icon, title, desc, detail }: { icon: React.ReactNode; title: string; desc: string; detail?: string[] }) => {
   return (
     <motion.div
       whileHover={{ y: -6, transition: { duration: 0.25 } }}
+      whileTap={{ y: -6, transition: { duration: 0.25 } }}
       className="flex flex-col rounded-lg border border-border bg-card p-6 card-shadow hover:card-shadow-hover transition-shadow"
     >
       <div className="flex h-10 w-10 items-center justify-center rounded-md bg-accent text-primary">
@@ -337,13 +339,14 @@ const Index = () => {
           </p>
         </motion.div>
 
-        {/* Mobile: stacked cards — hover lift */}
+        {/* Mobile: whileHover + whileTap */}
         <div className="relative mt-6 flex flex-col gap-3 md:hidden">
           {problemItems.map((item, i) => (
             <motion.div
               key={i}
               {...fadeUp(i * 0.06)}
               whileHover={{ y: -4, transition: { duration: 0.25 } }}
+              whileTap={{ y: -4, transition: { duration: 0.25 } }}
               className="flex items-start gap-4 rounded-xl border border-border bg-card p-4 card-shadow"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
@@ -354,13 +357,14 @@ const Index = () => {
           ))}
         </div>
 
-        {/* Desktop: 3-column grid — hover lift */}
+        {/* Desktop: whileHover + whileTap */}
         <div className="relative mt-8 hidden md:grid md:grid-cols-3 md:gap-6">
           {problemItems.map((item, i) => (
             <motion.div
               key={i}
               {...fadeUp(i * 0.1)}
               whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              whileTap={{ y: -6, transition: { duration: 0.25 } }}
               className="flex flex-col rounded-xl border border-border bg-card p-6 card-shadow"
             >
               <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
@@ -429,7 +433,7 @@ const Index = () => {
           </p>
         </motion.div>
 
-        {/* Mobile: accordion — AccordionCard has hover lift built in */}
+        {/* Mobile: AccordionCard has whileTap built in */}
         <div className="relative mt-6 flex flex-col gap-2 md:hidden">
           {valueCards.map((c, i) => (
             <motion.div key={i} {...fadeUp(i * 0.06)}>
@@ -438,7 +442,7 @@ const Index = () => {
           ))}
         </div>
 
-        {/* Desktop: 3-column grid — DesktopCard has hover lift built in */}
+        {/* Desktop: DesktopCard has whileTap built in */}
         <div className="relative mt-8 hidden md:block">
           <div className="grid grid-cols-3 gap-6">
             {valueCards.map((c, i) => (
@@ -465,7 +469,7 @@ const Index = () => {
           </p>
         </motion.div>
 
-        {/* Desktop: horizontal 3-step */}
+        {/* Desktop */}
         <div className="mt-10 hidden md:block">
           <div className="relative grid grid-cols-3 gap-8">
             <div className="absolute left-[16.67%] right-[16.67%] top-6 h-0.5 bg-primary/20" />
@@ -481,7 +485,7 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Mobile: vertical stack */}
+        {/* Mobile */}
         <div className="mt-8 md:hidden">
           <div className="relative flex flex-col gap-8 pl-6">
             <div className="absolute bottom-0 left-[18px] top-0 w-0.5 bg-primary/20" />
@@ -538,7 +542,7 @@ const Index = () => {
         <motion.h2 {...fadeUp(0)} className="relative text-center text-[28px] font-bold md:text-[36px]">
           {t("outcomes.heading")}
         </motion.h2>
-        {/* Mobile + Desktop: same grid, hover lift on all */}
+        {/* Shared grid — mobile (2-col) + desktop (4-col), both get whileHover + whileTap */}
         <div className="relative mt-5 grid grid-cols-2 gap-3 md:mt-8 md:grid-cols-4 md:gap-6">
           {outcomeItems.map((o, i) => (
             <motion.div
@@ -548,6 +552,7 @@ const Index = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
               whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              whileTap={{ y: -6, transition: { duration: 0.25 } }}
               className="flex flex-col items-center gap-2 rounded-lg border border-border bg-card p-4 card-shadow text-center md:p-5"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
