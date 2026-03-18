@@ -514,6 +514,16 @@ const DeliveryApproach = () => {
                   </motion.div>
                 ))}
               </div>
+
+              {/* ── Engagement context ── */}
+              <motion.div
+                {...fadeIn(0.2)}
+                className="relative mt-6 rounded-xl border border-primary/20 bg-primary/[0.03] px-5 py-4 md:mt-8 text-left"
+              >
+                <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-2">Engagement</p>
+                <p className="text-sm text-foreground mb-1">{t("services.digitalEngagementFor")}</p>
+                <p className="text-xs text-muted-foreground">{t("services.digitalEngagementScope")}</p>
+              </motion.div>
             </SectionWrapper>
 
             {/* Tech stack */}
@@ -565,15 +575,6 @@ const DeliveryApproach = () => {
                     </Button>
                   </Link>
                 </div>
-              {/* ── Engagement context ── */}
-              <motion.div
-                {...fadeIn(0.2)}
-                className="relative mt-6 rounded-xl border border-primary/20 bg-primary/[0.03] px-5 py-4 md:mt-8 text-left"
-              >
-                <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-2">Engagement</p>
-                <p className="text-sm text-foreground mb-1">{t("services.digitalEngagementFor")}</p>
-                <p className="text-xs text-muted-foreground">{t("services.digitalEngagementScope")}</p>
-              </motion.div>
               </motion.div>
             </SectionWrapper>
           </motion.div>
@@ -613,7 +614,7 @@ const DeliveryApproach = () => {
 
               {/* ── Delivery lifecycle phases ── */}
               <div className="mt-6">
-                <h2 className="mb-4 text-xl font-semibold md:text-2xl text-foreground">
+                <h2 className="mb-4 text-[28px] font-bold md:text-[36px] text-foreground">
                   {t("delivery.heading")}
                 </h2>
 
@@ -724,7 +725,7 @@ const DeliveryApproach = () => {
 
             {/* ── UAT Operating Model ── */}
             <SectionWrapper className="bg-accent/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
-              <h2 className="mb-4 text-xl font-semibold md:text-2xl text-foreground">
+              <h2 className="mb-4 text-[28px] font-bold md:text-[36px] text-foreground">
                 {t("uat.operatingModel")}
               </h2>
 
@@ -784,7 +785,7 @@ const DeliveryApproach = () => {
                 <div className="absolute -left-12 -top-12 h-44 w-44 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
                 <div className="absolute -right-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
               </div>
-              <h2 className="mb-4 text-xl font-semibold md:text-2xl text-foreground">
+              <h2 className="mb-4 text-[28px] font-bold md:text-[36px] text-foreground">
                 {t("uat.keyControls")}
               </h2>
               <div className="grid grid-cols-2 gap-3 md:gap-4">
@@ -807,7 +808,7 @@ const DeliveryApproach = () => {
 
             {/* ── Outputs ── */}
             <SectionWrapper className="bg-accent/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
-              <h2 className="mb-4 text-xl font-semibold md:text-2xl text-foreground">
+              <h2 className="mb-4 text-[28px] font-bold md:text-[36px] text-foreground">
                 {t("uat.outputs")}
               </h2>
               <div className="grid gap-3 md:grid-cols-3 md:gap-4">
@@ -839,7 +840,7 @@ const DeliveryApproach = () => {
                 <div className="absolute -right-12 -top-12 h-44 w-44 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
                 <div className="absolute -left-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
               </div>
-              <h2 className="mb-4 text-xl font-semibold md:text-2xl text-foreground">
+              <h2 className="mb-4 text-[28px] font-bold md:text-[36px] text-foreground">
                 {t("release.trackHeading")}
               </h2>
               <div className="grid grid-cols-2 gap-3 md:gap-5">
@@ -867,7 +868,7 @@ const DeliveryApproach = () => {
 
             {/* ── Release Decision Model ── */}
             <SectionWrapper className="bg-accent/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
-              <h2 className="mb-4 text-xl font-semibold md:mb-6 md:text-2xl text-foreground">
+              <h2 className="mb-4 text-[28px] font-bold md:mb-6 md:text-[36px] text-foreground">
                 {t("release.decisionModel")}
               </h2>
               <div className="grid gap-3 sm:grid-cols-3 md:gap-4">
@@ -892,7 +893,7 @@ const DeliveryApproach = () => {
                 {...fadeIn(0.1)}
                 className="mt-5 rounded-lg border border-border bg-background p-4 md:mt-6 md:p-6"
               >
-                <h3 className="text-lg font-semibold text-foreground md:text-xl">
+                <h3 className="text-xl font-semibold text-foreground md:text-2xl">
                   {t("release.governanceHeading")}
                 </h3>
                 <p className="mt-1.5 text-xs text-muted-foreground md:mt-2 md:text-sm">
@@ -903,7 +904,7 @@ const DeliveryApproach = () => {
           </motion.div>
         )}
 
-        {/* ════════════════════════════════════════════════════════════════
+       {/* ════════════════════════════════════════════════════════════════
             TAB 3 — Quality Engineering
         ════════════════════════════════════════════════════════════════ */}
         {activeTab === "quality" && (
@@ -916,7 +917,7 @@ const DeliveryApproach = () => {
               {/* Intro */}
               <motion.p
                 {...fadeIn(0)}
-                className="mx-auto max-w-2xl text-center text-sm text-muted-foreground md:text-base"
+                className="relative mx-auto max-w-2xl text-center text-sm text-muted-foreground md:text-base"
               >
                 {t("services.qualityIntro")}
               </motion.p>
@@ -937,7 +938,7 @@ const DeliveryApproach = () => {
               {/* Test Automation Strategy */}
               <div className="mt-6">
                 <motion.div {...fadeIn(0)}>
-                  <h2 className="text-xl font-bold md:text-2xl text-foreground">
+                  <h2 className="text-[28px] font-bold md:text-[36px] text-foreground">
                     {t("delivery.automationHeading")}
                   </h2>
                   <p className="mt-1.5 max-w-2xl text-sm text-muted-foreground">
@@ -992,7 +993,7 @@ const DeliveryApproach = () => {
               </div>
               <motion.h2
                 {...fadeIn(0)}
-                className="text-xl font-bold md:text-2xl text-foreground"
+                className="text-[28px] font-bold md:text-[36px] text-foreground"
               >
                 {t("uat.deliverablesHeading")}
               </motion.h2>
@@ -1019,7 +1020,7 @@ const DeliveryApproach = () => {
                 <div className="absolute -right-10 bottom-0 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
               </div>
 
-              <h2 className="mb-4 text-xl font-semibold md:mb-6 md:text-2xl text-foreground">
+              <h2 className="mb-4 text-[28px] font-bold md:mb-6 md:text-[36px] text-foreground">
                 {t("release.decisionModel")}
               </h2>
               <div className="grid gap-3 sm:grid-cols-3 md:gap-4">
