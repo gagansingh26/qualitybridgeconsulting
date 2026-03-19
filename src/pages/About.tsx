@@ -20,7 +20,6 @@ const toolbox = ["Cypress", "Playwright", "Jenkins", "GitHub Actions", "Docker",
 const principleIcons = [ShieldCheck, LineChart, Sparkles, Globe];
 const focusIcons = [Briefcase, Settings, Brain, Building2];
 
-// Dot pattern style — theme-aware, works light & dark
 const dotBg = {
   backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.07) 1px, transparent 1px)",
   backgroundSize: "22px 22px",
@@ -62,12 +61,10 @@ const content = {
       "Automation-first quality engineering using Cypress, Playwright, and many more — accelerated by AI-assisted test design.",
     ],
     paragraph1: "I've always been drawn to building things that work — not just functionally, but reliably, at scale, under pressure.",
-    paragraph1b: "Over 10 years working across enterprise programmes at companies like <strong>Johnson & Johnson</strong>, <strong>Aon</strong>, <strong>Workday</strong>, and <strong>Alight</strong> across North America, and at <strong>Hugo Boss</strong>, <strong>Check24</strong>, and <strong>Wellster Health</strong> in Germany — I worked as an engineer building automation frameworks, shipping digital products, and designing the infrastructure that gives teams confidence to release fast without breaking things.",
-    paragraph1c: "What I found consistently exciting was the intersection of engineering and delivery. Building automation frameworks that actually scale. Shipping modern web applications and internal tools that teams rely on daily. Designing test infrastructure for complex ERP and SaaS platforms that gives teams the confidence to release faster without the risk. That combination — engineering capability with delivery rigour — is what I kept coming back to.",
-    paragraph1d: "QualityBridge is the formalisation of that approach. Built for SMEs and growing teams who need the same engineering standards that large enterprise programmes run on, without the overhead of a large consultancy.",
-    paragraph2: "We work with a carefully selected network of specialist partners across North America, Europe, and India — each vetted for their domain expertise and delivery track record. Clients get access to the right capability at every phase, without the overhead of managing multiple vendors.",
-    paragraph3: "Whether you're running a SAP transformation, scaling a QA practice, or building a digital product — the standard doesn't change. Structure, transparency, and no surprises.",
-    founderSignoff: "Gagan Singh, Founder · Greater Toronto Area, Canada",
+    paragraph1b: "I spent over 10 years inside large enterprise programmes — <strong>Johnson &amp; Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong>, <strong>Aon</strong>, <strong>Hugo Boss</strong>, <strong>CHECK24</strong>, and <strong>Wellster Healthtech Group</strong> — building digital products and quality practices that give teams the confidence to deliver consistently.",
+    paragraph1c: "What I kept coming back to was the intersection of engineering and delivery. Building things that actually scale. Creating the kind of quality practices where releasing feels controlled, not uncertain.",
+    paragraph1d: "QualityBridge grew out of that experience. It's for SMEs and growing teams who deserve the same rigour as the big programmes — without the overhead of a large consultancy.",
+    paragraph3: "Whatever you're working on — an ERP transformation, a SaaS product, or scaling a QA practice — the approach stays the same. Structure, transparency, and no surprises.",
     ctaGetInTouch: "Get in Touch",
     ctaViewWork: "View LinkedIn",
     ctaBook: "Book a Consultation",
@@ -102,7 +99,7 @@ const content = {
       { id: "ai", title: "AI-Enabled Quality Engineering", outcome: "30–40% reduction in production defect leakage through shift-left validation.", content: "Applying Generative AI and LLMs to test design, risk identification, and automation acceleration. Reducing manual effort while improving coverage and feedback speed across complex enterprise platforms." },
     ],
     openToConversation: "Ready to work together?",
-    openToConversationBody: "Whether you're planning a SAP programme, scaling your QA practice, or building a digital product — let's start with a conversation.",
+    openToConversationBody: "Whether you're planning an ERP transformation, scaling your QA practice, or building a digital product — let's start with a conversation.",
     ctaContact: "Get in Touch",
     ctaLinkedIn: "LinkedIn",
   },
@@ -130,11 +127,10 @@ const content = {
       "Automatisierungsorientiertes Quality Engineering mit Cypress, Playwright und vielen mehr — beschleunigt durch KI-gestütztes Testdesign.",
     ],
     paragraph1: "Ich war schon immer fasziniert davon, Dinge zu bauen, die funktionieren — nicht nur funktional, sondern zuverlässig, skalierbar und unter Druck.",
-    paragraph1b: "In über 10 Jahren arbeitete ich an Enterprise-Programmen bei Unternehmen wie <strong>Johnson & Johnson</strong>, <strong>Aon</strong>, <strong>Workday</strong> und <strong>Alight</strong> in Nordamerika sowie bei <strong>Hugo Boss</strong>, <strong>Check24</strong> und <strong>Wellster Health</strong> in Deutschland — als Ingenieur, der Automatisierungs-Frameworks aufgebaut, digitale Produkte geliefert und die Infrastruktur gestaltet hat, die Teams die Zuversicht gibt, schnell zu releasen ohne Dinge zu brechen.",
-    paragraph1c: "Was mich dabei immer wieder begeistert hat, ist die Schnittmenge von Engineering und Delivery. Automatisierungs-Frameworks bauen, die wirklich skalieren. Moderne Webanwendungen und interne Tools liefern, auf die Teams täglich vertrauen. Test-Infrastruktur für komplexe ERP- und SaaS-Plattformen gestalten, die Teams die Zuversicht gibt, schneller zu releasen — ohne Risiko. Diese Kombination — Engineering-Kompetenz und Delivery-Disziplin — ist es, zu der ich immer zurückgekehrt bin.",
-    paragraph1d: "QualityBridge ist die Formalisierung dieses Ansatzes. Entwickelt für KMU und wachsende Teams, die dieselben Engineering-Standards benötigen wie große Enterprise-Programme — ohne den Overhead einer großen Unternehmensberatung.",
-    paragraph2: "Wir arbeiten mit einem sorgfältig ausgewählten Netzwerk von Spezialisten aus Nordamerika, Europa und Indien — jeweils geprüft auf Fachkompetenz und Lieferbilanz. Kunden erhalten in jeder Phase Zugang zur richtigen Kompetenz, ohne den Aufwand mehrerer Lieferanten.",
-    paragraph3: "Ob SAP-Transformation, Skalierung einer QA-Praxis oder Aufbau eines digitalen Produkts — der Standard ändert sich nicht. Struktur, Transparenz und keine Überraschungen.",
+    paragraph1b: "Ich verbrachte über 10 Jahre in großen Enterprise-Programmen — <strong>Johnson &amp; Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong>, <strong>Aon</strong>, <strong>Hugo Boss</strong>, <strong>CHECK24</strong> und <strong>Wellster Healthtech Group</strong> — und baute dabei digitale Produkte und Qualitätspraktiken auf, die Teams die Zuversicht geben, konsistent zu liefern.",
+    paragraph1c: "Was mich dabei immer wieder begeistert hat, ist die Schnittmenge von Engineering und Delivery. Dinge aufbauen, die wirklich skalieren. Qualitätspraktiken schaffen, bei denen Releases kontrolliert und nicht ungewiss wirken.",
+    paragraph1d: "QualityBridge ist aus dieser Erfahrung entstanden. Es richtet sich an KMU und wachsende Teams, die dieselbe Sorgfalt wie in den großen Programmen verdienen — ohne den Overhead einer großen Unternehmensberatung.",
+    paragraph3: "Egal woran Sie arbeiten — eine ERP-Transformation, ein SaaS-Produkt oder der Aufbau einer QA-Praxis — der Ansatz bleibt gleich. Struktur, Transparenz und keine Überraschungen.",
     ctaGetInTouch: "Kontakt aufnehmen",
     ctaViewWork: "LinkedIn ansehen",
     ctaBook: "Beratung buchen",
@@ -169,7 +165,7 @@ const content = {
       { id: "ai", title: "KI-gestütztes Quality Engineering", outcome: "30–40% weniger Produktionsfehler durch Shift-Left-Validierung.", content: "Generative KI und LLMs für Testdesign, Risikoerkennung und Automatisierungsbeschleunigung. Weniger manueller Aufwand bei besserer Abdeckung und schnellerem Feedback." },
     ],
     openToConversation: "Bereit zusammenzuarbeiten?",
-    openToConversationBody: "Ob Sie ein SAP-Programm planen, Ihre QA-Praxis skalieren oder ein digitales Produkt aufbauen — lassen Sie uns mit einem Gespräch beginnen.",
+    openToConversationBody: "Ob Sie eine ERP-Transformation planen, Ihre QA-Praxis skalieren oder ein digitales Produkt aufbauen — lassen Sie uns mit einem Gespräch beginnen.",
     ctaContact: "Kontakt aufnehmen",
     ctaLinkedIn: "LinkedIn",
   },
@@ -197,11 +193,10 @@ const content = {
       "Ingénierie qualité axée sur l'automatisation avec Cypress, Playwright et bien plus — accélérée par la conception de tests assistée par IA.",
     ],
     paragraph1: "J'ai toujours été attiré par la construction de choses qui fonctionnent — pas seulement fonctionnellement, mais de manière fiable, à grande échelle et sous pression.",
-    paragraph1b: "En plus de 10 ans de travail sur des programmes enterprise dans des entreprises comme <strong>Johnson & Johnson</strong>, <strong>Aon</strong>, <strong>Workday</strong> et <strong>Alight</strong> en Amérique du Nord, et chez <strong>Hugo Boss</strong>, <strong>Check24</strong> et <strong>Wellster Health</strong> en Allemagne — j'ai travaillé comme ingénieur en construisant des frameworks d'automatisation, en livrant des produits digitaux et en concevant l'infrastructure qui donne aux équipes la confiance de livrer rapidement sans casser les choses.",
-    paragraph1c: "Ce qui m'a toujours passionné, c'est l'intersection entre l'ingénierie et la livraison. Construire des frameworks d'automatisation qui s'adaptent vraiment. Livrer des applications web modernes et des outils internes sur lesquels les équipes comptent au quotidien. Concevoir une infrastructure de test pour des plateformes ERP et SaaS complexes qui donne aux équipes la confiance de livrer plus rapidement sans risque. Cette combinaison — compétence en ingénierie et rigueur de livraison — est ce à quoi je revenais sans cesse.",
-    paragraph1d: "QualityBridge est la formalisation de cette approche. Construit pour les PME et les équipes en croissance qui ont besoin des mêmes standards d'ingénierie que les grands programmes enterprise, sans les frais généraux d'un grand cabinet de conseil.",
-    paragraph2: "Nous travaillons avec un réseau soigneusement sélectionné de partenaires spécialisés en Amérique du Nord, en Europe et en Inde — chacun vérifié pour son expertise et son bilan. Les clients accèdent à la bonne compétence à chaque phase, sans la complexité de gérer plusieurs fournisseurs.",
-    paragraph3: "Que vous meniez une transformation SAP, développiez une pratique QA ou construisiez un produit digital — le standard ne change pas. Structure, transparence et sans surprises.",
+    paragraph1b: "J'ai passé plus de 10 ans au sein de grands programmes enterprise — <strong>Johnson &amp; Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong>, <strong>Aon</strong>, <strong>Hugo Boss</strong>, <strong>CHECK24</strong> et <strong>Wellster Healthtech Group</strong> — en développant des produits digitaux et des pratiques qualité qui donnent aux équipes la confiance de livrer de manière cohérente.",
+    paragraph1c: "Ce à quoi je revenais sans cesse, c'est l'intersection entre l'ingénierie et la livraison. Construire des choses qui s'adaptent réellement. Créer des pratiques qualité où les mises en production semblent maîtrisées, et non incertaines.",
+    paragraph1d: "QualityBridge est né de cette expérience. C'est pour les PME et les équipes en croissance qui méritent la même rigueur que les grands programmes — sans les frais généraux d'un grand cabinet de conseil.",
+    paragraph3: "Quel que soit votre projet — une transformation ERP, un produit SaaS ou le développement d'une pratique QA — l'approche reste la même. Structure, transparence et sans surprises.",
     ctaGetInTouch: "Nous contacter",
     ctaViewWork: "Voir LinkedIn",
     ctaBook: "Réserver une consultation",
@@ -236,7 +231,7 @@ const content = {
       { id: "ai", title: "Ingénierie qualité assistée par IA", outcome: "30–40% de réduction des défauts en production grâce à la validation shift-left.", content: "Appliquer l'IA générative et les LLMs à la conception des tests, l'identification des risques et l'accélération de l'automatisation." },
     ],
     openToConversation: "Prêt à travailler ensemble ?",
-    openToConversationBody: "Que vous planifiez un programme SAP, développiez votre pratique QA ou construisiez un produit digital — commençons par une conversation.",
+    openToConversationBody: "Que vous planifiez une transformation ERP, développiez votre pratique QA ou construisiez un produit digital — commençons par une conversation.",
     ctaContact: "Nous contacter",
     ctaLinkedIn: "LinkedIn",
   },
@@ -425,10 +420,6 @@ const About = () => {
                 </div>
                 <p className="mt-4 border-l-2 border-primary/30 pl-3 text-sm italic text-muted-foreground">{a.paragraph3}</p>
               </div>
-
-              <div className="space-y-3 pt-1 text-sm leading-relaxed text-muted-foreground">
-                <p>{a.paragraph2}</p>
-              </div>
             </div>
 
             <div className="space-y-4 lg:col-span-5">
@@ -469,7 +460,7 @@ const About = () => {
             </div>
           </div>
 
-            </div>
+        </div>
       </main>
 
       {/* ── Quote — full-width strip matching Home page ── */}
