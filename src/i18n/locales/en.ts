@@ -129,8 +129,11 @@ const en = {
     eyebrow: "Sample Engagements",
     heading: "Real programmes. Measurable outcomes.",
     subheading: "A snapshot of the kind of work we deliver — across SAP governance, quality engineering, and digital development.",
-    disclaimer: "Client details are kept confidential. Engagements described in general terms to protect programme confidentiality.",
+    disclaimer: "Anonymised engagement · Details available on request",
     labels: {
+      tapToExpand: "Tap any card to see full details",
+      showDetails: "Show details",
+      hide: "Hide details",
       challenge: "Challenge",
       approach: "Approach",
       outcomes: "Outcomes",
