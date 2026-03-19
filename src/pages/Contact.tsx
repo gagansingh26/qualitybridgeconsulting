@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { usePageMeta } from "@/hooks/use-page-meta";
-import { Mail, MapPin, Send, Calendar, Clock, Globe, Shield, ArrowRight, Loader2, ExternalLink } from "lucide-react";
+import { Mail, MapPin, Send, Calendar, Clock, Globe, Shield, ArrowRight, Loader2, ExternalLink, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -14,6 +14,7 @@ import { useTranslation } from "react-i18next";
 
 const EMAIL_TO = "qualitybridgeconsulting.ca@gmail.com";
 const BOOK_CALL_URL = "https://cal.com/gagan.singh/15min";
+const LINKEDIN_URL = "https://www.linkedin.com/company/qualitybridgeconsulting";
 
 const isHttpUrl = (href: string) => /^https?:\/\//i.test(href);
 
@@ -242,11 +243,9 @@ const Contact = () => {
             <p className="text-base font-medium leading-relaxed text-foreground md:text-lg">
               "Every conversation starts the same way: understanding your programme before proposing anything."
             </p>
-
           </div>
         </div>
       </motion.div>
-
 
       <SectionWrapper
         className="relative overflow-hidden bg-muted/50"
@@ -265,31 +264,12 @@ const Contact = () => {
           {/* Left: Info cards stacked */}
           <div className="flex flex-col gap-3 md:gap-4">
 
-            {/* Email */}
-            <motion.a
-              href={`mailto:${EMAIL_TO}`}
-              {...fadeUp(0)}
-              className="group flex flex-1 items-start gap-4 rounded-xl border border-border bg-card p-4 card-shadow transition-colors hover:border-primary/40 md:p-5"
-            >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <Mail className="h-5 w-5" />
-              </div>
-              <div className="min-w-0">
-                <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground md:text-[11px]">
-                  {t("contact.email")}
-                </p>
-                <p className="mt-1 truncate text-sm font-medium text-card-foreground transition-colors group-hover:text-primary md:text-base">
-                  {EMAIL_TO}
-                </p>
-              </div>
-            </motion.a>
-
-            {/* Book a Call */}
+            {/* Book a Call — first */}
             <motion.a
               href={BOOK_CALL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              {...fadeUp(0.08)}
+              {...fadeUp(0)}
               className="group flex flex-1 items-start gap-4 rounded-xl border border-border bg-card p-4 card-shadow transition-colors hover:border-primary/40 md:p-5"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -306,9 +286,50 @@ const Contact = () => {
               </div>
             </motion.a>
 
+            {/* Email */}
+            <motion.a
+              href={`mailto:${EMAIL_TO}`}
+              {...fadeUp(0.08)}
+              className="group flex flex-1 items-start gap-4 rounded-xl border border-border bg-card p-4 card-shadow transition-colors hover:border-primary/40 md:p-5"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <Mail className="h-5 w-5" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground md:text-[11px]">
+                  {t("contact.email")}
+                </p>
+                <p className="mt-1 truncate text-sm font-medium text-card-foreground transition-colors group-hover:text-primary md:text-base">
+                  {EMAIL_TO}
+                </p>
+              </div>
+            </motion.a>
+
+            {/* LinkedIn */}
+            <motion.a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              {...fadeUp(0.16)}
+              className="group flex flex-1 items-start gap-4 rounded-xl border border-border bg-card p-4 card-shadow transition-colors hover:border-primary/40 md:p-5"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <Linkedin className="h-5 w-5" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground md:text-[11px]">
+                  {t("contact.linkedin") ?? "LinkedIn"}
+                </p>
+                <p className="mt-1 flex items-center gap-1 text-sm font-medium text-card-foreground transition-colors group-hover:text-primary md:text-base">
+                  QualityBridge Consulting
+                  <ExternalLink className="h-3.5 w-3.5 shrink-0 opacity-60" />
+                </p>
+              </div>
+            </motion.a>
+
             {/* Location */}
             <motion.div
-              {...fadeUp(0.16)}
+              {...fadeUp(0.24)}
               className="flex flex-1 items-start gap-4 rounded-xl border border-border bg-card p-4 card-shadow md:p-5"
             >
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
