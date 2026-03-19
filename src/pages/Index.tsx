@@ -7,6 +7,7 @@ import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { useTranslation } from "react-i18next";
+import { CaseStudies } from "@/components/CaseStudies";
 
 const valueCardIcons = [
   <Monitor className="h-5 w-5" />,
@@ -156,7 +157,7 @@ const Index = () => {
 
   return (
     <Layout>
-      {/* Hero */}
+      {/* ── Hero ── */}
       <section className="enterprise-gradient relative overflow-hidden py-12 md:py-20 lg:py-28">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10 bg-white/[0.03] md:-right-10 md:-top-10 md:h-80 md:w-80" />
@@ -228,9 +229,9 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-3xl text-[28px] font-bold leading-tight text-primary-foreground md:text-[36px] lg:text-5xl"
           >
-            {t("hero.titlePrefix") || "Built to Ship."}{" "}
+            {t("hero.titlePrefix")}{" "}
             <span style={{ color: "#93c5fd" }}>
-              {t("hero.titleAccent") || "Engineered to Last."}
+              {t("hero.titleAccent")}
             </span>
           </motion.h1>
 
@@ -243,20 +244,28 @@ const Index = () => {
             {t("hero.subtitle")}
           </motion.p>
 
+          {/* ── PATCH 2: Hero CTAs — scroll anchor replaces book consultation ── */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
             className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3"
           >
-            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-              <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto">
-                {t("hero.bookConsultation")} <ExternalLink className="ml-2 h-4 w-4" />
-              </Button>
-            </a>
+            <Button
+              size="lg"
+              variant="secondary"
+              className="w-full font-semibold sm:w-auto"
+              onClick={() =>
+                document
+                  .getElementById("how-we-work")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              {t("hero.howWeWork")} <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
             <Link to="/services" className="w-full sm:w-auto">
               <Button size="lg" variant="outline" className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto">
-                {t("cta.viewApproach") || "View Our Services"} <ArrowRight className="ml-2 h-4 w-4" />
+                {t("cta.viewApproach")} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </motion.div>
@@ -287,7 +296,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Capabilities Strip */}
+      {/* ── Capabilities Strip ── */}
       <div className="border-b border-t border-border bg-card">
         <div className="container mx-auto px-4 py-3">
           <div className="grid grid-cols-2 gap-x-4 gap-y-2 md:flex md:flex-wrap md:items-center md:justify-center md:gap-10">
@@ -339,7 +348,7 @@ const Index = () => {
           </p>
         </motion.div>
 
-        {/* Mobile: whileHover + whileTap */}
+        {/* Mobile */}
         <div className="relative mt-6 flex flex-col gap-3 md:hidden">
           {problemItems.map((item, i) => (
             <motion.div
@@ -357,7 +366,7 @@ const Index = () => {
           ))}
         </div>
 
-        {/* Desktop: whileHover + whileTap */}
+        {/* Desktop */}
         <div className="relative mt-8 hidden md:grid md:grid-cols-3 md:gap-6">
           {problemItems.map((item, i) => (
             <motion.div
@@ -374,6 +383,21 @@ const Index = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* ── PATCH 3: Soft CTA after Problems → scrolls to Case Studies ── */}
+        <motion.div {...fadeUp(0.2)} className="relative text-center mt-8">
+          <button
+            type="button"
+            onClick={() =>
+              document
+                .getElementById("case-studies")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="text-sm text-primary hover:underline underline-offset-4 font-medium"
+          >
+            {t("problems.sampleEngagement")}
+          </button>
+        </motion.div>
       </SectionWrapper>
 
       {/* ── Platforms We Work With ── */}
@@ -433,7 +457,7 @@ const Index = () => {
           </p>
         </motion.div>
 
-        {/* Mobile: AccordionCard has whileTap built in */}
+        {/* Mobile */}
         <div className="relative mt-6 flex flex-col gap-2 md:hidden">
           {valueCards.map((c, i) => (
             <motion.div key={i} {...fadeUp(i * 0.06)}>
@@ -442,7 +466,7 @@ const Index = () => {
           ))}
         </div>
 
-        {/* Desktop: DesktopCard has whileTap built in */}
+        {/* Desktop */}
         <div className="relative mt-8 hidden md:block">
           <div className="grid grid-cols-3 gap-6">
             {valueCards.map((c, i) => (
@@ -454,8 +478,8 @@ const Index = () => {
         </div>
       </SectionWrapper>
 
-      {/* ── How We Work ── */}
-      <SectionWrapper className="relative overflow-hidden bg-muted/50">
+      {/* ── How We Work ── PATCH 3: added id="how-we-work" ── */}
+      <SectionWrapper id="how-we-work" className="relative overflow-hidden bg-muted/50">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -left-16 -top-16 h-56 w-56 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
           <div className="absolute -left-4 top-12 h-32 w-32 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
@@ -504,6 +528,9 @@ const Index = () => {
         </div>
       </SectionWrapper>
 
+      {/* ── PATCH 4: Case Studies inserted here ── */}
+      <CaseStudies />
+
       {/* ── Quote ── */}
       <motion.div
         {...fadeUp(0)}
@@ -539,10 +566,25 @@ const Index = () => {
           <div className="absolute right-10 top-8 h-24 w-24 rounded-full border border-primary/[0.05] bg-transparent" />
           <div className="absolute bottom-8 left-12 h-20 w-20 rounded-full border border-primary/[0.04] bg-transparent" />
         </div>
-        <motion.h2 {...fadeUp(0)} className="relative text-center text-[28px] font-bold md:text-[36px]">
+
+        {/* ── PATCH 4: Warm CTA before outcomes heading ── */}
+        <motion.div {...fadeUp(0)} className="relative text-center mb-8">
+          <Link
+            to="/contact"
+            className="inline-block text-sm font-medium text-foreground
+                       border-b border-foreground pb-0.5
+                       hover:border-primary hover:text-primary
+                       dark:hover:border-primary dark:hover:text-primary
+                       transition-colors"
+          >
+            {t("outcomes.forYourProgramme")}
+          </Link>
+        </motion.div>
+
+        <motion.h2 {...fadeUp(0.05)} className="relative text-center text-[28px] font-bold md:text-[36px]">
           {t("outcomes.heading")}
         </motion.h2>
-        {/* Shared grid — mobile (2-col) + desktop (4-col), both get whileHover + whileTap */}
+
         <div className="relative mt-5 grid grid-cols-2 gap-3 md:mt-8 md:grid-cols-4 md:gap-6">
           {outcomeItems.map((o, i) => (
             <motion.div
@@ -565,7 +607,7 @@ const Index = () => {
         </div>
       </SectionWrapper>
 
-      {/* ── CTA ── */}
+      {/* ── CTA ── PATCH 5: "free consultation" + "Send us a message" ── */}
       <SectionWrapper className="relative overflow-hidden bg-accent/50">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
@@ -582,9 +624,9 @@ const Index = () => {
                 {t("cta.bookConsultation")} <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
             </a>
-            <Link to="/services" className="w-full sm:w-auto">
+            <Link to="/contact" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                {t("cta.viewApproach")} <ArrowRight className="ml-2 h-4 w-4" />
+                {t("cta.message")} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </div>
