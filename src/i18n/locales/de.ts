@@ -129,8 +129,11 @@ const de = {
     eyebrow: "Beispielprojekte",
     heading: "Echte Programme. Messbare Ergebnisse.",
     subheading: "Ein Überblick über unsere Arbeit — in den Bereichen SAP-Governance, Qualitätssicherung und digitale Entwicklung.",
-    disclaimer: "Kundendaten werden vertraulich behandelt. Projekte werden in allgemeiner Form beschrieben, um die Vertraulichkeit der Programme zu wahren.",
+    disclaimer: "Anonymisiertes Engagement · Details auf Anfrage erhältlich",
     labels: {
+      tapToExpand: "Tippen Sie auf eine Karte für Details",
+      showDetails: "Details anzeigen",
+      hide: "Details ausblenden",
       challenge: "Herausforderung",
       approach: "Vorgehen",
       outcomes: "Ergebnisse",
