@@ -87,7 +87,7 @@ const fr = {
   },
   outcomes: {
     heading: "Résultats commerciaux",
-    forYourProgramme: "Ces résultats — pour votre programme →",
+    forYourProgramme: "Ces résultats — pour votre programme",
     items: [
       { label: "Livraison digitale plus rapide", desc: "Les outils modernes et le prototypage rapide réduisent le temps du concept à la production" },
       { label: "Go-lives SAP maîtrisés", desc: "La gouvernance UAT structurée remplace les versions intuitives par des approbations basées sur les preuves" },
@@ -123,7 +123,7 @@ const fr = {
     bookConsultation: "Réserver une consultation gratuite",
     viewApproach: "Voir nos services",
     getInTouch: "Nous contacter",
-    message: "Nous envoyer un message →",
+    message: "Nous envoyer un message",
   },
   caseStudies: {
     eyebrow: "Exemples de missions",
