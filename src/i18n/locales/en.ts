@@ -87,7 +87,7 @@ const en = {
   },
   outcomes: {
     heading: "Business Outcomes",
-    forYourProgramme: "These results — for your programme →",
+    forYourProgramme: "These results — for your programme",
     items: [
       { label: "Faster digital delivery", desc: "Modern tooling and rapid prototyping cut time from concept to production" },
       { label: "Controlled SAP go-lives", desc: "Structured UAT governance replaces gut-feel releases with evidence-based sign-offs" },
@@ -123,7 +123,7 @@ const en = {
     bookConsultation: "Book a free consultation",
     viewApproach: "View Our Services",
     getInTouch: "Get in Touch",
-    message: "Send us a message →",
+    message: "Send us a message",
   },
   caseStudies: {
     eyebrow: "Sample Engagements",
