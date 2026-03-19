@@ -14,6 +14,7 @@ const en = {
     reach: "Client engagement managed locally in Canada · North America · Europe · Asia",
     bookConsultation: "Book a Consultation",
     bookCall: "Book a Call",
+    howWeWork: "See how we work →",
     stats: [
       { value: "Canada", label: "HQ & Client Lead" },
       { value: "3 Regions", label: "Americas · EU · Asia" },
@@ -86,6 +87,7 @@ const en = {
   },
   outcomes: {
     heading: "Business Outcomes",
+    forYourProgramme: "These results — for your programme →",
     items: [
       { label: "Faster digital delivery", desc: "Modern tooling and rapid prototyping cut time from concept to production" },
       { label: "Controlled SAP go-lives", desc: "Structured UAT governance replaces gut-feel releases with evidence-based sign-offs" },
@@ -96,6 +98,7 @@ const en = {
   problems: {
     heading: "Problems We Solve",
     subheading: "Across digital delivery, SAP programmes, and quality engineering — these are the challenges we're built to fix.",
+    sampleEngagement: "See a sample engagement →",
     items: [
       {
         pill: "Digital Development",
@@ -114,21 +117,69 @@ const en = {
       },
     ],
   },
-
   cta: {
     heading: "Ready to Deliver With Confidence?",
     body: "Digital development, SAP governance & UAT, and quality engineering — managed locally in Canada, delivered globally.",
-    bookConsultation: "Book a Consultation",
+    bookConsultation: "Book a free consultation",
     viewApproach: "View Our Services",
     getInTouch: "Get in Touch",
+    message: "Send us a message →",
+  },
+  caseStudies: {
+    eyebrow: "Sample Engagements",
+    heading: "Real programmes. Measurable outcomes.",
+    subheading: "A snapshot of the kind of work we deliver — across SAP governance, quality engineering, and digital development.",
+    disclaimer: "Client details are kept confidential. Engagements described in general terms to protect programme confidentiality.",
+    labels: {
+      challenge: "Challenge",
+      approach: "Approach",
+      outcomes: "Outcomes",
+    },
+    sap: {
+      pillar: "SAP Governance & UAT",
+      client: "Global HR & Payroll SaaS company — North America",
+      title: "ERP Implementation Support & Ongoing UAT Governance",
+      challenge: "A large-scale ERP implementation with distributed stakeholders and no structured UAT process — release decisions were being made on gut feel, not evidence.",
+      approach: "Embedded into Agile Scrum delivery teams to lead requirements gathering, define UAT acceptance criteria, and build a structured go/no-go framework with stakeholder sign-off gates. Supported pre- and post-production releases across multiple programme cycles.",
+      outcomes: [
+        "Structured UAT process adopted across all release cycles",
+        "Go/no-go decisions backed by documented evidence, not instinct",
+        "Pre- and post-production defect rates measurably reduced",
+        "Stakeholder confidence in release readiness significantly improved",
+      ],
+    },
+    qe: {
+      pillar: "Quality Engineering",
+      client: "Leading insurance comparison portal — Europe",
+      title: "UAT & Quality Engineering Across Insurance Domains",
+      challenge: "A high-volume consumer platform integrating with multiple third-party insurance vendors, with inconsistent UAT practices and limited regression coverage across domains.",
+      approach: "Led end-to-end UAT across motor, health, and home insurance domains, working directly with third-party vendors to align acceptance criteria. Introduced structured test planning, defect triage, and pre/post-production validation cycles.",
+      outcomes: [
+        "UAT coverage extended across all active insurance domains",
+        "Third-party vendor alignment on acceptance criteria and sign-off",
+        "Defect escape rate to production reduced through structured pre-release gates",
+        "Repeatable UAT process established for ongoing release cycles",
+      ],
+    },
+    digital: {
+      pillar: "Digital Development",
+      client: "Enterprise SaaS / ERP platform provider — North America",
+      title: "eSignature Integration Between ERP and Third-Party Vendors",
+      challenge: "A complex integration requirement between a core SaaS ERP platform and external eSignature providers, with no standardised approach across vendor implementations.",
+      approach: "Contributed to the design, testing, and delivery of eSignature integrations connecting the ERP platform with industry-standard document signing vendors. Validated end-to-end workflows, edge cases, and compliance requirements across multiple integration touchpoints.",
+      outcomes: [
+        "Seamless eSignature workflow delivered within the core ERP platform",
+        "Integration validated across multiple third-party signing vendors",
+        "Edge cases and compliance scenarios documented and resolved pre-launch",
+        "Reduced manual signing overhead for enterprise end-users",
+      ],
+    },
   },
 
-  // ─── NEW: Services page ───────────────────────────────────────────────────
+  // ─── Services page ────────────────────────────────────────────────────────
   services: {
     heading: "Our Services",
     subheading: "Digital Development, SAP Governance & UAT, and Quality Engineering — three specialisations working together for confident, well-tested delivery.",
-
-    // Hero
     heroPrefix: "Expert Specialisations ·",
     heroAccent: "One Standard.",
     heroSubtitle: "Digital Development, SAP Governance & UAT, and Quality Engineering — delivered under one engagement, managed from Canada.",
@@ -137,13 +188,9 @@ const en = {
       { value: "SAP S/4HANA", label: "Governance & UAT" },
       { value: "Automation Frameworks", label: "Quality Engineering" },
     ],
-
-    // Tab labels — order matches home page pills
     tabDigital: "Digital Development",
     tabSap: "SAP Governance & UAT",
     tabQuality: "Quality Engineering",
-
-    // Per-tab intro text
     digitalIntro: "Modern web applications, reporting dashboards, and rapid prototypes — built for performance, scalability, and stakeholder readiness. From APIs and integrations to production-grade platforms, we deliver digital tools that work reliably at enterprise scale.",
     sapIntro: "Structured testing and governance for SAP S/4HANA programmes and enterprise ERP integrations — with defined UAT frameworks, quality gates, stakeholder sign-offs, and risk-based go/no-go decisions at every stage of delivery.",
     qualityIntro: "Enterprise platform reliability through structured quality engineering — covering Salesforce, SAP, web, and API layers. We build automation frameworks, define test strategy, and integrate quality into every CI/CD pipeline using Cypress, Playwright, TOSCA, and many more.",
@@ -154,8 +201,6 @@ const en = {
     sapEngagementScope: "Typical engagement: 4–12 weeks embedded · Advisory or hands-on delivery · Remote or on-site",
     qualityEngagementFor: "Best for: Teams with slow regression cycles, limited automation coverage, or complex ERP and SaaS platforms that need reliable test infrastructure.",
     qualityEngagementScope: "Typical engagement: 4–10 weeks · Framework setup or ongoing automation · CI/CD integration included",
-
-    // Context strip — 4 items per tab (icon key + label)
     stripDigital: [
       { icon: "monitor", label: "Web · Dashboards · Portals" },
       { icon: "zap", label: "React · TypeScript · Tailwind" },
@@ -174,8 +219,6 @@ const en = {
       { icon: "gitBranch", label: "API · Integration · CI/CD Gates" },
       { icon: "barChart", label: "Metrics-Based Release Decisions" },
     ],
-
-    // Digital tab content
     digitalItems: [
       {
         title: "Web Applications & Portals",
@@ -201,7 +244,7 @@ const en = {
     digitalCtaBody: "Tell us about your project and we will scope a delivery plan that fits your timeline and budget.",
   },
 
-  // ─── Existing keys preserved as-is ───────────────────────────────────────
+  // ─── Existing keys ────────────────────────────────────────────────────────
   delivery: {
     heading: "Delivery Approach",
     subheading: "A structured lifecycle from planning through hypercare — embedding quality at every stage.",
@@ -337,7 +380,6 @@ const en = {
       },
     ],
   },
-
   footer: {
     tagline: "Digital development, SAP governance & UAT, and test automation & quality — end-to-end solutions for confident enterprise delivery.",
     quickLinks: "Quick Links",
