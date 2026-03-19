@@ -569,15 +569,10 @@ const Index = () => {
 
         {/* ── PATCH 4: Warm CTA before outcomes heading ── */}
         <motion.div {...fadeUp(0)} className="relative text-center mb-8">
-          <Link
-            to="/contact"
-            className="inline-block text-sm font-medium text-foreground
-                       border-b border-foreground pb-0.5
-                       hover:border-primary hover:text-primary
-                       dark:hover:border-primary dark:hover:text-primary
-                       transition-colors"
-          >
-            {t("outcomes.forYourProgramme")}
+          <Link to="/contact">
+            <Button variant="outline" size="sm" className="font-medium">
+              {t("outcomes.forYourProgramme")} <ArrowRight className="ml-2 h-3.5 w-3.5" />
+            </Button>
           </Link>
         </motion.div>
 
