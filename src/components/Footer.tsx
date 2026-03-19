@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { Mail, MapPin, Calendar, ExternalLink, Languages } from "lucide-react";
+import { Mail, MapPin, Calendar, ExternalLink, Languages, Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const BOOK_CALL_URL = "https://cal.com/gagan.singh/15min";
-const LINKEDIN_URL = "https://www.linkedin.com/in/gagansingh26/";
+const LINKEDIN_URL = "https://www.linkedin.com/company/qualitybridgeconsulting";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -63,13 +63,6 @@ const Footer = () => {
             </h4>
             <div className="flex flex-col gap-2 text-xs text-muted-foreground md:text-sm">
               <a
-                href="mailto:qualitybridgeconsulting.ca@gmail.com"
-                className="flex items-start gap-1.5 break-all transition-colors hover:text-primary"
-              >
-                <Mail className="mt-0.5 h-3.5 w-3.5 shrink-0 md:h-4 md:w-4" />
-                <span>qualitybridgeconsulting.ca@gmail.com</span>
-              </a>
-              <a
                 href={BOOK_CALL_URL}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -77,6 +70,23 @@ const Footer = () => {
               >
                 <Calendar className="h-3.5 w-3.5 shrink-0 md:h-4 md:w-4" />
                 <span>{t("nav.bookCall")}</span>
+                <ExternalLink className="h-3 w-3 shrink-0" />
+              </a>
+              <a
+                href="mailto:qualitybridgeconsulting.ca@gmail.com"
+                className="flex items-start gap-1.5 break-all transition-colors hover:text-primary"
+              >
+                <Mail className="mt-0.5 h-3.5 w-3.5 shrink-0 md:h-4 md:w-4" />
+                <span>qualitybridgeconsulting.ca@gmail.com</span>
+              </a>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 transition-colors hover:text-primary"
+              >
+                <Linkedin className="h-3.5 w-3.5 shrink-0 md:h-4 md:w-4" />
+                <span>LinkedIn</span>
                 <ExternalLink className="h-3 w-3 shrink-0" />
               </a>
               <span className="flex items-center gap-1.5">
