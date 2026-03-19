@@ -14,6 +14,7 @@ const de = {
     reach: "Kundenbetreuung lokal in Kanada · Nordamerika · Europa · Asien",
     bookConsultation: "Beratung buchen",
     bookCall: "Gespräch buchen",
+    howWeWork: "So arbeiten wir →",
     stats: [
       { value: "Kanada", label: "HQ & Kundenleitung" },
       { value: "3 Regionen", label: "Amerika · EU · Asien" },
@@ -86,6 +87,7 @@ const de = {
   },
   outcomes: {
     heading: "Geschäftliche Ergebnisse",
+    forYourProgramme: "Diese Ergebnisse — für Ihr Programm →",
     items: [
       { label: "Schnellere digitale Lieferung", desc: "Moderne Tools und Rapid Prototyping verkürzen die Zeit vom Konzept bis zur Produktion" },
       { label: "Kontrollierte SAP-Go-lives", desc: "Strukturierte UAT-Governance ersetzt Bauchgefühl-Releases durch evidenzbasierte Abnahmen" },
@@ -96,6 +98,7 @@ const de = {
   problems: {
     heading: "Probleme, die wir lösen",
     subheading: "Digitale Entwicklung, SAP-Programme, Qualitätssicherung — das sind die Herausforderungen, für die wir gebaut wurden.",
+    sampleEngagement: "Ein Beispielprojekt ansehen →",
     items: [
       {
         pill: "Digitale Entwicklung",
@@ -114,21 +117,69 @@ const de = {
       },
     ],
   },
-
   cta: {
     heading: "Bereit, mit Vertrauen zu liefern?",
     body: "Digitale Entwicklung, SAP-Governance & UAT und Qualitätssicherung — lokal in Kanada gemanagt, global geliefert.",
-    bookConsultation: "Beratung buchen",
+    bookConsultation: "Kostenlose Beratung buchen",
     viewApproach: "Unsere Leistungen ansehen",
     getInTouch: "Kontakt aufnehmen",
+    message: "Nachricht senden →",
+  },
+  caseStudies: {
+    eyebrow: "Beispielprojekte",
+    heading: "Echte Programme. Messbare Ergebnisse.",
+    subheading: "Ein Überblick über unsere Arbeit — in den Bereichen SAP-Governance, Qualitätssicherung und digitale Entwicklung.",
+    disclaimer: "Kundendaten werden vertraulich behandelt. Projekte werden in allgemeiner Form beschrieben, um die Vertraulichkeit der Programme zu wahren.",
+    labels: {
+      challenge: "Herausforderung",
+      approach: "Vorgehen",
+      outcomes: "Ergebnisse",
+    },
+    sap: {
+      pillar: "SAP-Governance & UAT",
+      client: "Globales HR- & Payroll-SaaS-Unternehmen — Nordamerika",
+      title: "ERP-Implementierungsunterstützung & laufende UAT-Governance",
+      challenge: "Eine groß angelegte ERP-Implementierung mit verteilten Stakeholdern und ohne strukturierten UAT-Prozess — Freigabeentscheidungen wurden nach Bauchgefühl getroffen, nicht auf Basis von Nachweisen.",
+      approach: "Eingebettet in agile Scrum-Teams zur Leitung der Anforderungserhebung, Definition von UAT-Akzeptanzkriterien und Aufbau eines strukturierten Go/No-Go-Rahmens mit Stakeholder-Freigabe-Gates. Unterstützung bei Pre- und Post-Production-Releases über mehrere Programmzyklen.",
+      outcomes: [
+        "Strukturierter UAT-Prozess in allen Release-Zyklen eingeführt",
+        "Go/No-Go-Entscheidungen auf Basis dokumentierter Nachweise",
+        "Defektrate vor und nach der Produktion messbar reduziert",
+        "Stakeholder-Vertrauen in die Release-Bereitschaft deutlich gestärkt",
+      ],
+    },
+    qe: {
+      pillar: "Qualitätssicherung",
+      client: "Führendes Versicherungsvergleichsportal — Europa",
+      title: "UAT & Qualitätssicherung in verschiedenen Versicherungsbereichen",
+      challenge: "Eine hochfrequentierte Verbraucherplattform mit Anbindung an mehrere Drittanbieter im Versicherungsbereich, mit inkonsistenten UAT-Praktiken und begrenzter Regressionsabdeckung.",
+      approach: "Geleitet von End-to-End-UAT in den Bereichen Kfz-, Kranken- und Hausratversicherung, in enger Zusammenarbeit mit Drittanbietern zur Abstimmung von Akzeptanzkriterien. Einführung strukturierter Testplanung, Defekt-Triage und Pre-/Post-Production-Validierungszyklen.",
+      outcomes: [
+        "UAT-Abdeckung auf alle aktiven Versicherungsbereiche ausgeweitet",
+        "Abstimmung mit Drittanbietern zu Akzeptanzkriterien und Freigaben",
+        "Defektrate in der Produktion durch strukturierte Pre-Release-Gates reduziert",
+        "Wiederholbarer UAT-Prozess für laufende Release-Zyklen etabliert",
+      ],
+    },
+    digital: {
+      pillar: "Digitale Entwicklung",
+      client: "Enterprise-SaaS-/ERP-Plattformanbieter — Nordamerika",
+      title: "eSignatur-Integration zwischen ERP und Drittanbieter-Plattformen",
+      challenge: "Eine komplexe Integrationsanforderung zwischen einer zentralen SaaS-ERP-Plattform und externen eSignatur-Anbietern ohne standardisierten Ansatz über Anbieterimplementierungen hinweg.",
+      approach: "Mitgewirkt an Design, Test und Lieferung von eSignatur-Integrationen zwischen der ERP-Plattform und branchenüblichen Dokumentensignierungsanbietern. Validierung von End-to-End-Workflows, Grenzfällen und Compliance-Anforderungen an mehreren Integrationspunkten.",
+      outcomes: [
+        "Nahtloser eSignatur-Workflow innerhalb der ERP-Kernplattform bereitgestellt",
+        "Integration über mehrere Drittanbieter für digitale Signaturen validiert",
+        "Grenzfälle und Compliance-Szenarien vor dem Launch dokumentiert und behoben",
+        "Manueller Signieraufwand für Enterprise-Endnutzer deutlich reduziert",
+      ],
+    },
   },
 
-  // ─── NEW: Services page ───────────────────────────────────────────────────
+  // ─── Services page ────────────────────────────────────────────────────────
   services: {
     heading: "Unsere Leistungen",
     subheading: "Digitale Entwicklung, SAP-Governance & UAT und Qualitätssicherung — drei Spezialisierungen, die gemeinsam für eine sichere und gut getestete Lieferung sorgen.",
-
-    // Hero
     heroPrefix: "Unsere Spezialisierungen ·",
     heroAccent: "Ein Standard.",
     heroSubtitle: "Digitale Entwicklung, SAP-Governance & UAT und Qualitätssicherung — in einem Engagement geliefert, aus Kanada gemanagt.",
@@ -137,12 +188,9 @@ const de = {
       { value: "SAP S/4HANA", label: "Governance & UAT" },
       { value: "Test-Automatisierung", label: "Qualitätssicherung" },
     ],
-
-    // Tab labels — order matches home page pills
     tabDigital: "Digitale Entwicklung",
     tabSap: "SAP-Governance & UAT",
     tabQuality: "Qualitätssicherung",
-
     digitalIntro: "Moderne Webanwendungen, Reporting-Dashboards und Rapid Prototypes — entwickelt für Performance, Skalierbarkeit und Stakeholder-Bereitschaft. Von APIs bis zur produktionsreifen Plattform liefern wir digitale Tools, die zuverlässig auf Enterprise-Niveau funktionieren.",
     sapIntro: "Strukturierte Tests und Governance für SAP S/4HANA-Programme und Enterprise-ERP-Integrationen — mit definierten UAT-Frameworks, Qualitätstoren, Stakeholder-Abnahmen und risikobasierten Go/No-Go-Entscheidungen in jeder Lieferphase.",
     qualityIntro: "Zuverlässigkeit von Enterprise-Plattformen durch strukturiertes Quality Engineering — über Salesforce, SAP, Web und API-Schichten. Wir bauen Automatisierungs-Frameworks, definieren Teststrategie und integrieren Qualität in jede CI/CD-Pipeline mit Cypress, Playwright, TOSCA und vielen mehr.",
@@ -153,7 +201,6 @@ const de = {
     sapEngagementScope: "Typisches Engagement: 4–12 Wochen eingebettet · Beratung oder praktische Lieferung · Remote oder vor Ort",
     qualityEngagementFor: "Ideal für: Teams mit langsamen Regressionszyklen, begrenzter Automatisierungsabdeckung oder komplexen ERP- und SaaS-Plattformen, die eine zuverlässige Test-Infrastruktur benötigen.",
     qualityEngagementScope: "Typisches Engagement: 4–10 Wochen · Framework-Aufbau oder laufende Automatisierung · CI/CD-Integration inklusive",
-
     stripDigital: [
       { icon: "monitor", label: "Web · Dashboards · Portale" },
       { icon: "zap", label: "React · TypeScript · Tailwind" },
@@ -172,7 +219,6 @@ const de = {
       { icon: "gitBranch", label: "API · Integration · CI/CD-Gates" },
       { icon: "barChart", label: "Metrikbasierte Release-Entscheidungen" },
     ],
-
     digitalItems: [
       {
         title: "Webanwendungen & Portale",
@@ -198,7 +244,7 @@ const de = {
     digitalCtaBody: "Erzählen Sie uns von Ihrem Projekt, und wir erstellen einen Lieferplan, der zu Ihrem Zeitplan und Budget passt.",
   },
 
-  // ─── Existing keys preserved as-is ───────────────────────────────────────
+  // ─── Existing keys ────────────────────────────────────────────────────────
   delivery: {
     heading: "Lieferansatz",
     subheading: "Ein strukturierter Lebenszyklus von der Planung bis zur Hypercare — Qualität in jeder Phase einbetten.",
@@ -318,7 +364,7 @@ const de = {
   },
   platforms: {
     heading: "Plattformen, mit denen wir arbeiten",
-    subheading: "Moderne Webanwendungen mit React und Next.js. SAP S/4HANA- und Salesforce-Governance. Automatisierungsorientiertes Quality Engineering mit Cypress, Playwright und TOSCA — die richtigen Tools für jede Schicht der Enterprise-Delivery.",
+    subheading: "Moderne Webanwendungen mit React und Next.js. Strukturierte SAP-Governance und UAT. Automatisierungsorientiertes Quality Engineering mit Cypress, Playwright und TOSCA — die richtigen Tools für jede Schicht der Enterprise-Delivery.",
     groups: [
       {
         label: "Digitale Entwicklung",
@@ -334,7 +380,6 @@ const de = {
       },
     ],
   },
-
   footer: {
     tagline: "Digitale Entwicklung, SAP-Governance & UAT und Testautomatisierung & Qualität — End-to-End-Lösungen für sichere Enterprise-Lieferung.",
     quickLinks: "Schnellzugriff",
