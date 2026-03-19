@@ -129,8 +129,11 @@ const fr = {
     eyebrow: "Exemples de missions",
     heading: "Des programmes réels. Des résultats mesurables.",
     subheading: "Un aperçu de nos interventions — en gouvernance SAP, ingénierie qualité et développement digital.",
-    disclaimer: "Les informations clients sont strictement confidentielles. Les missions sont décrites en termes généraux afin de préserver la confidentialité des programmes.",
+    disclaimer: "Mission anonymisée · Détails disponibles sur demande",
     labels: {
+      tapToExpand: "Appuyez sur une carte pour les détails",
+      showDetails: "Voir les détails",
+      hide: "Masquer les détails",
       challenge: "Défi",
       approach: "Approche",
       outcomes: "Résultats",
