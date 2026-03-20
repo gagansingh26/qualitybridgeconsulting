@@ -12,9 +12,9 @@ import { usePageMeta } from "@/hooks/use-page-meta";
 import { useTranslation } from "react-i18next";
 import { CaseStudies } from "@/components/CaseStudies";
 
-// ─── Design tokens ────────────────────────────────────────────────────────────
-// Colour appears ONLY on: 3px accent bar + small icon square (h-9 w-9 rounded-xl)
-// All card/section backgrounds are white (bg-card) or light grey (bg-muted/30)
+// ─── Design tokens ─────────────────────────────────────────────────────────────
+// Colour ONLY on: 3px accent bar + small icon square (h-9 w-9 rounded-xl)
+// All card/section bodies: bg-card (white) or bg-muted/30 (light grey)
 // No tinted card backgrounds anywhere
 
 const PILLAR = [
@@ -84,7 +84,6 @@ const platIcons = [
   <Activity className="h-4 w-4" />,
 ];
 
-// ─── Animation ────────────────────────────────────────────────────────────────
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 18 },
   whileInView: { opacity: 1, y: 0 },
@@ -124,19 +123,20 @@ const Index = () => {
     "/"
   );
 
-  const problemItems  = t("problems.items",       { returnObjects: true }) as { title: string; desc: string }[];
-  const outcomeItems  = t("outcomes.items",        { returnObjects: true }) as { label: string; desc: string }[];
-  const howWeWorkSteps= t("howWeWork.steps",       { returnObjects: true }) as { title: string; desc: string }[];
-  const deliverCards  = t("whatWeDeliver.cards",   { returnObjects: true }) as { title: string; desc: string; detail?: string[] }[];
-  const platformGroups= t("platforms.groups",      { returnObjects: true }) as { label: string; outcome: string; items: string[] }[];
-  const diffItems     = t("differentiation.items", { returnObjects: true }) as { title: string; desc: string }[];
+  const problemItems   = t("problems.items",        { returnObjects: true }) as { title: string; desc: string }[];
+  const outcomeItems   = t("outcomes.items",         { returnObjects: true }) as { label: string; desc: string }[];
+  const howWeWorkSteps = t("howWeWork.steps",        { returnObjects: true }) as { title: string; desc: string }[];
+  const deliverCards   = t("whatWeDeliver.cards",    { returnObjects: true }) as { title: string; desc: string; detail?: string[] }[];
+  const platformGroups = t("platforms.groups",       { returnObjects: true }) as { label: string; outcome: string; items: string[] }[];
+  const diffItems      = t("differentiation.items",  { returnObjects: true }) as { title: string; desc: string; contrast?: string }[];
 
   return (
     <Layout>
 
-      {/* ══════════════════════════════════════════════════════
-          1. HERO — enterprise-gradient, unchanged blue
-      ══════════════════════════════════════════════════════ */}
+      {/* ══════════════════════════════════════════════
+          1. HERO — enterprise-gradient (unchanged blue)
+             Problem-first framing → solution
+      ══════════════════════════════════════════════ */}
       <section className="enterprise-gradient relative overflow-hidden py-14 md:py-20 lg:py-28">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10 bg-white/[0.03] md:-right-10 md:-top-10 md:h-80 md:w-80" />
@@ -148,7 +148,7 @@ const Index = () => {
           <motion.div
             initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="flex flex-wrap items-center justify-center gap-1.5 mb-5"
+            className="flex flex-wrap items-center justify-center gap-1.5 mb-6"
           >
             {(t("hero.pills", { returnObjects: true }) as string[]).map((pill) => (
               <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-3 py-0.5 text-[11px] font-medium text-primary-foreground/90 md:text-xs">
@@ -157,23 +157,30 @@ const Index = () => {
             ))}
           </motion.div>
 
-          {/* Headline */}
+          {/* Problem statement — pain-first hook */}
+          <motion.p
+            initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="mx-auto max-w-lg text-base text-primary-foreground/70 leading-relaxed md:text-lg"
+          >
+            {t("hero.hook")}
+          </motion.p>
+
+          {/* Main headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55 }}
-            className="text-[32px] font-bold leading-tight text-primary-foreground md:text-[44px] lg:text-[52px]"
+            initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.12 }}
+            className="mt-3 text-[32px] font-bold leading-tight text-primary-foreground md:text-[44px] lg:text-[50px]"
           >
             {t("hero.titlePrefix")}{" "}
-            <span className="block mt-0.5" style={{ color: "#93c5fd" }}>
-              {t("hero.titleAccent")}
-            </span>
+            <span style={{ color: "#93c5fd" }}>{t("hero.titleAccent")}</span>
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.12 }}
-            className="mx-auto mt-4 max-w-xl text-base text-primary-foreground/80 md:text-lg leading-relaxed"
+            initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mx-auto mt-4 max-w-xl text-sm text-primary-foreground/75 leading-relaxed md:text-base"
           >
             {t("hero.subtitle")}
           </motion.p>
@@ -181,16 +188,21 @@ const Index = () => {
           {/* CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.22 }}
+            transition={{ duration: 0.5, delay: 0.28 }}
             className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
           >
-            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            <a
+              href="https://cal.com/gagan.singh/15min"
+              target="_blank" rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
               <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto px-8">
                 {t("hero.ctaPrimary")} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </a>
             <Link to="/services" className="w-full sm:w-auto">
-              <Button size="lg" variant="outline" className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto">
+              <Button size="lg" variant="outline"
+                className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto">
                 {t("hero.ctaSecondary")} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -198,8 +210,9 @@ const Index = () => {
 
           <motion.p
             initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.35 }}
-            className="mt-3 text-[12px] md:text-sm" style={{ color: "rgba(255,255,255,0.55)" }}
+            transition={{ duration: 0.5, delay: 0.38 }}
+            className="mt-3 text-[12px] md:text-[13px]"
+            style={{ color: "rgba(255,255,255,0.5)" }}
           >
             {t("hero.reach")}
           </motion.p>
@@ -207,33 +220,31 @@ const Index = () => {
           {/* Stat bar */}
           <motion.div
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.42 }}
+            transition={{ duration: 0.5, delay: 0.44 }}
             className="mx-auto mt-8 flex max-w-sm items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-md md:mt-10 md:max-w-lg"
           >
             {(t("hero.stats", { returnObjects: true }) as { value: string; label: string }[]).map((stat, i) => (
               <div key={i} className="flex flex-1 flex-col items-center px-3 md:px-5">
                 <span className="text-sm font-bold text-primary-foreground md:text-base leading-tight text-center">{stat.value}</span>
-                <span className="mt-0.5 text-[10px] text-primary-foreground/55 md:text-xs text-center">{stat.label}</span>
+                <span className="mt-0.5 text-[10px] text-primary-foreground/50 md:text-xs text-center">{stat.label}</span>
               </div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          2. PROOF CALLOUT — single stat, teal icon, full width
-      ══════════════════════════════════════════════════════ */}
+      {/* ══════════════════════════════════════════════
+          2. PROOF CALLOUT — single stat anchors credibility
+      ══════════════════════════════════════════════ */}
       <div className="border-b border-border bg-card">
         <div className="container mx-auto px-4 py-4 md:px-6 md:py-5">
           <motion.div
             {...fadeUp(0)}
-            className="flex flex-col items-start gap-3 sm:flex-row sm:items-center"
+            className="flex flex-col gap-3 sm:flex-row sm:items-center"
           >
-            {/* Icon */}
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-100 dark:bg-teal-900 text-teal-600 dark:text-teal-400">
               <TrendingDown className="h-5 w-5" />
             </div>
-            {/* Text */}
             <div className="flex-1 min-w-0">
               <span className="font-semibold text-foreground text-sm md:text-base">
                 {t("hero.proofStat")}
@@ -242,10 +253,9 @@ const Index = () => {
                 {" "}— {t("hero.proofContext")}
               </span>
             </div>
-            {/* Link */}
             <Link
               to="/services"
-              className="shrink-0 flex items-center gap-1 text-xs font-semibold text-primary hover:underline md:text-sm"
+              className="shrink-0 flex items-center gap-1 text-xs font-semibold text-primary hover:underline md:text-sm whitespace-nowrap"
             >
               {t("hero.proofLink")} <ArrowRight className="h-3 w-3" />
             </Link>
@@ -253,9 +263,10 @@ const Index = () => {
         </div>
       </div>
 
-      {/* ══════════════════════════════════════════════════════
-          3. PROBLEMS — white bg, clean cards
-      ══════════════════════════════════════════════════════ */}
+      {/* ══════════════════════════════════════════════
+          3. PROBLEMS — title IS the full message
+             One-line supporting context beneath
+      ══════════════════════════════════════════════ */}
       <SectionWrapper className="bg-background">
         <motion.div {...fadeUp(0)}>
           <SH
@@ -278,9 +289,11 @@ const Index = () => {
                 <div className={`flex h-9 w-9 items-center justify-center rounded-xl mb-4 ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>
                   {problemIcons[i]}
                 </div>
+                {/* Title carries the full message */}
                 <h3 className="text-[15px] font-semibold text-foreground leading-snug mb-2">
                   {item.title}
                 </h3>
+                {/* One-line context only */}
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {item.desc}
                 </p>
@@ -289,7 +302,7 @@ const Index = () => {
           ))}
         </div>
 
-        <motion.div {...fadeUp(0.15)} className="mt-6 text-center">
+        <motion.div {...fadeUp(0.15)} className="mt-6">
           <button
             type="button"
             onClick={() => document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" })}
@@ -300,16 +313,16 @@ const Index = () => {
         </motion.div>
       </SectionWrapper>
 
-      {/* ══════════════════════════════════════════════════════
-          4. CASE STUDIES — grey bg, proof follows pain
-      ══════════════════════════════════════════════════════ */}
+      {/* ══════════════════════════════════════════════
+          4. CASE STUDIES — proof follows pain
+      ══════════════════════════════════════════════ */}
       <div className="bg-muted/30">
         <CaseStudies />
       </div>
 
-      {/* ══════════════════════════════════════════════════════
-          5. WHAT WE DELIVER — white bg
-      ══════════════════════════════════════════════════════ */}
+      {/* ══════════════════════════════════════════════
+          5. WHAT WE DELIVER
+      ══════════════════════════════════════════════ */}
       <SectionWrapper className="bg-background">
         <motion.div {...fadeUp(0)}>
           <SH
@@ -353,7 +366,7 @@ const Index = () => {
           ))}
         </div>
 
-        <motion.div {...fadeUp(0.15)} className="mt-6 text-center">
+        <motion.div {...fadeUp(0.15)} className="mt-6">
           <Link
             to="/services"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
@@ -363,10 +376,11 @@ const Index = () => {
         </motion.div>
       </SectionWrapper>
 
-      {/* ══════════════════════════════════════════════════════
-          6. WHY WE'RE DIFFERENT — grey bg, horizontal card layout
-             (icon + text side-by-side, like Google About cards)
-      ══════════════════════════════════════════════════════ */}
+      {/* ══════════════════════════════════════════════
+          6. WHY WE'RE DIFFERENT
+             Horizontal layout (icon + text)
+             "vs. most firms" contrast line per card
+      ══════════════════════════════════════════════ */}
       <SectionWrapper className="bg-muted/30">
         <motion.div {...fadeUp(0)}>
           <SH
@@ -383,27 +397,31 @@ const Index = () => {
               {...fadeUp(i * 0.08)}
               className="flex items-start gap-4 rounded-2xl border border-border bg-card p-5 md:p-6"
             >
-              {/* Coloured icon — always stays left, even on smallest screens */}
+              {/* Coloured icon — left-anchored always */}
               <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>
                 {diffIcons[i]}
               </div>
-              {/* Text */}
-              <div className="min-w-0">
+              <div className="min-w-0 flex-1">
                 <h3 className="text-[15px] font-semibold text-foreground mb-1.5 leading-snug">
                   {item.title}
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {item.desc}
                 </p>
+                {item.contrast && (
+                  <p className="mt-2 text-xs text-muted-foreground/60 italic">
+                    {item.contrast}
+                  </p>
+                )}
               </div>
             </motion.div>
           ))}
         </div>
       </SectionWrapper>
 
-      {/* ══════════════════════════════════════════════════════
-          7. PLATFORMS — white bg, grouped by outcome
-      ══════════════════════════════════════════════════════ */}
+      {/* ══════════════════════════════════════════════
+          7. PLATFORMS — outcome-first, tools secondary
+      ══════════════════════════════════════════════ */}
       <SectionWrapper className="bg-background">
         <motion.div {...fadeUp(0)}>
           <SH
@@ -421,37 +439,33 @@ const Index = () => {
               className="rounded-2xl border border-border bg-card overflow-hidden"
             >
               <div className={`h-[3px] w-full ${PILLAR[gi].accentBar}`} />
-              {/* Header */}
-              <div className="flex items-center gap-3 px-5 py-4 border-b border-border">
-                <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${PILLAR[gi].iconBg} ${PILLAR[gi].iconColor}`}>
-                  {platIcons[gi]}
-                </div>
-                <div className="min-w-0">
+              <div className="p-5 md:p-6">
+                {/* Pillar label */}
+                <div className="flex items-center gap-3 mb-3">
+                  <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${PILLAR[gi].iconBg} ${PILLAR[gi].iconColor}`}>
+                    {platIcons[gi]}
+                  </div>
                   <p className={`text-[11px] font-semibold uppercase tracking-wider ${PILLAR[gi].labelColor}`}>
                     {group.label}
                   </p>
-                  <p className="text-xs text-muted-foreground mt-0.5">{group.outcome}</p>
                 </div>
-              </div>
-              {/* Tags */}
-              <div className="px-5 py-4 flex flex-wrap gap-2">
-                {group.items.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-border bg-background px-2.5 py-0.5 text-xs text-muted-foreground"
-                  >
-                    {item}
-                  </span>
-                ))}
+                {/* Outcome is the main message */}
+                <p className="text-sm font-medium text-foreground mb-3 leading-snug">
+                  {group.outcome}
+                </p>
+                {/* Tools are compact, secondary */}
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {group.items.join(" · ")}
+                </p>
               </div>
             </motion.div>
           ))}
         </div>
       </SectionWrapper>
 
-      {/* ══════════════════════════════════════════════════════
-          8. HOW WE WORK — grey bg, numbered steps
-      ══════════════════════════════════════════════════════ */}
+      {/* ══════════════════════════════════════════════
+          8. HOW WE WORK — centred, de-emphasised
+      ══════════════════════════════════════════════ */}
       <SectionWrapper id="how-we-work" className="bg-muted/30">
         <motion.div {...fadeUp(0)}>
           <SH
@@ -462,17 +476,14 @@ const Index = () => {
           />
         </motion.div>
 
-        {/* Desktop — 3 col with connector line */}
+        {/* Desktop — numbered steps with connector */}
         <div className="hidden md:grid md:grid-cols-3 md:gap-6 relative mt-2">
-          {/* Connector */}
           <div className="absolute left-[calc(16.67%+20px)] right-[calc(16.67%+20px)] top-5 h-px bg-border" />
           {howWeWorkSteps.map((step, i) => (
             <motion.div key={i} {...fadeUp(i * 0.1)} className="flex flex-col items-center text-center">
-              {/* Numbered circle sits above connector */}
-              <div className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold text-white ${PILLAR[i].stepBg} ring-4 ring-background`}>
+              <div className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold text-white ring-4 ring-background ${PILLAR[i].stepBg}`}>
                 {i + 1}
               </div>
-              {/* Card below */}
               <div className="mt-5 w-full rounded-2xl border border-border bg-card overflow-hidden">
                 <div className={`h-[3px] w-full ${PILLAR[i].accentBar}`} />
                 <div className="p-5">
@@ -484,7 +495,7 @@ const Index = () => {
           ))}
         </div>
 
-        {/* Mobile — vertical list */}
+        {/* Mobile — vertical numbered list */}
         <div className="flex flex-col gap-3 md:hidden mt-2">
           {howWeWorkSteps.map((step, i) => (
             <motion.div key={i} {...fadeUp(i * 0.08)} className="flex gap-4 items-start">
@@ -503,9 +514,9 @@ const Index = () => {
         </div>
       </SectionWrapper>
 
-      {/* ══════════════════════════════════════════════════════
-          9. OUTCOMES — white bg, 4 metric cards
-      ══════════════════════════════════════════════════════ */}
+      {/* ══════════════════════════════════════════════
+          9. OUTCOMES — stat-only metric cards
+      ══════════════════════════════════════════════ */}
       <SectionWrapper className="bg-background">
         <motion.div {...fadeUp(0)}>
           <SH
@@ -540,9 +551,9 @@ const Index = () => {
         </div>
       </SectionWrapper>
 
-      {/* ══════════════════════════════════════════════════════
-          10. CLOSING CTA — grey bg, diagnostic hook
-      ══════════════════════════════════════════════════════ */}
+      {/* ══════════════════════════════════════════════
+          10. CTA — diagnostic hook, grey bg
+      ══════════════════════════════════════════════ */}
       <SectionWrapper className="bg-muted/30">
         <motion.div {...fadeUp(0)} className="max-w-2xl mx-auto text-center">
           <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary mx-auto mb-5">
@@ -555,7 +566,11 @@ const Index = () => {
             {t("cta.body")}
           </p>
           <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            <a
+              href="https://cal.com/gagan.singh/15min"
+              target="_blank" rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
               <Button size="lg" className="w-full font-semibold sm:w-auto px-8">
                 {t("cta.bookConsultation")} <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
