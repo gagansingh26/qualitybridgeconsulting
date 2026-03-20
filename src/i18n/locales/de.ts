@@ -87,7 +87,7 @@ const de = {
   },
   outcomes: {
     heading: "Geschäftliche Ergebnisse",
-    forYourProgramme: "Diese Ergebnisse — für Ihr Programm",
+    forYourProgramme: "Diese Ergebnisse erzielen",
     items: [
       { label: "Schnellere digitale Lieferung", desc: "Moderne Tools und Rapid Prototyping verkürzen die Zeit vom Konzept bis zur Produktion" },
       { label: "Kontrollierte SAP-Go-lives", desc: "Strukturierte UAT-Governance ersetzt Bauchgefühl-Releases durch evidenzbasierte Abnahmen" },
@@ -98,7 +98,7 @@ const de = {
   problems: {
     heading: "Probleme, die wir lösen",
     subheading: "Digitale Entwicklung, SAP-Programme, Qualitätssicherung — das sind die Herausforderungen, für die wir gebaut wurden.",
-    sampleEngagement: "Ein Beispielprojekt ansehen",
+    sampleEngagement: "In der Praxis sehen",
     items: [
       {
         pill: "Digitale Entwicklung",
