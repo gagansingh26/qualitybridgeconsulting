@@ -389,14 +389,14 @@ const Index = () => {
           <Button
             variant="outline"
             size="sm"
-            className="font-medium"
+            className="font-semibold"
             onClick={() =>
               document
                 .getElementById("case-studies")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
           >
-            {t("problems.sampleEngagement")} <ArrowRight className="ml-2 h-3.5 w-3.5" />
+            {t("problems.sampleEngagement")} <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </motion.div>
       </SectionWrapper>
@@ -571,8 +571,8 @@ const Index = () => {
         {/* ── PATCH 4: Warm CTA before outcomes heading ── */}
         <motion.div {...fadeUp(0)} className="relative text-center mb-8">
           <Link to="/contact">
-            <Button variant="outline" size="sm" className="font-medium">
-              {t("outcomes.forYourProgramme")} <ArrowRight className="ml-2 h-3.5 w-3.5" />
+            <Button variant="outline" size="sm" className="font-semibold">
+              {t("outcomes.forYourProgramme")} <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
         </motion.div>
