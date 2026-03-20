@@ -255,9 +255,9 @@ const Index = () => {
             </div>
             <Link
               to="/services"
-              className="shrink-0 flex items-center gap-1 text-xs font-semibold text-primary hover:underline md:text-sm whitespace-nowrap"
+              className="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline whitespace-nowrap"
             >
-              {t("hero.proofLink")} <ArrowRight className="h-3 w-3" />
+              {t("hero.proofLink")} <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </motion.div>
         </div>
@@ -268,6 +268,10 @@ const Index = () => {
              One-line supporting context beneath
       ══════════════════════════════════════════════ */}
       <SectionWrapper className="bg-background">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+          <div className="absolute -bottom-16 -left-16 h-48 w-48 rounded-full border border-primary/[0.04] bg-primary/[0.01]" />
+        </div>
         <motion.div {...fadeUp(0)}>
           <SH
             eyebrow={t("problems.eyebrow")}
@@ -324,6 +328,10 @@ const Index = () => {
           5. WHAT WE DELIVER
       ══════════════════════════════════════════════ */}
       <SectionWrapper className="bg-background">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -left-20 -top-20 h-56 w-56 rounded-full border border-primary/[0.05] bg-primary/[0.02]" />
+          <div className="absolute -right-12 -bottom-12 h-40 w-40 rounded-full border border-primary/[0.04] bg-primary/[0.01]" />
+        </div>
         <motion.div {...fadeUp(0)}>
           <SH
             eyebrow={t("whatWeDeliver.eyebrow")}
@@ -382,6 +390,10 @@ const Index = () => {
              "vs. most firms" contrast line per card
       ══════════════════════════════════════════════ */}
       <SectionWrapper className="bg-muted/30">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+          <div className="absolute -left-14 -bottom-14 h-44 w-44 rounded-full border border-primary/[0.04] bg-primary/[0.01]" />
+        </div>
         <motion.div {...fadeUp(0)}>
           <SH
             eyebrow={t("differentiation.eyebrow")}
@@ -423,6 +435,10 @@ const Index = () => {
           7. PLATFORMS — outcome-first, tools secondary
       ══════════════════════════════════════════════ */}
       <SectionWrapper className="bg-background">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -left-16 -top-16 h-60 w-60 rounded-full border border-primary/[0.05] bg-primary/[0.02]" />
+          <div className="absolute -right-20 -bottom-20 h-52 w-52 rounded-full border border-primary/[0.04] bg-primary/[0.01]" />
+        </div>
         <motion.div {...fadeUp(0)}>
           <SH
             eyebrow={t("platforms.eyebrow")}
@@ -467,6 +483,10 @@ const Index = () => {
           8. HOW WE WORK — centred, de-emphasised
       ══════════════════════════════════════════════ */}
       <SectionWrapper id="how-we-work" className="bg-muted/30">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -right-14 -top-14 h-48 w-48 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+          <div className="absolute -left-10 -bottom-10 h-40 w-40 rounded-full border border-primary/[0.04] bg-primary/[0.01]" />
+        </div>
         <motion.div {...fadeUp(0)}>
           <SH
             eyebrow={t("howWeWork.eyebrow")}
@@ -518,6 +538,10 @@ const Index = () => {
           9. OUTCOMES — stat-only metric cards
       ══════════════════════════════════════════════ */}
       <SectionWrapper className="bg-background">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -left-20 -top-20 h-56 w-56 rounded-full border border-primary/[0.05] bg-primary/[0.02]" />
+          <div className="absolute -right-16 -bottom-16 h-48 w-48 rounded-full border border-primary/[0.04] bg-primary/[0.01]" />
+        </div>
         <motion.div {...fadeUp(0)}>
           <SH
             heading={t("outcomes.heading")}
@@ -555,6 +579,10 @@ const Index = () => {
           10. CTA — diagnostic hook, grey bg
       ══════════════════════════════════════════════ */}
       <SectionWrapper className="bg-muted/30">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+          <div className="absolute -left-16 -bottom-16 h-56 w-56 rounded-full border border-primary/[0.05] bg-primary/[0.01]" />
+        </div>
         <motion.div {...fadeUp(0)} className="max-w-2xl mx-auto text-center">
           <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary mx-auto mb-5">
             <Target className="h-6 w-6" />
