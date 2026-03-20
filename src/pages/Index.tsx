@@ -387,8 +387,7 @@ const Index = () => {
         {/* ── PATCH 3: Soft CTA after Problems → scrolls to Case Studies ── */}
         <motion.div {...fadeUp(0.2)} className="relative text-center mt-8">
           <Button
-            variant="outline"
-            size="sm"
+            size="lg"
             className="font-semibold"
             onClick={() =>
               document
@@ -571,7 +570,7 @@ const Index = () => {
         {/* ── PATCH 4: Warm CTA before outcomes heading ── */}
         <motion.div {...fadeUp(0)} className="relative text-center mb-8">
           <Link to="/contact">
-            <Button variant="outline" size="sm" className="font-semibold">
+            <Button size="lg" className="font-semibold">
               {t("outcomes.forYourProgramme")} <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
