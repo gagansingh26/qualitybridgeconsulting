@@ -61,11 +61,11 @@ const HeroGraphic = () => (
   <motion.div
     initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.8, delay: 0.48 }}
-    className="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 lg:block xl:right-8 2xl:right-16"
+    className="pointer-events-none hidden lg:flex items-center justify-end"
     aria-hidden="true"
-    style={{ width: 200 }}
+    style={{ width: 260, flexShrink: 0 }}
   >
-    <svg width="220" height="220" viewBox="0 0 200 200" fill="none"
+    <svg width="260" height="260" viewBox="0 0 200 200" fill="none"
       xmlns="http://www.w3.org/2000/svg"
       style={{ width: "100%", height: "auto", overflow: "visible" }}>
       <style>{`
@@ -183,12 +183,11 @@ const Index = () => {
           <div className="absolute right-8 top-8 h-40 w-40 rounded-full border border-white/[0.07] bg-white/[0.02] hidden md:block" />
         </div>
 
-        {/* Globe — absolute right, desktop only */}
-        <HeroGraphic />
-
-        <div className="container relative mx-auto max-w-5xl px-4 text-center">
-            {/* Content — centred within wide container, leaving room for globe */}
-            <div className="mx-auto max-w-2xl">
+        <div className="container relative mx-auto max-w-6xl px-4">
+          {/* Two-column layout on desktop: text left, globe right */}
+          <div className="flex flex-col items-center gap-6 lg:flex-row lg:items-center lg:gap-12">
+            {/* Text column — centred on mobile, centred within col on desktop */}
+            <div className="flex-1 text-center lg:text-center">
             {/* Pills */}
             <motion.div
               initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
@@ -271,7 +270,11 @@ const Index = () => {
               </div>
             ))}
             </motion.div>
-            </div>{/* end max-w-2xl centred content */}
+            </div>{/* end text column */}
+
+            {/* Globe column — desktop only */}
+            <HeroGraphic />
+          </div>{/* end flex row */}
         </div>
       </section>
 
@@ -288,9 +291,10 @@ const Index = () => {
               <span className="font-semibold text-foreground text-sm md:text-base">{t("hero.proofStat")}</span>
               <span className="text-muted-foreground text-sm md:text-base">{" "}— {t("hero.proofContext")}</span>
             </div>
-            <Link to="/services"
-              className="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline whitespace-nowrap">
-              {t("hero.proofLink")} <ArrowRight className="h-3.5 w-3.5" />
+            <Link to="/services" className="shrink-0">
+              <Button variant="outline" size="sm" className="gap-1.5 w-full sm:w-auto">
+                {t("hero.proofLink")} <ArrowRight className="h-3.5 w-3.5" />
+              </Button>
             </Link>
           </motion.div>
         </div>
