@@ -87,7 +87,7 @@ const en = {
   },
   outcomes: {
     heading: "Business Outcomes",
-    forYourProgramme: "These results — for your programme",
+    forYourProgramme: "Get these results",
     items: [
       { label: "Faster digital delivery", desc: "Modern tooling and rapid prototyping cut time from concept to production" },
       { label: "Controlled SAP go-lives", desc: "Structured UAT governance replaces gut-feel releases with evidence-based sign-offs" },
@@ -98,7 +98,7 @@ const en = {
   problems: {
     heading: "Problems We Solve",
     subheading: "Across digital delivery, SAP programmes, and quality engineering — these are the challenges we're built to fix.",
-    sampleEngagement: "See a sample engagement",
+    sampleEngagement: "See it in practice",
     items: [
       {
         pill: "Digital Development",
