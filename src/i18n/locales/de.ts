@@ -8,7 +8,7 @@ const de = {
   },
   hero: {
     pills: ["Digitale Entwicklung", "SAP-Governance & UAT", "Testautomatisierung & Qualität"],
-    hook: "Ihre Releases sind langsam. SAP-Go-lives fühlen sich unsicher an. Ihre QA kommt nicht hinterher.",
+    hook: "Ihre Entwicklungs-Releases sind langsam. SAP-Go-lives fühlen sich unsicher an. Ihre QA kommt nicht hinterher.",
     titlePrefix: "Wir lösen alle drei —",
     titleAccent: "als ein Team.",
     subtitle: "Ein Engagement für digitale Lieferung, SAP-Governance und Qualitätssicherung — mit einer einzigen Verantwortlichkeit vom Kickoff bis zum Go-live.",

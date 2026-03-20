@@ -8,7 +8,7 @@ const fr = {
   },
   hero: {
     pills: ["Développement digital", "Gouvernance SAP & UAT", "Automatisation des tests & Qualité"],
-    hook: "Vos livraisons sont lentes. Vos go-lives SAP semblent incertains. Votre QA ne suit pas.",
+    hook: "Vos livraisons de développement sont lentes. Vos go-lives SAP semblent incertains. Votre QA ne suit pas.",
     titlePrefix: "Nous réglons les trois —",
     titleAccent: "en une seule équipe.",
     subtitle: "Un engagement couvrant la livraison digitale, la gouvernance SAP et l'ingénierie qualité — avec un seul point de responsabilité du lancement au go-live.",

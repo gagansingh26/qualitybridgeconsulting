@@ -61,9 +61,9 @@ const HeroGraphic = () => (
   <motion.div
     initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.8, delay: 0.48 }}
-    className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 lg:block xl:right-6"
+    className="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 lg:block xl:right-8 2xl:right-16"
     aria-hidden="true"
-    style={{ width: 220 }}
+    style={{ width: 200 }}
   >
     <svg width="220" height="220" viewBox="0 0 200 200" fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -142,13 +142,13 @@ const HeroGraphic = () => (
 
       {/* ── "One team" badge — floats below globe ── */}
       <g className="gl-float" style={{ transformOrigin: "100px 178px" }}>
-        <rect x="38" y="168" width="124" height="30" rx="7"
+        <rect x="46" y="168" width="108" height="30" rx="7"
           fill="rgba(147,197,253,0.12)" stroke="rgba(147,197,253,0.35)" strokeWidth="0.8"/>
-        <circle cx="56" cy="183" r="4" fill="#93c5fd" opacity="0.8"/>
-        <text x="66" y="180" fontSize="7.5" fill="rgba(255,255,255,0.9)"
-          fontWeight="700" fontFamily="system-ui,sans-serif">3 regions · 1 accountable team</text>
-        <text x="66" y="191" fontSize="6.5" fill="rgba(255,255,255,0.45)"
-          fontFamily="system-ui,sans-serif">Dev · SAP · QA · Canada-based</text>
+        <circle cx="62" cy="183" r="4" fill="#93c5fd" opacity="0.8"/>
+        <text x="72" y="180" fontSize="8" fill="rgba(255,255,255,0.9)"
+          fontWeight="700" fontFamily="system-ui,sans-serif">One team</text>
+        <text x="72" y="191" fontSize="7" fill="rgba(255,255,255,0.5)"
+          fontFamily="system-ui,sans-serif">CA · EU · Asia</text>
       </g>
     </svg>
   </motion.div>
@@ -186,7 +186,9 @@ const Index = () => {
         {/* Globe — absolute right, desktop only */}
         <HeroGraphic />
 
-        <div className="container relative mx-auto max-w-3xl px-4 text-center">
+        <div className="container relative mx-auto max-w-5xl px-4 text-center">
+            {/* Content — centred within wide container, leaving room for globe */}
+            <div className="mx-auto max-w-2xl">
             {/* Pills */}
             <motion.div
               initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
@@ -269,6 +271,7 @@ const Index = () => {
               </div>
             ))}
             </motion.div>
+            </div>{/* end max-w-2xl centred content */}
         </div>
       </section>
 
@@ -316,11 +319,10 @@ const Index = () => {
           ))}
         </div>
         <motion.div {...fadeUp(0.15)} className="relative mt-6 text-center">
-          <button type="button"
-            onClick={() => document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" })}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+          <Button variant="outline" size="sm" className="gap-1.5 w-full sm:w-auto"
+            onClick={() => document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" })}>
             {t("problems.sampleEngagement")} <ArrowRight className="h-3.5 w-3.5" />
-          </button>
+          </Button>
         </motion.div>
       </SectionWrapper>
 
@@ -363,9 +365,10 @@ const Index = () => {
           ))}
         </div>
         <motion.div {...fadeUp(0.15)} className="relative mt-6 text-center">
-          <Link to="/services"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
-            {t("whatWeDeliver.cta")} <ArrowRight className="h-3.5 w-3.5" />
+          <Link to="/services" className="w-full sm:w-auto inline-block">
+            <Button variant="outline" size="sm" className="gap-1.5 w-full sm:w-auto">
+              {t("whatWeDeliver.cta")} <ArrowRight className="h-3.5 w-3.5" />
+            </Button>
           </Link>
         </motion.div>
       </SectionWrapper>

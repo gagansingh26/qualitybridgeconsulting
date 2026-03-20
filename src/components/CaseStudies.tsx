@@ -341,9 +341,10 @@ export function CaseStudies({ variant = "compact" }: { variant?: "compact" | "fu
             transition={{ duration: 0.4, delay: 0.3 }}
             className="mt-6 text-center"
           >
-            <Link to="/services"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
-              {t("caseStudies.viewAll")} <ArrowRight className="h-3.5 w-3.5" />
+            <Link to="/services" className="w-full sm:w-auto inline-block">
+              <Button variant="outline" size="sm" className="gap-1.5 w-full sm:w-auto">
+                {t("caseStudies.viewAll")} <ArrowRight className="h-3.5 w-3.5" />
+              </Button>
             </Link>
           </motion.div>
         )}
