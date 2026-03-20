@@ -386,17 +386,18 @@ const Index = () => {
 
         {/* ── PATCH 3: Soft CTA after Problems → scrolls to Case Studies ── */}
         <motion.div {...fadeUp(0.2)} className="relative text-center mt-8">
-          <button
-            type="button"
+          <Button
+            variant="outline"
+            size="sm"
+            className="font-medium"
             onClick={() =>
               document
                 .getElementById("case-studies")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="text-sm text-primary hover:underline underline-offset-4 font-medium"
           >
-            {t("problems.sampleEngagement")}
-          </button>
+            {t("problems.sampleEngagement")} <ArrowRight className="ml-2 h-3.5 w-3.5" />
+          </Button>
         </motion.div>
       </SectionWrapper>
 
