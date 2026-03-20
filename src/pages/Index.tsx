@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ExternalLink, Shield, BarChart3, Users, TrendingDown, GitBranch, Monitor, ChevronDown, Globe, Handshake, Rocket, ShoppingBag, CheckCircle, Brain } from "lucide-react";
+import { ArrowRight, ExternalLink, Shield, Users, TrendingDown, GitBranch, Monitor, ChevronDown, Globe, Handshake, Rocket, ShoppingBag, CheckCircle, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
@@ -10,111 +10,44 @@ import { useTranslation } from "react-i18next";
 import { CaseStudies } from "@/components/CaseStudies";
 
 // ─── Pillar colour config ─────────────────────────────────────────────────────
-const PILLAR_COLOURS = [
-  {
-    // Digital Development — blue
-    accentBar:  "bg-blue-500 dark:bg-blue-400",
-    headerBg:   "bg-blue-50 dark:bg-blue-950",
-    iconBg:     "bg-blue-100 dark:bg-blue-900",
-    iconColor:  "text-blue-700 dark:text-blue-300",
-    dotColor:   "bg-blue-500 dark:bg-blue-400",
-    stepNum:    "bg-blue-500 dark:bg-blue-400 text-white",
-    connectorColor: "bg-blue-200 dark:bg-blue-800",
-  },
-  {
-    // SAP Governance — teal
-    accentBar:  "bg-teal-500 dark:bg-teal-400",
-    headerBg:   "bg-teal-50 dark:bg-teal-950",
-    iconBg:     "bg-teal-100 dark:bg-teal-900",
-    iconColor:  "text-teal-700 dark:text-teal-300",
-    dotColor:   "bg-teal-500 dark:bg-teal-400",
-    stepNum:    "bg-teal-500 dark:bg-teal-400 text-white",
-    connectorColor: "bg-teal-200 dark:bg-teal-800",
-  },
-  {
-    // Quality Engineering — purple
-    accentBar:  "bg-purple-500 dark:bg-purple-400",
-    headerBg:   "bg-purple-50 dark:bg-purple-950",
-    iconBg:     "bg-purple-100 dark:bg-purple-900",
-    iconColor:  "text-purple-700 dark:text-purple-300",
-    dotColor:   "bg-purple-500 dark:bg-purple-400",
-    stepNum:    "bg-purple-500 dark:bg-purple-400 text-white",
-    connectorColor: "bg-purple-200 dark:bg-purple-800",
-  },
+const PILLAR = [
+  { accentBar: "bg-blue-500 dark:bg-blue-400",   headerBg: "bg-blue-50 dark:bg-blue-950",   iconBg: "bg-blue-100 dark:bg-blue-900",   iconColor: "text-blue-700 dark:text-blue-300",   dotColor: "bg-blue-500 dark:bg-blue-400",   stepNum: "bg-blue-500 dark:bg-blue-400 text-white" },
+  { accentBar: "bg-teal-500 dark:bg-teal-400",   headerBg: "bg-teal-50 dark:bg-teal-950",   iconBg: "bg-teal-100 dark:bg-teal-900",   iconColor: "text-teal-700 dark:text-teal-300",   dotColor: "bg-teal-500 dark:bg-teal-400",   stepNum: "bg-teal-500 dark:bg-teal-400 text-white" },
+  { accentBar: "bg-purple-500 dark:bg-purple-400", headerBg: "bg-purple-50 dark:bg-purple-950", iconBg: "bg-purple-100 dark:bg-purple-900", iconColor: "text-purple-700 dark:text-purple-300", dotColor: "bg-purple-500 dark:bg-purple-400", stepNum: "bg-purple-500 dark:bg-purple-400 text-white" },
 ];
 
-const valueCardIcons = [
-  <Monitor className="h-5 w-5" />,
-  <Shield className="h-5 w-5" />,
-  <Brain className="h-5 w-5" />,
+// Business Outcomes: Digital(blue) / SAP(teal) / Quality(purple) / Confidence(amber)
+const OUTCOME_COLOURS = [
+  { accentBar: "bg-blue-500 dark:bg-blue-400",   iconBg: "bg-blue-100 dark:bg-blue-900",   iconColor: "text-blue-700 dark:text-blue-300" },
+  { accentBar: "bg-teal-500 dark:bg-teal-400",   iconBg: "bg-teal-100 dark:bg-teal-900",   iconColor: "text-teal-700 dark:text-teal-300" },
+  { accentBar: "bg-purple-500 dark:bg-purple-400", iconBg: "bg-purple-100 dark:bg-purple-900", iconColor: "text-purple-700 dark:text-purple-300" },
+  { accentBar: "bg-amber-500 dark:bg-amber-400",  iconBg: "bg-amber-100 dark:bg-amber-900",  iconColor: "text-amber-700 dark:text-amber-300" },
 ];
 
-const outcomeIcons = [
-  <Rocket className="h-6 w-6" />,
-  <Shield className="h-6 w-6" />,
-  <TrendingDown className="h-6 w-6" />,
-  <Users className="h-6 w-6" />,
-];
+const valueCardIcons = [ <Monitor className="h-5 w-5" />, <Shield className="h-5 w-5" />, <Brain className="h-5 w-5" /> ];
+const outcomeIcons   = [ <Rocket className="h-5 w-5" />, <Shield className="h-5 w-5" />, <TrendingDown className="h-5 w-5" />, <Users className="h-5 w-5" /> ];
+const capabilityIcons= [ <Monitor className="h-4 w-4" />, <Shield className="h-4 w-4" />, <Handshake className="h-4 w-4" />, <ShoppingBag className="h-4 w-4" /> ];
+const problemIcons   = [ <Monitor className="h-6 w-6" />, <Shield className="h-6 w-6" />, <GitBranch className="h-6 w-6" /> ];
 
-const capabilityIcons = [
-  <Monitor className="h-4 w-4" />,
-  <Shield className="h-4 w-4" />,
-  <Handshake className="h-4 w-4" />,
-  <ShoppingBag className="h-4 w-4" />,
-];
+const fadeUp = (delay = 0) => ({ initial: { opacity: 0, y: 20 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true }, transition: { duration: 0.45, delay } });
 
-const problemIcons = [
-  <Monitor className="h-6 w-6" />,
-  <Shield className="h-6 w-6" />,
-  <GitBranch className="h-6 w-6" />,
-];
-
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.45, delay },
-});
-
-// Mobile accordion — coloured header
-const AccordionCard = ({ icon, title, desc, detail, index }: {
-  icon: React.ReactNode; title: string; desc: string; detail?: string[]; index: number;
-}) => {
+const AccordionCard = ({ icon, title, desc, detail, index }: { icon: React.ReactNode; title: string; desc: string; detail?: string[]; index: number }) => {
   const [open, setOpen] = useState(false);
-  const c = PILLAR_COLOURS[index];
+  const c = PILLAR[index];
   return (
-    <motion.div
-      whileHover={{ y: -4, transition: { duration: 0.25 } }}
-      whileTap={{ y: -4, transition: { duration: 0.25 } }}
-      className="rounded-xl border border-border bg-card overflow-hidden card-shadow"
-    >
+    <motion.div whileHover={{ y: -4, transition: { duration: 0.25 } }} whileTap={{ y: -4, transition: { duration: 0.25 } }} className="rounded-xl border border-border bg-card overflow-hidden card-shadow">
       <div className={`h-[3px] w-full ${c.accentBar}`} />
-      <button
-        type="button"
-        className="flex w-full items-center gap-3 p-4 text-left"
-        onClick={() => setOpen((o) => !o)}
-        aria-expanded={open}
-      >
-        <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${c.iconBg} ${c.iconColor}`}>
-          {icon}
-        </div>
+      <button type="button" className="flex w-full items-center gap-3 p-4 text-left" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
+        <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${c.iconBg} ${c.iconColor}`}>{icon}</div>
         <span className="text-sm font-semibold text-card-foreground flex-1">{title}</span>
         <ChevronDown className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
       </button>
       <AnimatePresence initial={false}>
         {open && (
-          <motion.div key="content" initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25 }} className="overflow-hidden">
+          <motion.div key="c" initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25 }} className="overflow-hidden">
             <div className="border-t border-border px-4 pb-4 pt-3">
               <p className="text-sm text-muted-foreground">{desc}</p>
-              {detail && (
-                <ul className="mt-2 space-y-1">
-                  {detail.map((d) => (
-                    <li key={d} className="flex items-center gap-2 text-xs text-muted-foreground">
-                      <CheckCircle className="h-3 w-3 shrink-0 text-primary" />{d}
-                    </li>
-                  ))}
-                </ul>
-              )}
+              {detail && <ul className="mt-2 space-y-1">{detail.map((d) => (<li key={d} className="flex items-center gap-2 text-xs text-muted-foreground"><CheckCircle className="h-3 w-3 shrink-0 text-primary" />{d}</li>))}</ul>}
             </div>
           </motion.div>
         )}
@@ -123,35 +56,18 @@ const AccordionCard = ({ icon, title, desc, detail, index }: {
   );
 };
 
-// Desktop card — coloured header
-const DesktopCard = ({ icon, title, desc, detail, index }: {
-  icon: React.ReactNode; title: string; desc: string; detail?: string[]; index: number;
-}) => {
-  const c = PILLAR_COLOURS[index];
+const DesktopCard = ({ icon, title, desc, detail, index }: { icon: React.ReactNode; title: string; desc: string; detail?: string[]; index: number }) => {
+  const c = PILLAR[index];
   return (
-    <motion.div
-      whileHover={{ y: -6, transition: { duration: 0.25 } }}
-      whileTap={{ y: -6, transition: { duration: 0.25 } }}
-      className="flex flex-col rounded-xl border border-border bg-card overflow-hidden card-shadow"
-    >
+    <motion.div whileHover={{ y: -6, transition: { duration: 0.25 } }} whileTap={{ y: -6, transition: { duration: 0.25 } }} className="flex flex-col rounded-xl border border-border bg-card overflow-hidden card-shadow">
       <div className={`h-[3px] w-full ${c.accentBar}`} />
       <div className={`${c.headerBg} px-5 pt-4 pb-3`}>
-        <div className={`flex h-10 w-10 items-center justify-center rounded-full ${c.iconBg} ${c.iconColor}`}>
-          {icon}
-        </div>
+        <div className={`flex h-10 w-10 items-center justify-center rounded-full ${c.iconBg} ${c.iconColor}`}>{icon}</div>
         <h3 className="mt-3 font-semibold text-foreground">{title}</h3>
       </div>
       <div className="flex flex-col flex-1 px-5 py-4">
         <p className="text-sm text-muted-foreground">{desc}</p>
-        {detail && (
-          <ul className="mt-3 space-y-1">
-            {detail.map((d) => (
-              <li key={d} className="flex items-center gap-2 text-xs text-muted-foreground">
-                <span className={`h-1.5 w-1.5 rounded-full flex-shrink-0 ${c.dotColor}`} />{d}
-              </li>
-            ))}
-          </ul>
-        )}
+        {detail && <ul className="mt-3 space-y-1">{detail.map((d) => (<li key={d} className="flex items-center gap-2 text-xs text-muted-foreground"><span className={`h-1.5 w-1.5 rounded-full flex-shrink-0 ${c.dotColor}`} />{d}</li>))}</ul>}
       </div>
     </motion.div>
   );
@@ -159,21 +75,10 @@ const DesktopCard = ({ icon, title, desc, detail, index }: {
 
 const Index = () => {
   const { t } = useTranslation();
-  usePageMeta(
-    "QualityBridge Consulting | Digital Development · SAP Governance · Test Automation",
-    "Web development, SAP S/4HANA governance, and test automation — managed locally in Canada, delivered with global specialists.",
-    "/"
-  );
+  usePageMeta("QualityBridge Consulting | Digital Development · SAP Governance · Test Automation", "Web development, SAP S/4HANA governance, and test automation — managed locally in Canada, delivered with global specialists.", "/");
 
-  const valueCards = (t("whatWeDeliver.cards", { returnObjects: true }) as any[]).map((c: any, i: number) => ({
-    icon: valueCardIcons[i], title: c.title, desc: c.desc, detail: c.detail,
-  }));
-
-  const capabilityPillars = [
-    t("capabilities.digitalDev"), t("capabilities.sapGovernance"),
-    t("capabilities.globalNetwork"), t("capabilities.clientOversight"),
-  ];
-
+  const valueCards = (t("whatWeDeliver.cards", { returnObjects: true }) as any[]).map((c: any, i: number) => ({ icon: valueCardIcons[i], title: c.title, desc: c.desc, detail: c.detail }));
+  const capabilityPillars = [t("capabilities.digitalDev"), t("capabilities.sapGovernance"), t("capabilities.globalNetwork"), t("capabilities.clientOversight")];
   const outcomeItems = t("outcomes.items", { returnObjects: true }) as { label: string; desc: string }[];
   const howWeWorkSteps = t("howWeWork.steps", { returnObjects: true }) as { title: string; desc: string }[];
   const problemItemsRaw = t("problems.items", { returnObjects: true });
@@ -193,70 +98,33 @@ const Index = () => {
             className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 md:block lg:right-4" aria-hidden="true" style={{ width: 240 }}>
             <svg width="240" height="200" viewBox="0 0 210 170" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto", overflow: "visible" }}>
               <style>{`@keyframes globePulse{0%,100%{r:7;opacity:1}50%{r:10;opacity:0.7}}@keyframes globeRing{0%,100%{r:13;opacity:0.35}50%{r:20;opacity:0}}@keyframes globeDash{to{stroke-dashoffset:-24}}@keyframes globeNodePop{0%,100%{r:5}50%{r:7}}.g-pulse{animation:globePulse 2s ease-in-out infinite}.g-ring{animation:globeRing 2s ease-in-out infinite}.g-dash{stroke-dasharray:5 4;animation:globeDash 1.6s linear infinite}.g-dash2{stroke-dasharray:5 4;animation:globeDash 2.2s linear infinite}.g-dash3{stroke-dasharray:5 4;animation:globeDash 2.8s linear infinite}.g-node{animation:globeNodePop 2.4s ease-in-out infinite}`}</style>
-              <circle cx="105" cy="85" r="66" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1"/>
-              <ellipse cx="105" cy="85" rx="66" ry="21" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8"/>
-              <ellipse cx="105" cy="85" rx="66" ry="46" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="0.8"/>
-              <line x1="105" y1="19" x2="105" y2="151" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8"/>
-              <line x1="70" y1="22" x2="70" y2="148" stroke="rgba(255,255,255,0.05)" strokeWidth="0.8"/>
-              <line x1="140" y1="22" x2="140" y2="148" stroke="rgba(255,255,255,0.05)" strokeWidth="0.8"/>
-              <circle cx="76" cy="54" r="18" fill="#93c5fd" opacity="0.10"/>
-              <circle className="g-ring" cx="76" cy="54" r="13" fill="none" stroke="#93c5fd" strokeWidth="1"/>
-              <circle className="g-pulse" cx="76" cy="54" r="7" fill="#93c5fd"/>
-              <circle className="g-node" cx="126" cy="60" r="5" fill="rgba(255,255,255,0.75)" style={{animationDelay:"0.5s"}}/>
-              <circle className="g-node" cx="158" cy="76" r="5" fill="rgba(255,255,255,0.65)" style={{animationDelay:"1s"}}/>
-              <circle cx="82" cy="110" r="3.5" fill="rgba(255,255,255,0.4)"/>
-              <line x1="76" y1="54" x2="126" y2="60" stroke="#93c5fd" strokeWidth="1.2" opacity="0.7" className="g-dash"/>
-              <line x1="76" y1="54" x2="158" y2="76" stroke="#93c5fd" strokeWidth="1" opacity="0.5" className="g-dash2"/>
-              <line x1="126" y1="60" x2="158" y2="76" stroke="rgba(255,255,255,0.3)" strokeWidth="0.8" className="g-dash3"/>
-              <line x1="76" y1="54" x2="82" y2="110" stroke="rgba(255,255,255,0.2)" strokeWidth="0.7" className="g-dash2" style={{animationDelay:"0.6s"}}/>
-              <text x="66" y="43" fontSize="9" fill="#93c5fd" fontWeight="700">CA</text>
-              <text x="130" y="57" fontSize="8" fill="rgba(255,255,255,0.8)">EU</text>
-              <text x="162" y="73" fontSize="8" fill="rgba(255,255,255,0.75)">AS</text>
+              <circle cx="105" cy="85" r="66" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1"/><ellipse cx="105" cy="85" rx="66" ry="21" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8"/><ellipse cx="105" cy="85" rx="66" ry="46" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="0.8"/><line x1="105" y1="19" x2="105" y2="151" stroke="rgba(255,255,255,0.07)" strokeWidth="0.8"/><line x1="70" y1="22" x2="70" y2="148" stroke="rgba(255,255,255,0.05)" strokeWidth="0.8"/><line x1="140" y1="22" x2="140" y2="148" stroke="rgba(255,255,255,0.05)" strokeWidth="0.8"/>
+              <circle cx="76" cy="54" r="18" fill="#93c5fd" opacity="0.10"/><circle className="g-ring" cx="76" cy="54" r="13" fill="none" stroke="#93c5fd" strokeWidth="1"/><circle className="g-pulse" cx="76" cy="54" r="7" fill="#93c5fd"/>
+              <circle className="g-node" cx="126" cy="60" r="5" fill="rgba(255,255,255,0.75)" style={{animationDelay:"0.5s"}}/><circle className="g-node" cx="158" cy="76" r="5" fill="rgba(255,255,255,0.65)" style={{animationDelay:"1s"}}/><circle cx="82" cy="110" r="3.5" fill="rgba(255,255,255,0.4)"/>
+              <line x1="76" y1="54" x2="126" y2="60" stroke="#93c5fd" strokeWidth="1.2" opacity="0.7" className="g-dash"/><line x1="76" y1="54" x2="158" y2="76" stroke="#93c5fd" strokeWidth="1" opacity="0.5" className="g-dash2"/><line x1="126" y1="60" x2="158" y2="76" stroke="rgba(255,255,255,0.3)" strokeWidth="0.8" className="g-dash3"/><line x1="76" y1="54" x2="82" y2="110" stroke="rgba(255,255,255,0.2)" strokeWidth="0.7" className="g-dash2" style={{animationDelay:"0.6s"}}/>
+              <text x="66" y="43" fontSize="9" fill="#93c5fd" fontWeight="700">CA</text><text x="130" y="57" fontSize="8" fill="rgba(255,255,255,0.8)">EU</text><text x="162" y="73" fontSize="8" fill="rgba(255,255,255,0.75)">AS</text>
             </svg>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
-            className="flex flex-wrap items-center justify-center gap-1.5" style={{ marginBottom: 12 }}>
-            {(t("hero.pills", { returnObjects: true }) as string[]).map((pill) => (
-              <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-2.5 py-0.5 text-[11px] font-medium text-primary-foreground/90 md:px-3 md:py-1 md:text-xs">{pill}</span>
-            ))}
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="flex flex-wrap items-center justify-center gap-1.5" style={{ marginBottom: 12 }}>
+            {(t("hero.pills", { returnObjects: true }) as string[]).map((pill) => (<span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-2.5 py-0.5 text-[11px] font-medium text-primary-foreground/90 md:px-3 md:py-1 md:text-xs">{pill}</span>))}
           </motion.div>
-
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-            className="mx-auto max-w-3xl text-[28px] font-bold leading-tight text-primary-foreground md:text-[36px] lg:text-5xl">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mx-auto max-w-3xl text-[28px] font-bold leading-tight text-primary-foreground md:text-[36px] lg:text-5xl">
             {t("hero.titlePrefix")}{" "}<span style={{ color: "#93c5fd" }}>{t("hero.titleAccent")}</span>
           </motion.h1>
-
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}
-            className="mx-auto mt-3 max-w-2xl text-base text-primary-foreground/80 md:text-lg">
-            {t("hero.subtitle")}
-          </motion.p>
-
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3">
-            <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto"
-              onClick={() => document.getElementById("how-we-work")?.scrollIntoView({ behavior: "smooth" })}>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }} className="mx-auto mt-3 max-w-2xl text-base text-primary-foreground/80 md:text-lg">{t("hero.subtitle")}</motion.p>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }} className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3">
+            <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto" onClick={() => document.getElementById("how-we-work")?.scrollIntoView({ behavior: "smooth" })}>
               {t("hero.howWeWork")} <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Link to="/services" className="w-full sm:w-auto">
-              <Button size="lg" variant="outline" className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto">
-                {t("cta.viewApproach")} <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <Button size="lg" variant="outline" className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto">{t("cta.viewApproach")} <ArrowRight className="ml-2 h-4 w-4" /></Button>
             </Link>
           </motion.div>
-
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.4 }}
-            className="mx-auto mt-3 text-[13px] md:text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>
-            {t("hero.reach")}
-          </motion.p>
-
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.55 }}
-            className="mx-auto mt-8 flex max-w-sm items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-md md:mt-10 md:max-w-lg">
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.4 }} className="mx-auto mt-3 text-[13px] md:text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>{t("hero.reach")}</motion.p>
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.55 }} className="mx-auto mt-8 flex max-w-sm items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-md md:mt-10 md:max-w-lg">
             {(t("hero.stats", { returnObjects: true }) as { value: string; label: string }[]).map((stat, i) => (
-              <div key={i} className="flex flex-1 flex-col items-center px-3 md:px-5">
-                <span className="text-base font-bold text-primary-foreground md:text-lg">{stat.value}</span>
-                <span className="mt-0.5 text-[10px] text-primary-foreground/60 md:text-xs">{stat.label}</span>
-              </div>
+              <div key={i} className="flex flex-1 flex-col items-center px-3 md:px-5"><span className="text-base font-bold text-primary-foreground md:text-lg">{stat.value}</span><span className="mt-0.5 text-[10px] text-primary-foreground/60 md:text-xs">{stat.label}</span></div>
             ))}
           </motion.div>
         </div>
@@ -266,12 +134,7 @@ const Index = () => {
       <div className="border-b border-t border-border bg-card">
         <div className="container mx-auto px-4 py-3">
           <div className="grid grid-cols-2 gap-x-4 gap-y-2 md:flex md:flex-wrap md:items-center md:justify-center md:gap-10">
-            {capabilityPillars.map((label, i) => (
-              <div key={i} className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground md:text-sm">
-                <span className="shrink-0 text-primary">{capabilityIcons[i]}</span>
-                <span>{label}</span>
-              </div>
-            ))}
+            {capabilityPillars.map((label, i) => (<div key={i} className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground md:text-sm"><span className="shrink-0 text-primary">{capabilityIcons[i]}</span><span>{label}</span></div>))}
           </div>
         </div>
       </div>
@@ -280,10 +143,7 @@ const Index = () => {
       <div className="border-b border-border bg-accent/30">
         <div className="container mx-auto px-4 py-4 md:py-5">
           <div className="flex flex-col items-center gap-2 text-center md:flex-row md:justify-center md:gap-3">
-            <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
-              <Handshake className="h-4 w-4 shrink-0 text-primary" />
-              <span>{t("partner.label")}</span>
-            </div>
+            <div className="flex items-center gap-2 text-sm font-semibold text-foreground"><Handshake className="h-4 w-4 shrink-0 text-primary" /><span>{t("partner.label")}</span></div>
             <span className="hidden text-muted-foreground md:inline">—</span>
             <p className="max-w-2xl text-xs text-muted-foreground md:text-sm">{t("partner.strip")}</p>
           </div>
@@ -292,56 +152,41 @@ const Index = () => {
 
       {/* ── Problems We Solve ── */}
       <SectionWrapper className="relative overflow-hidden bg-muted/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
-          <div className="absolute -bottom-10 -left-10 h-44 w-44 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
-        </div>
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0"><div className="absolute -right-16 -top-16 h-56 w-56 rounded-full border border-primary/[0.07] bg-primary/[0.02]" /><div className="absolute -bottom-10 -left-10 h-44 w-44 rounded-full border border-primary/[0.06] bg-primary/[0.02]" /></div>
         <motion.div {...fadeUp(0)} className="relative text-center">
           <h2 className="text-[28px] font-bold md:text-[36px]">{t("problems.heading")}</h2>
           <p className="mx-auto mt-1.5 max-w-2xl text-sm text-muted-foreground md:text-base">{t("problems.subheading")}</p>
         </motion.div>
-        {/* Mobile */}
         <div className="relative mt-6 flex flex-col gap-3 md:hidden">
           {problemItems.map((item, i) => (
-            <motion.div key={i} {...fadeUp(i * 0.06)} whileHover={{ y: -4, transition: { duration: 0.25 } }} whileTap={{ y: -4, transition: { duration: 0.25 } }}
-              className={`flex items-start gap-4 rounded-xl border border-border bg-card overflow-hidden card-shadow`}>
-              <div className={`w-1 self-stretch flex-shrink-0 ${PILLAR_COLOURS[i].accentBar}`} />
-              <div className="py-4 pr-4">
-                <div className={`flex h-9 w-9 items-center justify-center rounded-full mb-2 ${PILLAR_COLOURS[i].iconBg} ${PILLAR_COLOURS[i].iconColor}`}>{problemIcons[i]}</div>
+            <motion.div key={i} {...fadeUp(i * 0.06)} whileHover={{ y: -4 }} whileTap={{ y: -4 }} className="flex items-start gap-0 rounded-xl border border-border bg-card overflow-hidden card-shadow">
+              <div className={`w-1 self-stretch flex-shrink-0 ${PILLAR[i].accentBar}`} />
+              <div className="py-4 px-4">
+                <div className={`flex h-9 w-9 items-center justify-center rounded-full mb-2 ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>{problemIcons[i]}</div>
                 <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
               </div>
             </motion.div>
           ))}
         </div>
-        {/* Desktop */}
         <div className="relative mt-8 hidden md:grid md:grid-cols-3 md:gap-6">
           {problemItems.map((item, i) => (
-            <motion.div key={i} {...fadeUp(i * 0.1)} whileHover={{ y: -6, transition: { duration: 0.25 } }} whileTap={{ y: -6, transition: { duration: 0.25 } }}
-              className="flex flex-col rounded-xl border border-border bg-card overflow-hidden card-shadow">
-              <div className={`h-[3px] w-full ${PILLAR_COLOURS[i].accentBar}`} />
-              <div className={`${PILLAR_COLOURS[i].headerBg} px-5 pt-4 pb-3`}>
-                <div className={`flex h-10 w-10 items-center justify-center rounded-full ${PILLAR_COLOURS[i].iconBg} ${PILLAR_COLOURS[i].iconColor}`}>{problemIcons[i]}</div>
-              </div>
-              <div className="px-5 py-4">
-                <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
-              </div>
+            <motion.div key={i} {...fadeUp(i * 0.1)} whileHover={{ y: -6 }} whileTap={{ y: -6 }} className="flex flex-col rounded-xl border border-border bg-card overflow-hidden card-shadow">
+              <div className={`h-[3px] w-full ${PILLAR[i].accentBar}`} />
+              <div className={`${PILLAR[i].headerBg} px-5 pt-4 pb-3`}><div className={`flex h-10 w-10 items-center justify-center rounded-full ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>{problemIcons[i]}</div></div>
+              <div className="px-5 py-4"><p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p></div>
             </motion.div>
           ))}
         </div>
         <motion.div {...fadeUp(0.2)} className="relative text-center mt-8">
-          <Button size="lg" className="font-semibold"
-            onClick={() => document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" })}>
+          <Button size="lg" className="font-semibold" onClick={() => document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" })}>
             {t("problems.sampleEngagement")} <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </motion.div>
       </SectionWrapper>
 
-      {/* ── Platforms We Work With ── */}
+      {/* ── Platforms ── */}
       <SectionWrapper className="relative overflow-hidden bg-muted/50">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-14 -top-14 h-52 w-52 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
-          <div className="absolute -right-10 -bottom-10 h-40 w-40 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
-        </div>
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0"><div className="absolute -left-14 -top-14 h-52 w-52 rounded-full border border-primary/[0.07] bg-primary/[0.02]" /><div className="absolute -right-10 -bottom-10 h-40 w-40 rounded-full border border-primary/[0.06] bg-primary/[0.02]" /></div>
         <motion.div {...fadeUp(0)} className="relative text-center">
           <h2 className="text-[28px] font-bold md:text-[36px]">{t("platforms.heading")}</h2>
           <p className="mx-auto mt-1.5 max-w-2xl text-sm text-muted-foreground md:text-base">{t("platforms.subheading")}</p>
@@ -351,98 +196,63 @@ const Index = () => {
             <motion.div key={gi} {...fadeUp(gi * 0.1)} className="text-center">
               <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">{group.label}</p>
               <div className="flex flex-wrap justify-center gap-2">
-                {group.items.map((item, ii) => (
-                  <span key={ii} className="rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-card-foreground card-shadow md:text-sm">{item}</span>
-                ))}
+                {group.items.map((item, ii) => (<span key={ii} className="rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-card-foreground card-shadow md:text-sm">{item}</span>))}
               </div>
             </motion.div>
           ))}
         </div>
       </SectionWrapper>
 
-      {/* ── What We Deliver — coloured pillar cards ── */}
+      {/* ── What We Deliver ── */}
       <SectionWrapper className="relative overflow-hidden" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.07) 1px, transparent 1px)", backgroundSize: "22px 22px" }}>
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -right-14 -top-14 h-52 w-52 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
-          <div className="absolute -left-10 -bottom-10 h-44 w-44 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
-        </div>
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0"><div className="absolute -right-14 -top-14 h-52 w-52 rounded-full border border-primary/[0.07] bg-primary/[0.02]" /><div className="absolute -left-10 -bottom-10 h-44 w-44 rounded-full border border-primary/[0.06] bg-primary/[0.02]" /></div>
         <motion.div {...fadeUp(0)} className="relative">
           <h2 className="text-center text-[28px] font-bold md:text-[36px]">{t("whatWeDeliver.heading")}</h2>
           <p className="mx-auto mt-1.5 max-w-2xl text-center text-sm text-muted-foreground md:text-base">{t("whatWeDeliver.subheading")}</p>
         </motion.div>
-        {/* Mobile — accordion with colour */}
         <div className="relative mt-6 flex flex-col gap-3 md:hidden">
-          {valueCards.map((c, i) => (
-            <motion.div key={i} {...fadeUp(i * 0.06)}>
-              <AccordionCard icon={c.icon} title={c.title} desc={c.desc} detail={c.detail} index={i} />
-            </motion.div>
-          ))}
+          {valueCards.map((c, i) => (<motion.div key={i} {...fadeUp(i * 0.06)}><AccordionCard icon={c.icon} title={c.title} desc={c.desc} detail={c.detail} index={i} /></motion.div>))}
         </div>
-        {/* Desktop — coloured cards */}
         <div className="relative mt-8 hidden md:grid md:grid-cols-3 md:gap-6">
-          {valueCards.map((c, i) => (
-            <motion.div key={i} {...fadeUp(i * 0.1)} className="flex">
-              <DesktopCard icon={c.icon} title={c.title} desc={c.desc} detail={c.detail} index={i} />
-            </motion.div>
-          ))}
+          {valueCards.map((c, i) => (<motion.div key={i} {...fadeUp(i * 0.1)} className="flex"><DesktopCard icon={c.icon} title={c.title} desc={c.desc} detail={c.detail} index={i} /></motion.div>))}
         </div>
       </SectionWrapper>
 
-      {/* ── How We Work — coloured steps ── */}
+      {/* ── How We Work ── */}
       <SectionWrapper id="how-we-work" className="relative overflow-hidden bg-muted/50">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-16 -top-16 h-56 w-56 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
-          <div className="absolute -bottom-12 -right-12 h-64 w-64 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
-        </div>
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0"><div className="absolute -left-16 -top-16 h-56 w-56 rounded-full border border-primary/[0.08] bg-primary/[0.03]" /><div className="absolute -bottom-12 -right-12 h-64 w-64 rounded-full border border-primary/[0.07] bg-primary/[0.02]" /></div>
         <motion.div {...fadeUp(0)} className="relative text-center">
           <h2 className="text-[28px] font-bold md:text-[36px]">{t("howWeWork.heading")}</h2>
           <p className="mx-auto mt-1.5 max-w-2xl text-sm text-muted-foreground md:text-base">{t("howWeWork.subheading")}</p>
         </motion.div>
-
-        {/* Desktop — coloured numbered steps */}
         <div className="mt-10 hidden md:block">
           <div className="relative grid grid-cols-3 gap-8">
-            {/* Connector lines between steps */}
             <div className="absolute left-[16.67%] right-[16.67%] top-6 h-0.5 bg-border" />
             {howWeWorkSteps.map((step, i) => {
-              const c = PILLAR_COLOURS[i];
+              const c = PILLAR[i];
               return (
                 <motion.div key={i} {...fadeUp(i * 0.12)} className="relative flex flex-col items-center text-center">
-                  <div className={`relative z-10 flex h-12 w-12 items-center justify-center rounded-full text-sm font-bold ${c.stepNum}`}>
-                    {i + 1}
-                  </div>
-                  <div className={`mt-4 w-full rounded-xl border border-border overflow-hidden card-shadow`}>
+                  <div className={`relative z-10 flex h-12 w-12 items-center justify-center rounded-full text-sm font-bold ${c.stepNum}`}>{i + 1}</div>
+                  <div className="mt-4 w-full rounded-xl border border-border overflow-hidden card-shadow">
                     <div className={`h-[3px] w-full ${c.accentBar}`} />
-                    <div className={`${c.headerBg} px-4 py-3`}>
-                      <h3 className="text-sm font-semibold text-foreground">{step.title}</h3>
-                    </div>
-                    <div className="px-4 py-3">
-                      <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
-                    </div>
+                    <div className={`${c.headerBg} px-4 py-3`}><h3 className="text-sm font-semibold text-foreground">{step.title}</h3></div>
+                    <div className="px-4 py-3"><p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p></div>
                   </div>
                 </motion.div>
               );
             })}
           </div>
         </div>
-
-        {/* Mobile — coloured step cards */}
         <div className="mt-6 flex flex-col gap-3 md:hidden">
           {howWeWorkSteps.map((step, i) => {
-            const c = PILLAR_COLOURS[i];
+            const c = PILLAR[i];
             return (
               <motion.div key={i} {...fadeUp(i * 0.1)} className="flex gap-3 items-start">
-                <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold mt-1 ${c.stepNum}`}>
-                  {i + 1}
-                </div>
-                <div className={`flex-1 rounded-xl border border-border overflow-hidden card-shadow`}>
+                <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold mt-1 ${c.stepNum}`}>{i + 1}</div>
+                <div className="flex-1 rounded-xl border border-border overflow-hidden card-shadow">
                   <div className={`h-[3px] w-full ${c.accentBar}`} />
-                  <div className={`${c.headerBg} px-4 py-2.5`}>
-                    <h3 className="text-sm font-semibold text-foreground">{step.title}</h3>
-                  </div>
-                  <div className="px-4 py-3">
-                    <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
-                  </div>
+                  <div className={`${c.headerBg} px-4 py-2.5`}><h3 className="text-sm font-semibold text-foreground">{step.title}</h3></div>
+                  <div className="px-4 py-3"><p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p></div>
                 </div>
               </motion.div>
             );
@@ -457,51 +267,41 @@ const Index = () => {
       <motion.div {...fadeUp(0)} className="border-y border-border bg-background" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "18px 18px" }}>
         <div className="container mx-auto px-4 py-6 md:py-10">
           <div className="mx-auto max-w-2xl text-center">
-            <svg width="32" height="24" viewBox="0 0 32 24" fill="none" className="mx-auto mb-4 opacity-20" aria-hidden="true">
-              <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l1.6 2.4C10.4 3.6 7.6 6.4 7.2 10.4H12V24H0zm20 0V14.4C20 6.4 24.8 1.6 34.4 0L36 2.4C30.4 3.6 27.6 6.4 27.2 10.4H32V24H20z" fill="currentColor" className="text-primary"/>
-            </svg>
-            <p className="text-lg font-medium leading-relaxed text-foreground md:text-xl lg:text-2xl">
-              "Quality isn't a phase at the end — it's the discipline you build in from the start."
-            </p>
+            <svg width="32" height="24" viewBox="0 0 32 24" fill="none" className="mx-auto mb-4 opacity-20" aria-hidden="true"><path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l1.6 2.4C10.4 3.6 7.6 6.4 7.2 10.4H12V24H0zm20 0V14.4C20 6.4 24.8 1.6 34.4 0L36 2.4C30.4 3.6 27.6 6.4 27.2 10.4H32V24H20z" fill="currentColor" className="text-primary"/></svg>
+            <p className="text-lg font-medium leading-relaxed text-foreground md:text-xl lg:text-2xl">"Quality isn't a phase at the end — it's the discipline you build in from the start."</p>
           </div>
         </div>
       </motion.div>
 
-      {/* ── Business Outcomes ── */}
+      {/* ── Business Outcomes — now coloured ── */}
       <SectionWrapper className="relative overflow-hidden" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.06) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-16 -top-16 h-56 w-56 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
-          <div className="absolute -right-12 -bottom-12 h-48 w-48 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
-        </div>
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0"><div className="absolute -left-16 -top-16 h-56 w-56 rounded-full border border-primary/[0.07] bg-primary/[0.02]" /><div className="absolute -right-12 -bottom-12 h-48 w-48 rounded-full border border-primary/[0.06] bg-primary/[0.02]" /></div>
         <motion.div {...fadeUp(0)} className="relative text-center mb-8">
-          <Link to="/contact">
-            <Button size="lg" className="font-semibold">
-              {t("outcomes.forYourProgramme")} <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </Link>
+          <Link to="/contact"><Button size="lg" className="font-semibold">{t("outcomes.forYourProgramme")} <ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
         </motion.div>
-        <motion.h2 {...fadeUp(0.05)} className="relative text-center text-[28px] font-bold md:text-[36px]">
-          {t("outcomes.heading")}
-        </motion.h2>
+        <motion.h2 {...fadeUp(0.05)} className="relative text-center text-[28px] font-bold md:text-[36px]">{t("outcomes.heading")}</motion.h2>
         <div className="relative mt-5 grid grid-cols-2 gap-3 md:mt-8 md:grid-cols-4 md:gap-6">
-          {outcomeItems.map((o, i) => (
-            <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }} whileTap={{ y: -6, transition: { duration: 0.25 } }}
-              className="flex flex-col items-center gap-2 rounded-lg border border-border bg-card p-4 card-shadow text-center md:p-5">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">{outcomeIcons[i]}</div>
-              <span className="text-xs font-semibold text-card-foreground md:text-sm">{o.label}</span>
-              <span className="text-[11px] leading-snug text-muted-foreground md:text-xs">{o.desc}</span>
-            </motion.div>
-          ))}
+          {outcomeItems.map((o, i) => {
+            const c = OUTCOME_COLOURS[i];
+            return (
+              <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
+                whileHover={{ y: -6, transition: { duration: 0.25 } }} whileTap={{ y: -6, transition: { duration: 0.25 } }}
+                className="flex flex-col rounded-xl border border-border bg-card overflow-hidden card-shadow">
+                <div className={`h-[3px] w-full ${c.accentBar}`} />
+                <div className="flex flex-col items-center gap-2 p-4 text-center md:p-5">
+                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${c.iconBg} ${c.iconColor}`}>{outcomeIcons[i]}</div>
+                  <span className="text-xs font-semibold text-card-foreground md:text-sm">{o.label}</span>
+                  <span className="text-[11px] leading-snug text-muted-foreground md:text-xs">{o.desc}</span>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </SectionWrapper>
 
       {/* ── CTA ── */}
       <SectionWrapper className="relative overflow-hidden bg-accent/50">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
-          <div className="absolute -bottom-16 -left-16 h-64 w-64 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
-        </div>
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0"><div className="absolute -right-20 -top-20 h-72 w-72 rounded-full border border-primary/[0.08] bg-primary/[0.03]" /><div className="absolute -bottom-16 -left-16 h-64 w-64 rounded-full border border-primary/[0.07] bg-primary/[0.02]" /></div>
         <motion.div {...fadeUp(0)} className="relative text-center">
           <h2 className="text-[28px] font-bold md:text-[36px]">{t("cta.heading")}</h2>
           <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground md:mt-3 md:text-base">{t("cta.body")}</p>
