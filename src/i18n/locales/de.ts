@@ -431,11 +431,20 @@ const de = {
     ],
   },
   footer: {
-    tagline: "Digitale Entwicklung, SAP-Governance & UAT und Testautomatisierung & Qualität — End-to-End-Lösungen für sichere Enterprise-Lieferung.",
+    tagline: "Strukturierte Lieferung in SAP-Governance, digitaler Entwicklung und Qualitätssicherung — aus Kanada gemanagt, global geliefert.",
     quickLinks: "Schnellzugriff",
     contact: "Kontakt",
     rights: "Alle Rechte vorbehalten.",
     translationNote: "Einige Inhalte auf dieser Website wurden möglicherweise automatisch übersetzt und können Ungenauigkeiten enthalten. Die englische Version ist die offizielle Version.",
+    industriesLabel: "Branchen",
+    industries: ["HealthTech", "FinTech", "eCommerce", "ERP / SAP", "SaaS", "Versicherung"],
+    whyLabel: "Warum QualityBridge",
+    credItems: [
+      { text: "<strong>10+ Jahre</strong> in Fortune-500-Lieferung: ERP, SaaS &amp; QA" },
+      { text: "<strong>Eine Engagement-Leitung</strong> verantwortlich für Dev, SAP &amp; QA" },
+      { text: "<strong>Kanada-basiert</strong>, aktiv in Nordamerika, Europa &amp; Asien" },
+      { text: "<strong>50–70% schnellere</strong> Regressionszyklen in QA-Engagements" },
+    ],
   },
   lang: {
     en: "Englisch",
