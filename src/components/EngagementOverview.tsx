@@ -4,10 +4,9 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { ExternalLink, ArrowRight, Package, RefreshCw, Monitor, Shield, Activity, Calendar, Clock, Layers } from "lucide-react";
+import { ExternalLink, ArrowRight, Package, RefreshCw, Monitor, Shield, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-// ─── Animation helpers ────────────────────────────────────────────────────────
 const cardVariants = {
   hidden: { opacity: 0, y: 28 },
   visible: (i: number) => ({
@@ -24,7 +23,6 @@ const fadeSlide = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
 };
 
-// ─── Model card config — colours only ────────────────────────────────────────
 const MODELS = [
   {
     key: "model1" as const,
@@ -52,7 +50,6 @@ const MODELS = [
   },
 ] as const;
 
-// ─── Pillar row config — mirrors CaseStudies colours ─────────────────────────
 const PILLARS = [
   {
     key: "digital",
@@ -94,7 +91,6 @@ export function EngagementOverview() {
         backgroundSize: "20px 20px",
       }}
     >
-      {/* Decorative circles */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute -left-14 -top-14 h-52 w-52 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
         <div className="absolute -right-10 -bottom-10 h-40 w-40 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
@@ -141,10 +137,7 @@ export function EngagementOverview() {
                 whileTap={{ y: -4, transition: { duration: 0.15 } }}
                 className="flex flex-col rounded-xl border border-border bg-card overflow-hidden card-shadow"
               >
-                {/* Accent bar */}
                 <div className={`h-[3px] w-full ${model.accentBar}`} />
-
-                {/* Coloured header */}
                 <div className={`${model.headerBg} px-5 pt-4 pb-4`}>
                   <div className="flex items-center gap-2.5 mb-3">
                     <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${model.iconBg} ${model.iconColor}`}>
@@ -158,8 +151,6 @@ export function EngagementOverview() {
                     {t(`engagement.${model.key}.title`)}
                   </h3>
                 </div>
-
-                {/* Body */}
                 <div className="flex flex-col flex-1 px-5 py-4 gap-4">
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {t(`engagement.${model.key}.desc`)}
@@ -175,7 +166,7 @@ export function EngagementOverview() {
           })}
         </motion.div>
 
-        {/* ── Per-pillar scope table ── */}
+        {/* ── Scope table ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -183,65 +174,106 @@ export function EngagementOverview() {
           transition={{ duration: 0.45, delay: 0.1 }}
           className="rounded-xl border border-border overflow-hidden mb-8 md:mb-10"
         >
-          {/* Table header */}
-          <div className="grid grid-cols-4 bg-muted border-b border-border">
-            {(t("engagement.table.headers", { returnObjects: true }) as string[]).map((h, i) => (
-              <div key={i} className="px-4 py-3 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground border-r border-border last:border-r-0 flex items-center gap-1.5">
-                {i === 0 && <Layers size={11} className="shrink-0" />}
-                {i === 1 && <Clock size={11} className="shrink-0" />}
-                {i === 2 && <Calendar size={11} className="shrink-0" />}
-                {h}
-              </div>
-            ))}
+          {/* Desktop table — hidden on mobile */}
+          <div className="hidden sm:block">
+            {/* Header row — all columns centred */}
+            <div className="grid grid-cols-4 bg-muted border-b border-border">
+              {(t("engagement.table.headers", { returnObjects: true }) as string[]).map((h, i) => (
+                <div key={i} className="px-4 py-3 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground text-center border-r border-border last:border-r-0">
+                  {h}
+                </div>
+              ))}
+            </div>
+            {/* Data rows */}
+            {PILLARS.map((pillar, i) => {
+              const Icon = pillar.icon;
+              const row = t(`engagement.table.rows.${pillar.key}`, { returnObjects: true }) as {
+                scope: string; duration: string; model: string;
+              };
+              return (
+                <motion.div
+                  key={pillar.key}
+                  initial={{ opacity: 0, x: -12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: i * 0.08 }}
+                  className={`grid grid-cols-4 border-b border-border last:border-b-0 ${pillar.rowBg} ${pillar.border}`}
+                >
+                  <div className="px-4 py-3.5 flex items-center gap-2 border-r border-border">
+                    <span className={`h-2 w-2 flex-shrink-0 rounded-full ${pillar.dot}`} />
+                    <div className={`flex items-center gap-1.5 text-xs font-semibold ${pillar.text}`}>
+                      <Icon size={12} className="shrink-0" />
+                      <span>{t(`engagement.table.pillars.${pillar.key}`)}</span>
+                    </div>
+                  </div>
+                  <div className="px-4 py-3.5 text-xs text-muted-foreground border-r border-border flex items-center">
+                    {row.scope}
+                  </div>
+                  <div className="px-4 py-3.5 border-r border-border flex items-center justify-center">
+                    <span className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full ${pillar.duration}`}>
+                      {row.duration}
+                    </span>
+                  </div>
+                  <div className="px-4 py-3.5 text-xs text-muted-foreground flex items-center">
+                    {row.model}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
 
-          {/* Pillar rows */}
-          {PILLARS.map((pillar, i) => {
-            const Icon = pillar.icon;
-            const row = t(`engagement.table.rows.${pillar.key}`, { returnObjects: true }) as {
-              scope: string; duration: string; model: string;
-            };
-            return (
-              <motion.div
-                key={pillar.key}
-                initial={{ opacity: 0, x: -12 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: i * 0.08 }}
-                className={`grid grid-cols-4 border-b border-border last:border-b-0 ${pillar.rowBg} ${pillar.border}`}
-              >
-                {/* Pillar name */}
-                <div className="px-4 py-3.5 flex items-center gap-2 border-r border-border">
-                  <span className={`h-2 w-2 flex-shrink-0 rounded-full ${pillar.dot}`} />
-                  <div className={`flex items-center gap-1.5 text-xs font-semibold ${pillar.text}`}>
-                    <Icon size={12} className="shrink-0" />
-                    <span className="hidden sm:inline">{t(`engagement.table.pillars.${pillar.key}`)}</span>
-                    <span className="sm:hidden">{t(`engagement.table.pillarsShort.${pillar.key}`)}</span>
+          {/* Mobile: stacked cards instead of table — no cutoff risk */}
+          <div className="sm:hidden divide-y divide-border">
+            {PILLARS.map((pillar, i) => {
+              const Icon = pillar.icon;
+              const row = t(`engagement.table.rows.${pillar.key}`, { returnObjects: true }) as {
+                scope: string; duration: string; model: string;
+              };
+              return (
+                <motion.div
+                  key={pillar.key}
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: i * 0.08 }}
+                  className={`p-4 ${pillar.rowBg} ${pillar.border}`}
+                >
+                  {/* Pillar name */}
+                  <div className={`flex items-center gap-2 mb-3 text-sm font-semibold ${pillar.text}`}>
+                    <span className={`h-2 w-2 flex-shrink-0 rounded-full ${pillar.dot}`} />
+                    <Icon size={14} className="shrink-0" />
+                    <span>{t(`engagement.table.pillars.${pillar.key}`)}</span>
                   </div>
-                </div>
-
-                {/* Scope */}
-                <div className="px-4 py-3.5 text-xs text-muted-foreground border-r border-border flex items-center">
-                  {row.scope}
-                </div>
-
-                {/* Duration — pill */}
-                <div className="px-4 py-3.5 border-r border-border flex items-center">
-                  <span className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full ${pillar.duration}`}>
-                    {row.duration}
-                  </span>
-                </div>
-
-                {/* Model */}
-                <div className="px-4 py-3.5 text-xs text-muted-foreground flex items-center">
-                  {row.model}
-                </div>
-              </motion.div>
-            );
-          })}
+                  {/* Details grid */}
+                  <div className="grid grid-cols-2 gap-2">
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-1">
+                        {(t("engagement.table.headers", { returnObjects: true }) as string[])[1]}
+                      </p>
+                      <p className="text-xs text-muted-foreground">{row.scope}</p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-1">
+                        {(t("engagement.table.headers", { returnObjects: true }) as string[])[2]}
+                      </p>
+                      <span className={`inline-block text-[11px] font-semibold px-2 py-0.5 rounded-full ${pillar.duration}`}>
+                        {row.duration}
+                      </span>
+                    </div>
+                    <div className="col-span-2">
+                      <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-1">
+                        {(t("engagement.table.headers", { returnObjects: true }) as string[])[3]}
+                      </p>
+                      <p className="text-xs text-muted-foreground">{row.model}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </motion.div>
 
-        {/* ── Bottom CTA strip ── */}
+        {/* ── CTA strip ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -249,9 +281,7 @@ export function EngagementOverview() {
           transition={{ duration: 0.45, delay: 0.15 }}
           className="relative overflow-hidden rounded-xl border border-primary/30 bg-primary/[0.04] dark:bg-primary/[0.08] px-6 py-6 md:px-8 md:py-7"
         >
-          {/* Subtle accent bar on top */}
           <div className="absolute top-0 left-0 right-0 h-[3px] bg-primary/40 rounded-t-xl" />
-
           <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div className="flex-1">
               <p className="text-base font-semibold text-foreground mb-1.5">
