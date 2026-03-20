@@ -46,7 +46,7 @@ const de = {
     eyebrow: "Drei Fähigkeiten, ein System",
     heading: "Was wir liefern",
     subheading: "Nicht drei separate Anbieter. Ein strukturiertes Engagement mit einer einzigen Verantwortlichkeit.",
-    cta: "Leistungen entdecken",
+    cta: "Leistungen ansehen",
     cards: [
       {
         title: "Digitale Entwicklung",
@@ -114,7 +114,7 @@ const de = {
     eyebrow: "Wo Programme scheitern",
     heading: "Kommt Ihnen das bekannt vor?",
     subheading: "Die meisten Enterprise-Programme scheitern aus einem von drei Gründen.",
-    sampleEngagement: "Sehen Sie, wie wir das gelöst haben",
+    sampleEngagement: "Fallstudien ansehen",
     items: [
       {
         pill: "Digitale Entwicklung",

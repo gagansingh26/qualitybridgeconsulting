@@ -45,7 +45,7 @@ const fr = {
   whatWeDeliver: {
     eyebrow: "Trois capacités, un système",
     heading: "Ce que nous livrons",
-    cta: "Explorer nos services",
+    cta: "Explorer les services",
     subheading: "Pour les PME, entreprises en croissance et équipes digitales — trois capacités intégrées livrées dans un seul engagement.",
     cards: [
       {
@@ -114,7 +114,7 @@ const fr = {
     eyebrow: "Où les programmes échouent",
     heading: "Ça vous parle ?",
     subheading: "La plupart des programmes enterprise échouent pour l'une de ces trois raisons.",
-    sampleEngagement: "Voir comment nous avons résolu ça",
+    sampleEngagement: "Voir les études de cas",
     items: [
       {
         pill: "Développement digital",

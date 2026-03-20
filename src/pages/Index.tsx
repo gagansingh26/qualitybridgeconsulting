@@ -56,109 +56,103 @@ const SH = ({ eyebrow, heading, sub }: { eyebrow?: string; heading: string; sub?
   </div>
 );
 
-// ─── Hero graphic — three pillars converging as one team ─────────────────────
+// ─── Hero globe graphic — CA → EU → ASIA delivery network ───────────────────
 const HeroGraphic = () => (
   <motion.div
-    initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.9, delay: 0.5 }}
-    className="pointer-events-none hidden lg:flex items-center justify-center"
+    initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.8, delay: 0.48 }}
+    className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 lg:block xl:right-6"
     aria-hidden="true"
-    style={{ width: 240, flexShrink: 0 }}
+    style={{ width: 220 }}
   >
-    <svg width="240" height="260" viewBox="0 0 220 260" fill="none" xmlns="http://www.w3.org/2000/svg"
+    <svg width="220" height="220" viewBox="0 0 200 200" fill="none"
+      xmlns="http://www.w3.org/2000/svg"
       style={{ width: "100%", height: "auto", overflow: "visible" }}>
       <style>{`
-        @keyframes gPulse{0%,100%{r:10;opacity:1}50%{r:14;opacity:.6}}
-        @keyframes gRing{0%,100%{r:18;opacity:.4}50%{r:26;opacity:0}}
-        @keyframes gFlow{to{stroke-dashoffset:-24}}
-        @keyframes gFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-        @keyframes gBadge{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.75;transform:scale(1.04)}}
-        .g-pulse{animation:gPulse 2.2s ease-in-out infinite}
-        .g-ring{animation:gRing 2.2s ease-in-out infinite}
-        .g-flow{stroke-dasharray:5 4;animation:gFlow 1.8s linear infinite}
-        .g-flow2{stroke-dasharray:5 4;animation:gFlow 2.2s linear infinite .5s}
-        .g-flow3{stroke-dasharray:5 4;animation:gFlow 2.6s linear infinite 1s}
-        .g-float{animation:gFloat 3.2s ease-in-out infinite}
-        .g-badge{animation:gBadge 2.8s ease-in-out infinite}
+        @keyframes globeSpin{from{stroke-dashoffset:0}to{stroke-dashoffset:-60}}
+        @keyframes globePulse{0%,100%{r:9;opacity:1}50%{r:13;opacity:.6}}
+        @keyframes globeRing{0%,100%{r:16;opacity:.35}50%{r:24;opacity:0}}
+        @keyframes globeFlow{to{stroke-dashoffset:-18}}
+        @keyframes globeFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+        @keyframes globeNode{0%,100%{r:5}50%{r:7}}
+        .gl-spin{stroke-dasharray:8 6;animation:globeSpin 8s linear infinite}
+        .gl-pulse{animation:globePulse 2.2s ease-in-out infinite}
+        .gl-ring{animation:globeRing 2.2s ease-in-out infinite}
+        .gl-flow{stroke-dasharray:4 4;animation:globeFlow 1.8s linear infinite}
+        .gl-flow2{stroke-dasharray:4 4;animation:globeFlow 2.4s linear infinite .6s}
+        .gl-flow3{stroke-dasharray:4 4;animation:globeFlow 2s linear infinite 1.2s}
+        .gl-float{animation:globeFloat 3s ease-in-out infinite}
+        .gl-node{animation:globeNode 2.6s ease-in-out infinite}
       `}</style>
 
-      {/* ── Three source pillars (top) ── */}
+      {/* ── Globe base ── */}
+      <circle cx="100" cy="100" r="58" fill="rgba(147,197,253,0.06)"
+        stroke="rgba(147,197,253,0.22)" strokeWidth="1"/>
+      {/* Latitude rings */}
+      <ellipse cx="100" cy="100" rx="58" ry="20" fill="none"
+        stroke="rgba(147,197,253,0.12)" strokeWidth="0.8"/>
+      <ellipse cx="100" cy="100" rx="58" ry="40" fill="none"
+        stroke="rgba(147,197,253,0.08)" strokeWidth="0.8"/>
+      {/* Longitude lines */}
+      <line x1="100" y1="42" x2="100" y2="158"
+        stroke="rgba(147,197,253,0.10)" strokeWidth="0.8"/>
+      <path d="M 68 48 Q 42 100 68 152"
+        fill="none" stroke="rgba(147,197,253,0.08)" strokeWidth="0.8"/>
+      <path d="M 132 48 Q 158 100 132 152"
+        fill="none" stroke="rgba(147,197,253,0.08)" strokeWidth="0.8"/>
+      {/* Animated orbit ring */}
+      <ellipse cx="100" cy="100" rx="72" ry="24"
+        fill="none" stroke="rgba(147,197,253,0.18)" strokeWidth="1"
+        className="gl-spin"/>
 
-      {/* Digital — blue, top-left */}
-      <rect x="4" y="8" width="64" height="52" rx="10"
-        fill="rgba(59,130,246,0.15)" stroke="rgba(147,197,253,0.45)" strokeWidth="1"/>
-      <rect x="4" y="8" width="64" height="3" rx="1.5" fill="#3b82f6"/>
-      <text x="36" y="30" fontSize="8.5" fill="rgba(255,255,255,0.9)" textAnchor="middle"
-        fontWeight="700" fontFamily="system-ui,sans-serif">Digital</text>
-      <text x="36" y="42" fontSize="7" fill="rgba(255,255,255,0.5)" textAnchor="middle"
-        fontFamily="system-ui,sans-serif">Development</text>
-      <circle cx="36" cy="53" r="2.5" fill="#3b82f6" opacity="0.7"/>
+      {/* ── Canada node — left, anchor/HQ ── */}
+      <circle className="gl-ring" cx="52" cy="88" r="16" fill="none"
+        stroke="#93c5fd" strokeWidth="0.8"/>
+      <circle className="gl-pulse" cx="52" cy="88" r="9" fill="#93c5fd"/>
+      <text x="52" y="116" fontSize="8.5" fill="rgba(255,255,255,0.9)"
+        textAnchor="middle" fontWeight="700" fontFamily="system-ui,sans-serif">Canada</text>
+      <text x="52" y="127" fontSize="7" fill="rgba(255,255,255,0.45)"
+        textAnchor="middle" fontFamily="system-ui,sans-serif">HQ · Client lead</text>
 
-      {/* SAP — teal, top-center */}
-      <rect x="78" y="8" width="64" height="52" rx="10"
-        fill="rgba(20,184,166,0.15)" stroke="rgba(94,234,212,0.45)" strokeWidth="1"/>
-      <rect x="78" y="8" width="64" height="3" rx="1.5" fill="#14b8a6"/>
-      <text x="110" y="30" fontSize="8.5" fill="rgba(255,255,255,0.9)" textAnchor="middle"
-        fontWeight="700" fontFamily="system-ui,sans-serif">SAP</text>
-      <text x="110" y="42" fontSize="7" fill="rgba(255,255,255,0.5)" textAnchor="middle"
-        fontFamily="system-ui,sans-serif">Governance &amp; UAT</text>
-      <circle cx="110" cy="53" r="2.5" fill="#14b8a6" opacity="0.7"/>
+      {/* ── Europe node — top-right ── */}
+      <circle className="gl-node" cx="142" cy="62" r="5" fill="#93c5fd" opacity="0.85"
+        style={{animationDelay:"0.5s"}}/>
+      <text x="142" y="50" fontSize="8" fill="rgba(255,255,255,0.8)"
+        textAnchor="middle" fontWeight="600" fontFamily="system-ui,sans-serif">Europe</text>
 
-      {/* QA — purple, top-right */}
-      <rect x="152" y="8" width="64" height="52" rx="10"
-        fill="rgba(139,92,246,0.15)" stroke="rgba(196,181,253,0.45)" strokeWidth="1"/>
-      <rect x="152" y="8" width="64" height="3" rx="1.5" fill="#8b5cf6"/>
-      <text x="184" y="30" fontSize="8.5" fill="rgba(255,255,255,0.9)" textAnchor="middle"
-        fontWeight="700" fontFamily="system-ui,sans-serif">Quality</text>
-      <text x="184" y="42" fontSize="7" fill="rgba(255,255,255,0.5)" textAnchor="middle"
-        fontFamily="system-ui,sans-serif">Engineering</text>
-      <circle cx="184" cy="53" r="2.5" fill="#8b5cf6" opacity="0.7"/>
+      {/* ── Asia node — bottom-right ── */}
+      <circle className="gl-node" cx="158" cy="128" r="5" fill="#93c5fd" opacity="0.85"
+        style={{animationDelay:"1.1s"}}/>
+      <text x="158" y="148" fontSize="8" fill="rgba(255,255,255,0.8)"
+        textAnchor="middle" fontWeight="600" fontFamily="system-ui,sans-serif">Asia</text>
 
-      {/* ── Converging lines from each pillar → centre node ── */}
-      {/* Digital → center */}
-      <path d="M 36 60 Q 36 105 110 138"
-        fill="none" stroke="rgba(59,130,246,0.5)" strokeWidth="1.5"
-        className="g-flow"/>
-      {/* SAP → center */}
-      <path d="M 110 60 L 110 138"
-        fill="none" stroke="rgba(20,184,166,0.5)" strokeWidth="1.5"
-        className="g-flow2"/>
-      {/* QA → center */}
-      <path d="M 184 60 Q 184 105 110 138"
-        fill="none" stroke="rgba(139,92,246,0.5)" strokeWidth="1.5"
-        className="g-flow3"/>
+      {/* ── Animated connection arcs ── */}
+      {/* CA → EU */}
+      <path d="M 62 82 Q 96 55 136 64"
+        fill="none" stroke="rgba(147,197,253,0.45)" strokeWidth="1.2"
+        className="gl-flow"/>
+      {/* CA → Asia */}
+      <path d="M 62 95 Q 106 118 152 126"
+        fill="none" stroke="rgba(147,197,253,0.35)" strokeWidth="1.2"
+        className="gl-flow2"/>
+      {/* EU → Asia (via globe) */}
+      <path d="M 144 68 Q 162 96 155 122"
+        fill="none" stroke="rgba(147,197,253,0.25)" strokeWidth="1"
+        className="gl-flow3"/>
 
-      {/* ── Central "One Team" node ── */}
-      <circle className="g-ring" cx="110" cy="148" r="18" fill="none"
-        stroke="rgba(147,197,253,0.5)" strokeWidth="1"/>
-      <circle className="g-pulse" cx="110" cy="148" r="10" fill="#93c5fd"/>
-      <text x="110" y="185" fontSize="8" fill="rgba(255,255,255,0.85)" textAnchor="middle"
-        fontWeight="700" fontFamily="system-ui,sans-serif">One Team</text>
-
-      {/* ── Output line ── */}
-      <line x1="110" y1="170" x2="110" y2="196"
-        stroke="rgba(147,197,253,0.4)" strokeWidth="1.5"
-        strokeDasharray="4 3"/>
-
-      {/* ── Delivery badge (bottom, floating) ── */}
-      <g className="g-float" style={{ transformOrigin: "110px 215px" }}>
-        <rect x="48" y="200" width="124" height="36" rx="8"
-          fill="rgba(147,197,253,0.12)" stroke="rgba(147,197,253,0.4)" strokeWidth="1"/>
-        <circle cx="68" cy="218" r="5" fill="#93c5fd" opacity="0.85"/>
-        <text x="80" y="214" fontSize="8" fill="rgba(255,255,255,0.9)"
-          fontWeight="700" fontFamily="system-ui,sans-serif">Single accountability</text>
-        <text x="80" y="225" fontSize="7" fill="rgba(255,255,255,0.5)"
-          fontFamily="system-ui,sans-serif">Kickoff to go-live</text>
+      {/* ── "One team" badge — floats below globe ── */}
+      <g className="gl-float" style={{ transformOrigin: "100px 178px" }}>
+        <rect x="38" y="168" width="124" height="30" rx="7"
+          fill="rgba(147,197,253,0.12)" stroke="rgba(147,197,253,0.35)" strokeWidth="0.8"/>
+        <circle cx="56" cy="183" r="4" fill="#93c5fd" opacity="0.8"/>
+        <text x="66" y="180" fontSize="7.5" fill="rgba(255,255,255,0.9)"
+          fontWeight="700" fontFamily="system-ui,sans-serif">3 regions · 1 accountable team</text>
+        <text x="66" y="191" fontSize="6.5" fill="rgba(255,255,255,0.45)"
+          fontFamily="system-ui,sans-serif">Dev · SAP · QA · Canada-based</text>
       </g>
-
-      {/* ── Small connection dots on converging lines ── */}
-      <circle cx="68" cy="96" r="2.5" fill="rgba(147,197,253,0.6)"/>
-      <circle cx="110" cy="96" r="2.5" fill="rgba(147,197,253,0.6)"/>
-      <circle cx="152" cy="96" r="2.5" fill="rgba(147,197,253,0.6)"/>
     </svg>
   </motion.div>
 );
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
 const Index = () => {
   const { t } = useTranslation();
@@ -189,10 +183,10 @@ const Index = () => {
           <div className="absolute right-8 top-8 h-40 w-40 rounded-full border border-white/[0.07] bg-white/[0.02] hidden md:block" />
         </div>
 
-        <div className="container relative mx-auto max-w-5xl px-4">
-          <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:gap-10">
-            {/* Text — always centred on mobile, left+centred within its column on desktop */}
-            <div className="flex-1 text-center">
+        {/* Globe — absolute right, desktop only */}
+        <HeroGraphic />
+
+        <div className="container relative mx-auto max-w-3xl px-4 text-center">
             {/* Pills */}
             <motion.div
               initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
@@ -238,7 +232,7 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.28 }}
-              className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start"
+              className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
             >
               <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto px-8">
@@ -262,11 +256,11 @@ const Index = () => {
               {t("hero.reach")}
             </motion.p>
 
-            {/* Stat bar — below CTAs in the text column */}
+            {/* Stat bar */}
             <motion.div
               initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.44 }}
-              className="mt-6 inline-flex max-w-sm items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-md"
+              className="mx-auto mt-8 flex max-w-sm items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-md md:mt-10 md:max-w-lg"
             >
             {(t("hero.stats", { returnObjects: true }) as { value: string; label: string }[]).map((stat, i) => (
               <div key={i} className="flex flex-1 flex-col items-center px-3 md:px-5">
@@ -275,11 +269,6 @@ const Index = () => {
               </div>
             ))}
             </motion.div>
-            </div>{/* end text column */}
-
-            {/* Graphic — desktop only, right side */}
-            <HeroGraphic />
-          </div>{/* end flex row */}
         </div>
       </section>
 
@@ -296,10 +285,9 @@ const Index = () => {
               <span className="font-semibold text-foreground text-sm md:text-base">{t("hero.proofStat")}</span>
               <span className="text-muted-foreground text-sm md:text-base">{" "}— {t("hero.proofContext")}</span>
             </div>
-            <Link to="/services" className="shrink-0 sm:w-auto">
-              <Button variant="outline" size="sm" className="gap-1.5 w-full sm:w-auto">
-                {t("hero.proofLink")} <ArrowRight className="h-3.5 w-3.5" />
-              </Button>
+            <Link to="/services"
+              className="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline whitespace-nowrap">
+              {t("hero.proofLink")} <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </motion.div>
         </div>
@@ -328,10 +316,11 @@ const Index = () => {
           ))}
         </div>
         <motion.div {...fadeUp(0.15)} className="relative mt-6 text-center">
-          <Button variant="outline" size="sm" className="gap-1.5"
-            onClick={() => document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" })}>
+          <button type="button"
+            onClick={() => document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" })}
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
             {t("problems.sampleEngagement")} <ArrowRight className="h-3.5 w-3.5" />
-          </Button>
+          </button>
         </motion.div>
       </SectionWrapper>
 
@@ -374,10 +363,9 @@ const Index = () => {
           ))}
         </div>
         <motion.div {...fadeUp(0.15)} className="relative mt-6 text-center">
-          <Link to="/services">
-            <Button variant="outline" size="sm" className="gap-1.5">
-              {t("whatWeDeliver.cta")} <ArrowRight className="h-3.5 w-3.5" />
-            </Button>
+          <Link to="/services"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">
+            {t("whatWeDeliver.cta")} <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </motion.div>
       </SectionWrapper>

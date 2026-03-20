@@ -25,7 +25,7 @@ const en = {
     founderLinkedIn: "Connect on LinkedIn",
     proofStat: "50–70% faster regression cycles",
     proofContext: "achieved across SAP and digital programmes through automation-first quality engineering",
-    proofLink: "See the work",
+    proofLink: "View our work",
     stats: [
       { value: "Canada", label: "HQ & Client Lead" },
       { value: "3 Regions", label: "Americas · EU · Asia" },
@@ -46,7 +46,7 @@ const en = {
     eyebrow: "Three capabilities, one system",
     heading: "What We Deliver",
     subheading: "Not three separate vendors. One structured engagement covering digital, SAP, and quality — with a single point of accountability.",
-    cta: "Explore our services",
+    cta: "Explore services",
     cards: [
       {
         title: "Digital Development",
@@ -111,7 +111,7 @@ const en = {
     eyebrow: "Where programmes break",
     heading: "Sound familiar?",
     subheading: "Most enterprise programmes fail for one of three reasons.",
-    sampleEngagement: "See how we solved these",
+    sampleEngagement: "View case studies",
     items: [
       {
         pill: "Digital Development",
@@ -144,7 +144,7 @@ const en = {
     heading: "Real programmes. Measurable outcomes.",
     subheading: "A snapshot of the kind of work we deliver — across SAP governance, quality engineering, and digital development.",
     disclaimer: "Anonymised engagement · Details available on request",
-    viewAll: "See full case studies",
+    viewAll: "View all case studies",
     labels: {
       tapToExpand: "Tap any card to see full details",
       showDetails: "Show details",
