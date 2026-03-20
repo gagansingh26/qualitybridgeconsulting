@@ -137,7 +137,7 @@ const de = {
   },
   cta: {
     heading: "Nicht sicher, wo Ihre Lieferung hakt?",
-    body: "Ein 30-minütiges Delivery-Assessment identifiziert die genauen Lücken in Ihrem SAP-, QA- oder digitalen Release-Prozess — keine Verpflichtung, kein Angebot bis der Scope klar ist.",
+    body: "Ein kostenloses 15-minütiges Delivery-Assessment identifiziert die genauen Lücken in Ihrem SAP-, QA- oder digitalen Release-Prozess — keine Verpflichtung, kein Angebot bis der Scope klar ist.",
     bookConsultation: "Delivery-Assessment anfragen",
     viewApproach: "Unsere Leistungen ansehen",
     getInTouch: "Kontakt aufnehmen",

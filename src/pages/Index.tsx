@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -155,6 +155,61 @@ const HeroGraphic = () => (
     </svg>
   </motion.div>
 );
+// ─── Mobile collapsible section wrapper ──────────────────────────────────────
+// On mobile: shows a tappable summary row + chevron; content collapses
+// On desktop (md+): header hidden, content always visible
+const MobileCollapse = ({
+  label,
+  children,
+  defaultOpen = false,
+}: {
+  label: string;
+  children: React.ReactNode;
+  defaultOpen?: boolean;
+}) => {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div>
+      {/* Mobile trigger — hidden on md+ */}
+      <button
+        onClick={() => setOpen(o => !o)}
+        className="md:hidden w-full flex items-center justify-between py-3 px-1 text-left"
+        aria-expanded={open}
+      >
+        <span className="text-sm font-semibold text-foreground">{label}</span>
+        <motion.div
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.2 }}
+          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-colors ${
+            open ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"
+          }`}
+        >
+          <ChevronDown className="h-4 w-4" />
+        </motion.div>
+      </button>
+
+      {/* Mobile: animated collapse. Desktop: always visible */}
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="mobile-content"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.28, ease: "easeInOut" }}
+            className="overflow-hidden md:hidden"
+          >
+            {children}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Desktop: always visible, no collapse */}
+      <div className="hidden md:block">{children}</div>
+    </div>
+  );
+};
+
 // ─── Counter stat display ─────────────────────────────────────────────────────
 const CounterStat = ({ target, suffix, prefix = "", start, delay = 0, accent }: {
   target: number; suffix: string; prefix?: string; start: boolean; delay?: number; accent: string;
@@ -357,20 +412,22 @@ const Index = () => {
         <motion.div {...fadeUp(0)} className="relative">
           <SH eyebrow={t("problems.eyebrow")} heading={t("problems.heading")} sub={t("problems.subheading")} />
         </motion.div>
-        <div className="relative grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5">
-          {problemItems.map((item, i) => (
-            <motion.div key={i} {...fadeUp(i * 0.08)}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="flex flex-col rounded-2xl border border-border bg-card overflow-hidden">
-              <div className={`h-[3px] w-full ${PILLAR[i].accentBar}`} />
-              <div className="flex flex-col flex-1 p-5 md:p-6">
-                <div className={`flex h-9 w-9 items-center justify-center rounded-xl mb-4 ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>{problemIcons[i]}</div>
-                <h3 className="text-[15px] font-semibold text-foreground leading-snug mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <MobileCollapse label={t("problems.heading")} defaultOpen={false}>
+          <div className="relative grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5 mt-2 md:mt-0">
+            {problemItems.map((item, i) => (
+              <motion.div key={i} {...fadeUp(i * 0.08)}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="flex flex-col rounded-2xl border border-border bg-card overflow-hidden">
+                <div className={`h-[3px] w-full ${PILLAR[i].accentBar}`} />
+                <div className="flex flex-col flex-1 p-5 md:p-6">
+                  <div className={`flex h-9 w-9 items-center justify-center rounded-xl mb-4 ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>{problemIcons[i]}</div>
+                  <h3 className="text-[15px] font-semibold text-foreground leading-snug mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </MobileCollapse>
         <motion.div {...fadeUp(0.15)} className="relative mt-6 text-center">
           <Button variant="outline" size="sm" className="gap-1.5 w-full sm:w-auto"
             onClick={() => document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" })}>
@@ -394,29 +451,31 @@ const Index = () => {
         <motion.div {...fadeUp(0)} className="relative">
           <SH eyebrow={t("whatWeDeliver.eyebrow")} heading={t("whatWeDeliver.heading")} sub={t("whatWeDeliver.subheading")} />
         </motion.div>
-        <div className="relative grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5">
-          {deliverCards.map((card, i) => (
-            <motion.div key={i} {...fadeUp(i * 0.08)}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="flex flex-col rounded-2xl border border-border bg-card overflow-hidden">
-              <div className={`h-[3px] w-full ${PILLAR[i].accentBar}`} />
-              <div className="flex flex-col flex-1 p-5 md:p-6">
-                <div className={`flex h-9 w-9 items-center justify-center rounded-xl mb-4 ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>{deliverIcons[i]}</div>
-                <h3 className="text-[15px] font-semibold text-foreground leading-snug mb-2">{card.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{card.desc}</p>
-                {card.detail && (
-                  <ul className="mt-4 pt-4 border-t border-border space-y-2">
-                    {card.detail.map((b) => (
-                      <li key={b} className="flex items-center gap-2.5 text-xs text-muted-foreground">
-                        <span className={`h-1.5 w-1.5 rounded-full flex-shrink-0 ${PILLAR[i].dotColor}`} />{b}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <MobileCollapse label={t("whatWeDeliver.heading")} defaultOpen={false}>
+          <div className="relative grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5 mt-2 md:mt-0">
+            {deliverCards.map((card, i) => (
+              <motion.div key={i} {...fadeUp(i * 0.08)}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="flex flex-col rounded-2xl border border-border bg-card overflow-hidden">
+                <div className={`h-[3px] w-full ${PILLAR[i].accentBar}`} />
+                <div className="flex flex-col flex-1 p-5 md:p-6">
+                  <div className={`flex h-9 w-9 items-center justify-center rounded-xl mb-4 ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>{deliverIcons[i]}</div>
+                  <h3 className="text-[15px] font-semibold text-foreground leading-snug mb-2">{card.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{card.desc}</p>
+                  {card.detail && (
+                    <ul className="mt-4 pt-4 border-t border-border space-y-2">
+                      {card.detail.map((b) => (
+                        <li key={b} className="flex items-center gap-2.5 text-xs text-muted-foreground">
+                          <span className={`h-1.5 w-1.5 rounded-full flex-shrink-0 ${PILLAR[i].dotColor}`} />{b}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </MobileCollapse>
         <motion.div {...fadeUp(0.15)} className="relative mt-6 text-center">
           <Link to="/services" className="w-full sm:w-auto inline-block">
             <Button variant="outline" size="sm" className="gap-1.5 w-full sm:w-auto">
@@ -434,19 +493,21 @@ const Index = () => {
         <motion.div {...fadeUp(0)} className="relative">
           <SH eyebrow={t("differentiation.eyebrow")} heading={t("differentiation.heading")} sub={t("differentiation.subheading")} />
         </motion.div>
-        <div className="relative flex flex-col gap-4 md:gap-5">
-          {diffItems.map((item, i) => (
-            <motion.div key={i} {...fadeUp(i * 0.08)}
-              className="flex items-start gap-4 rounded-2xl border border-border bg-card p-5 md:p-6">
-              <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>{diffIcons[i]}</div>
-              <div className="min-w-0 flex-1">
-                <h3 className="text-[15px] font-semibold text-foreground mb-1.5 leading-snug">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                {item.contrast && <p className="mt-2 text-xs text-muted-foreground/60 italic">{item.contrast}</p>}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <MobileCollapse label={t("differentiation.heading")} defaultOpen={false}>
+          <div className="relative flex flex-col gap-4 md:gap-5 mt-2 md:mt-0">
+            {diffItems.map((item, i) => (
+              <motion.div key={i} {...fadeUp(i * 0.08)}
+                className="flex items-start gap-4 rounded-2xl border border-border bg-card p-5 md:p-6">
+                <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>{diffIcons[i]}</div>
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-[15px] font-semibold text-foreground mb-1.5 leading-snug">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                  {item.contrast && <p className="mt-2 text-xs text-muted-foreground/60 italic">{item.contrast}</p>}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </MobileCollapse>
       </SectionWrapper>
 
       {/* ══════════════════════════════════════════════
@@ -522,35 +583,30 @@ const Index = () => {
         <motion.div {...fadeUp(0)} className="relative">
           <SH heading={t("outcomes.heading")} sub={t("outcomes.subheading")} />
         </motion.div>
-        {/* Animated counters — trigger once on scroll */}
-        <div ref={countersRef} className="relative grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
-          {outcomeItems.map((o, i) => {
-            const targets = [70, 40, 50, 10];
-            const suffixes = ["%", "%", "%", "+"];
-            const prefixes = ["", "", "", ""];
-            const labels = [
-              t("outcomes.counter1") || "faster delivery cycles",
-              t("outcomes.counter2") || "less production defects",
-              t("outcomes.counter3") || "regression speed gain",
-              t("outcomes.counter4") || "years enterprise delivery",
-            ];
-            return (
-              <motion.div key={i}
-                initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.4, delay: i * 0.07 }}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="flex flex-col items-center text-center rounded-2xl border border-border bg-card overflow-hidden">
-                <div className={`h-[3px] w-full ${OUTCOME_ACCENT[i]}`} />
-                <div className="flex flex-col items-center gap-2 p-4 md:p-5">
-                  <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${OUTCOME_ICON[i].bg} ${OUTCOME_ICON[i].color}`}>{outcomeIcons[i]}</div>
-                  <CounterStat target={targets[i]} suffix={suffixes[i]} prefix={i === 0 ? "50–" : ""} start={countersVisible} delay={i * 150} accent={OUTCOME_ACCENT[i]} />
-                  <span className="text-[11px] text-muted-foreground leading-tight">{o.label}</span>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+        <MobileCollapse label={t("outcomes.heading")} defaultOpen={false}>
+          {/* Animated counters — trigger once on scroll */}
+          <div ref={countersRef} className="relative grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5 mt-2 md:mt-0">
+            {outcomeItems.map((o, i) => {
+              const targets = [70, 40, 50, 10];
+              const suffixes = ["%", "%", "%", "+"];
+              return (
+                <motion.div key={i}
+                  initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.4, delay: i * 0.07 }}
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                  className="flex flex-col items-center text-center rounded-2xl border border-border bg-card overflow-hidden">
+                  <div className={`h-[3px] w-full ${OUTCOME_ACCENT[i]}`} />
+                  <div className="flex flex-col items-center gap-2 p-4 md:p-5">
+                    <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${OUTCOME_ICON[i].bg} ${OUTCOME_ICON[i].color}`}>{outcomeIcons[i]}</div>
+                    <CounterStat target={targets[i]} suffix={suffixes[i]} prefix={i === 0 ? "50–" : ""} start={countersVisible} delay={i * 150} accent={OUTCOME_ACCENT[i]} />
+                    <span className="text-[11px] text-muted-foreground leading-tight">{o.label}</span>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </MobileCollapse>
       </SectionWrapper>
 
       {/* ══════════════════════════════════════════════

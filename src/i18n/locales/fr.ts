@@ -137,7 +137,7 @@ const fr = {
   },
   cta: {
     heading: "Vous ne savez pas où votre livraison bloque ?",
-    body: "Un audit de livraison de 30 minutes identifie les lacunes exactes dans votre processus SAP, QA ou de release digital — sans engagement, sans proposition tant que le périmètre n'est pas clair.",
+    body: "Un audit de livraison gratuit de 15 minutes identifie les lacunes exactes dans votre processus SAP, QA ou de release digital — sans engagement, sans proposition tant que le périmètre n'est pas clair.",
     bookConsultation: "Obtenir un audit de livraison",
     viewApproach: "Voir nos services",
     getInTouch: "Nous contacter",

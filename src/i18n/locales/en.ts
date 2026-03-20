@@ -134,7 +134,7 @@ const en = {
   },
   cta: {
     heading: "Not sure where your delivery is breaking?",
-    body: "A 30-minute delivery assessment identifies the exact gaps in your SAP, QA, or digital release process — no commitment, no proposal until the scope is clear.",
+    body: "A free 15-minute delivery assessment identifies the exact gaps in your SAP, QA, or digital release process — no commitment, no proposal until the scope is clear.",
     bookConsultation: "Get a Delivery Assessment",
     viewApproach: "View Our Services",
     getInTouch: "Get in Touch",
