@@ -410,12 +410,12 @@ const en = {
         desc: "Digital development, SAP governance, and quality engineering structured together. The same oversight that catches a defect in testing also governed the UAT that approved the release.",
       },
       {
-        title: "Canada-based accountability, global reach",
-        desc: "One named person — Gagan — accountable for every engagement. Supported by vetted specialists across North America, Europe, and Asia. No rotating account teams.",
+        title: "Canada-based lead, accountable end-to-end",
+        desc: "One senior engagement lead based in Canada — accountable across digital, SAP, and QA from kickoff to go-live. Supported by vetted specialists across North America, Europe, and Asia.",
       },
       {
-        title: "Shipped at J&J, Workday, Aon — not theory",
-        desc: "10+ years inside real enterprise programmes. The frameworks we use were pressure-tested on large-scale SAP implementations, HealthTech platforms, and global ERP rollouts.",
+        title: "10+ years inside Fortune 500 delivery",
+        desc: "SAP rollouts, SaaS platform delivery, and global QA programmes — across HealthTech, FinTech, ERP, and eCommerce. The approach comes from doing it, not consulting about it.",
       },
     ],
   },

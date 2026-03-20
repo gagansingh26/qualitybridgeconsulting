@@ -413,12 +413,12 @@ const fr = {
         desc: "Développement digital, gouvernance SAP et ingénierie qualité structurés ensemble. La même supervision qui détecte un défaut en test a aussi gouverné l'UAT qui a approuvé la version.",
       },
       {
-        title: "Responsabilité basée au Canada, portée mondiale",
-        desc: "Une personne nommée — Gagan — responsable de chaque engagement. Soutenu par des spécialistes vérifiés en Amérique du Nord, Europe et Asie.",
+        title: "Responsable basé au Canada, bout en bout",
+        desc: "Un responsable senior basé au Canada — responsable du digital, SAP et QA du lancement au go-live. Soutenu par des spécialistes vérifiés en Amérique du Nord, Europe et Asie.",
       },
       {
-        title: "Éprouvé chez J&J, Workday, Aon — pas de la théorie",
-        desc: "10+ ans au sein de vrais programmes enterprise. Les frameworks utilisés ont été testés sur de grandes implémentations SAP, des plateformes HealthTech et des déploiements ERP mondiaux.",
+        title: "10+ ans au cœur de la livraison Fortune 500",
+        desc: "Déploiements SAP, livraison de plateformes SaaS et programmes QA mondiaux — dans la HealthTech, FinTech, ERP et eCommerce. L'approche vient du terrain, pas de la théorie consulting.",
       },
     ],
   },

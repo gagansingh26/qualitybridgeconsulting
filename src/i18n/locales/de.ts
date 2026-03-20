@@ -413,12 +413,12 @@ const de = {
         desc: "Digitale Entwicklung, SAP-Governance und Qualitätssicherung gemeinsam strukturiert. Dieselbe Übersicht, die Fehler im Test erkennt, hat auch die UAT überwacht, die die Version freigegeben hat.",
       },
       {
-        title: "Kanada-basierte Verantwortung, globale Reichweite",
-        desc: "Eine namentlich genannte Person — Gagan — verantwortlich für jedes Engagement. Unterstützt von geprüften Spezialisten in Nordamerika, Europa und Asien. Keine wechselnden Account-Teams.",
+        title: "Kanada-basierte Leitung, verantwortlich von Ende zu Ende",
+        desc: "Eine erfahrene Engagement-Leitung aus Kanada — verantwortlich für Digital, SAP und QA vom Kickoff bis zum Go-live. Unterstützt von geprüften Spezialisten in Nordamerika, Europa und Asien.",
       },
       {
-        title: "Erprobt bei J&J, Workday, Aon — keine Theorie",
-        desc: "10+ Jahre in echten Enterprise-Programmen. Die Frameworks wurden in großen SAP-Implementierungen, HealthTech-Plattformen und globalen ERP-Rollouts unter Druck getestet.",
+        title: "10+ Jahre in Fortune-500-Delivery",
+        desc: "SAP-Rollouts, SaaS-Plattform-Lieferung und globale QA-Programme — in HealthTech, FinTech, ERP und eCommerce. Der Ansatz kommt aus der Praxis, nicht aus der Beratungstheorie.",
       },
     ],
   },
