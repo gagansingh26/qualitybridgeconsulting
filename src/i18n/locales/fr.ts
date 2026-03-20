@@ -8,7 +8,7 @@ const fr = {
   },
   hero: {
     pills: ["Développement digital", "Gouvernance SAP & UAT", "Automatisation des tests & Qualité"],
-    hook: "Vos livraisons de développement sont lentes. Vos go-lives SAP semblent incertains. Votre QA ne suit pas.",
+    hook: "Des livraisons en retard. Des go-lives incertains. Une qualité qui ne suit pas. Trois problèmes, un seul programme.",
     titlePrefix: "Nous réglons les trois —",
     titleAccent: "en une seule équipe.",
     subtitle: "Un engagement couvrant la livraison digitale, la gouvernance SAP et l'ingénierie qualité — avec un seul point de responsabilité du lancement au go-live.",
@@ -23,8 +23,8 @@ const fr = {
     founderCredits: "10+ ans · Johnson & Johnson · Workday · Aon · Hugo Boss",
     founderLocation: "Grand Toronto, Canada",
     founderLinkedIn: "Se connecter sur LinkedIn",
-    proofStat: "50–70% de cycles de régression plus rapides",
-    proofContext: "obtenus sur des programmes SAP et digitaux grâce à une ingénierie qualité axée sur l'automatisation",
+    proofStat: "50–70% de cycles de livraison plus rapides",
+    proofContext: "sur des go-lives SAP, des livraisons digitales et des programmes QA — structurés comme un seul engagement",
     proofLink: "Voir les réalisations",
     stats: [
       { value: "Canada", label: "Siège & direction client" },
@@ -140,7 +140,7 @@ const fr = {
     viewApproach: "Voir nos services",
     getInTouch: "Nous contacter",
     message: "Nous envoyer un message",
-    subtext: "Gratuit · 30 minutes · Sans engagement",
+    subtext: "Gratuit · 15 minutes · Sans engagement",
   },
   caseStudies: {
     eyebrow: "Exemples de missions",

@@ -8,7 +8,7 @@ const en = {
   },
   hero: {
     pills: ["Digital Development", "SAP Governance & UAT", "Test Automation & Quality"],
-    hook: "Your development releases are slow. Your SAP go-lives feel uncertain. Your QA can't keep up.",
+    hook: "Late releases. Uncertain go-lives. Quality that can't keep pace. Three problems, one programme.",
     titlePrefix: "We fix all three —",
     titleAccent: "as one team.",
     subtitle: "One engagement covering digital delivery, SAP governance, and quality engineering — with a single point of accountability from kickoff to go-live.",
@@ -23,8 +23,8 @@ const en = {
     founderCredits: "10+ years · Johnson & Johnson · Workday · Aon · Hugo Boss",
     founderLocation: "Greater Toronto Area, Canada",
     founderLinkedIn: "Connect on LinkedIn",
-    proofStat: "50–70% faster regression cycles",
-    proofContext: "achieved across SAP and digital programmes through automation-first quality engineering",
+    proofStat: "50–70% faster delivery cycles",
+    proofContext: "across SAP go-lives, digital releases, and QA programmes — structured as one engagement",
     proofLink: "View our work",
     stats: [
       { value: "Canada", label: "HQ & Client Lead" },
@@ -137,7 +137,7 @@ const en = {
     viewApproach: "View Our Services",
     getInTouch: "Get in Touch",
     message: "Send us a message",
-    subtext: "Free · 30 minutes · No commitment required",
+    subtext: "Free · 15 minutes · No commitment required",
   },
   caseStudies: {
     eyebrow: "Sample Engagements",
