@@ -20,14 +20,43 @@ const toolbox = ["Cypress", "Playwright", "Jenkins", "GitHub Actions", "Docker",
 const principleIcons = [ShieldCheck, LineChart, Sparkles, Globe];
 const focusIcons = [Briefcase, Settings, Brain, Building2];
 
-const dotBg = {
-  backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.07) 1px, transparent 1px)",
-  backgroundSize: "22px 22px",
-};
-const dotBgSubtle = {
-  backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)",
-  backgroundSize: "18px 18px",
-};
+// ─── Focus area pillar colours ────────────────────────────────────────────────
+// [0] Digital Dev = blue, [1] SAP = teal, [2] DevTestOps = purple, [3] AI = primary
+const FOCUS_COLOURS = [
+  {
+    accentBar:    "bg-blue-500 dark:bg-blue-400",
+    headerBg:     "bg-blue-50 dark:bg-blue-950",
+    iconBg:       "bg-blue-100 dark:bg-blue-900",
+    iconColor:    "text-blue-700 dark:text-blue-300",
+    outcomeText:  "text-blue-700 dark:text-blue-300",
+    outcomeBorder:"border-blue-300 dark:border-blue-700",
+  },
+  {
+    accentBar:    "bg-teal-500 dark:bg-teal-400",
+    headerBg:     "bg-teal-50 dark:bg-teal-950",
+    iconBg:       "bg-teal-100 dark:bg-teal-900",
+    iconColor:    "text-teal-700 dark:text-teal-300",
+    outcomeText:  "text-teal-700 dark:text-teal-300",
+    outcomeBorder:"border-teal-300 dark:border-teal-700",
+  },
+  {
+    accentBar:    "bg-purple-500 dark:bg-purple-400",
+    headerBg:     "bg-purple-50 dark:bg-purple-950",
+    iconBg:       "bg-purple-100 dark:bg-purple-900",
+    iconColor:    "text-purple-700 dark:text-purple-300",
+    outcomeText:  "text-purple-700 dark:text-purple-300",
+    outcomeBorder:"border-purple-300 dark:border-purple-700",
+  },
+  {
+    // AI — cross-cutting, use primary
+    accentBar:    "bg-primary",
+    headerBg:     "bg-primary/5 dark:bg-primary/10",
+    iconBg:       "bg-primary/10",
+    iconColor:    "text-primary",
+    outcomeText:  "text-primary",
+    outcomeBorder:"border-primary/30",
+  },
+];
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 16 },
@@ -65,12 +94,9 @@ const content = {
     paragraph1c: "What I kept coming back to was the intersection of engineering and delivery. Building things that actually scale. Creating the kind of quality practices where releasing feels controlled, not uncertain.",
     paragraph1d: "QualityBridge grew out of that experience. It's for SMEs and growing teams who deserve the same rigour as the big programmes — without the overhead of a large consultancy.",
     paragraph3: "Whatever you're working on — an ERP transformation, a SaaS product, or scaling a QA practice — the approach stays the same. Structure, transparency, and no surprises.",
-    ctaGetInTouch: "Get in Touch",
-    ctaViewWork: "View LinkedIn",
     ctaBook: "Book a Consultation",
     ctaViewServices: "View Our Services",
     atAGlance: "At a Glance",
-    statsLabels: { experience: "Experience", regions: "Regions", regionsSub: "North America · Europe · India", strength: "Strength", focus: "Focus" },
     platforms: "Enterprise Platforms",
     industries: "Industries",
     whatYouCanExpect: "What You Can Expect",
@@ -101,7 +127,7 @@ const content = {
     openToConversation: "Ready to work together?",
     openToConversationBody: "Whether you're planning an ERP transformation, scaling your QA practice, or building a digital product — let's start with a conversation.",
     ctaContact: "Get in Touch",
-    ctaLinkedIn: "LinkedIn",
+    founderCta2: "Connect on LinkedIn",
   },
   de: {
     heading: "Über QualityBridge Consulting",
@@ -127,16 +153,13 @@ const content = {
       "Automatisierungsorientiertes Quality Engineering mit Cypress, Playwright und vielen mehr — beschleunigt durch KI-gestütztes Testdesign.",
     ],
     paragraph1: "Ich war schon immer fasziniert davon, Dinge zu bauen, die funktionieren — nicht nur funktional, sondern zuverlässig, skalierbar und unter Druck.",
-    paragraph1b: "Ich verbrachte über 10 Jahre in großen Enterprise-Programmen — <strong>Johnson &amp; Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong>, <strong>Aon</strong>, <strong>Hugo Boss</strong>, <strong>CHECK24</strong> und einigen weiteren in Nordamerika und Deutschland — und baute dabei digitale Produkte und Qualitätspraktiken auf, die Teams die Zuversicht geben, konsistent zu liefern.",
-    paragraph1c: "Was mich dabei immer wieder begeistert hat, ist die Schnittmenge von Engineering und Delivery. Dinge aufbauen, die wirklich skalieren. Qualitätspraktiken schaffen, bei denen Releases kontrolliert und nicht ungewiss wirken.",
+    paragraph1b: "Ich verbrachte über 10 Jahre in großen Enterprise-Programmen — <strong>Johnson &amp; Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong>, <strong>Aon</strong>, <strong>Hugo Boss</strong>, <strong>CHECK24</strong> und einigen weiteren in Nordamerika und Deutschland.",
+    paragraph1c: "Was mich dabei immer wieder begeistert hat, ist die Schnittmenge von Engineering und Delivery.",
     paragraph1d: "QualityBridge ist aus dieser Erfahrung entstanden. Es richtet sich an KMU und wachsende Teams, die dieselbe Sorgfalt wie in den großen Programmen verdienen — ohne den Overhead einer großen Unternehmensberatung.",
     paragraph3: "Egal woran Sie arbeiten — eine ERP-Transformation, ein SaaS-Produkt oder der Aufbau einer QA-Praxis — der Ansatz bleibt gleich. Struktur, Transparenz und keine Überraschungen.",
-    ctaGetInTouch: "Kontakt aufnehmen",
-    ctaViewWork: "LinkedIn ansehen",
     ctaBook: "Beratung buchen",
     ctaViewServices: "Unsere Leistungen ansehen",
     atAGlance: "Auf einen Blick",
-    statsLabels: { experience: "Erfahrung", regions: "Regionen", regionsSub: "Nordamerika · Europa · Indien", strength: "Stärke", focus: "Fokus" },
     platforms: "Enterprise-Plattformen",
     industries: "Branchen",
     whatYouCanExpect: "Was Sie erwarten können",
@@ -161,13 +184,13 @@ const content = {
     focusAreasData: [
       { id: "web", title: "Digitale Entwicklung & Webanwendungen", outcome: "End-to-End-Digitaltools vom Prototyp bis zur Produktion geliefert.", content: "Moderne, performante Webanwendungen und Reporting-Dashboards — von Rapid Prototypes bis zu produktionsreifen Tools." },
       { id: "sap", title: "SAP & ERP-Test-Governance", outcome: "Release-Kadenz von quartalsweise auf zweiwöchentlich verbessert.", content: "Strukturierte UAT-Governance und Release-Bereitschaft für SAP S/4HANA-Programme — mit definierten Qualitätstoren, Stakeholder-Abnahmen und risikobasierten Go/No-Go-Entscheidungen." },
-      { id: "devtestops", title: "DevTestOps & CI/CD-Qualitätstore", outcome: "50–70% schnellere Regressionszyklen in Engagements erreicht.", content: "Automatisierte Qualitätstore in CI/CD-Pipelines einbetten — von Unit-Tests bis zur Release-Bereitschaft. Mit Jenkins, GitHub Actions und Docker für wiederholbare, skalierbare Delivery-Workflows." },
-      { id: "ai", title: "KI-gestütztes Quality Engineering", outcome: "30–40% weniger Produktionsfehler durch Shift-Left-Validierung.", content: "Generative KI und LLMs für Testdesign, Risikoerkennung und Automatisierungsbeschleunigung. Weniger manueller Aufwand bei besserer Abdeckung und schnellerem Feedback." },
+      { id: "devtestops", title: "DevTestOps & CI/CD-Qualitätstore", outcome: "50–70% schnellere Regressionszyklen in Engagements erreicht.", content: "Automatisierte Qualitätstore in CI/CD-Pipelines einbetten — von Unit-Tests bis zur Release-Bereitschaft." },
+      { id: "ai", title: "KI-gestütztes Quality Engineering", outcome: "30–40% weniger Produktionsfehler durch Shift-Left-Validierung.", content: "Generative KI und LLMs für Testdesign, Risikoerkennung und Automatisierungsbeschleunigung." },
     ],
     openToConversation: "Bereit zusammenzuarbeiten?",
     openToConversationBody: "Ob Sie eine ERP-Transformation planen, Ihre QA-Praxis skalieren oder ein digitales Produkt aufbauen — lassen Sie uns mit einem Gespräch beginnen.",
     ctaContact: "Kontakt aufnehmen",
-    ctaLinkedIn: "LinkedIn",
+    founderCta2: "Auf LinkedIn verbinden",
   },
   fr: {
     heading: "À propos de QualityBridge Consulting",
@@ -186,23 +209,20 @@ const content = {
     founderExperience: "10+ ans · Amérique du Nord · Europe · Asie",
     reach: "Engagement client géré localement au Canada · Amérique du Nord · Europe · Asie",
     founderCta: "Se connecter sur LinkedIn",
-    intro: "QualityBridge Consulting est né d'une frustration simple : trop de programmes d'entreprise livrent en retard, échouent en production et laissent les parties prenantes sans la visibilité dont elles ont besoin pour prendre des décisions confiantes. Nous existons pour changer cela.",
+    intro: "QualityBridge Consulting est né d'une frustration simple : trop de programmes d'entreprise livrent en retard, échouent en production et laissent les parties prenantes sans la visibilité dont elles ont besoin. Nous existons pour changer cela.",
     bullets: [
       "Applications web modernes, tableaux de bord et prototypes rapides — développés avec React, TypeScript et Tailwind CSS.",
       "Gouvernance UAT SAP S/4HANA, préparation aux versions et décisions go/no-go structurées.",
-      "Ingénierie qualité axée sur l'automatisation avec Cypress, Playwright et bien plus — accélérée par la conception de tests assistée par IA.",
+      "Ingénierie qualité axée sur l'automatisation avec Cypress, Playwright et bien plus.",
     ],
     paragraph1: "J'ai toujours été attiré par la construction de choses qui fonctionnent — pas seulement fonctionnellement, mais de manière fiable, à grande échelle et sous pression.",
-    paragraph1b: "J'ai passé plus de 10 ans au sein de grands programmes enterprise — <strong>Johnson &amp; Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong>, <strong>Aon</strong>, <strong>Hugo Boss</strong>, <strong>CHECK24</strong>, et quelques autres basés en Amérique du Nord et en Allemagne — en développant des produits digitaux et des pratiques qualité qui donnent aux équipes la confiance de livrer de manière cohérente.",
-    paragraph1c: "Ce à quoi je revenais sans cesse, c'est l'intersection entre l'ingénierie et la livraison. Construire des choses qui s'adaptent réellement. Créer des pratiques qualité où les mises en production semblent maîtrisées, et non incertaines.",
+    paragraph1b: "J'ai passé plus de 10 ans au sein de grands programmes enterprise — <strong>Johnson &amp; Johnson</strong>, <strong>Workday</strong>, <strong>Alight</strong>, <strong>Aon</strong>, <strong>Hugo Boss</strong>, <strong>CHECK24</strong>, et quelques autres basés en Amérique du Nord et en Allemagne.",
+    paragraph1c: "Ce à quoi je revenais sans cesse, c'est l'intersection entre l'ingénierie et la livraison.",
     paragraph1d: "QualityBridge est né de cette expérience. C'est pour les PME et les équipes en croissance qui méritent la même rigueur que les grands programmes — sans les frais généraux d'un grand cabinet de conseil.",
     paragraph3: "Quel que soit votre projet — une transformation ERP, un produit SaaS ou le développement d'une pratique QA — l'approche reste la même. Structure, transparence et sans surprises.",
-    ctaGetInTouch: "Nous contacter",
-    ctaViewWork: "Voir LinkedIn",
     ctaBook: "Réserver une consultation",
     ctaViewServices: "Voir nos services",
     atAGlance: "En un coup d'œil",
-    statsLabels: { experience: "Expérience", regions: "Régions", regionsSub: "Amérique du Nord · Europe · Inde", strength: "Force", focus: "Focus" },
     platforms: "Plateformes enterprise",
     industries: "Industries",
     whatYouCanExpect: "Ce que vous pouvez attendre",
@@ -226,22 +246,21 @@ const content = {
     focusAreas: "Domaines de spécialisation",
     focusAreasData: [
       { id: "web", title: "Développement digital & Applications web", outcome: "Outils digitaux end-to-end livrés du prototype à la production.", content: "Construire des applications web modernes et performantes — des prototypes rapides aux outils prêts pour la production." },
-      { id: "sap", title: "Gouvernance des tests SAP & ERP", outcome: "Cadence de version améliorée de trimestrielle à bimensuelle.", content: "Gouvernance UAT structurée et préparation aux versions pour les programmes SAP S/4HANA — avec des portes qualité définies, des approbations des parties prenantes et des décisions go/no-go basées sur les risques." },
-      { id: "devtestops", title: "DevTestOps & Portes qualité CI/CD", outcome: "50–70% de cycles de régression plus rapides atteints.", content: "Intégrer des portes qualité automatisées dans les pipelines CI/CD — des tests unitaires à la préparation aux versions. Avec Jenkins, GitHub Actions et Docker pour des workflows de livraison répétables et évolutifs." },
+      { id: "sap", title: "Gouvernance des tests SAP & ERP", outcome: "Cadence de version améliorée de trimestrielle à bimensuelle.", content: "Gouvernance UAT structurée et préparation aux versions pour les programmes SAP S/4HANA." },
+      { id: "devtestops", title: "DevTestOps & Portes qualité CI/CD", outcome: "50–70% de cycles de régression plus rapides atteints.", content: "Intégrer des portes qualité automatisées dans les pipelines CI/CD avec Jenkins, GitHub Actions et Docker." },
       { id: "ai", title: "Ingénierie qualité assistée par IA", outcome: "30–40% de réduction des défauts en production grâce à la validation shift-left.", content: "Appliquer l'IA générative et les LLMs à la conception des tests, l'identification des risques et l'accélération de l'automatisation." },
     ],
     openToConversation: "Prêt à travailler ensemble ?",
     openToConversationBody: "Que vous planifiez une transformation ERP, développiez votre pratique QA ou construisiez un produit digital — commençons par une conversation.",
     ctaContact: "Nous contacter",
-    ctaLinkedIn: "LinkedIn",
+    founderCta2: "Se connecter sur LinkedIn",
   },
 };
 
 const About = () => {
   const { i18n } = useTranslation();
   const lang = (i18n.language?.slice(0, 2) as keyof typeof content) in content
-    ? (i18n.language?.slice(0, 2) as keyof typeof content)
-    : "en";
+    ? (i18n.language?.slice(0, 2) as keyof typeof content) : "en";
   const a = content[lang];
 
   usePageMeta(
@@ -252,7 +271,7 @@ const About = () => {
 
   return (
     <Layout>
-      {/* Hero */}
+      {/* ── Hero ── */}
       <section className="enterprise-gradient relative overflow-hidden py-10 md:py-16">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10 bg-white/[0.03] md:-right-10 md:-top-10 md:h-80 md:w-80" />
@@ -260,32 +279,10 @@ const About = () => {
           <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full border border-white/[0.06] bg-white/[0.02] md:h-64 md:w-64" />
         </div>
         <div className="container relative mx-auto px-4 md:px-6 text-center">
-
-          {/* Delivery timeline illustration — absolute, desktop only */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 md:block lg:right-4"
-            aria-hidden="true"
-            style={{ width: 200 }}
-          >
+          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.4 }}
+            className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 md:block lg:right-4" aria-hidden="true" style={{ width: 200 }}>
             <svg width="200" height="200" viewBox="0 0 170 190" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "auto", overflow: "visible" }}>
-              <style>{`
-                @keyframes tDash{to{stroke-dashoffset:-20}}
-                @keyframes tPulse{0%,100%{r:8;opacity:1}50%{r:11;opacity:0.7}}
-                @keyframes tRing{0%,100%{r:14;opacity:0.3}50%{r:20;opacity:0}}
-                @keyframes tBlink{0%,100%{opacity:1}50%{opacity:0.3}}
-                @keyframes tNodeIn{0%,100%{r:6}50%{r:8}}
-                .t-dash{stroke-dasharray:4 4;animation:tDash 1.6s linear infinite}
-                .t-dash2{stroke-dasharray:4 4;animation:tDash 2s linear infinite 0.4s}
-                .t-dash3{stroke-dasharray:4 4;animation:tDash 2.4s linear infinite 0.8s}
-                .t-dash4{stroke-dasharray:4 4;animation:tDash 2.8s linear infinite 1.2s}
-                .t-pulse{animation:tPulse 2s ease-in-out infinite}
-                .t-ring{animation:tRing 2s ease-in-out infinite}
-                .t-blink{animation:tBlink 1.6s ease-in-out infinite}
-                .t-node{animation:tNodeIn 2.4s ease-in-out infinite}
-              `}</style>
+              <style>{`@keyframes tDash{to{stroke-dashoffset:-20}}@keyframes tPulse{0%,100%{r:8;opacity:1}50%{r:11;opacity:0.7}}@keyframes tRing{0%,100%{r:14;opacity:0.3}50%{r:20;opacity:0}}@keyframes tBlink{0%,100%{opacity:1}50%{opacity:0.3}}@keyframes tNodeIn{0%,100%{r:6}50%{r:8}}.t-dash{stroke-dasharray:4 4;animation:tDash 1.6s linear infinite}.t-dash2{stroke-dasharray:4 4;animation:tDash 2s linear infinite 0.4s}.t-dash3{stroke-dasharray:4 4;animation:tDash 2.4s linear infinite 0.8s}.t-dash4{stroke-dasharray:4 4;animation:tDash 2.8s linear infinite 1.2s}.t-pulse{animation:tPulse 2s ease-in-out infinite}.t-ring{animation:tRing 2s ease-in-out infinite}.t-blink{animation:tBlink 1.6s ease-in-out infinite}.t-node{animation:tNodeIn 2.4s ease-in-out infinite}`}</style>
               <line x1="40" y1="18" x2="40" y2="172" stroke="rgba(255,255,255,0.18)" strokeWidth="1.5"/>
               <circle className="t-ring" cx="40" cy="30" r="14" fill="none" stroke="#93c5fd" strokeWidth="0.8"/>
               <circle className="t-pulse" cx="40" cy="30" r="8" fill="#93c5fd"/>
@@ -310,29 +307,18 @@ const About = () => {
             </svg>
           </motion.div>
 
-          {/* Pills */}
           <div className="mb-4 flex flex-wrap items-center justify-center gap-1.5">
             {a.heroPills.map((pill) => (
-              <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-2.5 py-0.5 text-[11px] font-medium text-primary-foreground/90 md:px-3 md:py-1 md:text-xs">
-                {pill}
-              </span>
+              <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-2.5 py-0.5 text-[11px] font-medium text-primary-foreground/90 md:px-3 md:py-1 md:text-xs">{pill}</span>
             ))}
           </div>
-
           <h1 className="mx-auto max-w-2xl text-[28px] font-bold leading-tight text-primary-foreground md:text-[40px] lg:text-5xl">
-            {a.heroTitle}{" "}
-            <span style={{ color: "#93c5fd" }}>{a.heroAccent}</span>
+            {a.heroTitle}{" "}<span style={{ color: "#93c5fd" }}>{a.heroAccent}</span>
           </h1>
-
-          <p className="mx-auto mt-3 max-w-xl text-base text-primary-foreground/80 md:text-lg">
-            {a.heroSubtitle}
-          </p>
-
+          <p className="mx-auto mt-3 max-w-xl text-base text-primary-foreground/80 md:text-lg">{a.heroSubtitle}</p>
           <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3">
             <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-              <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto">
-                {a.ctaBook} <ExternalLink className="ml-2 h-4 w-4" />
-              </Button>
+              <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto">{a.ctaBook} <ExternalLink className="ml-2 h-4 w-4" /></Button>
             </a>
             <Link to="/services" className="w-full sm:w-auto">
               <Button size="lg" variant="outline" className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto">
@@ -340,11 +326,7 @@ const About = () => {
               </Button>
             </Link>
           </div>
-
-          <p className="mx-auto mt-3 text-[13px] md:text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>
-            {a.reach}
-          </p>
-
+          <p className="mx-auto mt-3 text-[13px] md:text-sm" style={{ color: "rgba(255,255,255,0.75)" }}>{a.reach}</p>
           <div className="mx-auto mt-8 flex max-w-xs items-stretch justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-2xl md:mt-10">
             {a.heroStats.map((s, i) => (
               <div key={i} className="flex flex-1 flex-col items-center justify-center px-2 md:px-5">
@@ -356,7 +338,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Founder strip */}
+      {/* ── Founder strip ── */}
       <div className="border-b border-t border-border bg-card">
         <div className="container mx-auto px-4 py-3">
           <div className="flex flex-col gap-2 md:flex md:flex-row md:flex-wrap md:items-center md:justify-center md:gap-10">
@@ -382,8 +364,6 @@ const About = () => {
 
       <main className="pb-8 md:pb-14">
         <div className="container mx-auto max-w-6xl px-4 pt-8 md:px-6 md:pt-10">
-
-          {/* Bio + Cards */}
           <div className="grid grid-cols-1 items-start gap-5 md:gap-8 lg:grid-cols-12">
             <div className="space-y-4 lg:col-span-7">
               <h2 className="font-display text-2xl font-bold leading-tight text-foreground md:text-4xl">{a.heading}</h2>
@@ -391,27 +371,18 @@ const About = () => {
               <ul className="space-y-2">
                 {a.bullets.map((b, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <CheckCircle2 className="mt-0.5 shrink-0 text-primary" size={14} />
-                    <span>{b}</span>
+                    <CheckCircle2 className="mt-0.5 shrink-0 text-primary" size={14} /><span>{b}</span>
                   </li>
                 ))}
               </ul>
-
-              {/* ── Founder story ── */}
               <div className="mt-2 rounded-xl border border-border bg-card p-5 card-shadow md:p-6">
-                {/* Avatar + name */}
                 <div className="mb-4 flex items-center gap-3">
-                  <img
-                    src="/founder-avatar.jpg"
-                    alt="Gagan Singh — Founder, QualityBridge Consulting"
-                    className="h-12 w-12 rounded-full object-cover ring-2 ring-primary/20"
-                  />
+                  <img src="/founder-avatar.jpg" alt="Gagan Singh — Founder, QualityBridge Consulting" className="h-12 w-12 rounded-full object-cover ring-2 ring-primary/20" />
                   <div>
                     <p className="text-sm font-semibold text-foreground">{a.founderName}</p>
                     <p className="text-xs text-muted-foreground">{a.founderTitle} · {a.founderLocation}</p>
                   </div>
                 </div>
-                {/* Story paragraphs */}
                 <div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
                   <p className="font-medium text-foreground italic">&ldquo;{a.paragraph1}&rdquo;</p>
                   <p dangerouslySetInnerHTML={{ __html: a.paragraph1b }} />
@@ -421,7 +392,6 @@ const About = () => {
                 <p className="mt-4 border-l-2 border-primary/30 pl-3 text-sm italic text-muted-foreground">{a.paragraph3}</p>
               </div>
             </div>
-
             <div className="space-y-4 lg:col-span-5">
               <Card className="border-border">
                 <CardHeader className="px-4 pb-3 pt-4">
@@ -430,20 +400,15 @@ const About = () => {
                 <CardContent className="space-y-4 px-4 pb-4">
                   <div>
                     <p className="mb-2 text-xs font-medium text-foreground">{a.platforms}</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {platforms.map((p) => <Badge key={p} variant="outline" className="text-xs">{p}</Badge>)}
-                    </div>
+                    <div className="flex flex-wrap gap-1.5">{platforms.map((p) => <Badge key={p} variant="outline" className="text-xs">{p}</Badge>)}</div>
                   </div>
                   <Separator />
                   <div>
                     <p className="mb-2 text-xs font-medium text-foreground">{a.industries}</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {industries.map((ind) => <Badge key={ind} variant="outline" className="text-xs">{ind}</Badge>)}
-                    </div>
+                    <div className="flex flex-wrap gap-1.5">{industries.map((ind) => <Badge key={ind} variant="outline" className="text-xs">{ind}</Badge>)}</div>
                   </div>
                 </CardContent>
               </Card>
-
               <Card className="border-border">
                 <CardHeader className="px-4 pb-2 pt-4">
                   <CardTitle className="font-display text-base md:text-lg">{a.whatYouCanExpect}</CardTitle>
@@ -459,19 +424,11 @@ const About = () => {
               </Card>
             </div>
           </div>
-
         </div>
       </main>
 
-      {/* ── Quote — full-width strip matching Home page ── */}
-      <motion.div
-        {...fadeUp(0)}
-        className="border-y border-border bg-background"
-        style={{
-          backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)",
-          backgroundSize: "18px 18px",
-        }}
-      >
+      {/* ── Quote ── */}
+      <motion.div {...fadeUp(0)} className="border-y border-border bg-background" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "18px 18px" }}>
         <div className="container mx-auto px-4 py-6 md:py-10">
           <div className="mx-auto max-w-2xl text-center">
             <svg width="32" height="24" viewBox="0 0 32 24" fill="none" className="mx-auto mb-4 opacity-20" aria-hidden="true">
@@ -485,17 +442,10 @@ const About = () => {
       </motion.div>
 
       {/* ── How We Approach Delivery ── */}
-      <SectionWrapper
-        className="relative overflow-hidden bg-muted/50"
-        style={{
-          backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)",
-          backgroundSize: "20px 20px",
-        }}
-      >
+      <SectionWrapper className="relative overflow-hidden bg-muted/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -left-12 -top-12 h-48 w-48 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
           <div className="absolute -right-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
-          <div className="absolute right-16 top-6 h-20 w-20 rounded-full border border-primary/[0.05] bg-transparent" />
         </div>
         <motion.div {...fadeUp(0)} className="relative text-center">
           <h2 className="text-[28px] font-bold md:text-[36px] text-foreground">{a.howIApproach}</h2>
@@ -534,14 +484,8 @@ const About = () => {
         </motion.div>
       </SectionWrapper>
 
-      {/* ── Focus Areas ── */}
-      <SectionWrapper
-        className="relative overflow-hidden bg-muted/50"
-        style={{
-          backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)",
-          backgroundSize: "20px 20px",
-        }}
-      >
+      {/* ── Focus Areas — coloured accordion ── */}
+      <SectionWrapper className="relative overflow-hidden bg-muted/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -left-14 -top-14 h-48 w-48 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
           <div className="absolute -right-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.05] bg-primary/[0.02]" />
@@ -552,45 +496,45 @@ const About = () => {
         <Accordion type="multiple" className="relative space-y-2">
           {a.focusAreasData.map((area, i) => {
             const Icon = focusIcons[i];
+            const c = FOCUS_COLOURS[i];
             return (
-              <AccordionItem key={area.id} value={area.id} className="rounded-lg border border-border bg-card px-4 shadow-sm">
-                <AccordionTrigger className="gap-3 py-3 hover:no-underline">
-                  <div className="flex items-center gap-3">
-                    <Icon size={14} className="shrink-0 text-primary" />
-                    <span className="text-left text-sm font-semibold text-foreground">{area.title}</span>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="pb-4">
-                  <p className="mb-2 border-l-2 border-primary/40 pl-3 text-xs font-medium italic text-primary">{area.outcome}</p>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{area.content}</p>
-                </AccordionContent>
-              </AccordionItem>
+              <motion.div key={area.id} {...fadeUp(i * 0.08)}>
+                <AccordionItem value={area.id} className="rounded-xl border border-border bg-card overflow-hidden shadow-sm">
+                  <div className={`h-[3px] w-full ${c.accentBar}`} />
+                  <AccordionTrigger className="gap-3 px-4 py-3 hover:no-underline hover:bg-muted/30">
+                    <div className="flex items-center gap-3">
+                      <div className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${c.iconBg} ${c.iconColor}`}>
+                        <Icon size={13} />
+                      </div>
+                      <span className="text-left text-sm font-semibold text-foreground">{area.title}</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-4 px-4">
+                    <p className={`mb-2 border-l-2 pl-3 text-xs font-medium italic ${c.outcomeText} ${c.outcomeBorder}`}>{area.outcome}</p>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{area.content}</p>
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
             );
           })}
         </Accordion>
       </SectionWrapper>
 
-      {/* ── Bottom CTA — matching Home page exactly ── */}
+      {/* ── Bottom CTA ── */}
       <SectionWrapper className="relative overflow-hidden bg-accent/50">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
-          <div className="absolute -right-6 top-8 h-44 w-44 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
           <div className="absolute -bottom-16 -left-16 h-64 w-64 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
-          <div className="absolute bottom-6 left-8 h-28 w-28 rounded-full border border-primary/[0.05] bg-transparent" />
         </div>
         <motion.div {...fadeUp(0)} className="relative text-center">
           <h2 className="text-[28px] font-bold md:text-[36px] text-foreground">{a.openToConversation}</h2>
           <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground md:mt-3 md:text-base">{a.openToConversationBody}</p>
           <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center md:mt-8 md:gap-3">
             <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-              <Button size="lg" className="w-full font-semibold sm:w-auto">
-                {a.ctaBook} <ExternalLink className="ml-2 h-4 w-4" />
-              </Button>
+              <Button size="lg" className="w-full font-semibold sm:w-auto">{a.ctaBook} <ExternalLink className="ml-2 h-4 w-4" /></Button>
             </a>
             <Link to="/services" className="w-full sm:w-auto">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                {a.ctaViewServices} <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <Button variant="outline" size="lg" className="w-full sm:w-auto">{a.ctaViewServices} <ArrowRight className="ml-2 h-4 w-4" /></Button>
             </Link>
           </div>
         </motion.div>
