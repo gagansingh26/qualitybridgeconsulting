@@ -395,6 +395,62 @@ const en = {
     de: "German",
     fr: "French",
   },
+  engagement: {
+    eyebrow: "How We Engage",
+    heading: "Structured from day one. Flexible by design.",
+    subheading: "Every engagement starts with a conversation about your programme — scope, timeline, and goals. No retainer until the fit is clear.",
+    model1: {
+      label: "Model 1",
+      title: "Fixed-price project",
+      desc: "Defined scope, clear deliverables, and a single invoice. Best for time-boxed work like framework setup, go-live support, or a specific release cycle.",
+      tag: "Defined output · Predictable cost",
+    },
+    model2: {
+      label: "Model 2",
+      title: "Monthly retainer",
+      desc: "Ongoing embedded support across one or more pillars. Best for teams who need consistent quality governance, automation coverage, or digital delivery capacity.",
+      tag: "Ongoing · Scales with your programme",
+    },
+    table: {
+      headers: ["Pillar", "Typical scope", "Duration", "Model"],
+      pillars: {
+        digital: "Digital Development",
+        sap: "SAP Governance",
+        qe: "Quality Engineering",
+      },
+      pillarsShort: {
+        digital: "Digital",
+        sap: "SAP",
+        qe: "Quality",
+      },
+      rows: {
+        digital: {
+          scope: "Web app, dashboard, or rapid prototype",
+          duration: "2–8 weeks",
+          model: "Fixed-price",
+        },
+        sap: {
+          scope: "UAT governance for an S/4HANA release cycle",
+          duration: "4–12 weeks",
+          model: "Fixed-price or retainer",
+        },
+        qe: {
+          scope: "Automation framework or ongoing QE coverage",
+          duration: "4–10 weeks+",
+          model: "Fixed-price or retainer",
+        },
+      },
+    },
+    cta: {
+      title: "Not sure which model fits?",
+      desc: "Every engagement starts with a free 15-minute call — no commitment, no proposal until the scope is clear.",
+      book: "Book a free call",
+      message: "Send a message",
+    },
+  },
 };
 
 export default en;
+
+// ─── REMOVE the last line "export default en;" before pasting, then re-add it ──
+// Add this engagement block inside the en object, before the closing }
