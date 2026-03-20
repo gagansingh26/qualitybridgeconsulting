@@ -14,7 +14,7 @@ const en = {
     reach: "Client engagement managed locally in Canada · North America · Europe · Asia",
     bookConsultation: "Book a Consultation",
     bookCall: "Book a Call",
-    howWeWork: "See how we work →",
+    howWeWork: "See how we work",
     stats: [
       { value: "Canada", label: "HQ & Client Lead" },
       { value: "3 Regions", label: "Americas · EU · Asia" },
@@ -98,7 +98,7 @@ const en = {
   problems: {
     heading: "Problems We Solve",
     subheading: "Across digital delivery, SAP programmes, and quality engineering — these are the challenges we're built to fix.",
-    sampleEngagement: "See a sample engagement →",
+    sampleEngagement: "See a sample engagement",
     items: [
       {
         pill: "Digital Development",
