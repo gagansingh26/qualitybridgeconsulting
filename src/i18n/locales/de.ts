@@ -14,7 +14,7 @@ const de = {
     reach: "Kundenbetreuung lokal in Kanada · Nordamerika · Europa · Asien",
     bookConsultation: "Beratung buchen",
     bookCall: "Gespräch buchen",
-    howWeWork: "So arbeiten wir →",
+    howWeWork: "So arbeiten wir",
     stats: [
       { value: "Kanada", label: "HQ & Kundenleitung" },
       { value: "3 Regionen", label: "Amerika · EU · Asien" },
@@ -98,7 +98,7 @@ const de = {
   problems: {
     heading: "Probleme, die wir lösen",
     subheading: "Digitale Entwicklung, SAP-Programme, Qualitätssicherung — das sind die Herausforderungen, für die wir gebaut wurden.",
-    sampleEngagement: "Ein Beispielprojekt ansehen →",
+    sampleEngagement: "Ein Beispielprojekt ansehen",
     items: [
       {
         pill: "Digitale Entwicklung",
