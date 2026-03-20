@@ -83,7 +83,7 @@ const fr = {
   howWeWork: {
     eyebrow: "Le modèle d'engagement",
     heading: "Comment nous travaillons",
-    subheading: "Un engagement. Trois spécialisations. Géré avec un seul point de responsabilité au Canada.",
+    subheading: "Un engagement. Trois spécialisations. Un responsable senior accountable du lancement au go-live.",
     steps: [
       {
         title: "Développer digitalement",
@@ -425,7 +425,7 @@ const fr = {
       },
       {
         title: "Fondé sur 10+ ans de livraison Fortune 500",
-        desc: "Déploiements SAP, plateformes SaaS et programmes QA mondiaux en HealthTech, FinTech, ERP et eCommerce — construit par une expérience terrain directe, pas adapté de frameworks consulting.",
+        desc: "Déploiements SAP, plateformes SaaS et programmes QA mondiaux en HealthTech, FinTech, ERP et eCommerce — construit sur 10+ ans d'expérience terrain Fortune 500 en ERP, SaaS & QA.",
         contrast: "vs. la plupart des firmes : frameworks adaptés d'autres secteurs",
       },
     ],

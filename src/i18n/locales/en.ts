@@ -80,7 +80,7 @@ const en = {
   howWeWork: {
     eyebrow: "The engagement model",
     heading: "How We Work",
-    subheading: "One engagement. Three specialisations. One accountable person in Canada.",
+    subheading: "One engagement. Three specialisations. One senior lead accountable from kickoff to go-live.",
     steps: [
       {
         title: "Build Digitally",
@@ -422,7 +422,7 @@ const en = {
       },
       {
         title: "Founded on 10+ years of Fortune 500 delivery",
-        desc: "SAP rollouts, SaaS platforms, and global QA programmes across HealthTech, FinTech, ERP, and eCommerce — built from hands-on programme experience, not adapted consulting frameworks.",
+        desc: "SAP rollouts, SaaS platforms, and global QA programmes across HealthTech, FinTech, ERP, and eCommerce — built from 10+ years of hands-on Fortune 500 ERP, SaaS & QA delivery, not adapted consulting frameworks.",
         contrast: "vs. most firms: frameworks adapted from other industries",
       },
     ],

@@ -83,7 +83,7 @@ const de = {
   howWeWork: {
     eyebrow: "Das Engagement-Modell",
     heading: "Wie wir arbeiten",
-    subheading: "Ein Engagement. Drei Spezialisierungen. Eine verantwortliche Person in Kanada.",
+    subheading: "Ein Engagement. Drei Spezialisierungen. Ein erfahrener Lead — verantwortlich vom Kickoff bis zum Go-live.",
     steps: [
       {
         title: "Digital entwickeln",
@@ -425,7 +425,7 @@ const de = {
       },
       {
         title: "Gegründet auf 10+ Jahren Fortune-500-Delivery",
-        desc: "SAP-Rollouts, SaaS-Plattformen und globale QA-Programme in HealthTech, FinTech, ERP und eCommerce — aus praktischer Programmerfahrung entwickelt, nicht aus angepassten Consulting-Frameworks.",
+        desc: "SAP-Rollouts, SaaS-Plattformen und globale QA-Programme in HealthTech, FinTech, ERP und eCommerce — aufgebaut auf 10+ Jahren praktischer Fortune-500-Erfahrung in ERP, SaaS & QA.",
         contrast: "vs. die meisten Firmen: Frameworks aus anderen Branchen adaptiert",
       },
     ],

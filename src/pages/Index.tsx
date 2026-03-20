@@ -230,6 +230,67 @@ const Index = () => {
               </div>
             ))}
           </motion.div>
+
+          {/* Globe graphic — CA → EU → ASIA delivery network */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.55 }}
+            className="mx-auto mt-8 md:mt-10"
+            aria-hidden="true"
+          >
+            <svg
+              viewBox="0 0 480 140"
+              className="w-full max-w-sm mx-auto md:max-w-md"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {/* Defs */}
+              <defs>
+                <radialGradient id="globeGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="rgba(147,197,253,0.18)" />
+                  <stop offset="100%" stopColor="rgba(147,197,253,0.04)" />
+                </radialGradient>
+              </defs>
+
+              {/* Globe circle */}
+              <circle cx="240" cy="70" r="52" fill="url(#globeGrad)" stroke="rgba(147,197,253,0.25)" strokeWidth="1" />
+              {/* Latitude lines */}
+              <ellipse cx="240" cy="70" rx="52" ry="18" fill="none" stroke="rgba(147,197,253,0.12)" strokeWidth="0.8" />
+              <ellipse cx="240" cy="70" rx="52" ry="36" fill="none" stroke="rgba(147,197,253,0.10)" strokeWidth="0.8" />
+              {/* Longitude lines */}
+              <line x1="240" y1="18" x2="240" y2="122" stroke="rgba(147,197,253,0.12)" strokeWidth="0.8" />
+              <line x1="192" y1="22" x2="288" y2="118" stroke="rgba(147,197,253,0.08)" strokeWidth="0.8" />
+              <line x1="288" y1="22" x2="192" y2="118" stroke="rgba(147,197,253,0.08)" strokeWidth="0.8" />
+
+              {/* ── CA node (left) ── */}
+              <circle cx="80" cy="70" r="22" fill="rgba(255,255,255,0.07)" stroke="rgba(147,197,253,0.3)" strokeWidth="1" />
+              <circle cx="80" cy="70" r="5" fill="#93c5fd" />
+              <text x="80" y="105" textAnchor="middle" fill="rgba(255,255,255,0.85)" fontSize="11" fontWeight="600" fontFamily="system-ui,sans-serif">Canada</text>
+              <text x="80" y="118" textAnchor="middle" fill="rgba(255,255,255,0.45)" fontSize="9" fontFamily="system-ui,sans-serif">Client lead</text>
+
+              {/* ── EU node (top-right) ── */}
+              <circle cx="370" cy="35" r="18" fill="rgba(255,255,255,0.07)" stroke="rgba(147,197,253,0.25)" strokeWidth="1" />
+              <circle cx="370" cy="35" r="4" fill="#93c5fd" opacity="0.8" />
+              <text x="370" y="22" textAnchor="middle" fill="rgba(255,255,255,0.75)" fontSize="10" fontWeight="600" fontFamily="system-ui,sans-serif">Europe</text>
+
+              {/* ── ASIA node (bottom-right) ── */}
+              <circle cx="395" cy="100" r="18" fill="rgba(255,255,255,0.07)" stroke="rgba(147,197,253,0.25)" strokeWidth="1" />
+              <circle cx="395" cy="100" r="4" fill="#93c5fd" opacity="0.8" />
+              <text x="395" y="128" textAnchor="middle" fill="rgba(255,255,255,0.75)" fontSize="10" fontWeight="600" fontFamily="system-ui,sans-serif">Asia</text>
+
+              {/* ── Connection arcs CA → Globe ── */}
+              <path d="M 102 70 Q 170 55 188 70" fill="none" stroke="rgba(147,197,253,0.4)" strokeWidth="1.2" strokeDasharray="3 2" />
+              {/* Globe → EU */}
+              <path d="M 292 52 Q 325 38 352 37" fill="none" stroke="rgba(147,197,253,0.3)" strokeWidth="1" strokeDasharray="3 2" />
+              {/* Globe → Asia */}
+              <path d="M 292 88 Q 335 95 377 99" fill="none" stroke="rgba(147,197,253,0.3)" strokeWidth="1" strokeDasharray="3 2" />
+
+              {/* Animated pulse on CA node */}
+              <circle cx="80" cy="70" r="5" fill="none" stroke="#93c5fd" strokeWidth="1.5" opacity="0.6">
+                <animate attributeName="r" values="5;14;5" dur="3s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite" />
+              </circle>
+            </svg>
+          </motion.div>
         </div>
       </section>
 
@@ -253,11 +314,10 @@ const Index = () => {
                 {" "}— {t("hero.proofContext")}
               </span>
             </div>
-            <Link
-              to="/services"
-              className="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline whitespace-nowrap"
-            >
-              {t("hero.proofLink")} <ArrowRight className="h-3.5 w-3.5" />
+            <Link to="/services" className="shrink-0 sm:w-auto">
+              <Button variant="outline" size="sm" className="gap-1.5">
+                {t("hero.proofLink")} <ArrowRight className="h-3.5 w-3.5" />
+              </Button>
             </Link>
           </motion.div>
         </div>
@@ -277,6 +337,7 @@ const Index = () => {
             eyebrow={t("problems.eyebrow")}
             heading={t("problems.heading")}
             sub={t("problems.subheading")}
+            center
           />
         </motion.div>
 
@@ -306,14 +367,15 @@ const Index = () => {
           ))}
         </div>
 
-        <motion.div {...fadeUp(0.15)} className="mt-6">
-          <button
-            type="button"
+        <motion.div {...fadeUp(0.15)} className="mt-6 text-center">
+          <Button
+            variant="outline"
+            size="sm"
+            className="gap-1.5"
             onClick={() => document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" })}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
           >
             {t("problems.sampleEngagement")} <ArrowRight className="h-3.5 w-3.5" />
-          </button>
+          </Button>
         </motion.div>
       </SectionWrapper>
 
@@ -337,6 +399,7 @@ const Index = () => {
             eyebrow={t("whatWeDeliver.eyebrow")}
             heading={t("whatWeDeliver.heading")}
             sub={t("whatWeDeliver.subheading")}
+            center
           />
         </motion.div>
 
@@ -374,12 +437,11 @@ const Index = () => {
           ))}
         </div>
 
-        <motion.div {...fadeUp(0.15)} className="mt-6">
-          <Link
-            to="/services"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
-          >
-            {t("whatWeDeliver.cta")} <ArrowRight className="h-3.5 w-3.5" />
+        <motion.div {...fadeUp(0.15)} className="mt-6 text-center">
+          <Link to="/services">
+            <Button variant="outline" size="sm" className="gap-1.5">
+              {t("whatWeDeliver.cta")} <ArrowRight className="h-3.5 w-3.5" />
+            </Button>
           </Link>
         </motion.div>
       </SectionWrapper>
@@ -399,6 +461,7 @@ const Index = () => {
             eyebrow={t("differentiation.eyebrow")}
             heading={t("differentiation.heading")}
             sub={t("differentiation.subheading")}
+            center
           />
         </motion.div>
 
@@ -444,6 +507,7 @@ const Index = () => {
             eyebrow={t("platforms.eyebrow")}
             heading={t("platforms.heading")}
             sub={t("platforms.subheading")}
+            center
           />
         </motion.div>
 
