@@ -16,10 +16,11 @@ import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
+// Pure fade — no Y movement so mobile nav stays stable during transition
 const pageVariants = {
-  initial: { opacity: 0, y: 10 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -8 },
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit:    { opacity: 0 },
 };
 
 const AnimatedRoutes = () => {
@@ -32,17 +33,21 @@ const AnimatedRoutes = () => {
         initial="initial"
         animate="animate"
         exit="exit"
-        transition={{ duration: 0.22, ease: "easeInOut" }}
+        transition={{
+          duration: 0.18,        // exit: snappy clear
+          animate: { duration: 0.24 }, // enter: slightly slower fade in
+          ease: "easeInOut",
+        }}
         style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
       >
         <Routes location={location}>
-          <Route path="/" element={<Index />} />
+          <Route path="/"        element={<Index />} />
           <Route path="/services" element={<DeliveryApproach />} />
-          <Route path="/uat" element={<UATGovernance />} />
+          <Route path="/uat"     element={<UATGovernance />} />
           <Route path="/release" element={<ReleaseReadiness />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about"   element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*"        element={<NotFound />} />
         </Routes>
       </motion.div>
     </AnimatePresence>
