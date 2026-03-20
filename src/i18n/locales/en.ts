@@ -421,8 +421,8 @@ const en = {
         contrast: "vs. most firms: account manager sells, junior team delivers",
       },
       {
-        title: "10+ years inside Fortune 500 delivery",
-        desc: "SAP rollouts, SaaS platforms, and global QA programmes across HealthTech, FinTech, ERP, and eCommerce. Built from doing it — not adapting consulting frameworks.",
+        title: "Founded on 10+ years of Fortune 500 delivery",
+        desc: "SAP rollouts, SaaS platforms, and global QA programmes across HealthTech, FinTech, ERP, and eCommerce — built from hands-on programme experience, not adapted consulting frameworks.",
         contrast: "vs. most firms: frameworks adapted from other industries",
       },
     ],
@@ -435,9 +435,9 @@ const en = {
     translationNote: "Some content on this website may have been automatically translated and could contain inaccuracies. The English version is the official version.",
     industriesLabel: "Industries served",
     industries: ["HealthTech", "FinTech", "eCommerce", "ERP / SAP", "SaaS", "Insurance"],
-    whyLabel: "Why QualityBridge",
+    whyLabel: "Why Us",
     credItems: [
-      { text: "<strong>10+ years</strong> inside Fortune 500 ERP, SaaS &amp; QA delivery" },
+      { text: "Founded on <strong>10+ years</strong> of hands-on Fortune 500 ERP, SaaS &amp; QA delivery" },
       { text: "<strong>One engagement lead</strong> accountable across dev, SAP &amp; QA" },
       { text: "<strong>Canada-based</strong>, serving North America, Europe &amp; Asia" },
       { text: "<strong>50–70% faster</strong> regression cycles on QA engagements" },

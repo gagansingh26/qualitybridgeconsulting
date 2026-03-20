@@ -424,8 +424,8 @@ const fr = {
         contrast: "vs. la plupart des firmes : le commercial vend, les juniors livrent",
       },
       {
-        title: "10+ ans au cœur de la livraison Fortune 500",
-        desc: "Déploiements SAP, plateformes SaaS et programmes QA mondiaux en HealthTech, FinTech, ERP et eCommerce. Construit par l'expérience — pas adapté de frameworks consulting.",
+        title: "Fondé sur 10+ ans de livraison Fortune 500",
+        desc: "Déploiements SAP, plateformes SaaS et programmes QA mondiaux en HealthTech, FinTech, ERP et eCommerce — construit par une expérience terrain directe, pas adapté de frameworks consulting.",
         contrast: "vs. la plupart des firmes : frameworks adaptés d'autres secteurs",
       },
     ],
@@ -438,9 +438,9 @@ const fr = {
     translationNote: "Certains contenus de ce site web peuvent avoir été traduits automatiquement et peuvent contenir des inexactitudes. La version anglaise est la version officielle.",
     industriesLabel: "Secteurs couverts",
     industries: ["HealthTech", "FinTech", "eCommerce", "ERP / SAP", "SaaS", "Assurance"],
-    whyLabel: "Pourquoi QualityBridge",
+    whyLabel: "Pourquoi nous",
     credItems: [
-      { text: "<strong>10+ ans</strong> au sein de la livraison Fortune 500 : ERP, SaaS &amp; QA" },
+      { text: "Fondé sur <strong>10+ ans</strong> d'expérience terrain Fortune 500 : ERP, SaaS &amp; QA" },
       { text: "<strong>Un responsable</strong> accountable sur dev, SAP &amp; QA" },
       { text: "<strong>Basé au Canada</strong>, actif en Amérique du Nord, Europe &amp; Asie" },
       { text: "<strong>50–70% plus rapide</strong> sur les cycles de régression QA" },

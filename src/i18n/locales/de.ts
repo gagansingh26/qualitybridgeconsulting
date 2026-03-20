@@ -424,8 +424,8 @@ const de = {
         contrast: "vs. die meisten Firmen: Account Manager verkauft, Junior-Team liefert",
       },
       {
-        title: "10+ Jahre in Fortune-500-Delivery",
-        desc: "SAP-Rollouts, SaaS-Plattformen und globale QA-Programme in HealthTech, FinTech, ERP und eCommerce. Aus der Praxis entwickelt — nicht aus angepassten Consulting-Frameworks.",
+        title: "Gegründet auf 10+ Jahren Fortune-500-Delivery",
+        desc: "SAP-Rollouts, SaaS-Plattformen und globale QA-Programme in HealthTech, FinTech, ERP und eCommerce — aus praktischer Programmerfahrung entwickelt, nicht aus angepassten Consulting-Frameworks.",
         contrast: "vs. die meisten Firmen: Frameworks aus anderen Branchen adaptiert",
       },
     ],
@@ -438,9 +438,9 @@ const de = {
     translationNote: "Einige Inhalte auf dieser Website wurden möglicherweise automatisch übersetzt und können Ungenauigkeiten enthalten. Die englische Version ist die offizielle Version.",
     industriesLabel: "Branchen",
     industries: ["HealthTech", "FinTech", "eCommerce", "ERP / SAP", "SaaS", "Versicherung"],
-    whyLabel: "Warum QualityBridge",
+    whyLabel: "Warum wir",
     credItems: [
-      { text: "<strong>10+ Jahre</strong> in Fortune-500-Lieferung: ERP, SaaS &amp; QA" },
+      { text: "Gegründet auf <strong>10+ Jahren</strong> praktischer Fortune-500-Erfahrung: ERP, SaaS &amp; QA" },
       { text: "<strong>Eine Engagement-Leitung</strong> verantwortlich für Dev, SAP &amp; QA" },
       { text: "<strong>Kanada-basiert</strong>, aktiv in Nordamerika, Europa &amp; Asien" },
       { text: "<strong>50–70% schnellere</strong> Regressionszyklen in QA-Engagements" },

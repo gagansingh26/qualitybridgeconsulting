@@ -30,7 +30,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-10 md:py-14">
 
         {/* ── Main 4-col grid ─────────────────────────────────────────── */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-[1.6fr_0.9fr_1.3fr_1.5fr] lg:gap-8">
 
           {/* Col 1 — Brand + industries */}
           <div className="sm:col-span-2 lg:col-span-1">
@@ -144,9 +144,9 @@ const Footer = () => {
 
         {/* ── Translation disclaimer ───────────────────────────────────── */}
         <div className="mt-8 rounded-xl border border-border bg-muted/40 px-4 py-3 md:mt-10">
-          <div className="flex items-start gap-2 md:items-center">
+          <div className="flex items-start gap-2 md:items-center md:justify-center">
             <Languages className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary md:mt-0" />
-            <p className="text-[11px] leading-relaxed text-muted-foreground md:text-xs">
+            <p className="text-[11px] leading-relaxed text-muted-foreground md:text-xs md:text-center">
               {t("footer.translationNote")}
             </p>
           </div>
