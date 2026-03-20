@@ -61,7 +61,7 @@ const HeroGraphic = () => (
   <motion.div
     initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.8, delay: 0.48 }}
-    className="pointer-events-none absolute right-0 bottom-0 hidden md:block lg:right-4"
+    className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 md:block lg:right-4"
     aria-hidden="true"
     style={{ width: 220 }}
   >
@@ -203,7 +203,7 @@ const Index = () => {
             <motion.p
               initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.05 }}
-              className="text-sm text-primary-foreground/70 leading-relaxed md:text-base"
+              className="mx-auto max-w-2xl text-sm text-primary-foreground/70 leading-relaxed md:text-base"
             >
               {t("hero.hook")}
             </motion.p>
@@ -222,7 +222,7 @@ const Index = () => {
             <motion.p
               initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="mt-3 max-w-lg text-sm text-primary-foreground/75 leading-relaxed md:text-base"
+              className="mx-auto mt-3 max-w-xl text-sm text-primary-foreground/75 leading-relaxed md:text-base"
             >
               {t("hero.subtitle")}
             </motion.p>
