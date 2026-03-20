@@ -395,6 +395,59 @@ const fr = {
     de: "Allemand",
     fr: "Français",
   },
+  engagement: {
+    eyebrow: "Notre mode d'engagement",
+    heading: "Structuré dès le premier jour. Flexible par conception.",
+    subheading: "Chaque engagement commence par une conversation sur votre programme — périmètre, calendrier et objectifs. Pas de retainer avant que la compatibilité soit claire.",
+    model1: {
+      label: "Modèle 1",
+      title: "Projet à prix fixe",
+      desc: "Périmètre défini, livrables clairs et une seule facture. Idéal pour les travaux limités dans le temps : mise en place d'un framework, support au go-live ou un cycle de release spécifique.",
+      tag: "Résultat défini · Coût prévisible",
+    },
+    model2: {
+      label: "Modèle 2",
+      title: "Retainer mensuel",
+      desc: "Support embarqué continu sur un ou plusieurs piliers. Idéal pour les équipes qui ont besoin d'une gouvernance qualité constante, d'une couverture d'automatisation ou d'une capacité de livraison digitale.",
+      tag: "Continu · S'adapte à votre programme",
+    },
+    table: {
+      headers: ["Pilier", "Périmètre type", "Durée", "Modèle"],
+      pillars: {
+        digital: "Développement digital",
+        sap: "Gouvernance SAP",
+        qe: "Ingénierie qualité",
+      },
+      pillarsShort: {
+        digital: "Digital",
+        sap: "SAP",
+        qe: "Qualité",
+      },
+      rows: {
+        digital: {
+          scope: "Application web, tableau de bord ou prototype rapide",
+          duration: "2–8 semaines",
+          model: "Prix fixe",
+        },
+        sap: {
+          scope: "Gouvernance UAT pour un cycle de release S/4HANA",
+          duration: "4–12 semaines",
+          model: "Prix fixe ou retainer",
+        },
+        qe: {
+          scope: "Framework d'automatisation ou couverture QE continue",
+          duration: "4–10 semaines+",
+          model: "Prix fixe ou retainer",
+        },
+      },
+    },
+    cta: {
+      title: "Pas sûr du modèle qui vous convient ?",
+      desc: "Chaque engagement commence par un appel gratuit de 15 minutes — sans engagement, sans proposition avant que le périmètre soit clair.",
+      book: "Réserver un appel gratuit",
+      message: "Envoyer un message",
+    },
+  },
 };
 
 export default fr;
