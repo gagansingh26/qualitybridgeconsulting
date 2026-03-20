@@ -58,6 +58,23 @@ const FOCUS_COLOURS = [
   },
 ];
 
+// Principle cards: Shift-Left=purple, Metrics=teal, AI=blue, Global=amber
+const PRINCIPLE_COLOURS = [
+  { accentBar: "bg-purple-500 dark:bg-purple-400", iconBg: "bg-purple-100 dark:bg-purple-900", iconColor: "text-purple-700 dark:text-purple-300" },
+  { accentBar: "bg-teal-500 dark:bg-teal-400",     iconBg: "bg-teal-100 dark:bg-teal-900",     iconColor: "text-teal-700 dark:text-teal-300"   },
+  { accentBar: "bg-blue-500 dark:bg-blue-400",     iconBg: "bg-blue-100 dark:bg-blue-900",     iconColor: "text-blue-700 dark:text-blue-300"   },
+  { accentBar: "bg-amber-500 dark:bg-amber-400",   iconBg: "bg-amber-100 dark:bg-amber-900",   iconColor: "text-amber-700 dark:text-amber-300" },
+];
+
+// What You Can Expect dot colours per item
+const EXPECTATION_COLOURS = [
+  "text-blue-600 dark:text-blue-400",
+  "text-teal-600 dark:text-teal-400",
+  "text-teal-600 dark:text-teal-400",
+  "text-purple-600 dark:text-purple-400",
+  "text-amber-600 dark:text-amber-400",
+];
+
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 16 },
   whileInView: { opacity: 1, y: 0 },
@@ -416,7 +433,7 @@ const About = () => {
                 <CardContent className="space-y-2.5 px-4 pb-4">
                   {a.expectations.map((text, i) => (
                     <div key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="mt-0.5 shrink-0 text-primary" size={14} />
+                      <CheckCircle2 className={`mt-0.5 shrink-0 ${EXPECTATION_COLOURS[i]}`} size={14} />
                       <p className="text-sm leading-relaxed text-muted-foreground">{text}</p>
                     </div>
                   ))}
@@ -454,15 +471,22 @@ const About = () => {
         <div className="relative mt-6 grid grid-cols-2 gap-3 md:mt-8 md:grid-cols-4">
           {a.principles.map((p, i) => {
             const Icon = principleIcons[i];
+            const c = PRINCIPLE_COLOURS[i];
             return (
-              <motion.div key={i} {...fadeUp(i * 0.08)}>
-                <Card className="border-border bg-card/80 backdrop-blur-sm h-full">
-                  <CardContent className="px-4 pb-4 pt-4">
-                    <Icon className="mb-2 text-primary" size={16} />
+              <motion.div key={i} {...fadeUp(i * 0.08)}
+                whileHover={{ y: -4, transition: { duration: 0.25 } }}
+                whileTap={{ y: -4, transition: { duration: 0.25 } }}
+              >
+                <div className="rounded-xl border border-border bg-card overflow-hidden card-shadow h-full flex flex-col">
+                  <div className={`h-[3px] w-full ${c.accentBar}`} />
+                  <div className="px-4 pt-4 pb-4 flex flex-col flex-1">
+                    <div className={`flex h-8 w-8 items-center justify-center rounded-full mb-3 ${c.iconBg} ${c.iconColor}`}>
+                      <Icon size={15} />
+                    </div>
                     <p className="text-sm font-semibold leading-tight text-foreground">{p.title}</p>
                     <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{p.desc}</p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </motion.div>
             );
           })}
@@ -479,7 +503,19 @@ const About = () => {
           <h2 className="text-[28px] font-bold md:text-[36px] text-foreground">{a.toolbox}</h2>
           <p className="mx-auto mt-1.5 max-w-2xl text-sm text-muted-foreground md:text-base">{a.toolboxIntro}</p>
           <div className="mt-5 flex flex-wrap justify-center gap-1.5">
-            {toolbox.map((tool) => <Badge key={tool} variant="secondary" className="text-xs">{tool}</Badge>)}
+            {toolbox.map((tool, i) => {
+              // Automation tools (0-1) = purple, CI/CD tools (2-4) = blue, observability (5-6) = teal, governance (7-9) = amber
+              const toolColour = i <= 1
+                ? "border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-950 text-purple-700 dark:text-purple-300"
+                : i <= 4
+                ? "border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300"
+                : i <= 6
+                ? "border-teal-200 dark:border-teal-800 bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300"
+                : "border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-300";
+              return (
+                <Badge key={tool} variant="outline" className={`text-xs border ${toolColour}`}>{tool}</Badge>
+              );
+            })}
           </div>
         </motion.div>
       </SectionWrapper>
