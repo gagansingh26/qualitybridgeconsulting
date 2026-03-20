@@ -147,6 +147,7 @@ const de = {
     heading: "Echte Programme. Messbare Ergebnisse.",
     subheading: "Ein Überblick über unsere Arbeit — in den Bereichen SAP-Governance, Qualitätssicherung und digitale Entwicklung.",
     disclaimer: "Anonymisiertes Engagement · Details auf Anfrage erhältlich",
+    viewAll: "Alle Fallstudien ansehen",
     labels: {
       tapToExpand: "Tippen Sie auf eine Karte für Details",
       showDetails: "Details anzeigen",
@@ -159,6 +160,7 @@ const de = {
       pillar: "SAP-Governance & UAT",
       client: "Globales HR- & Payroll-SaaS-Unternehmen — Nordamerika",
       title: "ERP-Implementierungsunterstützung & laufende UAT-Governance",
+      keyResult: "Strukturierter UAT-Prozess in allen Release-Zyklen eingeführt — Go/No-Go-Entscheidungen auf Basis von Nachweisen, nicht Bauchgefühl.",
       challenge: "Eine groß angelegte ERP-Implementierung mit verteilten Stakeholdern und ohne strukturierten UAT-Prozess — Freigabeentscheidungen wurden nach Bauchgefühl getroffen, nicht auf Basis von Nachweisen.",
       approach: "Eingebettet in agile Scrum-Teams zur Leitung der Anforderungserhebung, Definition von UAT-Akzeptanzkriterien und Aufbau eines strukturierten Go/No-Go-Rahmens mit Stakeholder-Freigabe-Gates. Unterstützung bei Pre- und Post-Production-Releases über mehrere Programmzyklen.",
       outcomes: [
@@ -172,6 +174,7 @@ const de = {
       pillar: "Qualitätssicherung",
       client: "Führendes Versicherungsvergleichsportal — Europa",
       title: "UAT & Qualitätssicherung in verschiedenen Versicherungsbereichen",
+      keyResult: "UAT-Abdeckung auf alle Versicherungsbereiche ausgeweitet — Defektrate in der Produktion durch strukturierte Pre-Release-Gates reduziert.",
       challenge: "Eine hochfrequentierte Verbraucherplattform mit Anbindung an mehrere Drittanbieter im Versicherungsbereich, mit inkonsistenten UAT-Praktiken und begrenzter Regressionsabdeckung.",
       approach: "Geleitet von End-to-End-UAT in den Bereichen Kfz-, Kranken- und Hausratversicherung, in enger Zusammenarbeit mit Drittanbietern zur Abstimmung von Akzeptanzkriterien. Einführung strukturierter Testplanung, Defekt-Triage und Pre-/Post-Production-Validierungszyklen.",
       outcomes: [
@@ -185,6 +188,7 @@ const de = {
       pillar: "Digitale Entwicklung",
       client: "Enterprise-SaaS-/ERP-Plattformanbieter — Nordamerika",
       title: "eSignatur-Integration zwischen ERP und Drittanbieter-Plattformen",
+      keyResult: "Nahtloser eSignatur-Workflow innerhalb der ERP-Kernplattform bereitgestellt — über mehrere Drittanbieter validiert.",
       challenge: "Eine komplexe Integrationsanforderung zwischen einer zentralen SaaS-ERP-Plattform und externen eSignatur-Anbietern ohne standardisierten Ansatz über Anbieterimplementierungen hinweg.",
       approach: "Mitgewirkt an Design, Test und Lieferung von eSignatur-Integrationen zwischen der ERP-Plattform und branchenüblichen Dokumentensignierungsanbietern. Validierung von End-to-End-Workflows, Grenzfällen und Compliance-Anforderungen an mehreren Integrationspunkten.",
       outcomes: [

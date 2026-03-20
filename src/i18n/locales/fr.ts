@@ -147,6 +147,7 @@ const fr = {
     heading: "Des programmes réels. Des résultats mesurables.",
     subheading: "Un aperçu de nos interventions — en gouvernance SAP, ingénierie qualité et développement digital.",
     disclaimer: "Mission anonymisée · Détails disponibles sur demande",
+    viewAll: "Voir toutes les études de cas",
     labels: {
       tapToExpand: "Appuyez sur une carte pour les détails",
       showDetails: "Voir les détails",
@@ -159,6 +160,7 @@ const fr = {
       pillar: "Gouvernance SAP & UAT",
       client: "Éditeur SaaS RH & Paie mondial — Amérique du Nord",
       title: "Support à l'implémentation ERP & gouvernance UAT continue",
+      keyResult: "Processus UAT structuré adopté sur tous les cycles de livraison — décisions go/no-go basées sur des preuves, pas sur l'instinct.",
       challenge: "Une implémentation ERP à grande échelle avec des parties prenantes dispersées et aucun processus UAT structuré — les décisions de mise en production se prenaient à l'intuition, sans preuves documentées.",
       approach: "Intégration dans des équipes Agile Scrum pour piloter le recueil des exigences, définir les critères d'acceptation UAT et mettre en place un cadre Go/No-Go structuré avec des points de validation parties prenantes. Accompagnement des releases pré- et post-production sur plusieurs cycles de programme.",
       outcomes: [
@@ -172,6 +174,7 @@ const fr = {
       pillar: "Ingénierie qualité",
       client: "Portail de comparaison d'assurances leader — Europe",
       title: "UAT & ingénierie qualité sur plusieurs domaines assurantiels",
+      keyResult: "Couverture UAT étendue à tous les domaines assurance — taux de défauts en production réduit grâce à des portes pré-livraison structurées.",
       challenge: "Une plateforme grand public à fort trafic intégrant plusieurs prestataires d'assurance tiers, avec des pratiques UAT hétérogènes et une couverture de régression limitée.",
       approach: "Pilotage de l'UAT de bout en bout sur les domaines auto, santé et habitation, en collaboration directe avec les prestataires tiers pour aligner les critères d'acceptation. Mise en place de plans de test structurés, de triage des défauts et de cycles de validation pré/post-production.",
       outcomes: [
@@ -185,6 +188,7 @@ const fr = {
       pillar: "Développement digital",
       client: "Éditeur de plateforme SaaS / ERP — Amérique du Nord",
       title: "Intégration de signature électronique entre ERP et prestataires tiers",
+      keyResult: "Workflow de signature électronique livré au sein de la plateforme ERP — validé auprès de plusieurs prestataires tiers.",
       challenge: "Une exigence d'intégration complexe entre une plateforme ERP SaaS centrale et des prestataires externes de signature électronique, sans approche standardisée entre les différentes implémentations.",
       approach: "Contribution à la conception, aux tests et à la livraison d'intégrations de signature électronique reliant la plateforme ERP à des prestataires de signature documentaire reconnus. Validation des workflows de bout en bout, des cas limites et des exigences de conformité sur plusieurs points d'intégration.",
       outcomes: [

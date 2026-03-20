@@ -144,6 +144,7 @@ const en = {
     heading: "Real programmes. Measurable outcomes.",
     subheading: "A snapshot of the kind of work we deliver — across SAP governance, quality engineering, and digital development.",
     disclaimer: "Anonymised engagement · Details available on request",
+    viewAll: "See full case studies",
     labels: {
       tapToExpand: "Tap any card to see full details",
       showDetails: "Show details",
@@ -156,6 +157,7 @@ const en = {
       pillar: "SAP Governance & UAT",
       client: "Global HR & Payroll SaaS company — North America",
       title: "ERP Implementation Support & Ongoing UAT Governance",
+      keyResult: "Structured UAT process adopted across all release cycles — go/no-go decisions backed by evidence, not instinct.",
       challenge: "A large-scale ERP implementation with distributed stakeholders and no structured UAT process — release decisions were being made on gut feel, not evidence.",
       approach: "Embedded into Agile Scrum delivery teams to lead requirements gathering, define UAT acceptance criteria, and build a structured go/no-go framework with stakeholder sign-off gates. Supported pre- and post-production releases across multiple programme cycles.",
       outcomes: [
@@ -169,6 +171,7 @@ const en = {
       pillar: "Quality Engineering",
       client: "Leading insurance comparison portal — Europe",
       title: "UAT & Quality Engineering Across Insurance Domains",
+      keyResult: "UAT coverage extended across all active insurance domains — defect escape rate to production reduced through structured pre-release gates.",
       challenge: "A high-volume consumer platform integrating with multiple third-party insurance vendors, with inconsistent UAT practices and limited regression coverage across domains.",
       approach: "Led end-to-end UAT across motor, health, and home insurance domains, working directly with third-party vendors to align acceptance criteria. Introduced structured test planning, defect triage, and pre/post-production validation cycles.",
       outcomes: [
@@ -182,6 +185,7 @@ const en = {
       pillar: "Digital Development",
       client: "Enterprise SaaS / ERP platform provider — North America",
       title: "eSignature Integration Between ERP and Third-Party Vendors",
+      keyResult: "Seamless eSignature workflow delivered within the core ERP platform — validated across multiple third-party signing vendors.",
       challenge: "A complex integration requirement between a core SaaS ERP platform and external eSignature providers, with no standardised approach across vendor implementations.",
       approach: "Contributed to the design, testing, and delivery of eSignature integrations connecting the ERP platform with industry-standard document signing vendors. Validated end-to-end workflows, edge cases, and compliance requirements across multiple integration touchpoints.",
       outcomes: [
