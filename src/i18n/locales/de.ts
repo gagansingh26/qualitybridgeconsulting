@@ -395,6 +395,59 @@ const de = {
     de: "Deutsch",
     fr: "Französisch",
   },
+  engagement: {
+    eyebrow: "Unsere Zusammenarbeit",
+    heading: "Strukturiert von Anfang an. Flexibel nach Bedarf.",
+    subheading: "Jedes Engagement beginnt mit einem Gespräch über Ihr Programm — Scope, Zeitplan und Ziele. Kein Retainer, bevor die Passform klar ist.",
+    model1: {
+      label: "Modell 1",
+      title: "Festpreisprojekt",
+      desc: "Definierter Scope, klare Lieferergebnisse und eine einzige Rechnung. Ideal für zeitlich begrenzte Arbeiten wie Framework-Setup, Go-live-Support oder einen bestimmten Release-Zyklus.",
+      tag: "Definiertes Ergebnis · Planbare Kosten",
+    },
+    model2: {
+      label: "Modell 2",
+      title: "Monatlicher Retainer",
+      desc: "Laufende eingebettete Unterstützung über einen oder mehrere Bereiche. Ideal für Teams, die konsistente Qualitäts-Governance, Automatisierungsabdeckung oder digitale Lieferkapazität benötigen.",
+      tag: "Fortlaufend · Skaliert mit Ihrem Programm",
+    },
+    table: {
+      headers: ["Bereich", "Typischer Umfang", "Dauer", "Modell"],
+      pillars: {
+        digital: "Digitale Entwicklung",
+        sap: "SAP-Governance",
+        qe: "Qualitätssicherung",
+      },
+      pillarsShort: {
+        digital: "Digital",
+        sap: "SAP",
+        qe: "Qualität",
+      },
+      rows: {
+        digital: {
+          scope: "Webanwendung, Dashboard oder Rapid Prototype",
+          duration: "2–8 Wochen",
+          model: "Festpreis",
+        },
+        sap: {
+          scope: "UAT-Governance für einen S/4HANA-Release-Zyklus",
+          duration: "4–12 Wochen",
+          model: "Festpreis oder Retainer",
+        },
+        qe: {
+          scope: "Automatisierungs-Framework oder laufende QE-Abdeckung",
+          duration: "4–10 Wochen+",
+          model: "Festpreis oder Retainer",
+        },
+      },
+    },
+    cta: {
+      title: "Nicht sicher, welches Modell passt?",
+      desc: "Jedes Engagement beginnt mit einem kostenlosen 15-Minuten-Gespräch — keine Verpflichtung, kein Angebot, bis der Scope klar ist.",
+      book: "Kostenloses Gespräch buchen",
+      message: "Nachricht senden",
+    },
+  },
 };
 
 export default de;
