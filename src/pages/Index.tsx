@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ArrowRight, ExternalLink, Shield, Users, TrendingDown,
-  GitBranch, Monitor, ChevronDown, Rocket, CheckCircle,
-  Brain, MapPin, Layers, Zap, Target,
+  GitBranch, Monitor, Rocket, Brain, Layers, MapPin,
+  Zap, Target, ClipboardCheck, Activity, TrendingUp,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
@@ -13,62 +12,110 @@ import { usePageMeta } from "@/hooks/use-page-meta";
 import { useTranslation } from "react-i18next";
 import { CaseStudies } from "@/components/CaseStudies";
 
-// ─── Colour tokens ────────────────────────────────────────────────────────────
+// ─── Design tokens ────────────────────────────────────────────────────────────
+// Colour appears ONLY on: 3px accent bar + small icon square (h-9 w-9 rounded-xl)
+// All card/section backgrounds are white (bg-card) or light grey (bg-muted/30)
+// No tinted card backgrounds anywhere
+
 const PILLAR = [
-  { accentBar: "bg-blue-500 dark:bg-blue-400",     headerBg: "bg-blue-50 dark:bg-blue-950",     iconBg: "bg-blue-100 dark:bg-blue-900",     iconColor: "text-blue-700 dark:text-blue-300",   dotColor: "bg-blue-500 dark:bg-blue-400",   stepNum: "bg-blue-500 dark:bg-blue-400 text-white"   },
-  { accentBar: "bg-teal-500 dark:bg-teal-400",     headerBg: "bg-teal-50 dark:bg-teal-950",     iconBg: "bg-teal-100 dark:bg-teal-900",     iconColor: "text-teal-700 dark:text-teal-300",   dotColor: "bg-teal-500 dark:bg-teal-400",   stepNum: "bg-teal-500 dark:bg-teal-400 text-white"   },
-  { accentBar: "bg-purple-500 dark:bg-purple-400", headerBg: "bg-purple-50 dark:bg-purple-950", iconBg: "bg-purple-100 dark:bg-purple-900", iconColor: "text-purple-700 dark:text-purple-300", dotColor: "bg-purple-500 dark:bg-purple-400", stepNum: "bg-purple-500 dark:bg-purple-400 text-white" },
-];
-const OUTCOME_COLOURS = [
-  { accentBar: "bg-blue-500 dark:bg-blue-400",     iconBg: "bg-blue-100 dark:bg-blue-900",     iconColor: "text-blue-700 dark:text-blue-300"   },
-  { accentBar: "bg-teal-500 dark:bg-teal-400",     iconBg: "bg-teal-100 dark:bg-teal-900",     iconColor: "text-teal-700 dark:text-teal-300"   },
-  { accentBar: "bg-purple-500 dark:bg-purple-400", iconBg: "bg-purple-100 dark:bg-purple-900", iconColor: "text-purple-700 dark:text-purple-300" },
-  { accentBar: "bg-amber-500 dark:bg-amber-400",   iconBg: "bg-amber-100 dark:bg-amber-900",   iconColor: "text-amber-700 dark:text-amber-300"  },
+  {
+    accentBar: "bg-blue-500 dark:bg-blue-400",
+    iconBg:    "bg-blue-100 dark:bg-blue-900",
+    iconColor: "text-blue-600 dark:text-blue-400",
+    dotColor:  "bg-blue-500 dark:bg-blue-400",
+    stepBg:    "bg-blue-500",
+    labelColor:"text-blue-600 dark:text-blue-400",
+  },
+  {
+    accentBar: "bg-teal-500 dark:bg-teal-400",
+    iconBg:    "bg-teal-100 dark:bg-teal-900",
+    iconColor: "text-teal-600 dark:text-teal-400",
+    dotColor:  "bg-teal-500 dark:bg-teal-400",
+    stepBg:    "bg-teal-500",
+    labelColor:"text-teal-600 dark:text-teal-400",
+  },
+  {
+    accentBar: "bg-purple-500 dark:bg-purple-400",
+    iconBg:    "bg-purple-100 dark:bg-purple-900",
+    iconColor: "text-purple-600 dark:text-purple-400",
+    dotColor:  "bg-purple-500 dark:bg-purple-400",
+    stepBg:    "bg-purple-500",
+    labelColor:"text-purple-600 dark:text-purple-400",
+  },
 ];
 
-const DIFF_COLOURS = [
-  { bg: "bg-blue-50 dark:bg-blue-950",     border: "border-blue-200 dark:border-blue-800",     icon: "text-blue-600 dark:text-blue-400"   },
-  { bg: "bg-teal-50 dark:bg-teal-950",     border: "border-teal-200 dark:border-teal-800",     icon: "text-teal-600 dark:text-teal-400"   },
-  { bg: "bg-purple-50 dark:bg-purple-950", border: "border-purple-200 dark:border-purple-800", icon: "text-purple-600 dark:text-purple-400" },
+const OUTCOME_ACCENT = [
+  "bg-blue-500 dark:bg-blue-400",
+  "bg-teal-500 dark:bg-teal-400",
+  "bg-purple-500 dark:bg-purple-400",
+  "bg-amber-500 dark:bg-amber-400",
+];
+const OUTCOME_ICON = [
+  { bg: "bg-blue-100 dark:bg-blue-900",     color: "text-blue-600 dark:text-blue-400"   },
+  { bg: "bg-teal-100 dark:bg-teal-900",     color: "text-teal-600 dark:text-teal-400"   },
+  { bg: "bg-purple-100 dark:bg-purple-900", color: "text-purple-600 dark:text-purple-400" },
+  { bg: "bg-amber-100 dark:bg-amber-900",   color: "text-amber-600 dark:text-amber-400"  },
 ];
 
-const problemIcons  = [ <Monitor className="h-5 w-5" />, <Shield className="h-5 w-5" />, <GitBranch className="h-5 w-5" /> ];
-const deliverIcons  = [ <Monitor className="h-5 w-5" />, <Shield className="h-5 w-5" />, <Brain className="h-5 w-5"   /> ];
-const outcomeIcons  = [ <Rocket className="h-5 w-5"  />, <Shield className="h-5 w-5" />, <TrendingDown className="h-5 w-5" />, <Users className="h-5 w-5" /> ];
-const diffIcons     = [ <Layers className="h-5 w-5" />, <MapPin className="h-5 w-5" />, <Zap className="h-5 w-5" /> ];
+const problemIcons = [
+  <Monitor className="h-5 w-5" />,
+  <Shield className="h-5 w-5" />,
+  <GitBranch className="h-5 w-5" />,
+];
+const deliverIcons = [
+  <Monitor className="h-5 w-5" />,
+  <ClipboardCheck className="h-5 w-5" />,
+  <Activity className="h-5 w-5" />,
+];
+const outcomeIcons = [
+  <Rocket className="h-5 w-5" />,
+  <Shield className="h-5 w-5" />,
+  <TrendingDown className="h-5 w-5" />,
+  <Users className="h-5 w-5" />,
+];
+const diffIcons = [
+  <Layers className="h-5 w-5" />,
+  <MapPin className="h-5 w-5" />,
+  <TrendingUp className="h-5 w-5" />,
+];
+const platIcons = [
+  <Monitor className="h-4 w-4" />,
+  <Shield className="h-4 w-4" />,
+  <Activity className="h-4 w-4" />,
+];
 
+// ─── Animation ────────────────────────────────────────────────────────────────
 const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 18 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.45, delay },
+  viewport: { once: true, margin: "-50px" },
+  transition: { duration: 0.45, delay, ease: "easeOut" },
 });
 
-// Mobile accordion
-const AccordionCard = ({ icon, title, desc, index }: { icon: React.ReactNode; title: string; desc: string; index: number }) => {
-  const [open, setOpen] = useState(false);
-  const c = PILLAR[index];
-  return (
-    <motion.div whileHover={{ y: -3 }} whileTap={{ y: -3 }} className="rounded-xl border border-border bg-card overflow-hidden card-shadow">
-      <div className={`h-[3px] w-full ${c.accentBar}`} />
-      <button type="button" className="flex w-full items-center gap-3 p-4 text-left" onClick={() => setOpen(o => !o)} aria-expanded={open}>
-        <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${c.iconBg} ${c.iconColor}`}>{icon}</div>
-        <span className="text-sm font-semibold text-card-foreground flex-1">{title}</span>
-        <ChevronDown className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
-      </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div key="c" initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.22 }} className="overflow-hidden">
-            <div className="border-t border-border px-4 pb-4 pt-3">
-              <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  );
-};
+// ─── Reusable section header ──────────────────────────────────────────────────
+const SH = ({
+  eyebrow, heading, sub, center = false,
+}: {
+  eyebrow?: string; heading: string; sub?: string; center?: boolean;
+}) => (
+  <div className={`mb-8 md:mb-10 ${center ? "text-center" : ""}`}>
+    {eyebrow && (
+      <p className="text-[11px] font-semibold uppercase tracking-widest text-primary mb-2.5">
+        {eyebrow}
+      </p>
+    )}
+    <h2 className={`text-[26px] font-bold text-foreground leading-tight md:text-[34px] ${center ? "" : "max-w-2xl"}`}>
+      {heading}
+    </h2>
+    {sub && (
+      <p className={`mt-3 text-sm text-muted-foreground leading-relaxed md:text-base ${center ? "mx-auto max-w-2xl" : "max-w-2xl"}`}>
+        {sub}
+      </p>
+    )}
+  </div>
+);
 
+// ─── Page ─────────────────────────────────────────────────────────────────────
 const Index = () => {
   const { t } = useTranslation();
   usePageMeta(
@@ -77,50 +124,66 @@ const Index = () => {
     "/"
   );
 
-  const problemItems  = t("problems.items",        { returnObjects: true }) as { pill?: string; title: string; desc: string }[];
-  const outcomeItems  = t("outcomes.items",         { returnObjects: true }) as { label: string; desc: string }[];
-  const howWeWorkSteps= t("howWeWork.steps",        { returnObjects: true }) as { title: string; desc: string }[];
-  const deliverCards  = t("whatWeDeliver.cards",    { returnObjects: true }) as { title: string; desc: string; detail?: string[] }[];
-  const platformGroups= t("platforms.groups",       { returnObjects: true }) as { label: string; outcome: string; items: string[] }[];
-  const diffItems     = t("differentiation.items",  { returnObjects: true }) as { title: string; desc: string }[];
+  const problemItems  = t("problems.items",       { returnObjects: true }) as { title: string; desc: string }[];
+  const outcomeItems  = t("outcomes.items",        { returnObjects: true }) as { label: string; desc: string }[];
+  const howWeWorkSteps= t("howWeWork.steps",       { returnObjects: true }) as { title: string; desc: string }[];
+  const deliverCards  = t("whatWeDeliver.cards",   { returnObjects: true }) as { title: string; desc: string; detail?: string[] }[];
+  const platformGroups= t("platforms.groups",      { returnObjects: true }) as { label: string; outcome: string; items: string[] }[];
+  const diffItems     = t("differentiation.items", { returnObjects: true }) as { title: string; desc: string }[];
 
   return (
     <Layout>
 
-      {/* ════════════════════════════════════════════════════════
-          1. HERO — outcome + discipline
-      ════════════════════════════════════════════════════════ */}
+      {/* ══════════════════════════════════════════════════════
+          1. HERO — enterprise-gradient, unchanged blue
+      ══════════════════════════════════════════════════════ */}
       <section className="enterprise-gradient relative overflow-hidden py-14 md:py-20 lg:py-28">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10 bg-white/[0.03] md:h-80 md:w-80" />
+          <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10 bg-white/[0.03] md:-right-10 md:-top-10 md:h-80 md:w-80" />
           <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full border border-white/[0.06] bg-white/[0.02] md:h-64 md:w-64" />
         </div>
 
         <div className="container relative mx-auto max-w-3xl px-4 text-center">
-          {/* Eyebrow pills */}
-          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
-            className="flex flex-wrap items-center justify-center gap-1.5 mb-5">
+          {/* Pills */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="flex flex-wrap items-center justify-center gap-1.5 mb-5"
+          >
             {(t("hero.pills", { returnObjects: true }) as string[]).map((pill) => (
-              <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-3 py-0.5 text-[11px] font-medium text-primary-foreground/90 md:text-xs">{pill}</span>
+              <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-3 py-0.5 text-[11px] font-medium text-primary-foreground/90 md:text-xs">
+                {pill}
+              </span>
             ))}
           </motion.div>
 
           {/* Headline */}
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-            className="text-[32px] font-bold leading-tight text-primary-foreground md:text-[44px] lg:text-[52px]">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55 }}
+            className="text-[32px] font-bold leading-tight text-primary-foreground md:text-[44px] lg:text-[52px]"
+          >
             {t("hero.titlePrefix")}{" "}
-            <span className="block mt-1" style={{ color: "#93c5fd" }}>{t("hero.titleAccent")}</span>
+            <span className="block mt-0.5" style={{ color: "#93c5fd" }}>
+              {t("hero.titleAccent")}
+            </span>
           </motion.h1>
 
-          {/* Subtitle — one sentence, specific */}
-          <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}
-            className="mx-auto mt-4 max-w-2xl text-base text-primary-foreground/80 md:text-lg leading-relaxed">
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.12 }}
+            className="mx-auto mt-4 max-w-xl text-base text-primary-foreground/80 md:text-lg leading-relaxed"
+          >
             {t("hero.subtitle")}
           </motion.p>
 
-          {/* Single primary CTA */}
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.22 }}
+            className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
+          >
             <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto px-8">
                 {t("hero.ctaPrimary")} <ArrowRight className="ml-2 h-4 w-4" />
@@ -133,352 +196,365 @@ const Index = () => {
             </Link>
           </motion.div>
 
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.4 }}
-            className="mx-auto mt-3 text-[12px] md:text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>
+          <motion.p
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className="mt-3 text-[12px] md:text-sm" style={{ color: "rgba(255,255,255,0.55)" }}
+          >
             {t("hero.reach")}
           </motion.p>
 
-          {/* 3-stat bar */}
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.5 }}
-            className="mx-auto mt-8 flex max-w-sm items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-md md:mt-10 md:max-w-lg">
+          {/* Stat bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.42 }}
+            className="mx-auto mt-8 flex max-w-sm items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-md md:mt-10 md:max-w-lg"
+          >
             {(t("hero.stats", { returnObjects: true }) as { value: string; label: string }[]).map((stat, i) => (
               <div key={i} className="flex flex-1 flex-col items-center px-3 md:px-5">
                 <span className="text-sm font-bold text-primary-foreground md:text-base leading-tight text-center">{stat.value}</span>
-                <span className="mt-0.5 text-[10px] text-primary-foreground/60 md:text-xs text-center">{stat.label}</span>
+                <span className="mt-0.5 text-[10px] text-primary-foreground/55 md:text-xs text-center">{stat.label}</span>
               </div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════════
-          2. FOUNDER TRUST STRIP
-      ════════════════════════════════════════════════════════ */}
-      <div className="border-b border-t border-border bg-card">
-        <div className="container mx-auto px-4 py-3 md:px-6">
-          <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-center md:gap-8">
-            <div className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold">GS</div>
-              <span className="text-xs font-semibold text-foreground md:text-sm">{t("hero.founderName")} · {t("hero.founderTitle")}</span>
-            </div>
-            <div className="hidden md:block w-px h-4 bg-border" />
-            <span className="text-xs text-muted-foreground md:text-sm">{t("hero.founderCredits")}</span>
-            <div className="hidden md:block w-px h-4 bg-border" />
-            <div className="flex items-center gap-1.5 text-xs text-muted-foreground md:text-sm">
-              <MapPin className="h-3.5 w-3.5 shrink-0 text-primary" />
-              <span>{t("hero.founderLocation")}</span>
-            </div>
-            <div className="hidden md:block w-px h-4 bg-border" />
-            <a href="https://www.linkedin.com/in/gagansingh26/" target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-1 text-xs text-primary hover:underline md:text-sm">
-              <ExternalLink className="h-3 w-3" />{t("hero.founderLinkedIn")}
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* ════════════════════════════════════════════════════════
-          3. SINGLE PROOF CALLOUT
-      ════════════════════════════════════════════════════════ */}
-      <div className="border-b border-border bg-muted/40">
-        <div className="container mx-auto px-4 py-5 md:px-6 md:py-6">
-          <motion.div {...fadeUp(0)} className="mx-auto max-w-3xl flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300">
+      {/* ══════════════════════════════════════════════════════
+          2. PROOF CALLOUT — single stat, teal icon, full width
+      ══════════════════════════════════════════════════════ */}
+      <div className="border-b border-border bg-card">
+        <div className="container mx-auto px-4 py-4 md:px-6 md:py-5">
+          <motion.div
+            {...fadeUp(0)}
+            className="flex flex-col items-start gap-3 sm:flex-row sm:items-center"
+          >
+            {/* Icon */}
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-100 dark:bg-teal-900 text-teal-600 dark:text-teal-400">
               <TrendingDown className="h-5 w-5" />
             </div>
-            <p className="text-sm md:text-base text-foreground leading-relaxed">
-              <span className="font-semibold">{t("hero.proofStat")}</span>
-              {" — "}<span className="text-muted-foreground">{t("hero.proofContext")}</span>
-            </p>
-            <Link to="/services#case-studies" className="shrink-0 text-xs font-medium text-primary hover:underline flex items-center gap-1 whitespace-nowrap">
+            {/* Text */}
+            <div className="flex-1 min-w-0">
+              <span className="font-semibold text-foreground text-sm md:text-base">
+                {t("hero.proofStat")}
+              </span>
+              <span className="text-muted-foreground text-sm md:text-base">
+                {" "}— {t("hero.proofContext")}
+              </span>
+            </div>
+            {/* Link */}
+            <Link
+              to="/services"
+              className="shrink-0 flex items-center gap-1 text-xs font-semibold text-primary hover:underline md:text-sm"
+            >
               {t("hero.proofLink")} <ArrowRight className="h-3 w-3" />
             </Link>
           </motion.div>
         </div>
       </div>
 
-      {/* ════════════════════════════════════════════════════════
-          4. PROBLEMS WE SOLVE — trimmed, bold statement first
-      ════════════════════════════════════════════════════════ */}
-      <SectionWrapper className="relative overflow-hidden">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
-          <div className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full border border-primary/[0.05] bg-primary/[0.02]" />
-        </div>
-        <motion.div {...fadeUp(0)} className="relative text-center mb-8 md:mb-10">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">{t("problems.eyebrow")}</p>
-          <h2 className="text-[28px] font-bold md:text-[36px]">{t("problems.heading")}</h2>
-          <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground md:text-base">{t("problems.subheading")}</p>
+      {/* ══════════════════════════════════════════════════════
+          3. PROBLEMS — white bg, clean cards
+      ══════════════════════════════════════════════════════ */}
+      <SectionWrapper className="bg-background">
+        <motion.div {...fadeUp(0)}>
+          <SH
+            eyebrow={t("problems.eyebrow")}
+            heading={t("problems.heading")}
+            sub={t("problems.subheading")}
+          />
         </motion.div>
 
-        {/* Mobile */}
-        <div className="flex flex-col gap-3 md:hidden">
-          {problemItems.map((item, i) => {
-            const mobileBorder = i === 0
-              ? "border-l-4 border-l-blue-500 dark:border-l-blue-400"
-              : i === 1
-              ? "border-l-4 border-l-teal-500 dark:border-l-teal-400"
-              : "border-l-4 border-l-purple-500 dark:border-l-purple-400";
-            return (
-              <motion.div key={i} {...fadeUp(i * 0.06)}
-                className={`rounded-xl border border-border bg-card overflow-hidden ${mobileBorder}`}>
-                <div className={`${PILLAR[i].headerBg} px-4 py-3 flex items-center gap-3`}>
-                  <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>{problemIcons[i]}</div>
-                  <p className="text-sm font-semibold text-foreground">{item.title}</p>
-                </div>
-                <div className="bg-card px-4 py-3 border-t border-border">
-                  <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {/* Desktop */}
-        <div className="hidden md:grid md:grid-cols-3 md:gap-6">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5">
           {problemItems.map((item, i) => (
-            <motion.div key={i} {...fadeUp(i * 0.1)}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="flex flex-col rounded-xl border border-border bg-card overflow-hidden card-shadow">
+            <motion.div
+              key={i}
+              {...fadeUp(i * 0.08)}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="flex flex-col rounded-2xl border border-border bg-card overflow-hidden"
+            >
               <div className={`h-[3px] w-full ${PILLAR[i].accentBar}`} />
-              <div className={`${PILLAR[i].headerBg} px-5 pt-5 pb-4`}>
-                <div className={`flex h-10 w-10 items-center justify-center rounded-full mb-3 ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>{problemIcons[i]}</div>
-                <h3 className="text-sm font-bold text-foreground leading-snug">{item.title}</h3>
-              </div>
-              <div className="px-5 py-4 flex-1">
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+              <div className="flex flex-col flex-1 p-5 md:p-6">
+                <div className={`flex h-9 w-9 items-center justify-center rounded-xl mb-4 ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>
+                  {problemIcons[i]}
+                </div>
+                <h3 className="text-[15px] font-semibold text-foreground leading-snug mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        <motion.div {...fadeUp(0.2)} className="text-center mt-8">
-          <Button size="lg" variant="outline" className="font-medium"
-            onClick={() => document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" })}>
-            {t("problems.sampleEngagement")} <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+        <motion.div {...fadeUp(0.15)} className="mt-6 text-center">
+          <button
+            type="button"
+            onClick={() => document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" })}
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+          >
+            {t("problems.sampleEngagement")} <ArrowRight className="h-3.5 w-3.5" />
+          </button>
         </motion.div>
       </SectionWrapper>
 
-      {/* ════════════════════════════════════════════════════════
-          5. CASE STUDIES — moved up (proof follows pain)
-      ════════════════════════════════════════════════════════ */}
-      <CaseStudies />
+      {/* ══════════════════════════════════════════════════════
+          4. CASE STUDIES — grey bg, proof follows pain
+      ══════════════════════════════════════════════════════ */}
+      <div className="bg-muted/30">
+        <CaseStudies />
+      </div>
 
-      {/* ════════════════════════════════════════════════════════
-          6. WHAT WE DELIVER — outcome-led, no text walls
-      ════════════════════════════════════════════════════════ */}
-      <SectionWrapper className="relative overflow-hidden bg-muted/30">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -right-14 -top-14 h-48 w-48 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
-          <div className="absolute -left-10 -bottom-10 h-40 w-40 rounded-full border border-primary/[0.05] bg-primary/[0.02]" />
-        </div>
-        <motion.div {...fadeUp(0)} className="relative text-center mb-8 md:mb-10">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">{t("whatWeDeliver.eyebrow")}</p>
-          <h2 className="text-[28px] font-bold md:text-[36px]">{t("whatWeDeliver.heading")}</h2>
-          <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground md:text-base">{t("whatWeDeliver.subheading")}</p>
+      {/* ══════════════════════════════════════════════════════
+          5. WHAT WE DELIVER — white bg
+      ══════════════════════════════════════════════════════ */}
+      <SectionWrapper className="bg-background">
+        <motion.div {...fadeUp(0)}>
+          <SH
+            eyebrow={t("whatWeDeliver.eyebrow")}
+            heading={t("whatWeDeliver.heading")}
+            sub={t("whatWeDeliver.subheading")}
+          />
         </motion.div>
 
-        {/* Mobile accordion */}
-        <div className="flex flex-col gap-3 md:hidden">
-          {deliverCards.map((c, i) => (<motion.div key={i} {...fadeUp(i * 0.06)}><AccordionCard icon={deliverIcons[i]} title={c.title} desc={c.desc} index={i} /></motion.div>))}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5">
+          {deliverCards.map((card, i) => (
+            <motion.div
+              key={i}
+              {...fadeUp(i * 0.08)}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="flex flex-col rounded-2xl border border-border bg-card overflow-hidden"
+            >
+              <div className={`h-[3px] w-full ${PILLAR[i].accentBar}`} />
+              <div className="flex flex-col flex-1 p-5 md:p-6">
+                <div className={`flex h-9 w-9 items-center justify-center rounded-xl mb-4 ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>
+                  {deliverIcons[i]}
+                </div>
+                <h3 className="text-[15px] font-semibold text-foreground leading-snug mb-2">
+                  {card.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {card.desc}
+                </p>
+                {card.detail && (
+                  <ul className="mt-4 pt-4 border-t border-border space-y-2">
+                    {card.detail.map((b) => (
+                      <li key={b} className="flex items-center gap-2.5 text-xs text-muted-foreground">
+                        <span className={`h-1.5 w-1.5 rounded-full flex-shrink-0 ${PILLAR[i].dotColor}`} />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Desktop — outcome-first layout */}
-        <div className="hidden md:grid md:grid-cols-3 md:gap-6">
-          {deliverCards.map((c, i) => {
-            const col = PILLAR[i];
-            return (
-              <motion.div key={i} {...fadeUp(i * 0.1)} whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                className="flex flex-col rounded-xl border border-border bg-card overflow-hidden card-shadow">
-                <div className={`h-[3px] w-full ${col.accentBar}`} />
-                <div className={`${col.headerBg} px-5 pt-5 pb-4`}>
-                  <div className={`flex h-10 w-10 items-center justify-center rounded-full mb-3 ${col.iconBg} ${col.iconColor}`}>{deliverIcons[i]}</div>
-                  <h3 className="text-base font-bold text-foreground">{c.title}</h3>
-                </div>
-                <div className="px-5 py-4 flex-1 flex flex-col">
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{c.desc}</p>
-                  {c.detail && (
-                    <ul className="mt-auto space-y-1.5">
-                      {c.detail.slice(0, 3).map((d) => (
-                        <li key={d} className="flex items-center gap-2 text-xs text-muted-foreground">
-                          <span className={`h-1.5 w-1.5 flex-shrink-0 rounded-full ${col.dotColor}`} />{d}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        <motion.div {...fadeUp(0.2)} className="text-center mt-8">
-          <Link to="/services">
-            <Button variant="outline" size="lg" className="font-medium">
-              {t("whatWeDeliver.cta")} <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+        <motion.div {...fadeUp(0.15)} className="mt-6 text-center">
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+          >
+            {t("whatWeDeliver.cta")} <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </motion.div>
       </SectionWrapper>
 
-      {/* ════════════════════════════════════════════════════════
-          7. WHY WE'RE DIFFERENT — new section
-      ════════════════════════════════════════════════════════ */}
-      <SectionWrapper className="relative overflow-hidden">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-16 -top-16 h-48 w-48 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
-        </div>
-        <motion.div {...fadeUp(0)} className="relative text-center mb-8 md:mb-10">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">{t("differentiation.eyebrow")}</p>
-          <h2 className="text-[28px] font-bold md:text-[36px]">{t("differentiation.heading")}</h2>
-          <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground md:text-base">{t("differentiation.subheading")}</p>
+      {/* ══════════════════════════════════════════════════════
+          6. WHY WE'RE DIFFERENT — grey bg, horizontal card layout
+             (icon + text side-by-side, like Google About cards)
+      ══════════════════════════════════════════════════════ */}
+      <SectionWrapper className="bg-muted/30">
+        <motion.div {...fadeUp(0)}>
+          <SH
+            eyebrow={t("differentiation.eyebrow")}
+            heading={t("differentiation.heading")}
+            sub={t("differentiation.subheading")}
+          />
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
-          {diffItems.map((item, i) => {
-            const c = DIFF_COLOURS[i];
-            return (
-              <motion.div key={i} {...fadeUp(i * 0.1)} whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                className={`rounded-xl border p-5 md:p-6 ${c.bg} ${c.border}`}>
-                <div className={`mb-3 ${c.icon}`}>{diffIcons[i]}</div>
-                <h3 className="text-sm font-bold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-              </motion.div>
-            );
-          })}
+        <div className="flex flex-col gap-4 md:gap-5">
+          {diffItems.map((item, i) => (
+            <motion.div
+              key={i}
+              {...fadeUp(i * 0.08)}
+              className="flex items-start gap-4 rounded-2xl border border-border bg-card p-5 md:p-6"
+            >
+              {/* Coloured icon — always stays left, even on smallest screens */}
+              <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>
+                {diffIcons[i]}
+              </div>
+              {/* Text */}
+              <div className="min-w-0">
+                <h3 className="text-[15px] font-semibold text-foreground mb-1.5 leading-snug">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </SectionWrapper>
 
-      {/* ════════════════════════════════════════════════════════
-          8. PLATFORMS — grouped by outcome
-      ════════════════════════════════════════════════════════ */}
-      <SectionWrapper className="relative overflow-hidden bg-muted/30">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -right-14 -top-14 h-48 w-48 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
-        </div>
-        <motion.div {...fadeUp(0)} className="relative text-center mb-8 md:mb-10">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">{t("platforms.eyebrow")}</p>
-          <h2 className="text-[28px] font-bold md:text-[36px]">{t("platforms.heading")}</h2>
-          <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground md:text-base">{t("platforms.subheading")}</p>
+      {/* ══════════════════════════════════════════════════════
+          7. PLATFORMS — white bg, grouped by outcome
+      ══════════════════════════════════════════════════════ */}
+      <SectionWrapper className="bg-background">
+        <motion.div {...fadeUp(0)}>
+          <SH
+            eyebrow={t("platforms.eyebrow")}
+            heading={t("platforms.heading")}
+            sub={t("platforms.subheading")}
+          />
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
-          {platformGroups.map((group, gi) => {
-            const col = PILLAR[gi];
-            return (
-              <motion.div key={gi} {...fadeUp(gi * 0.1)} className="rounded-xl border border-border bg-card overflow-hidden card-shadow">
-                <div className={`h-[3px] w-full ${col.accentBar}`} />
-                <div className={`${col.headerBg} px-5 pt-4 pb-3`}>
-                  <p className={`text-xs font-semibold uppercase tracking-wider ${col.iconColor} mb-0.5`}>{group.label}</p>
-                  <p className="text-sm text-muted-foreground">{group.outcome}</p>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5">
+          {platformGroups.map((group, gi) => (
+            <motion.div
+              key={gi}
+              {...fadeUp(gi * 0.08)}
+              className="rounded-2xl border border-border bg-card overflow-hidden"
+            >
+              <div className={`h-[3px] w-full ${PILLAR[gi].accentBar}`} />
+              {/* Header */}
+              <div className="flex items-center gap-3 px-5 py-4 border-b border-border">
+                <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${PILLAR[gi].iconBg} ${PILLAR[gi].iconColor}`}>
+                  {platIcons[gi]}
                 </div>
-                <div className="px-5 py-4">
-                  <div className="flex flex-wrap gap-1.5">
-                    {group.items.map((item) => (
-                      <span key={item} className="rounded-full border border-border bg-muted/60 px-2.5 py-0.5 text-xs font-medium text-card-foreground">{item}</span>
-                    ))}
-                  </div>
+                <div className="min-w-0">
+                  <p className={`text-[11px] font-semibold uppercase tracking-wider ${PILLAR[gi].labelColor}`}>
+                    {group.label}
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-0.5">{group.outcome}</p>
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+              {/* Tags */}
+              <div className="px-5 py-4 flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-border bg-background px-2.5 py-0.5 text-xs text-muted-foreground"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </SectionWrapper>
 
-      {/* ════════════════════════════════════════════════════════
-          9. HOW WE WORK — de-emphasised, id for scroll anchor
-      ════════════════════════════════════════════════════════ */}
-      <SectionWrapper id="how-we-work" className="relative overflow-hidden">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-16 -top-16 h-48 w-48 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
-          <div className="absolute -right-12 -bottom-12 h-40 w-40 rounded-full border border-primary/[0.05] bg-primary/[0.02]" />
-        </div>
-        <motion.div {...fadeUp(0)} className="relative text-center mb-8">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">{t("howWeWork.eyebrow")}</p>
-          <h2 className="text-[28px] font-bold md:text-[36px]">{t("howWeWork.heading")}</h2>
-          <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground md:text-base">{t("howWeWork.subheading")}</p>
+      {/* ══════════════════════════════════════════════════════
+          8. HOW WE WORK — grey bg, numbered steps
+      ══════════════════════════════════════════════════════ */}
+      <SectionWrapper id="how-we-work" className="bg-muted/30">
+        <motion.div {...fadeUp(0)}>
+          <SH
+            eyebrow={t("howWeWork.eyebrow")}
+            heading={t("howWeWork.heading")}
+            sub={t("howWeWork.subheading")}
+            center
+          />
         </motion.div>
 
-        {/* Desktop */}
-        <div className="hidden md:grid md:grid-cols-3 md:gap-8 relative">
-          <div className="absolute left-[16.67%] right-[16.67%] top-5 h-0.5 bg-border pointer-events-none" />
-          {howWeWorkSteps.map((step, i) => {
-            const c = PILLAR[i];
-            return (
-              <motion.div key={i} {...fadeUp(i * 0.12)} className="flex flex-col items-center text-center">
-                <div className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold ${c.stepNum}`}>{i + 1}</div>
-                <div className="mt-4 w-full rounded-xl border border-border overflow-hidden card-shadow">
-                  <div className={`h-[3px] w-full ${c.accentBar}`} />
-                  <div className={`${c.headerBg} px-4 py-3`}><h3 className="text-sm font-semibold text-foreground">{step.title}</h3></div>
-                  <div className="px-4 py-3"><p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p></div>
+        {/* Desktop — 3 col with connector line */}
+        <div className="hidden md:grid md:grid-cols-3 md:gap-6 relative mt-2">
+          {/* Connector */}
+          <div className="absolute left-[calc(16.67%+20px)] right-[calc(16.67%+20px)] top-5 h-px bg-border" />
+          {howWeWorkSteps.map((step, i) => (
+            <motion.div key={i} {...fadeUp(i * 0.1)} className="flex flex-col items-center text-center">
+              {/* Numbered circle sits above connector */}
+              <div className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold text-white ${PILLAR[i].stepBg} ring-4 ring-background`}>
+                {i + 1}
+              </div>
+              {/* Card below */}
+              <div className="mt-5 w-full rounded-2xl border border-border bg-card overflow-hidden">
+                <div className={`h-[3px] w-full ${PILLAR[i].accentBar}`} />
+                <div className="p-5">
+                  <h3 className="text-[15px] font-semibold text-foreground mb-2">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Mobile */}
-        <div className="flex flex-col gap-3 md:hidden">
-          {howWeWorkSteps.map((step, i) => {
-            const c = PILLAR[i];
-            return (
-              <motion.div key={i} {...fadeUp(i * 0.1)} className="flex gap-3 items-start">
-                <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold mt-1 ${c.stepNum}`}>{i + 1}</div>
-                <div className="flex-1 rounded-xl border border-border overflow-hidden card-shadow">
-                  <div className={`h-[3px] w-full ${c.accentBar}`} />
-                  <div className={`${c.headerBg} px-4 py-2.5`}><h3 className="text-sm font-semibold text-foreground">{step.title}</h3></div>
-                  <div className="px-4 py-3"><p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p></div>
+        {/* Mobile — vertical list */}
+        <div className="flex flex-col gap-3 md:hidden mt-2">
+          {howWeWorkSteps.map((step, i) => (
+            <motion.div key={i} {...fadeUp(i * 0.08)} className="flex gap-4 items-start">
+              <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white mt-0.5 ${PILLAR[i].stepBg}`}>
+                {i + 1}
+              </div>
+              <div className="flex-1 rounded-2xl border border-border bg-card overflow-hidden">
+                <div className={`h-[3px] w-full ${PILLAR[i].accentBar}`} />
+                <div className="p-4">
+                  <h3 className="text-sm font-semibold text-foreground mb-1">{step.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </SectionWrapper>
 
-      {/* ════════════════════════════════════════════════════════
-          10. BUSINESS OUTCOMES — stat-only, no desc text
-      ════════════════════════════════════════════════════════ */}
-      <SectionWrapper className="relative overflow-hidden bg-muted/30">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -left-16 -top-16 h-48 w-48 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
-          <div className="absolute -right-12 -bottom-12 h-40 w-40 rounded-full border border-primary/[0.05] bg-primary/[0.02]" />
-        </div>
-        <motion.div {...fadeUp(0)} className="relative text-center mb-8 md:mb-10">
-          <h2 className="text-[28px] font-bold md:text-[36px]">{t("outcomes.heading")}</h2>
-          <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground md:text-base">{t("outcomes.subheading")}</p>
+      {/* ══════════════════════════════════════════════════════
+          9. OUTCOMES — white bg, 4 metric cards
+      ══════════════════════════════════════════════════════ */}
+      <SectionWrapper className="bg-background">
+        <motion.div {...fadeUp(0)}>
+          <SH
+            heading={t("outcomes.heading")}
+            sub={t("outcomes.subheading")}
+            center
+          />
         </motion.div>
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-6">
-          {outcomeItems.map((o, i) => {
-            const c = OUTCOME_COLOURS[i];
-            return (
-              <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }} whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                className="flex flex-col rounded-xl border border-border bg-card overflow-hidden card-shadow">
-                <div className={`h-[3px] w-full ${c.accentBar}`} />
-                <div className="flex flex-col items-center gap-2.5 p-4 text-center md:p-5">
-                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${c.iconBg} ${c.iconColor}`}>{outcomeIcons[i]}</div>
-                  <span className="text-xs font-semibold text-card-foreground md:text-sm leading-tight">{o.label}</span>
+
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
+          {outcomeItems.map((o, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.96 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.4, delay: i * 0.07 }}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="flex flex-col items-center text-center rounded-2xl border border-border bg-card overflow-hidden"
+            >
+              <div className={`h-[3px] w-full ${OUTCOME_ACCENT[i]}`} />
+              <div className="flex flex-col items-center gap-3 p-4 md:p-5">
+                <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${OUTCOME_ICON[i].bg} ${OUTCOME_ICON[i].color}`}>
+                  {outcomeIcons[i]}
                 </div>
-              </motion.div>
-            );
-          })}
+                <span className="text-[13px] font-semibold text-card-foreground leading-tight">
+                  {o.label}
+                </span>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </SectionWrapper>
 
-      {/* ════════════════════════════════════════════════════════
-          11. CLOSING CTA — diagnostic hook
-      ════════════════════════════════════════════════════════ */}
-      <SectionWrapper className="relative overflow-hidden bg-accent/50">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full border border-primary/[0.08] bg-primary/[0.03]" />
-          <div className="absolute -bottom-16 -left-16 h-64 w-64 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
-        </div>
-        <motion.div {...fadeUp(0)} className="relative max-w-2xl mx-auto text-center">
-          <Target className="h-8 w-8 text-primary mx-auto mb-4 opacity-60" />
-          <h2 className="text-[28px] font-bold md:text-[36px]">{t("cta.heading")}</h2>
-          <p className="mx-auto mt-3 max-w-lg text-sm text-muted-foreground md:text-base">{t("cta.body")}</p>
-          <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center md:mt-8">
+      {/* ══════════════════════════════════════════════════════
+          10. CLOSING CTA — grey bg, diagnostic hook
+      ══════════════════════════════════════════════════════ */}
+      <SectionWrapper className="bg-muted/30">
+        <motion.div {...fadeUp(0)} className="max-w-2xl mx-auto text-center">
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary mx-auto mb-5">
+            <Target className="h-6 w-6" />
+          </div>
+          <h2 className="text-[26px] font-bold text-foreground leading-tight md:text-[34px]">
+            {t("cta.heading")}
+          </h2>
+          <p className="mx-auto mt-4 max-w-lg text-sm text-muted-foreground leading-relaxed md:text-base">
+            {t("cta.body")}
+          </p>
+          <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button size="lg" className="w-full font-semibold sm:w-auto px-8">
                 {t("cta.bookConsultation")} <ExternalLink className="ml-2 h-4 w-4" />
