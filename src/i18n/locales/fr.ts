@@ -8,13 +8,23 @@ const fr = {
   },
   hero: {
     pills: ["Développement digital", "Gouvernance SAP & UAT", "Automatisation des tests & Qualité"],
-    titlePrefix: "Conçu pour livrer.",
-    titleAccent: "Ingénierie pour durer.",
-    subtitle: "Aider les PME et équipes digitales en croissance à livrer des plateformes fiables grâce au développement web moderne, à la gouvernance SAP et à l'ingénierie qualité — géré localement au Canada, livré à l'échelle mondiale.",
-    reach: "Engagement client géré localement au Canada · Amérique du Nord · Europe · Asie",
+    titlePrefix: "Livraison structurée.",
+    titleAccent: "Sans chaos.",
+    subtitle: "Développement, gouvernance SAP et ingénierie qualité — structurés comme un seul système de livraison. Pas trois fournisseurs séparés. Une équipe responsable.",
+    reach: "Basé au Canada · Amérique du Nord · Europe · Asie",
     bookConsultation: "Réserver une consultation",
     bookCall: "Réserver un appel",
     howWeWork: "Découvrir notre approche",
+    ctaPrimary: "Obtenir un audit de livraison",
+    ctaSecondary: "Voir nos services",
+    founderName: "Gagan Singh",
+    founderTitle: "Fondateur",
+    founderCredits: "10+ ans · Johnson & Johnson · Workday · Aon · Hugo Boss",
+    founderLocation: "Grand Toronto, Canada",
+    founderLinkedIn: "Se connecter sur LinkedIn",
+    proofStat: "50–70% de cycles de régression plus rapides",
+    proofContext: "obtenus sur des programmes SAP et digitaux grâce à une ingénierie qualité axée sur l'automatisation",
+    proofLink: "Voir les réalisations",
     stats: [
       { value: "Canada", label: "Siège & direction client" },
       { value: "3 régions", label: "Amériques · UE · Asie" },
@@ -32,7 +42,9 @@ const fr = {
     label: "Réseau mondial de partenaires",
   },
   whatWeDeliver: {
+    eyebrow: "Trois capacités, un système",
     heading: "Ce que nous livrons",
+    cta: "Explorer nos services",
     subheading: "Pour les PME, entreprises en croissance et équipes digitales — trois capacités intégrées livrées dans un seul engagement.",
     cards: [
       {
@@ -68,6 +80,7 @@ const fr = {
     ],
   },
   howWeWork: {
+    eyebrow: "Le modèle d'engagement",
     heading: "Comment nous travaillons",
     subheading: "Un engagement. Trois spécialisations. Géré avec un seul point de responsabilité au Canada.",
     steps: [
@@ -87,43 +100,46 @@ const fr = {
   },
   outcomes: {
     heading: "Résultats commerciaux",
+    subheading: "Des résultats mesurables issus d'engagements réels.",
     forYourProgramme: "Obtenir ces résultats",
     items: [
-      { label: "Livraison digitale plus rapide", desc: "Les outils modernes et le prototypage rapide réduisent le temps du concept à la production" },
-      { label: "Go-lives SAP maîtrisés", desc: "La gouvernance UAT structurée remplace les versions intuitives par des approbations basées sur les preuves" },
-      { label: "Cycles de régression plus rapides", desc: "L'ingénierie qualité axée sur l'automatisation réduit l'effort de test manuel de 50 à 70 %" },
-      { label: "Confiance accrue des parties prenantes", desc: "Visibilité totale sur la préparation à chaque étape — aucune surprise au go-live" },
+      { label: "Livraison digitale plus rapide", desc: "Les outils modernes réduisent le temps du concept à la production" },
+      { label: "Go-lives SAP maîtrisés", desc: "Des approbations basées sur les preuves remplacent l'instinct" },
+      { label: "50–70% de régression en moins", desc: "L'automatisation réduit considérablement l'effort de test manuel" },
+      { label: "Confiance des parties prenantes", desc: "Visibilité totale sur la préparation à chaque étape" },
     ],
   },
   problems: {
+    eyebrow: "Où les programmes échouent",
     heading: "Problèmes que nous résolvons",
-    subheading: "Développement digital, programmes SAP, ingénierie qualité — voici les défis pour lesquels nous avons été créés.",
-    sampleEngagement: "Voir en pratique",
+    subheading: "Trois schémas que nous observons régulièrement — en livraison digitale, programmes SAP et ingénierie qualité.",
+    sampleEngagement: "Voir des exemples réels",
     items: [
       {
         pill: "Développement digital",
-        title: "Des outils digitaux qui livrent tard et échouent en production",
-        desc: "Applications web et tableaux de bord prêts pour les parties prenantes — du prototype rapide à la plateforme prête pour la production, avec CI/CD et portes qualité dès le premier jour.",
+        title: "Des plateformes qui livrent tard et tombent en production",
+        desc: "Pas de CI/CD dès le départ. Pas de portes qualité. Des prototypes promus directement en production. Nous construisons avec méthode — pour que ce qui est livré tienne.",
       },
       {
         pill: "Gouvernance SAP & UAT",
-        title: "Des go-lives SAP sans UAT structuré ni processus d'approbation",
-        desc: "Gouvernance UAT structurée pour SAP S/4HANA — portes qualité définies, approbations des parties prenantes et décisions go/no-go basées sur les risques plutôt que sur l'instinct.",
+        title: "Des go-lives SAP décidés à l'instinct, pas sur des preuves",
+        desc: "Pas d'UAT structuré. Pas de cadre d'approbation. Décisions sous pression. Nous remplaçons l'instinct par des portes qualité définies et des critères go/no-go clairs.",
       },
       {
         pill: "Ingénierie qualité",
         title: "Des cycles de régression trop lents pour un rythme de version moderne",
-        desc: "Fiabilité des plateformes enterprise grâce à une ingénierie qualité structurée — avec Cypress, Playwright, TOSCA et bien plus pour réduire les cycles de régression de 50 à 70 % et valider chaque version sur des preuves, pas sur l'instinct.",
+        desc: "Les tests manuels ne suivent pas. Les défauts atteignent la production. Les versions ralentissent. Nous construisons une QE axée automatisation qui réduit les cycles de 50–70 %.",
       },
     ],
   },
   cta: {
-    heading: "Prêt à livrer avec confiance ?",
-    body: "Développement digital, gouvernance SAP & UAT et ingénierie qualité — géré localement au Canada, livré à l'échelle mondiale avec un réseau de partenaires spécialisés.",
-    bookConsultation: "Réserver une consultation gratuite",
+    heading: "Vous ne savez pas où votre livraison bloque ?",
+    body: "Un audit de livraison de 30 minutes identifie les lacunes exactes dans votre processus SAP, QA ou de release digital — sans engagement, sans proposition tant que le périmètre n'est pas clair.",
+    bookConsultation: "Obtenir un audit de livraison",
     viewApproach: "Voir nos services",
     getInTouch: "Nous contacter",
     message: "Nous envoyer un message",
+    subtext: "Gratuit · 30 minutes · Sans engagement",
   },
   caseStudies: {
     eyebrow: "Exemples de missions",
@@ -366,20 +382,43 @@ const fr = {
     stripNoCommitment: "Sans engagement",
   },
   platforms: {
-    heading: "Plateformes avec lesquelles nous travaillons",
+    eyebrow: "Outils que nous utilisons",
+    heading: "Le bon stack technique",
     subheading: "Applications web modernes avec React et Next.js. Gouvernance SAP S/4HANA et Salesforce. Ingénierie qualité axée sur l'automatisation avec Cypress, Playwright et TOSCA — les bons outils pour chaque couche de livraison enterprise.",
     groups: [
       {
         label: "Développement digital",
-        items: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Node.js", "Supabase"],
+        outcome: "Pour la livraison UI et full-stack évolutive",
+        items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Vite"],
       },
       {
-        label: "Gouvernance SAP & UAT",
-        items: ["SAP S/4HANA", "SAP Activate", "Gouvernance UAT", "Portes qualité", "Préparation aux versions"],
+        label: "Gouvernance SAP & ERP",
+        outcome: "Pour l'UAT structuré et la préparation aux versions",
+        items: ["SAP S/4HANA", "SAP Activate", "Gouvernance UAT", "Portes qualité", "Triage des défauts"],
       },
       {
-        label: "Ingénierie qualité",
-        items: ["Cypress", "Playwright", "TOSCA", "Selenium", "ServiceNow", "Salesforce Commerce Cloud", "Workday", "Microsoft Dynamics 365", "GitHub Actions", "Jenkins"],
+        label: "QA & Automatisation",
+        outcome: "Pour les portes qualité CI/CD et la régression rapide",
+        items: ["Cypress", "Playwright", "TOSCA", "Selenium", "GitHub Actions", "Jenkins"],
+      },
+    ],
+  },
+  differentiation: {
+    eyebrow: "Pourquoi QualityBridge",
+    heading: "Nous ne travaillons pas en silos.",
+    subheading: "La plupart des programmes répartissent le développement, SAP et la QA entre des fournisseurs séparés. Nous les structurons comme un seul système de livraison — moins de transferts, des livraisons plus rapides, pas de blâme entre équipes.",
+    items: [
+      {
+        title: "Un système de livraison — pas trois fournisseurs",
+        desc: "Développement digital, gouvernance SAP et ingénierie qualité structurés ensemble. La même supervision qui détecte un défaut en test a aussi gouverné l'UAT qui a approuvé la version.",
+      },
+      {
+        title: "Responsabilité basée au Canada, portée mondiale",
+        desc: "Une personne nommée — Gagan — responsable de chaque engagement. Soutenu par des spécialistes vérifiés en Amérique du Nord, Europe et Asie.",
+      },
+      {
+        title: "Éprouvé chez J&J, Workday, Aon — pas de la théorie",
+        desc: "10+ ans au sein de vrais programmes enterprise. Les frameworks utilisés ont été testés sur de grandes implémentations SAP, des plateformes HealthTech et des déploiements ERP mondiaux.",
       },
     ],
   },
