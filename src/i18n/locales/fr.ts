@@ -14,7 +14,7 @@ const fr = {
     reach: "Engagement client géré localement au Canada · Amérique du Nord · Europe · Asie",
     bookConsultation: "Réserver une consultation",
     bookCall: "Réserver un appel",
-    howWeWork: "Découvrir notre approche →",
+    howWeWork: "Découvrir notre approche",
     stats: [
       { value: "Canada", label: "Siège & direction client" },
       { value: "3 régions", label: "Amériques · UE · Asie" },
@@ -98,7 +98,7 @@ const fr = {
   problems: {
     heading: "Problèmes que nous résolvons",
     subheading: "Développement digital, programmes SAP, ingénierie qualité — voici les défis pour lesquels nous avons été créés.",
-    sampleEngagement: "Voir un exemple de mission →",
+    sampleEngagement: "Voir un exemple de mission",
     items: [
       {
         pill: "Développement digital",
