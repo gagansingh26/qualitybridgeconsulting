@@ -87,7 +87,7 @@ const fr = {
   },
   outcomes: {
     heading: "Résultats commerciaux",
-    forYourProgramme: "Ces résultats — pour votre programme",
+    forYourProgramme: "Obtenir ces résultats",
     items: [
       { label: "Livraison digitale plus rapide", desc: "Les outils modernes et le prototypage rapide réduisent le temps du concept à la production" },
       { label: "Go-lives SAP maîtrisés", desc: "La gouvernance UAT structurée remplace les versions intuitives par des approbations basées sur les preuves" },
@@ -98,7 +98,7 @@ const fr = {
   problems: {
     heading: "Problèmes que nous résolvons",
     subheading: "Développement digital, programmes SAP, ingénierie qualité — voici les défis pour lesquels nous avons été créés.",
-    sampleEngagement: "Voir un exemple de mission",
+    sampleEngagement: "Voir en pratique",
     items: [
       {
         pill: "Développement digital",
