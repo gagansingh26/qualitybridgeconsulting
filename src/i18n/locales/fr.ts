@@ -56,6 +56,7 @@ const fr = {
           "Tableaux de bord de reporting et opérationnels",
           "Prototypage rapide et déploiement",
           "Design centré UX, prêt pour les parties prenantes",
+          "Outils de développement assistés par IA",
         ],
       },
       {
@@ -66,6 +67,7 @@ const fr = {
           "Préparation aux versions et portes qualité",
           "Stratégie de test SAP et couverture de régression",
           "Triage des défauts et gouvernance",
+          "Génération de scripts de test accélérée par IA",
         ],
       },
       {
@@ -523,6 +525,31 @@ const fr = {
       book: "Réserver un appel gratuit",
       message: "Envoyer un message",
     },
+  },
+  sticky: {
+    bookCall: "Réserver un appel",
+    message: "Nous contacter",
+  },
+  cookie: {
+    message: "Nous utilisons des cookies essentiels pour le fonctionnement du site et des cookies d'analyse pour comprendre comment les visiteurs l'utilisent. Aucun cookie publicitaire.",
+    accept: "Tout accepter",
+    essential: "Essentiels uniquement",
+    preferences: "Préférences",
+    heading: "Nous utilisons des cookies",
+  },
+  faq: {
+    eyebrow: "Questions fréquentes",
+    heading: "Questions courantes répondues",
+    subheading: "Tout ce que vous devez savoir avant de démarrer une conversation.",
+    items: [
+      { q: "Avec quels types d'entreprises travaillez-vous ?", a: "Des PME et des équipes enterprise en croissance — généralement entre 50 et 5 000 employés — dans les secteurs HealthTech, FinTech, SaaS, eCommerce et ERP. Le fil conducteur : des programmes complexes nécessitant une livraison structurée." },
+      { q: "Travaillez-vous uniquement avec SAP ou avec d'autres plateformes ?", a: "SAP S/4HANA est une spécialité, mais nous travaillons aussi avec Salesforce, Workday, Microsoft Dynamics 365 et des plateformes digitales personnalisées. L'approche — UAT structuré, portes qualité, préparation aux versions — s'applique quelle que soit la plateforme." },
+      { q: "Comment fonctionne le modèle d'engagement — prix fixe ou régie ?", a: "Les deux, selon le périmètre. Les engagements courts sont généralement à prix fixe. Les embeds de programme plus longs sont typiquement en régie avec des jalons définis. Le modèle est convenu en amont." },
+      { q: "Nous sommes basés en Europe — pouvez-vous quand même nous accompagner ?", a: "Oui. Nous gérons les engagements depuis le Canada mais disposons de spécialistes vérifiés en Amérique du Nord, en Europe et en Asie. Le chevauchement des fuseaux horaires est géré par une communication asynchrone structurée." },
+      { q: "Que comprend une évaluation de livraison ?", a: "Une conversation de 15 minutes pour comprendre votre programme — stade actuel, structure d'équipe, où se situent les lacunes. Vous repartirez avec une vision claire des risques de livraison. Pas de proposition, pas de présentation." },
+      { q: "Dans quel délai pouvez-vous démarrer ?", a: "Pour la plupart des engagements, nous pouvons démarrer dans les 1 à 2 semaines suivant l'accord sur le périmètre. Pour un support go-live urgent, nous avons démarré en 48 heures." },
+      { q: "Utilisez-vous l'IA dans votre travail de livraison ?", a: "Oui, dans les trois piliers — mais uniquement là où c'est pratique. En développement digital, les outils assistés par IA accélèrent les cycles de build et de prototypage. En gouvernance SAP, nous utilisons l'IA pour générer des scripts de test à partir des exigences et prioriser la couverture par le risque. En ingénierie qualité, GenAI et LLMs aident à concevoir des cas de test et à identifier les zones à risque." },
+    ],
   },
 };
 

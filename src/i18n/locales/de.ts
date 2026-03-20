@@ -56,6 +56,7 @@ const de = {
           "Reporting- und Betriebsdashboards",
           "Rapid Prototyping und Deployment",
           "UX-orientiertes, stakeholdergerechtes Design",
+          "KI-gestützte Entwicklungstools",
         ],
       },
       {
@@ -66,6 +67,7 @@ const de = {
           "Release-Bereitschaft und Qualitätstore",
           "SAP-Teststrategie und Regressionstestabdeckung",
           "Fehler-Triage und Governance",
+          "KI-beschleunigte Testskript-Generierung",
         ],
       },
       {
@@ -523,6 +525,31 @@ const de = {
       book: "Kostenloses Gespräch buchen",
       message: "Nachricht senden",
     },
+  },
+  sticky: {
+    bookCall: "Termin buchen",
+    message: "Nachricht senden",
+  },
+  cookie: {
+    message: "Wir verwenden notwendige Cookies, damit die Website funktioniert, und Analyse-Cookies, um zu verstehen, wie Besucher sie nutzen. Keine Werbe-Cookies.",
+    accept: "Alle akzeptieren",
+    essential: "Nur notwendige",
+    preferences: "Einstellungen",
+    heading: "Wir verwenden Cookies",
+  },
+  faq: {
+    eyebrow: "Häufig gestellte Fragen",
+    heading: "Antworten auf häufige Fragen",
+    subheading: "Alles, was Sie wissen müssen, bevor Sie ein Gespräch beginnen.",
+    items: [
+      { q: "Mit welchen Unternehmen arbeiten Sie zusammen?", a: "KMU und wachsende Enterprise-Teams — typischerweise 50 bis 5.000 Mitarbeiter — in HealthTech, FinTech, SaaS, eCommerce und ERP. Der gemeinsame Nenner: komplexe Programme, die strukturierte Delivery brauchen." },
+      { q: "Arbeiten Sie nur mit SAP oder auch mit anderen Plattformen?", a: "SAP S/4HANA ist eine Spezialität, aber wir arbeiten auch mit Salesforce, Workday, Microsoft Dynamics 365 und individuellen Digitalplattformen. Der Ansatz — strukturiertes UAT, Qualitätstore, Release-Bereitschaft — gilt plattformunabhängig." },
+      { q: "Wie funktioniert das Engagement-Modell — Festpreis oder Zeit und Material?", a: "Beides, je nach Umfang. Kurze Engagements sind meist festpreisbasiert. Längere Programmeinbettungen laufen typischerweise auf Zeit-und-Material-Basis mit definierten Meilensteinen. Das Modell wird vorab vereinbart." },
+      { q: "Wir sind in Europa — können Sie uns trotzdem unterstützen?", a: "Ja. Wir verwalten Engagements aus Kanada, haben aber geprüfte Spezialisten in Nordamerika, Europa und Asien. Die Zeitzonenüberschneidung wird durch strukturierte asynchrone Kommunikation und regelmäßige Abstimmungen gehandhabt." },
+      { q: "Was beinhaltet ein Delivery Assessment?", a: "Ein 15-minütiges Gespräch, in dem wir Ihr Programm verstehen — aktueller Stand, Teamstruktur, wo die Lücken sind. Sie erhalten ein klares Bild, wo das Delivery-Risiko liegt. Kein Angebot, keine Präsentation." },
+      { q: "Wie schnell können Sie starten?", a: "Bei den meisten Engagements können wir innerhalb von 1–2 Wochen nach Einigung auf den Umfang beginnen. Bei dringendem Go-live-Support haben wir innerhalb von 48 Stunden begonnen." },
+      { q: "Setzen Sie KI in Ihrer Delivery-Arbeit ein?", a: "Ja, in allen drei Bereichen — aber nur dort, wo es praxistauglich ist. In der digitalen Entwicklung beschleunigen KI-gestützte Tools Build- und Prototyping-Zyklen. In der SAP-Governance nutzen wir KI zur Generierung von Testskripten aus Anforderungen und zur risikobasierten Priorisierung. Im Quality Engineering helfen GenAI und LLMs beim Entwurf von Testfällen und der Identifikation von Risikobereichen." },
+    ],
   },
 };
 

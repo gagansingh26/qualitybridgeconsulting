@@ -55,6 +55,7 @@ const en = {
           "Web applications and portals",
           "Reporting dashboards",
           "Rapid prototyping",
+          "AI-assisted build tooling throughout",
         ],
       },
       {
@@ -64,6 +65,7 @@ const en = {
           "UAT governance and sign-off",
           "Release readiness framework",
           "Defect triage and quality gates",
+          "AI-accelerated test script generation",
         ],
       },
       {
@@ -520,6 +522,31 @@ const en = {
       book: "Book a free call",
       message: "Send a message",
     },
+  },
+  sticky: {
+    bookCall: "Book a call",
+    message: "Message us",
+  },
+  cookie: {
+    message: "We use essential cookies to keep the site working and analytics to understand how visitors use it. No advertising cookies.",
+    accept: "Accept all",
+    essential: "Essential only",
+    preferences: "Preferences",
+    heading: "We use cookies",
+  },
+  faq: {
+    eyebrow: "Frequently asked questions",
+    heading: "Common questions answered",
+    subheading: "Everything you need to know before starting a conversation.",
+    items: [
+      { q: "What types of companies do you work with?", a: "SMEs and growing enterprise teams — typically 50 to 5,000 employees — across HealthTech, FinTech, SaaS, eCommerce, and ERP. The common thread is complex programmes that need structured delivery without the overhead of a large consultancy." },
+      { q: "Do you only do SAP, or can you help with other platforms?", a: "SAP S/4HANA is a specialism, but we also work across Salesforce, Workday, Microsoft Dynamics 365, and custom digital platforms. The approach — structured UAT, quality gates, release readiness — applies regardless of the underlying platform." },
+      { q: "How does the engagement model work — fixed price or time and materials?", a: "Both, depending on scope. Short engagements (UAT governance, release readiness reviews) are usually fixed-scope. Longer programme embeds are typically time and materials with defined milestones and clear exit points. We agree the model upfront, not after." },
+      { q: "We're based in Europe — can you still support us?", a: "Yes. We manage engagements from Canada but have vetted specialists across North America, Europe, and Asia. Time zone overlap is handled through structured async communication and regular touchpoints." },
+      { q: "What's included in a delivery assessment?", a: "A 15-minute conversation where we understand your programme — current stage, team structure, where the gaps are. You'll leave with a clear picture of where delivery risk sits and whether we're a good fit. No proposal, no pitch deck." },
+      { q: "How quickly can you start?", a: "For most engagements, we can mobilise within 1–2 weeks of agreeing scope. For urgent go-live support, we've started within 48 hours. We won't overcommit — if we're already at capacity we'll tell you upfront." },
+      { q: "Do you use AI in your delivery work?", a: "Yes, across all three pillars — but only where it's practical. In digital development, AI-assisted tooling speeds up build and prototyping cycles. In SAP governance, we use AI to generate test scripts from business requirements and prioritise coverage based on risk. In quality engineering, GenAI and LLMs help design test cases and surface high-risk areas before regression runs. The goal in each case is the same: less manual effort, faster feedback, more confident go-lives." },
+    ],
   },
 };
 

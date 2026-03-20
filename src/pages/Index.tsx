@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight, ExternalLink, Shield, Users, TrendingDown,
   GitBranch, Monitor, Rocket, Layers, MapPin,
   Zap, Target, ClipboardCheck, Activity, TrendingUp,
-  X, Handshake,
+  X, Handshake, HelpCircle, ChevronDown, CheckCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
@@ -32,7 +32,7 @@ const problemIcons = [<Monitor className="h-5 w-5" />, <Shield className="h-5 w-
 const deliverIcons = [<Monitor className="h-5 w-5" />, <ClipboardCheck className="h-5 w-5" />, <Activity className="h-5 w-5" />];
 const outcomeIcons = [<Rocket className="h-5 w-5" />, <Shield className="h-5 w-5" />, <TrendingDown className="h-5 w-5" />, <Users className="h-5 w-5" />];
 const diffIcons    = [<Layers className="h-5 w-5" />, <MapPin className="h-5 w-5" />, <TrendingUp className="h-5 w-5" />];
-const platIcons    = [<Monitor className="h-4 w-4" />, <Shield className="h-4 w-4" />, <Activity className="h-4 w-4" />];
+
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 18 },
@@ -155,6 +155,47 @@ const HeroGraphic = () => (
     </svg>
   </motion.div>
 );
+// ─── Counter stat display ─────────────────────────────────────────────────────
+const CounterStat = ({ target, suffix, prefix = "", start, delay = 0, accent }: {
+  target: number; suffix: string; prefix?: string; start: boolean; delay?: number; accent: string;
+}) => {
+  const [triggered, setTriggered] = useState(false);
+  useEffect(() => {
+    if (start && !triggered) {
+      const t = setTimeout(() => setTriggered(true), delay);
+      return () => clearTimeout(t);
+    }
+  }, [start, delay, triggered]);
+  const val = useCountUp(target, 1300, triggered);
+  return (
+    <div className="text-center">
+      <span className="text-2xl font-bold text-foreground tabular-nums">
+        {prefix}{val}{suffix}
+      </span>
+    </div>
+  );
+};
+
+// ─── Animated counter hook ────────────────────────────────────────────────────
+const useCountUp = (target: number, duration = 1400, start = false) => {
+  const [val, setVal] = useState(0);
+  const raf = useRef<number | null>(null);
+  useEffect(() => {
+    if (!start) return;
+    setVal(0);
+    const startTime = performance.now();
+    const tick = (now: number) => {
+      const p = Math.min((now - startTime) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      setVal(Math.round(target * ease));
+      if (p < 1) raf.current = requestAnimationFrame(tick);
+    };
+    raf.current = requestAnimationFrame(tick);
+    return () => { if (raf.current) cancelAnimationFrame(raf.current); };
+  }, [start, target, duration]);
+  return val;
+};
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 const Index = () => {
   const { t } = useTranslation();
@@ -165,11 +206,23 @@ const Index = () => {
   );
 
   const [partnerOpen, setPartnerOpen] = useState(false);
+  const [activeStep, setActiveStep] = useState(0);
+  const [countersVisible, setCountersVisible] = useState(false);
+  const countersRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = countersRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setCountersVisible(true); obs.disconnect(); }
+    }, { threshold: 0.3 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const problemItems   = t("problems.items",        { returnObjects: true }) as { title: string; desc: string }[];
   const outcomeItems   = t("outcomes.items",         { returnObjects: true }) as { label: string; desc: string }[];
   const howWeWorkSteps = t("howWeWork.steps",        { returnObjects: true }) as { title: string; desc: string }[];
   const deliverCards   = t("whatWeDeliver.cards",    { returnObjects: true }) as { title: string; desc: string; detail?: string[] }[];
-  const platformGroups = t("platforms.groups",       { returnObjects: true }) as { label: string; outcome: string; items: string[] }[];
   const diffItems      = t("differentiation.items",  { returnObjects: true }) as { title: string; desc: string; contrast?: string }[];
 
   return (
@@ -397,92 +450,152 @@ const Index = () => {
       </SectionWrapper>
 
       {/* ══════════════════════════════════════════════
-          7. PLATFORMS
-      ══════════════════════════════════════════════ */}
-      <SectionWrapper className="relative overflow-hidden bg-background">
-        <SectionCircles flip />
-        <motion.div {...fadeUp(0)} className="relative">
-          <SH eyebrow={t("platforms.eyebrow")} heading={t("platforms.heading")} sub={t("platforms.subheading")} />
-        </motion.div>
-        <div className="relative grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5">
-          {platformGroups.map((group, gi) => (
-            <motion.div key={gi} {...fadeUp(gi * 0.08)} className="rounded-2xl border border-border bg-card overflow-hidden">
-              <div className={`h-[3px] w-full ${PILLAR[gi].accentBar}`} />
-              <div className="p-5 md:p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${PILLAR[gi].iconBg} ${PILLAR[gi].iconColor}`}>{platIcons[gi]}</div>
-                  <p className={`text-[11px] font-semibold uppercase tracking-wider ${PILLAR[gi].labelColor}`}>{group.label}</p>
-                </div>
-                <p className="text-sm font-medium text-foreground mb-3 leading-snug">{group.outcome}</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">{group.items.join(" · ")}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </SectionWrapper>
-
-      {/* ══════════════════════════════════════════════
-          8. HOW WE WORK
+          7. HOW WE WORK
       ══════════════════════════════════════════════ */}
       <SectionWrapper id="how-we-work" className="relative overflow-hidden bg-muted/30">
         <SectionCircles />
         <motion.div {...fadeUp(0)} className="relative">
           <SH eyebrow={t("howWeWork.eyebrow")} heading={t("howWeWork.heading")} sub={t("howWeWork.subheading")} />
         </motion.div>
-        {/* Desktop — steps with connector */}
-        <div className="relative hidden md:grid md:grid-cols-3 md:gap-6 mt-2">
-          <div className="absolute left-[calc(16.67%+20px)] right-[calc(16.67%+20px)] top-5 h-px bg-border" />
+        {/* ── Step pills ── */}
+        <div className="relative flex items-start gap-0 mb-6 mt-2">
           {howWeWorkSteps.map((step, i) => (
-            <motion.div key={i} {...fadeUp(i * 0.1)} className="flex flex-col items-center text-center">
-              <div className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold text-white ring-4 ring-background ${PILLAR[i].stepBg}`}>{i + 1}</div>
-              <div className="mt-5 w-full rounded-2xl border border-border bg-card overflow-hidden">
-                <div className={`h-[3px] w-full ${PILLAR[i].accentBar}`} />
-                <div className="p-5">
-                  <h3 className="text-[15px] font-semibold text-foreground mb-2">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
-                </div>
-              </div>
-            </motion.div>
+            <div key={i} className="flex flex-1 flex-col items-center gap-2 relative">
+              {i < howWeWorkSteps.length - 1 && (
+                <div className={`absolute left-1/2 top-5 h-px w-full transition-colors duration-300 ${i < activeStep ? PILLAR[i].accentBar.replace('bg-','bg-') : 'bg-border'}`} />
+              )}
+              <button
+                onClick={() => setActiveStep(i)}
+                className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold ring-4 ring-background transition-all duration-200 ${
+                  i === activeStep ? `${PILLAR[i].stepBg} text-white scale-110` :
+                  i < activeStep ? 'bg-muted text-primary border-2 border-primary/30' :
+                  'bg-muted text-muted-foreground'
+                }`}
+              >
+                {i < activeStep ? <CheckCircle className="h-4 w-4" /> : i + 1}
+              </button>
+              <span className={`text-[11px] font-medium text-center leading-tight transition-colors ${i === activeStep ? 'text-primary' : 'text-muted-foreground'}`}>
+                {step.title}
+              </span>
+            </div>
           ))}
         </div>
-        {/* Mobile */}
-        <div className="relative flex flex-col gap-3 md:hidden mt-2">
-          {howWeWorkSteps.map((step, i) => (
-            <motion.div key={i} {...fadeUp(i * 0.08)} className="flex gap-4 items-start">
-              <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white mt-0.5 ${PILLAR[i].stepBg}`}>{i + 1}</div>
-              <div className="flex-1 rounded-2xl border border-border bg-card overflow-hidden">
-                <div className={`h-[3px] w-full ${PILLAR[i].accentBar}`} />
-                <div className="p-4">
-                  <h3 className="text-sm font-semibold text-foreground mb-1">{step.title}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
-                </div>
+
+        {/* ── Active step card ── */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeStep}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25 }}
+            className="relative rounded-2xl border border-border bg-card overflow-hidden"
+          >
+            <div className={`h-[3px] w-full ${PILLAR[activeStep].accentBar}`} />
+            <div className="p-5 md:p-7">
+              <div className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wider mb-4 ${PILLAR[activeStep].iconBg} ${PILLAR[activeStep].iconColor}`}>
+                Step {activeStep + 1} of {howWeWorkSteps.length}
               </div>
-            </motion.div>
-          ))}
-        </div>
+              <h3 className="text-[18px] font-bold text-foreground mb-3">{howWeWorkSteps[activeStep].title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{howWeWorkSteps[activeStep].desc}</p>
+              <div className="flex justify-between items-center mt-6 pt-4 border-t border-border">
+                <Button variant="outline" size="sm" disabled={activeStep === 0}
+                  onClick={() => setActiveStep(s => s - 1)} className="gap-1.5">
+                  ← {t("howWeWork.steps")[activeStep > 0 ? activeStep - 1 : 0]?.title ?? ""}
+                </Button>
+                <span className="text-xs text-muted-foreground">{activeStep + 1} / {howWeWorkSteps.length}</span>
+                <Button variant="outline" size="sm" disabled={activeStep === howWeWorkSteps.length - 1}
+                  onClick={() => setActiveStep(s => s + 1)} className="gap-1.5">
+                  {t("howWeWork.steps")[activeStep < howWeWorkSteps.length - 1 ? activeStep + 1 : activeStep]?.title ?? ""} →
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </SectionWrapper>
 
       {/* ══════════════════════════════════════════════
-          9. OUTCOMES
+          8. OUTCOMES
       ══════════════════════════════════════════════ */}
       <SectionWrapper className="relative overflow-hidden bg-background">
         <SectionCircles flip />
         <motion.div {...fadeUp(0)} className="relative">
           <SH heading={t("outcomes.heading")} sub={t("outcomes.subheading")} />
         </motion.div>
-        <div className="relative grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
-          {outcomeItems.map((o, i) => (
-            <motion.div key={i}
-              initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: i * 0.07 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="flex flex-col items-center text-center rounded-2xl border border-border bg-card overflow-hidden">
-              <div className={`h-[3px] w-full ${OUTCOME_ACCENT[i]}`} />
-              <div className="flex flex-col items-center gap-3 p-4 md:p-5">
-                <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${OUTCOME_ICON[i].bg} ${OUTCOME_ICON[i].color}`}>{outcomeIcons[i]}</div>
-                <span className="text-[13px] font-semibold text-card-foreground leading-tight">{o.label}</span>
-              </div>
+        {/* Animated counters — trigger once on scroll */}
+        <div ref={countersRef} className="relative grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
+          {outcomeItems.map((o, i) => {
+            const targets = [70, 40, 50, 10];
+            const suffixes = ["%", "%", "%", "+"];
+            const prefixes = ["", "", "", ""];
+            const labels = [
+              t("outcomes.counter1") || "faster delivery cycles",
+              t("outcomes.counter2") || "less production defects",
+              t("outcomes.counter3") || "regression speed gain",
+              t("outcomes.counter4") || "years enterprise delivery",
+            ];
+            return (
+              <motion.div key={i}
+                initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.4, delay: i * 0.07 }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="flex flex-col items-center text-center rounded-2xl border border-border bg-card overflow-hidden">
+                <div className={`h-[3px] w-full ${OUTCOME_ACCENT[i]}`} />
+                <div className="flex flex-col items-center gap-2 p-4 md:p-5">
+                  <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${OUTCOME_ICON[i].bg} ${OUTCOME_ICON[i].color}`}>{outcomeIcons[i]}</div>
+                  <CounterStat target={targets[i]} suffix={suffixes[i]} prefix={i === 0 ? "50–" : ""} start={countersVisible} delay={i * 150} accent={OUTCOME_ACCENT[i]} />
+                  <span className="text-[11px] text-muted-foreground leading-tight">{o.label}</span>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </SectionWrapper>
+
+      {/* ══════════════════════════════════════════════
+          9. FAQ
+      ══════════════════════════════════════════════ */}
+      <SectionWrapper className="relative overflow-hidden bg-muted/30">
+        <SectionCircles flip />
+        <motion.div {...fadeUp(0)} className="relative">
+          <SH eyebrow={t("faq.eyebrow")} heading={t("faq.heading")} sub={t("faq.subheading")} />
+        </motion.div>
+        <div className="relative mx-auto max-w-2xl space-y-2">
+          {(t("faq.items", { returnObjects: true }) as { q: string; a: string }[]).map((item, i) => (
+            <motion.div key={i} {...fadeUp(i * 0.05)}
+              className="relative rounded-2xl border border-border bg-card overflow-hidden">
+              <button
+                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left hover:bg-muted/30 transition-colors"
+                aria-expanded={openFaq === i}
+              >
+                <span className="text-sm font-semibold text-foreground leading-snug">{item.q}</span>
+                <motion.div
+                  animate={{ rotate: openFaq === i ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                  className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-colors ${
+                    openFaq === i ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"
+                  }`}
+                >
+                  <ChevronDown className="h-4 w-4" />
+                </motion.div>
+              </button>
+              <AnimatePresence initial={false}>
+                {openFaq === i && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.25, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="border-t border-border px-5 pb-5 pt-3">
+                      <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           ))}
         </div>
