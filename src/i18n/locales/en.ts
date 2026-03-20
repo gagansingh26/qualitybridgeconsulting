@@ -381,6 +381,26 @@ const en = {
     stripConsultation: "Book a free consultation",
     stripResponse: "Responds personally — not a bot",
     stripReach: "North America · Europe · Asia",
+    partnerEyebrow: "Open to Collaboration",
+    partnerHeading: "Looking to partner with a delivery specialist?",
+    partnerSubheading: "We work alongside digital agencies, SAP implementation partners, and QA consultancies who need a trusted delivery partner — not a competitor.",
+    partnerTypes: [
+      {
+        title: "Digital agencies",
+        desc: "Need structured QA or SAP expertise for a client project? We embed alongside your team without taking over the client relationship.",
+      },
+      {
+        title: "SAP implementation partners",
+        desc: "Looking for dedicated UAT governance and quality engineering support on an S/4HANA rollout? We specialise in exactly that.",
+      },
+      {
+        title: "QA consultancies",
+        desc: "Have overflow demand or need digital development capability? We can support as a white-label or named partner — whatever works best.",
+      },
+    ],
+    partnerCta: "Start a conversation",
+    partnerEmail: "Send an email",
+    partnerNote: "No pitch. No proposal until the fit is clear.",
     stripNoCommitment: "No commitment required",
   },
   platforms: {

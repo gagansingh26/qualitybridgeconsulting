@@ -384,6 +384,26 @@ const fr = {
     stripConsultation: "Réserver une consultation gratuite",
     stripResponse: "Répond personnellement — pas un bot",
     stripReach: "Amérique du Nord · Europe · Asie",
+    partnerEyebrow: "Ouvert à la collaboration",
+    partnerHeading: "Vous cherchez un partenaire de livraison de confiance ?",
+    partnerSubheading: "Nous travaillons avec des agences digitales, des partenaires d'implémentation SAP et des cabinets QA qui ont besoin d'un partenaire fiable — pas d'un concurrent.",
+    partnerTypes: [
+      {
+        title: "Agences digitales",
+        desc: "Besoin d'expertise QA structurée ou SAP pour un projet client ? Nous nous intégrons à votre équipe sans prendre en charge la relation client.",
+      },
+      {
+        title: "Partenaires d'implémentation SAP",
+        desc: "Vous cherchez un support dédié en gouvernance UAT et ingénierie qualité pour un déploiement S/4HANA ? C'est exactement notre spécialité.",
+      },
+      {
+        title: "Cabinets QA",
+        desc: "Demande excédentaire ou besoin de capacité en développement digital ? Nous pouvons intervenir en marque blanche ou en partenaire nommé.",
+      },
+    ],
+    partnerCta: "Démarrer une conversation",
+    partnerEmail: "Envoyer un email",
+    partnerNote: "Pas de pitch. Pas de proposition avant que la compatibilité soit claire.",
     stripNoCommitment: "Sans engagement",
   },
   platforms: {

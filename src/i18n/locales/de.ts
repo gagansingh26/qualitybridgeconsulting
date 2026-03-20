@@ -384,6 +384,26 @@ const de = {
     stripConsultation: "Kostenlose Beratung buchen",
     stripResponse: "Persönliche Antwort — kein Bot",
     stripReach: "Nordamerika · Europa · Asien",
+    partnerEyebrow: "Offen für Zusammenarbeit",
+    partnerHeading: "Suchen Sie einen zuverlässigen Delivery-Partner?",
+    partnerSubheading: "Wir arbeiten mit digitalen Agenturen, SAP-Implementierungspartnern und QA-Beratungen zusammen, die einen verlässlichen Partner suchen — keinen Wettbewerber.",
+    partnerTypes: [
+      {
+        title: "Digitale Agenturen",
+        desc: "Strukturierte QA oder SAP-Expertise für ein Kundenprojekt gesucht? Wir betten uns in Ihr Team ein, ohne die Kundenbeziehung zu übernehmen.",
+      },
+      {
+        title: "SAP-Implementierungspartner",
+        desc: "UAT-Governance und Quality Engineering für einen S/4HANA-Rollout benötigt? Genau darauf haben wir uns spezialisiert.",
+      },
+      {
+        title: "QA-Beratungen",
+        desc: "Überkapazitäten oder Bedarf an Digital-Entwicklungskompetenz? Wir können als White-Label oder als genannter Partner unterstützen.",
+      },
+    ],
+    partnerCta: "Gespräch beginnen",
+    partnerEmail: "E-Mail senden",
+    partnerNote: "Kein Pitch. Kein Angebot, bis die Passung klar ist.",
     stripNoCommitment: "Unverbindlich",
   },
   platforms: {
