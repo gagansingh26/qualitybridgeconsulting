@@ -16,11 +16,11 @@ import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
-// Pure fade — no Y movement so mobile nav stays stable during transition
+// Instant exit, fade in only — feels native on mobile
 const pageVariants = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
-  exit:    { opacity: 0 },
+  exit:    { opacity: 1 },  // no fade out — old page vanishes instantly
 };
 
 const AnimatedRoutes = () => {
@@ -34,9 +34,8 @@ const AnimatedRoutes = () => {
         animate="animate"
         exit="exit"
         transition={{
-          duration: 0.18,        // exit: snappy clear
-          animate: { duration: 0.24 }, // enter: slightly slower fade in
-          ease: "easeInOut",
+          duration: 0.2,
+          ease: "easeOut",
         }}
         style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
       >
