@@ -61,9 +61,9 @@ const HeroGraphic = () => (
   <motion.div
     initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.8, delay: 0.48 }}
-    className="pointer-events-none hidden lg:flex items-center justify-end"
+    className="pointer-events-none absolute right-0 bottom-0 hidden md:block lg:right-4"
     aria-hidden="true"
-    style={{ width: 260, flexShrink: 0 }}
+    style={{ width: 220 }}
   >
     <svg width="260" height="260" viewBox="0 0 200 200" fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -183,11 +183,9 @@ const Index = () => {
           <div className="absolute right-8 top-8 h-40 w-40 rounded-full border border-white/[0.07] bg-white/[0.02] hidden md:block" />
         </div>
 
-        <div className="container relative mx-auto max-w-6xl px-4">
-          {/* Two-column layout on desktop: text left, globe right */}
-          <div className="flex flex-col items-center gap-6 lg:flex-row lg:items-center lg:gap-12">
-            {/* Text column — centred on mobile, centred within col on desktop */}
-            <div className="flex-1 text-center lg:text-center">
+        <div className="container relative mx-auto px-4 text-center md:px-6">
+          {/* Globe — absolute overlay right side, matches About.tsx pattern */}
+          <HeroGraphic />
             {/* Pills */}
             <motion.div
               initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
@@ -270,11 +268,6 @@ const Index = () => {
               </div>
             ))}
             </motion.div>
-            </div>{/* end text column */}
-
-            {/* Globe column — desktop only */}
-            <HeroGraphic />
-          </div>{/* end flex row */}
         </div>
       </section>
 
