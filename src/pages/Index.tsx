@@ -56,77 +56,105 @@ const SH = ({ eyebrow, heading, sub }: { eyebrow?: string; heading: string; sub?
   </div>
 );
 
-// ─── Hero pipeline SVG — same pattern as About page ──────────────────────────
-const HeroPipelineSVG = () => (
+// ─── Hero graphic — three pillars converging as one team ─────────────────────
+const HeroGraphic = () => (
   <motion.div
-    initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.8, delay: 0.45 }}
-    className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 lg:block xl:right-4"
+    initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.9, delay: 0.5 }}
+    className="pointer-events-none hidden lg:flex items-center justify-center"
     aria-hidden="true"
-    style={{ width: 190 }}
+    style={{ width: 240, flexShrink: 0 }}
   >
-    <svg width="190" height="210" viewBox="0 0 170 210" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width:"100%", height:"auto", overflow:"visible" }}>
+    <svg width="240" height="260" viewBox="0 0 220 260" fill="none" xmlns="http://www.w3.org/2000/svg"
+      style={{ width: "100%", height: "auto", overflow: "visible" }}>
       <style>{`
-        @keyframes hDash{to{stroke-dashoffset:-20}}
-        @keyframes hPulse{0%,100%{r:8;opacity:1}50%{r:11;opacity:.7}}
-        @keyframes hRing{0%,100%{r:14;opacity:.35}50%{r:21;opacity:0}}
-        @keyframes hBlink{0%,100%{opacity:1}50%{opacity:.3}}
-        @keyframes hNode{0%,100%{r:6}50%{r:8}}
-        @keyframes hFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-        .h-dash{stroke-dasharray:4 4;animation:hDash 1.6s linear infinite}
-        .h-dash2{stroke-dasharray:4 4;animation:hDash 2s linear infinite .4s}
-        .h-dash3{stroke-dasharray:4 4;animation:hDash 2.4s linear infinite .8s}
-        .h-dash4{stroke-dasharray:4 4;animation:hDash 2.8s linear infinite 1.2s}
-        .h-pulse{animation:hPulse 2s ease-in-out infinite}
-        .h-ring{animation:hRing 2s ease-in-out infinite}
-        .h-blink{animation:hBlink 1.6s ease-in-out infinite}
-        .h-node{animation:hNode 2.4s ease-in-out infinite}
-        .h-float{animation:hFloat 3s ease-in-out infinite}
+        @keyframes gPulse{0%,100%{r:10;opacity:1}50%{r:14;opacity:.6}}
+        @keyframes gRing{0%,100%{r:18;opacity:.4}50%{r:26;opacity:0}}
+        @keyframes gFlow{to{stroke-dashoffset:-24}}
+        @keyframes gFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+        @keyframes gBadge{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.75;transform:scale(1.04)}}
+        .g-pulse{animation:gPulse 2.2s ease-in-out infinite}
+        .g-ring{animation:gRing 2.2s ease-in-out infinite}
+        .g-flow{stroke-dasharray:5 4;animation:gFlow 1.8s linear infinite}
+        .g-flow2{stroke-dasharray:5 4;animation:gFlow 2.2s linear infinite .5s}
+        .g-flow3{stroke-dasharray:5 4;animation:gFlow 2.6s linear infinite 1s}
+        .g-float{animation:gFloat 3.2s ease-in-out infinite}
+        .g-badge{animation:gBadge 2.8s ease-in-out infinite}
       `}</style>
 
-      {/* Vertical spine */}
-      <line x1="42" y1="20" x2="42" y2="195" stroke="rgba(255,255,255,0.18)" strokeWidth="1.5"/>
+      {/* ── Three source pillars (top) ── */}
 
-      {/* ── Plan node ── */}
-      <circle className="h-ring" cx="42" cy="30" r="14" fill="none" stroke="#93c5fd" strokeWidth="0.8"/>
-      <circle className="h-pulse" cx="42" cy="30" r="8" fill="#93c5fd"/>
-      <text x="63" y="27" fontSize="9" fill="rgba(255,255,255,0.92)" fontWeight="600" fontFamily="system-ui,sans-serif">Plan</text>
-      <text x="63" y="38" fontSize="7.5" fill="rgba(255,255,255,0.45)" fontFamily="system-ui,sans-serif">Strategy &amp; scope</text>
+      {/* Digital — blue, top-left */}
+      <rect x="4" y="8" width="64" height="52" rx="10"
+        fill="rgba(59,130,246,0.15)" stroke="rgba(147,197,253,0.45)" strokeWidth="1"/>
+      <rect x="4" y="8" width="64" height="3" rx="1.5" fill="#3b82f6"/>
+      <text x="36" y="30" fontSize="8.5" fill="rgba(255,255,255,0.9)" textAnchor="middle"
+        fontWeight="700" fontFamily="system-ui,sans-serif">Digital</text>
+      <text x="36" y="42" fontSize="7" fill="rgba(255,255,255,0.5)" textAnchor="middle"
+        fontFamily="system-ui,sans-serif">Development</text>
+      <circle cx="36" cy="53" r="2.5" fill="#3b82f6" opacity="0.7"/>
 
-      {/* Connector */}
-      <line x1="42" y1="43" x2="42" y2="62" stroke="rgba(255,255,255,0.18)" strokeWidth="1" className="h-dash"/>
+      {/* SAP — teal, top-center */}
+      <rect x="78" y="8" width="64" height="52" rx="10"
+        fill="rgba(20,184,166,0.15)" stroke="rgba(94,234,212,0.45)" strokeWidth="1"/>
+      <rect x="78" y="8" width="64" height="3" rx="1.5" fill="#14b8a6"/>
+      <text x="110" y="30" fontSize="8.5" fill="rgba(255,255,255,0.9)" textAnchor="middle"
+        fontWeight="700" fontFamily="system-ui,sans-serif">SAP</text>
+      <text x="110" y="42" fontSize="7" fill="rgba(255,255,255,0.5)" textAnchor="middle"
+        fontFamily="system-ui,sans-serif">Governance &amp; UAT</text>
+      <circle cx="110" cy="53" r="2.5" fill="#14b8a6" opacity="0.7"/>
 
-      {/* ── Dev node ── */}
-      <circle className="h-node" cx="42" cy="70" r="6" fill="rgba(255,255,255,.6)" style={{animationDelay:"0.3s"}}/>
-      <text x="63" y="67" fontSize="9" fill="rgba(255,255,255,0.82)" fontWeight="600" fontFamily="system-ui,sans-serif">Build</text>
-      <text x="63" y="78" fontSize="7.5" fill="rgba(255,255,255,0.42)" fontFamily="system-ui,sans-serif">Dev &amp; integration</text>
+      {/* QA — purple, top-right */}
+      <rect x="152" y="8" width="64" height="52" rx="10"
+        fill="rgba(139,92,246,0.15)" stroke="rgba(196,181,253,0.45)" strokeWidth="1"/>
+      <rect x="152" y="8" width="64" height="3" rx="1.5" fill="#8b5cf6"/>
+      <text x="184" y="30" fontSize="8.5" fill="rgba(255,255,255,0.9)" textAnchor="middle"
+        fontWeight="700" fontFamily="system-ui,sans-serif">Quality</text>
+      <text x="184" y="42" fontSize="7" fill="rgba(255,255,255,0.5)" textAnchor="middle"
+        fontFamily="system-ui,sans-serif">Engineering</text>
+      <circle cx="184" cy="53" r="2.5" fill="#8b5cf6" opacity="0.7"/>
 
-      <line x1="42" y1="76" x2="42" y2="98" stroke="rgba(255,255,255,0.16)" strokeWidth="1" className="h-dash2"/>
+      {/* ── Converging lines from each pillar → centre node ── */}
+      {/* Digital → center */}
+      <path d="M 36 60 Q 36 105 110 138"
+        fill="none" stroke="rgba(59,130,246,0.5)" strokeWidth="1.5"
+        className="g-flow"/>
+      {/* SAP → center */}
+      <path d="M 110 60 L 110 138"
+        fill="none" stroke="rgba(20,184,166,0.5)" strokeWidth="1.5"
+        className="g-flow2"/>
+      {/* QA → center */}
+      <path d="M 184 60 Q 184 105 110 138"
+        fill="none" stroke="rgba(139,92,246,0.5)" strokeWidth="1.5"
+        className="g-flow3"/>
 
-      {/* ── SIT node ── */}
-      <circle className="h-node" cx="42" cy="106" r="6" fill="rgba(255,255,255,.72)" style={{animationDelay:"0.6s"}}/>
-      <text x="63" y="103" fontSize="9" fill="rgba(255,255,255,0.85)" fontWeight="600" fontFamily="system-ui,sans-serif">SIT</text>
-      <text x="63" y="114" fontSize="7.5" fill="rgba(255,255,255,0.42)" fontFamily="system-ui,sans-serif">Integration testing</text>
+      {/* ── Central "One Team" node ── */}
+      <circle className="g-ring" cx="110" cy="148" r="18" fill="none"
+        stroke="rgba(147,197,253,0.5)" strokeWidth="1"/>
+      <circle className="g-pulse" cx="110" cy="148" r="10" fill="#93c5fd"/>
+      <text x="110" y="185" fontSize="8" fill="rgba(255,255,255,0.85)" textAnchor="middle"
+        fontWeight="700" fontFamily="system-ui,sans-serif">One Team</text>
 
-      <line x1="42" y1="112" x2="42" y2="134" stroke="rgba(255,255,255,0.16)" strokeWidth="1" className="h-dash3"/>
+      {/* ── Output line ── */}
+      <line x1="110" y1="170" x2="110" y2="196"
+        stroke="rgba(147,197,253,0.4)" strokeWidth="1.5"
+        strokeDasharray="4 3"/>
 
-      {/* ── UAT node ── */}
-      <circle className="h-node" cx="42" cy="142" r="6" fill="rgba(255,255,255,.6)" style={{animationDelay:"0.9s"}}/>
-      <text x="63" y="139" fontSize="9" fill="rgba(255,255,255,0.8)" fontWeight="600" fontFamily="system-ui,sans-serif">UAT</text>
-      <text x="63" y="150" fontSize="7.5" fill="rgba(255,255,255,0.42)" fontFamily="system-ui,sans-serif">Business sign-off</text>
-
-      <line x1="42" y1="148" x2="42" y2="168" stroke="rgba(255,255,255,0.14)" strokeWidth="1" className="h-dash4"/>
-
-      {/* ── Go-live node ── */}
-      <circle className="h-blink" cx="42" cy="175" r="5" fill="#93c5fd" opacity="0.7"/>
-      <text x="63" y="172" fontSize="9" fill="#93c5fd" fontWeight="600" fontFamily="system-ui,sans-serif" opacity="0.9">Go-live</text>
-      <text x="63" y="183" fontSize="7.5" fill="#93c5fd" fontFamily="system-ui,sans-serif" opacity="0.55">Hypercare ✓</text>
-
-      {/* Quality gate badge — floats */}
-      <g className="h-float" style={{transformOrigin:"20px 110px"}}>
-        <rect x="2" y="98" width="34" height="16" rx="4" fill="rgba(147,197,253,0.15)" stroke="rgba(147,197,253,0.4)" strokeWidth="0.8"/>
-        <text x="19" y="109" fontSize="6.5" fill="#93c5fd" textAnchor="middle" fontFamily="system-ui,sans-serif" fontWeight="600">QA Gate</text>
+      {/* ── Delivery badge (bottom, floating) ── */}
+      <g className="g-float" style={{ transformOrigin: "110px 215px" }}>
+        <rect x="48" y="200" width="124" height="36" rx="8"
+          fill="rgba(147,197,253,0.12)" stroke="rgba(147,197,253,0.4)" strokeWidth="1"/>
+        <circle cx="68" cy="218" r="5" fill="#93c5fd" opacity="0.85"/>
+        <text x="80" y="214" fontSize="8" fill="rgba(255,255,255,0.9)"
+          fontWeight="700" fontFamily="system-ui,sans-serif">Single accountability</text>
+        <text x="80" y="225" fontSize="7" fill="rgba(255,255,255,0.5)"
+          fontFamily="system-ui,sans-serif">Kickoff to go-live</text>
       </g>
+
+      {/* ── Small connection dots on converging lines ── */}
+      <circle cx="68" cy="96" r="2.5" fill="rgba(147,197,253,0.6)"/>
+      <circle cx="110" cy="96" r="2.5" fill="rgba(147,197,253,0.6)"/>
+      <circle cx="152" cy="96" r="2.5" fill="rgba(147,197,253,0.6)"/>
     </svg>
   </motion.div>
 );
@@ -161,17 +189,15 @@ const Index = () => {
           <div className="absolute right-8 top-8 h-40 w-40 rounded-full border border-white/[0.07] bg-white/[0.02] hidden md:block" />
         </div>
 
-        {/* Pipeline SVG — absolute right, desktop only */}
-        <HeroPipelineSVG />
-
         <div className="container relative mx-auto max-w-5xl px-4">
-          {/* On desktop: text left, SVG right (handled by absolute SVG). On mobile: centered */}
-          <div className="text-center lg:text-left lg:max-w-[58%]">
+          <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:gap-10">
+            {/* Text — always centred on mobile, left+centred within its column on desktop */}
+            <div className="flex-1 text-center">
             {/* Pills */}
             <motion.div
               initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="flex flex-wrap items-center justify-center gap-1.5 mb-5 lg:justify-start"
+              className="flex flex-wrap items-center justify-center gap-1.5 mb-5"
             >
               {(t("hero.pills", { returnObjects: true }) as string[]).map((pill) => (
                 <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-3 py-0.5 text-[11px] font-medium text-primary-foreground/90 md:text-xs">
@@ -230,26 +256,30 @@ const Index = () => {
             <motion.p
               initial={{ opacity: 0 }} animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.36 }}
-              className="mt-3 text-[12px] md:text-[13px] text-center lg:text-left"
+              className="mt-3 text-[12px] md:text-[13px]"
               style={{ color: "rgba(255,255,255,0.5)" }}
             >
               {t("hero.reach")}
             </motion.p>
-          </div>
 
-          {/* Stat bar — full width below, both desktop and mobile */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.44 }}
-            className="mt-8 flex max-w-sm items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm mx-auto sm:max-w-md lg:mx-0 lg:max-w-md"
-          >
+            {/* Stat bar — below CTAs in the text column */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.44 }}
+              className="mt-6 inline-flex max-w-sm items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-md"
+            >
             {(t("hero.stats", { returnObjects: true }) as { value: string; label: string }[]).map((stat, i) => (
               <div key={i} className="flex flex-1 flex-col items-center px-3 md:px-5">
                 <span className="text-sm font-bold text-primary-foreground md:text-base leading-tight text-center">{stat.value}</span>
                 <span className="mt-0.5 text-[10px] text-primary-foreground/50 md:text-xs text-center">{stat.label}</span>
               </div>
             ))}
-          </motion.div>
+            </motion.div>
+            </div>{/* end text column */}
+
+            {/* Graphic — desktop only, right side */}
+            <HeroGraphic />
+          </div>{/* end flex row */}
         </div>
       </section>
 
@@ -278,7 +308,7 @@ const Index = () => {
       {/* ══════════════════════════════════════════════
           3. PROBLEMS
       ══════════════════════════════════════════════ */}
-      <SectionWrapper className="bg-background">
+      <SectionWrapper className="relative overflow-hidden bg-background">
         <SectionCircles />
         <motion.div {...fadeUp(0)} className="relative">
           <SH eyebrow={t("problems.eyebrow")} heading={t("problems.heading")} sub={t("problems.subheading")} />
@@ -315,7 +345,7 @@ const Index = () => {
       {/* ══════════════════════════════════════════════
           5. WHAT WE DELIVER
       ══════════════════════════════════════════════ */}
-      <SectionWrapper className="bg-background">
+      <SectionWrapper className="relative overflow-hidden bg-background">
         <SectionCircles flip />
         <motion.div {...fadeUp(0)} className="relative">
           <SH eyebrow={t("whatWeDeliver.eyebrow")} heading={t("whatWeDeliver.heading")} sub={t("whatWeDeliver.subheading")} />
@@ -355,7 +385,7 @@ const Index = () => {
       {/* ══════════════════════════════════════════════
           6. WHY WE'RE DIFFERENT
       ══════════════════════════════════════════════ */}
-      <SectionWrapper className="bg-muted/30">
+      <SectionWrapper className="relative overflow-hidden bg-muted/30">
         <SectionCircles />
         <motion.div {...fadeUp(0)} className="relative">
           <SH eyebrow={t("differentiation.eyebrow")} heading={t("differentiation.heading")} sub={t("differentiation.subheading")} />
@@ -378,7 +408,7 @@ const Index = () => {
       {/* ══════════════════════════════════════════════
           7. PLATFORMS
       ══════════════════════════════════════════════ */}
-      <SectionWrapper className="bg-background">
+      <SectionWrapper className="relative overflow-hidden bg-background">
         <SectionCircles flip />
         <motion.div {...fadeUp(0)} className="relative">
           <SH eyebrow={t("platforms.eyebrow")} heading={t("platforms.heading")} sub={t("platforms.subheading")} />
@@ -403,7 +433,7 @@ const Index = () => {
       {/* ══════════════════════════════════════════════
           8. HOW WE WORK
       ══════════════════════════════════════════════ */}
-      <SectionWrapper id="how-we-work" className="bg-muted/30">
+      <SectionWrapper id="how-we-work" className="relative overflow-hidden bg-muted/30">
         <SectionCircles />
         <motion.div {...fadeUp(0)} className="relative">
           <SH eyebrow={t("howWeWork.eyebrow")} heading={t("howWeWork.heading")} sub={t("howWeWork.subheading")} />
@@ -444,7 +474,7 @@ const Index = () => {
       {/* ══════════════════════════════════════════════
           9. OUTCOMES
       ══════════════════════════════════════════════ */}
-      <SectionWrapper className="bg-background">
+      <SectionWrapper className="relative overflow-hidden bg-background">
         <SectionCircles flip />
         <motion.div {...fadeUp(0)} className="relative">
           <SH heading={t("outcomes.heading")} sub={t("outcomes.subheading")} />
@@ -470,7 +500,7 @@ const Index = () => {
       {/* ══════════════════════════════════════════════
           10. CTA
       ══════════════════════════════════════════════ */}
-      <SectionWrapper className="bg-muted/30">
+      <SectionWrapper className="relative overflow-hidden bg-muted/30">
         <SectionCircles />
         <motion.div {...fadeUp(0)} className="relative max-w-2xl mx-auto text-center">
           <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary mx-auto mb-5">
