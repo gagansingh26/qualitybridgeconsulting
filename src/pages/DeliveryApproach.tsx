@@ -92,11 +92,23 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.4, delay, ease: "easeOut" },
 });
 
+// ─── Background decorative circles — added to every SectionWrapper ────────────
+// Mirrors the same pattern used on the home page.
+// flip=true moves the larger circle to the left and smaller to the right.
+const SectionCircles = ({ flip = false }: { flip?: boolean }) => (
+  <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div className={`absolute ${flip ? "-left-12 -top-12" : "-right-14 -top-14"} h-52 w-52 rounded-full border border-primary/[0.07] bg-primary/[0.02]`} />
+    <div className={`absolute ${flip ? "-right-10 -bottom-10" : "-left-10 -bottom-10"} h-36 w-36 rounded-full border border-primary/[0.05] bg-primary/[0.02]`} />
+  </div>
+);
+
 // ─── Services Pill Strip ──────────────────────────────────────────────────────
 // Shown on all three tabs — no label, no hierarchy implied.
 // Wraps naturally on mobile, single scrollable row on desktop.
 const ServicesPillStrip = ({ pills }: { pills: { label: string }[] }) => (
-  <div className="flex flex-wrap gap-1.5 py-3 border-b border-border mb-5">
+  // justify-center centres pills on all screen sizes.
+  // flex-wrap ensures they reflow to multiple rows on narrow screens rather than overflow.
+  <div className="flex flex-wrap justify-center gap-1.5 py-3 border-b border-border mb-5">
     {pills.map((p, i) => (
       <span
         key={i}
@@ -175,28 +187,29 @@ const Services = () => {
           <div className="absolute right-8 top-8 h-40 w-40 rounded-full border border-white/[0.07] bg-white/[0.02] hidden md:block" />
         </div>
 
-        {/* Decorative service icons — desktop only */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 md:flex flex-col gap-4"
-          aria-hidden="true"
-        >
-          {[
-            { Icon: Monitor, label: "Digital" },
-            { Icon: Shield,  label: "SAP" },
-            { Icon: CheckCircle, label: "Quality" },
-          ].map(({ Icon, label }, i) => (
-            <div key={i} className="flex flex-col items-center gap-1">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/10">
-                <Icon className="h-5 w-5 text-white/80" />
-              </div>
-              <span className="text-[9px] text-white/50 uppercase tracking-widest">{label}</span>
-            </div>
-          ))}
-        </motion.div>
-
         <div className="container relative mx-auto px-4 text-center md:px-6">
+          {/* Decorative service icons — desktop only.
+              Positioned inside the container so it sits between the centered
+              text and the right edge of the content area, matching the home page hero. */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 md:flex flex-col gap-4 lg:right-4"
+            aria-hidden="true"
+          >
+            {[
+              { Icon: Monitor,     label: "Digital" },
+              { Icon: Shield,      label: "SAP"     },
+              { Icon: CheckCircle, label: "Quality" },
+            ].map(({ Icon, label }, i) => (
+              <div key={i} className="flex flex-col items-center gap-1">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/10">
+                  <Icon className="h-5 w-5 text-white/80" />
+                </div>
+                <span className="text-[9px] text-white/50 uppercase tracking-widest">{label}</span>
+              </div>
+            ))}
+          </motion.div>
           <div className="mb-4 flex flex-wrap items-center justify-center gap-1.5">
             {(t("hero.pills", { returnObjects: true }) as string[]).map((pill) => (
               <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-2.5 py-0.5 text-[11px] font-medium text-primary-foreground/90 md:px-3 md:py-1 md:text-xs">
@@ -259,12 +272,17 @@ const Services = () => {
       ══════════════════════════════════════════════ */}
       <div className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur-sm">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex gap-1.5 py-2.5 overflow-x-auto scrollbar-hide">
+          {/*
+            Mobile: 3-column grid — each tab fills equal width, no overflow/scroll needed.
+            Desktop (md+): flex row centered in the container.
+          */}
+          <div className="grid grid-cols-3 gap-1.5 py-2.5 md:flex md:justify-center md:gap-2">
             {(["digital", "sap", "quality"] as TabKey[]).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`rounded-lg px-3 py-1.5 text-xs font-semibold transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
+                className={`rounded-lg px-2 py-2 text-[11px] font-semibold transition-all duration-200 text-center leading-tight
+                  md:px-4 md:py-1.5 md:text-xs md:whitespace-nowrap ${
                   activeTab === tab ? TAB_COLOURS[tab].active : TAB_COLOURS[tab].inactive
                 }`}
               >
@@ -297,7 +315,8 @@ const Services = () => {
           ════════════════════════════════════════ */}
           {activeTab === "digital" && (
             <div>
-              <SectionWrapper className="bg-background">
+              <SectionWrapper className="relative overflow-hidden bg-background">
+                <SectionCircles />
                 {/* Intro with AI sentence woven in */}
                 <div className="mx-auto max-w-2xl text-center mb-8">
                   <p className="text-sm text-muted-foreground leading-relaxed md:text-base">
@@ -374,7 +393,8 @@ const Services = () => {
           ════════════════════════════════════════ */}
           {activeTab === "sap" && (
             <div>
-              <SectionWrapper className="bg-background">
+              <SectionWrapper className="relative overflow-hidden bg-background">
+                <SectionCircles />
                 {/* Intro with AI sentence woven in */}
                 <div className="mx-auto max-w-2xl text-center mb-8">
                   <p className="text-sm text-muted-foreground leading-relaxed md:text-base">
@@ -426,7 +446,8 @@ const Services = () => {
               </SectionWrapper>
 
               {/* UAT Operating Model */}
-              <SectionWrapper className="bg-muted/30">
+              <SectionWrapper className="relative overflow-hidden bg-muted/30">
+                <SectionCircles flip />
                 <motion.div {...fadeUp(0)}>
                   <h2 className="text-[22px] font-bold text-foreground mb-1">{t("uat.heading")}</h2>
                   <p className="text-sm text-muted-foreground mb-5">{t("uat.subheading")}</p>
@@ -480,7 +501,8 @@ const Services = () => {
               </SectionWrapper>
 
               {/* What We Track + Release Decision */}
-              <SectionWrapper className="bg-background">
+              <SectionWrapper className="relative overflow-hidden bg-background">
+                <SectionCircles />
                 <motion.div {...fadeUp(0)}>
                   <h2 className="text-[22px] font-bold text-foreground mb-5">{t("release.trackHeading")}</h2>
                   <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 mb-8">
@@ -512,7 +534,8 @@ const Services = () => {
           ════════════════════════════════════════ */}
           {activeTab === "quality" && (
             <div>
-              <SectionWrapper className="bg-background">
+              <SectionWrapper className="relative overflow-hidden bg-background">
+                <SectionCircles flip />
                 {/* Intro with AI sentence woven in */}
                 <div className="mx-auto max-w-2xl text-center mb-8">
                   <p className="text-sm text-muted-foreground leading-relaxed md:text-base">
@@ -630,10 +653,7 @@ const Services = () => {
           HOW WE ENGAGE — shared across all tabs
       ══════════════════════════════════════════════ */}
       <SectionWrapper className="relative overflow-hidden bg-muted/30">
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute -right-14 -top-14 h-48 w-48 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
-          <div className="absolute -left-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.05] bg-primary/[0.02]" />
-        </div>
+        <SectionCircles />
         <motion.div {...fadeUp(0)} className="relative text-center mb-8">
           <p className="text-[11px] font-semibold uppercase tracking-widest text-primary mb-2">{t("engagement.eyebrow")}</p>
           <h2 className="text-[26px] font-bold text-foreground md:text-[34px]">{t("engagement.heading")}</h2>
@@ -747,7 +767,8 @@ const Services = () => {
       {/* ══════════════════════════════════════════════
           BOTTOM CTA
       ══════════════════════════════════════════════ */}
-      <SectionWrapper className="bg-background">
+      <SectionWrapper className="relative overflow-hidden bg-background">
+        <SectionCircles flip />
         <motion.div {...fadeUp(0)} className="max-w-2xl mx-auto text-center">
           <h2 className="text-[26px] font-bold text-foreground md:text-[34px]">{t("cta.heading")}</h2>
           <p className="mx-auto mt-4 max-w-lg text-sm text-muted-foreground leading-relaxed md:text-base">{t("cta.body")}</p>
