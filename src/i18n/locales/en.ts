@@ -499,8 +499,6 @@ const en = {
       { q: "Do you use AI in your delivery work?",                                    a: "Yes, across all three pillars — but only where it's practical. In digital development, AI-assisted tooling speeds up build and prototyping cycles. In SAP governance, we use AI to generate test scripts from business requirements and prioritise coverage based on risk. In quality engineering, GenAI and LLMs help design test cases and surface high-risk areas before regression runs. The goal in each case is the same: less manual effort, faster feedback, more confident go-lives." },
     ],
   },
-};
-
   careers: {
     eyebrow: "We're hiring",
     heading: "Join QualityBridge — help us build the pipeline.",
@@ -520,5 +518,6 @@ const en = {
     cta: "Apply — send us an email",
     note: "Commission: 5–10% of closed project value · 50% on first invoice, 50% on completion · No base · Fully remote · Direct applications only — no recruiters or agencies.",
   },
+};
 
 export default en;

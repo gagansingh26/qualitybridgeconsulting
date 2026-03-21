@@ -465,8 +465,6 @@ const de = {
       { q: "Setzen Sie KI in Ihrer Delivery-Arbeit ein?",                                            a: "Ja, in allen drei Bereichen — aber nur dort, wo es praxistauglich ist. KI beschleunigt Build-Zyklen, Testskript-Generierung und Risikopriorisierung." },
     ],
   },
-};
-
   careers: {
     eyebrow: "Wir stellen ein",
     heading: "Kommen Sie zu QualityBridge — helfen Sie uns, die Pipeline aufzubauen.",
@@ -486,5 +484,6 @@ const de = {
     cta: "Bewerben — E-Mail senden",
     note: "Provision: 5–10% des abgeschlossenen Projektwertes · 50% bei erster Rechnung, 50% bei Projektabschluss · Kein Grundgehalt · Vollständig remote · Nur Direktbewerbungen — keine Personalvermittler oder Agenturen.",
   },
+};
 
 export default de;

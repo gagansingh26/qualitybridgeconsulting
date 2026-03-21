@@ -465,8 +465,6 @@ const fr = {
       { q: "Utilisez-vous l'IA dans votre travail ?",                                                    a: "Oui, dans les trois piliers — mais uniquement là où c'est pratique. En développement digital, en gouvernance SAP et en ingénierie qualité, l'IA accélère chaque étape." },
     ],
   },
-};
-
   careers: {
     eyebrow: "Nous recrutons",
     heading: "Rejoignez QualityBridge — aidez-nous à construire le pipeline.",
@@ -486,5 +484,6 @@ const fr = {
     cta: "Postuler — nous envoyer un e-mail",
     note: "Commission : 5–10% de la valeur du projet clôturé · 50% à la première facture, 50% à la fin du projet · Pas de salaire de base · Entièrement remote · Candidatures directes uniquement — pas de recruteurs ni d'agences.",
   },
+};
 
 export default fr;
