@@ -24,20 +24,22 @@ const PartnerPanel = () => {
   ];
 
   return (
-    <div className="fixed right-0 top-1/2 z-50 -translate-y-1/2" aria-label="Open to collaboration">
+    // Outer wrapper: always fixed to right edge, vertically centred
+    // Width is 0 when closed (tab is absolutely positioned), w-72 when open
+    <div className="fixed right-0 top-1/2 z-50 -translate-y-1/2">
 
-      {/* ── Tab ── */}
+      {/* ── Tab — absolutely positioned off the right edge when panel is closed ── */}
       <AnimatePresence initial={false}>
         {!open && (
           <motion.button
             key="tab"
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 20 }}
+            exit={{ opacity: 0, x: 40 }}
             transition={{ duration: 0.2 }}
             onClick={() => setOpen(true)}
             aria-label="Open collaboration panel"
-            className="flex flex-col items-center gap-2 rounded-l-xl border border-r-0 px-2 py-4 shadow-lg transition-opacity hover:opacity-90"
+            className="absolute right-0 flex flex-col items-center gap-2 rounded-l-xl border border-r-0 px-2 py-4 shadow-lg transition-opacity hover:opacity-90"
             style={{
               background: "#006cf0",
               borderColor: "rgba(255,255,255,0.15)",
@@ -54,14 +56,14 @@ const PartnerPanel = () => {
         )}
       </AnimatePresence>
 
-      {/* ── Panel ── */}
+      {/* ── Panel — slides in from right, fixed width ── */}
       <AnimatePresence>
         {open && (
           <motion.div
             key="panel"
-            initial={{ x: "100%" }}
+            initial={{ x: 288 }}
             animate={{ x: 0 }}
-            exit={{ x: "100%" }}
+            exit={{ x: 288 }}
             transition={{ type: "spring", stiffness: 320, damping: 32 }}
             className="w-72 rounded-l-2xl border-r-0 overflow-hidden shadow-xl"
             style={{ border: "1px solid rgba(255,255,255,0.15)" }}

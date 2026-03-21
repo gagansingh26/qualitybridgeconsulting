@@ -7,7 +7,7 @@ const fr = {
     bookCall: "Réserver une consultation",
   },
   hero: {
-    pills: ["Développement digital", "Gouvernance SAP & UAT", "Automatisation des tests & Qualité"],
+    pills: ["Développement digital", "Gouvernance SAP & UAT", "Qualité augmentée par l'IA"],
     quote: "Les meilleurs outils digitaux sont invisibles pour l'utilisateur final — ils fonctionnent, c'est tout.",
     hook: "Des livraisons en retard. Des go-lives incertains. Une qualité qui ne suit pas. Trois problèmes, un seul programme.",
     titlePrefix: "Nous réglons les trois —",
@@ -213,7 +213,7 @@ const fr = {
     heroStats: [
       { value: "Technologies modernes", label: "Développement digital" },
       { value: "SAP S/4HANA", label: "Gouvernance & UAT" },
-      { value: "Frameworks modernes", label: "Ingénierie qualité" },
+      { value: "Frameworks d'automatisation", label: "Ingénierie qualité" },
     ],
     tabDigital: "Développement digital",
     tabSap: "Gouvernance SAP & UAT",

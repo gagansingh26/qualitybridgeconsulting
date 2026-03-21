@@ -7,7 +7,7 @@ const en = {
     bookCall: "Book a Consultation",
   },
   hero: {
-    pills: ["Digital Development", "SAP Governance & UAT", "Test Automation & Quality"],
+    pills: ["Digital Development", "SAP Governance & UAT", "AI-Augmented Quality"],
     quote: "The best digital tools are invisible to the end user — they just work.",
     hook: "Late releases. Uncertain go-lives. Quality that can't keep pace. Three problems, one programme.",
     titlePrefix: "We fix all three —",
