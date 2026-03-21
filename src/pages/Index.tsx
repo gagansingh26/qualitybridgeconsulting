@@ -59,9 +59,6 @@ const SH = ({ eyebrow, heading, sub }: { eyebrow?: string; heading: string; sub?
 );
 
 // ─── Hero globe graphic ───────────────────────────────────────────────────────
-// ─── Hero globe graphic — accepts translated labels ───────────────────────────
-// "Canada", "Europe", "Asia" are proper nouns and intentionally not translated.
-// The badge labels (One team, HQ line, regions) are translated via props.
 const HeroGraphic = ({
   labelOneTeam,
   labelRegions,
@@ -104,22 +101,17 @@ const HeroGraphic = ({
       <path d="M 68 48 Q 42 100 68 152" fill="none" stroke="rgba(147,197,253,0.08)" strokeWidth="0.8"/>
       <path d="M 132 48 Q 158 100 132 152" fill="none" stroke="rgba(147,197,253,0.08)" strokeWidth="0.8"/>
       <ellipse cx="100" cy="100" rx="72" ry="24" fill="none" stroke="rgba(147,197,253,0.18)" strokeWidth="1" className="gl-spin"/>
-      {/* Canada — anchor node */}
       <circle className="gl-ring" cx="52" cy="88" r="16" fill="none" stroke="#93c5fd" strokeWidth="0.8"/>
       <circle className="gl-pulse" cx="52" cy="88" r="9" fill="#93c5fd"/>
-      {/* "Canada" is a proper noun — not translated */}
       <text x="52" y="116" fontSize="8.5" fill="rgba(255,255,255,0.9)" textAnchor="middle" fontWeight="700" fontFamily="system-ui,sans-serif">Canada</text>
       <text x="52" y="127" fontSize="7" fill="rgba(255,255,255,0.45)" textAnchor="middle" fontFamily="system-ui,sans-serif">{labelHQ}</text>
-      {/* Europe / Asia — proper nouns, not translated */}
       <circle className="gl-node" cx="142" cy="62" r="5" fill="#93c5fd" opacity="0.85" style={{animationDelay:"0.5s"}}/>
       <text x="142" y="50" fontSize="8" fill="rgba(255,255,255,0.8)" textAnchor="middle" fontWeight="600" fontFamily="system-ui,sans-serif">Europe</text>
       <circle className="gl-node" cx="158" cy="128" r="5" fill="#93c5fd" opacity="0.85" style={{animationDelay:"1.1s"}}/>
       <text x="158" y="148" fontSize="8" fill="rgba(255,255,255,0.8)" textAnchor="middle" fontWeight="600" fontFamily="system-ui,sans-serif">Asia</text>
-      {/* Connection arcs */}
       <path d="M 62 82 Q 96 55 136 64" fill="none" stroke="rgba(147,197,253,0.45)" strokeWidth="1.2" className="gl-flow"/>
       <path d="M 62 95 Q 106 118 152 126" fill="none" stroke="rgba(147,197,253,0.35)" strokeWidth="1.2" className="gl-flow2"/>
       <path d="M 144 68 Q 162 96 155 122" fill="none" stroke="rgba(147,197,253,0.25)" strokeWidth="1" className="gl-flow3"/>
-      {/* "One team" badge — translated */}
       <g className="gl-float" style={{ transformOrigin: "100px 178px" }}>
         <rect x="46" y="168" width="108" height="30" rx="7" fill="rgba(147,197,253,0.12)" stroke="rgba(147,197,253,0.35)" strokeWidth="0.8"/>
         <circle cx="62" cy="183" r="4" fill="#93c5fd" opacity="0.8"/>
@@ -208,10 +200,7 @@ const useCountUp = (target: number, duration = 1400, start = false) => {
   return val;
 };
 
-// ─── Stats Strip (replaces quote section) ────────────────────────────────────
-// Mobile: stacks vertically with horizontal dividers
-// Tablet+: 3-column grid with vertical dividers
-// Dark mode: uses semantic tokens throughout
+// ─── Stats Strip ─────────────────────────────────────────────────────────────
 const StatsStrip = ({ items }: { items: { value: string; label: string }[] }) => (
   <motion.div
     initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
@@ -219,7 +208,7 @@ const StatsStrip = ({ items }: { items: { value: string; label: string }[] }) =>
     className="border-b border-border bg-background"
   >
     <div className="container mx-auto px-4 py-5 md:px-6 md:py-7">
-      {/* Mobile: vertical stack with horizontal rules */}
+      {/* Mobile: vertical stack */}
       <div className="flex flex-col divide-y divide-border sm:hidden rounded-xl border border-border overflow-hidden">
         {items.map((item, i) => (
           <div key={i} className="flex items-center gap-4 px-5 py-4 bg-card">
@@ -247,7 +236,7 @@ const StatsStrip = ({ items }: { items: { value: string; label: string }[] }) =>
   </motion.div>
 );
 
-// ─── One System Banner (reinforces integration story in What We Deliver) ──────
+// ─── One System Banner ────────────────────────────────────────────────────────
 const OneSystemBanner = ({ title, desc }: { title: string; desc: string }) => (
   <motion.div
     initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
@@ -300,8 +289,6 @@ const Index = () => {
 
       {/* ══════════════════════════════════════════════
           1. HERO
-          Changes: hook sharpened, H1 rewritten with stakes,
-          "who this is for" tag, CTAs upgraded
       ══════════════════════════════════════════════ */}
       <section className="enterprise-gradient relative overflow-hidden py-12 md:py-16 lg:py-20">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
@@ -327,20 +314,20 @@ const Index = () => {
             ))}
           </motion.div>
 
-          {/* Hook — sharpened with stakes */}
+          {/* Hook */}
           <motion.p initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.05 }}
             className="mx-auto max-w-2xl text-sm text-primary-foreground/70 leading-relaxed md:text-base">
             {t("hero.hook")}
           </motion.p>
 
-          {/* Headline — rewritten to be more direct */}
+          {/* Headline */}
           <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.12 }}
             className="mt-3 text-[30px] font-bold leading-tight text-primary-foreground md:text-[42px] lg:text-[48px]">
             {t("hero.titlePrefix")}{" "}
             <span style={{ color: "#93c5fd" }}>{t("hero.titleAccent")}</span>
           </motion.h1>
 
-          {/* Who this is for — new addition */}
+          {/* Who this is for */}
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.18 }}
             className="mt-3 flex justify-center">
             <span className="inline-block rounded-lg border border-primary-foreground/20 bg-primary-foreground/[0.07] px-3 py-1.5 text-[11px] text-primary-foreground/65 leading-snug md:text-xs md:px-4">
@@ -354,7 +341,7 @@ const Index = () => {
             {t("hero.subtitle")}
           </motion.p>
 
-          {/* CTAs — upgraded for conversion */}
+          {/* CTAs */}
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
             className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
@@ -390,6 +377,10 @@ const Index = () => {
 
       {/* ══════════════════════════════════════════════
           2. PROOF CALLOUT
+          CHANGED: proofStat is now a standalone sentence ("Ship 50–70% faster.")
+          followed by proofContext as support. em dash removed from JSX.
+          CTA links to /case-studies (soft curiosity), not /services.
+          "See delivery examples" text comes from hero.proofLink in translation.
       ══════════════════════════════════════════════ */}
       <div className="border-b border-border bg-card">
         <div className="container mx-auto px-4 py-4 md:px-6 md:py-5">
@@ -399,9 +390,10 @@ const Index = () => {
             </div>
             <div className="flex-1 min-w-0">
               <span className="font-semibold text-foreground text-sm md:text-base">{t("hero.proofStat")}</span>
-              <span className="text-muted-foreground text-sm md:text-base">{" "}— {t("hero.proofContext")}</span>
+              {" "}
+              <span className="text-muted-foreground text-sm md:text-base">{t("hero.proofContext")}</span>
             </div>
-            <Link to="/services" className="shrink-0">
+            <Link to="/case-studies" className="shrink-0">
               <Button variant="outline" size="sm" className="gap-1.5 w-full sm:w-auto">
                 {t("hero.proofLink")} <ArrowRight className="h-3.5 w-3.5" />
               </Button>
@@ -411,8 +403,8 @@ const Index = () => {
       </div>
 
       {/* ══════════════════════════════════════════════
-          STATS STRIP — replaces quote section
-          Three hard metrics: speed / system / team
+          STATS STRIP
+          Labels updated via translation files — no JSX change needed.
       ══════════════════════════════════════════════ */}
       <StatsStrip items={statsStrip} />
 
@@ -431,7 +423,6 @@ const Index = () => {
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 className="flex flex-col rounded-2xl border border-border bg-card overflow-hidden">
                 <div className={`h-[3px] w-full ${PILLAR[i].accentBar}`} />
-                {/* Increased padding + spacing for breathing room (UX fix) */}
                 <div className="flex flex-col flex-1 p-5 md:p-6">
                   <div className={`flex h-10 w-10 items-center justify-center rounded-xl mb-4 ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>{problemIcons[i]}</div>
                   <h3 className="text-[15px] font-semibold text-foreground leading-snug mb-3">{item.title}</h3>
@@ -450,8 +441,9 @@ const Index = () => {
       </SectionWrapper>
 
       {/* ══════════════════════════════════════════════
-          4. WHAT WE DELIVER  (moved before case studies)
-          + One System Banner added
+          4. WHAT WE DELIVER
+          Cards updated via translation files (desc + detail AI bullets).
+          No JSX change needed — renders dynamically from t("whatWeDeliver.cards").
       ══════════════════════════════════════════════ */}
       <SectionWrapper className="relative overflow-hidden bg-muted/30">
         <SectionCircles flip />
@@ -471,9 +463,14 @@ const Index = () => {
                   <p className="text-sm text-muted-foreground leading-relaxed">{card.desc}</p>
                   {card.detail && (
                     <ul className="mt-4 pt-4 border-t border-border space-y-2">
-                      {card.detail.map((b) => (
-                        <li key={b} className="flex items-center gap-2.5 text-xs text-muted-foreground">
-                          <span className={`h-1.5 w-1.5 rounded-full flex-shrink-0 ${PILLAR[i].dotColor}`} />{b}
+                      {card.detail.map((b, j) => (
+                        <li key={j} className="flex items-start gap-2.5 text-xs text-muted-foreground">
+                          <span className={`h-1.5 w-1.5 rounded-full flex-shrink-0 mt-1 ${PILLAR[i].dotColor}`} />
+                          {/* Last bullet in each card is the AI bullet — render slightly bolder */}
+                          {j === card.detail!.length - 1
+                            ? <span className="font-medium text-foreground">{b}</span>
+                            : <span>{b}</span>
+                          }
                         </li>
                       ))}
                     </ul>
@@ -483,7 +480,6 @@ const Index = () => {
             ))}
           </div>
 
-          {/* One System Banner — reinforces integration model */}
           <OneSystemBanner
             title={t("whatWeDeliver.oneSystemTitle")}
             desc={t("whatWeDeliver.oneSystemDesc")}
@@ -499,7 +495,7 @@ const Index = () => {
       </SectionWrapper>
 
       {/* ══════════════════════════════════════════════
-          5. CASE STUDIES  (moved after What We Deliver)
+          5. CASE STUDIES
       ══════════════════════════════════════════════ */}
       <div className="bg-muted/30">
         <CaseStudies />
@@ -655,7 +651,8 @@ const Index = () => {
 
       {/* ══════════════════════════════════════════════
           10. CTA
-          Updated button copy to match hero CTAs
+          Bottom CTA uses "Explore case studies" (stronger commitment).
+          This comes from t("caseStudies.viewAll") in the translation files.
       ══════════════════════════════════════════════ */}
       <SectionWrapper className="relative overflow-hidden bg-muted/30">
         <SectionCircles />
@@ -671,9 +668,9 @@ const Index = () => {
                 {t("cta.bookConsultation")} <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
             </a>
-            <Link to="/contact" className="w-full sm:w-auto">
+            <Link to="/case-studies" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                {t("cta.message")} <ArrowRight className="ml-2 h-4 w-4" />
+                {t("caseStudies.viewAll")} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </div>

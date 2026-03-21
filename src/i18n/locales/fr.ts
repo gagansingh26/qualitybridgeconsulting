@@ -24,18 +24,18 @@ const fr = {
     founderCredits: "10+ ans · Johnson & Johnson · Workday · Aon · Hugo Boss",
     founderLocation: "Grand Toronto, Canada",
     founderLinkedIn: "Se connecter sur LinkedIn",
-    proofStat: "50–70% de cycles de livraison plus rapides",
-    proofContext: "sur des go-lives SAP, des livraisons digitales et des programmes QA — structurés comme un seul engagement",
-    proofLink: "Voir les réalisations",
+    proofStat: "Livrez 50–70% plus vite.",
+    proofContext: "Sur le digital, SAP et la QA — avec une équipe responsable.",
+    proofLink: "Voir les exemples de livraison",
     stats: [
       { value: "Canada",       label: "Siège & direction client"  },
       { value: "3 régions",    label: "Amériques · UE · Asie"     },
       { value: "End-to-End",   label: "Dev · SAP · QA"            },
     ],
     statsStrip: [
-      { value: "50–70%",       label: "cycles de livraison plus rapides sur SAP, digital et QA"              },
-      { value: "3 piliers",    label: "livrés comme un système unifié, pas des prestations séparées"          },
-      { value: "1 équipe",     label: "responsable de bout en bout — du lancement au go-live"                 },
+      { value: "50–70%",       label: "livraison plus rapide — du concept à la production en semaines"               },
+      { value: "3 piliers",    label: "digital, SAP & QA augmentée par l'IA — un système, pas trois prestataires"    },
+      { value: "1 équipe",     label: "responsable de bout en bout — du lancement au go-live"                        },
     ],
   },
   capabilities: {
@@ -53,36 +53,36 @@ const fr = {
     heading: "Ce que nous livrons",
     subheading: "Pas trois prestataires séparés. Un engagement structuré couvrant le digital, SAP et la qualité — chaque capacité gouvernée dans le même système de livraison.",
     oneSystemTitle: "Ce ne sont pas trois services séparés — c'est un système unifié.",
-    oneSystemDesc:  "Chaque capacité partage le même cadre de livraison, la même structure de reporting et la même chaîne de responsabilité. Pas de gaps entre les équipes. Pas de conflits entre prestataires. Une seule équipe, de bout en bout.",
+    oneSystemDesc: "Chaque capacité partage le même cadre de livraison, la même structure de reporting et la même chaîne de responsabilité. Pas de gaps entre les équipes. Pas de conflits entre prestataires. Une seule équipe, de bout en bout.",
     cta: "Explorer les services",
     cards: [
       {
         title: "Développement digital",
-        desc: "Applications web sur mesure, tableaux de bord et portails — conçus pour la performance, la scalabilité et la préparation des parties prenantes dès le premier jour.",
+        desc: "Plateformes web avec React, TypeScript et pipelines CI/CD — portes de test automatisées dès le premier jour.",
         detail: [
           "Applications web métier et portails",
           "Tableaux de bord de reporting",
           "Prototypage rapide",
-          "Outils de développement assistés par IA",
+          "Génération de code assistée par IA pour les fonctionnalités clés — livraison en semaines, pas en mois",
         ],
       },
       {
         title: "Livraison & Gouvernance SAP",
-        desc: "Gouvernance UAT structurée pour les programmes S/4HANA — portes qualité, approbations des parties prenantes et décisions go/no-go fondées sur les preuves.",
+        desc: "Gouvernance UAT structurée pour S/4HANA — approbations et décisions go/no-go fondées sur les preuves à chaque étape.",
         detail: [
           "Gouvernance UAT et approbation métier",
-          "Framework de préparation aux versions",
+          "Points de contrôle de préparation aux versions",
           "Triage des défauts et portes qualité",
-          "Génération de scripts de test accélérée par IA",
+          "Scripts UAT générés par LLM depuis vos exigences métier — couverture complète des critères d'acceptation dès le premier jour",
         ],
       },
       {
         title: "Ingénierie qualité",
-        desc: "QE axée sur l'automatisation qui réduit les cycles de régression de 50 à 70% et donne aux équipes la confiance pour livrer en cadence.",
+        desc: "QE axée sur l'automatisation avec Cypress et Playwright — cycles de régression réduits de 50–70% pour livrer en cadence.",
         detail: [
           "Cypress, Playwright, et plus",
           "Intégration qualité CI/CD",
-          "Conception de tests assistée par IA",
+          "Triage des défauts priorisé par IA — risques les plus élevés détectés en premier, décisions go/no-go basées sur les données",
         ],
       },
     ],
@@ -99,18 +99,9 @@ const fr = {
     globeRegions: "CA · EU · Asie",
     globeHQ: "Siège · Direction client",
     steps: [
-      {
-        title: "Développer digitalement",
-        desc: "Nous concevons et livrons des applications web modernes, tableaux de bord et portails — construits avec React, TypeScript et Tailwind CSS, du prototype rapide à la production.",
-      },
-      {
-        title: "Gouverner les programmes SAP",
-        desc: "Nous intégrons une gouvernance UAT structurée dans les programmes SAP S/4HANA — avec des portes qualité, des approbations et des décisions go/no-go basées sur les risques.",
-      },
-      {
-        title: "Intégrer la qualité",
-        desc: "Nous construisons les fondations d'ingénierie qualité — régression automatisée, portes qualité CI/CD et confiance dans les versions avec Cypress, Playwright, TOSCA et bien plus.",
-      },
+      { title: "Développer digitalement", desc: "Nous concevons et livrons des applications web modernes, tableaux de bord et portails — construits avec React, TypeScript et Tailwind CSS, du prototype rapide à la production." },
+      { title: "Gouverner les programmes SAP", desc: "Nous intégrons une gouvernance UAT structurée dans les programmes SAP S/4HANA — avec des portes qualité, des approbations et des décisions go/no-go basées sur les risques." },
+      { title: "Intégrer la qualité", desc: "Nous construisons les fondations d'ingénierie qualité — régression automatisée, portes qualité CI/CD et confiance dans les versions avec Cypress, Playwright, TOSCA et bien plus." },
     ],
   },
   outcomes: {
@@ -118,10 +109,10 @@ const fr = {
     subheading: "Des résultats mesurables issus d'engagements réels.",
     forYourProgramme: "Obtenir ces résultats",
     items: [
-      { label: "Livraison digitale plus rapide",  desc: "Les outils modernes réduisent le temps du concept à la production"        },
-      { label: "Go-lives SAP maîtrisés",          desc: "Des approbations basées sur les preuves remplacent l'instinct"            },
-      { label: "50–70% de régression en moins",   desc: "L'automatisation réduit considérablement l'effort de test manuel"         },
-      { label: "Confiance des parties prenantes", desc: "Visibilité totale sur la préparation à chaque étape"                      },
+      { label: "Livraison digitale plus rapide",  desc: "Les outils modernes réduisent le temps du concept à la production"     },
+      { label: "Go-lives SAP maîtrisés",          desc: "Des approbations basées sur les preuves remplacent l'instinct"         },
+      { label: "50–70% de régression en moins",   desc: "L'automatisation réduit considérablement l'effort de test manuel"      },
+      { label: "Confiance des parties prenantes", desc: "Visibilité totale sur la préparation à chaque étape"                   },
     ],
   },
   problems: {
@@ -130,21 +121,9 @@ const fr = {
     subheading: "Des livraisons en retard, des go-lives incertains et une qualité qui ne suit pas. Nous les réglons tous les trois.",
     sampleEngagement: "Voir les études de cas",
     items: [
-      {
-        pill: "Développement digital",
-        title: "Les plateformes digitales livrent tard et échouent en production",
-        desc: "Des fondations techniques faibles — pas de standards clairs, des versions incohérentes et des MVPs qui ne passent pas à l'échelle.",
-      },
-      {
-        pill: "Livraison & Gouvernance SAP",
-        title: "Les go-lives SAP manquent de confiance et de contrôle",
-        desc: "Pas d'UAT structuré, des approbations floues, et des décisions de version prises sous pression — pas sur des preuves.",
-      },
-      {
-        pill: "Ingénierie qualité",
-        title: "Les tests de régression ralentissent la livraison et laissent passer les défauts",
-        desc: "Les processus manuels ne suivent pas le rythme des versions modernes — les problèmes de qualité atteignent la production.",
-      },
+      { pill: "Développement digital",       title: "Les plateformes digitales livrent tard et échouent en production",         desc: "Des fondations techniques faibles — pas de standards clairs, des versions incohérentes et des MVPs qui ne passent pas à l'échelle." },
+      { pill: "Livraison & Gouvernance SAP", title: "Les go-lives SAP manquent de confiance et de contrôle",                   desc: "Pas d'UAT structuré, des approbations floues, et des décisions de version prises sous pression — pas sur des preuves." },
+      { pill: "Ingénierie qualité",          title: "Les tests de régression ralentissent la livraison et laissent passer les défauts", desc: "Les processus manuels ne suivent pas le rythme des versions modernes — les problèmes de qualité atteignent la production." },
     ],
   },
   cta: {
@@ -161,7 +140,7 @@ const fr = {
     heading: "Des programmes réels. Des résultats mesurables.",
     subheading: "Un aperçu de nos interventions — en gouvernance SAP, ingénierie qualité et développement digital.",
     disclaimer: "Mission anonymisée · Détails disponibles sur demande",
-    viewAll: "Voir toutes les études de cas",
+    viewAll: "Explorer les études de cas",
     labels: {
       tapToExpand: "Appuyez sur une carte pour les détails",
       showDetails: "Voir les détails",
@@ -256,10 +235,10 @@ const fr = {
       { icon: "barChart",    label: "Décisions de version basées sur les métriques" },
     ],
     digitalItems: [
-      { title: "Applications web & portails",      desc: "Applications React responsives et accessibles — des outils internes aux portails clients."                                                      },
-      { title: "Tableaux de bord de reporting",    desc: "Tableaux de bord en temps réel connectés à vos sources de données existantes."                                                                 },
-      { title: "Prototypage rapide",               desc: "Du concept au prototype cliquable en quelques jours avec Lovable et Vite."                                                                      },
-      { title: "Intégration CI/CD & DevOps",       desc: "Pipelines GitHub Actions et flux de déploiement qui maintiennent votre cadence rapide et sûre."                                                },
+      { title: "Applications web & portails",   desc: "Applications React responsives et accessibles — des outils internes aux portails clients."         },
+      { title: "Tableaux de bord de reporting", desc: "Tableaux de bord en temps réel connectés à vos sources de données existantes."                    },
+      { title: "Prototypage rapide",            desc: "Du concept au prototype cliquable en quelques jours avec Lovable et Vite."                         },
+      { title: "Intégration CI/CD & DevOps",    desc: "Pipelines GitHub Actions et flux de déploiement qui maintiennent votre cadence rapide et sûre."   },
     ],
     digitalStackHeading: "Développé avec des outils modernes",
     digitalStackIntro: "Chaque projet utilise une stack open-source éprouvée — choisie en fonction de votre infrastructure et calendrier.",
@@ -286,13 +265,7 @@ const fr = {
       "Intégration CI/CD et portes qualité",
     ],
     coreCapabilities: "Compétences clés",
-    capabilities: [
-      "Planification des tests pour les programmes ERP",
-      "Direction du triage des défauts",
-      "Reporting & métriques pour les parties prenantes",
-      "Portes qualité CI/CD",
-      "IA pour l'optimisation des tests",
-    ],
+    capabilities: ["Planification des tests pour les programmes ERP", "Direction du triage des défauts", "Reporting & métriques pour les parties prenantes", "Portes qualité CI/CD", "IA pour l'optimisation des tests"],
   },
   uat: {
     heading: "Framework de gouvernance UAT",
@@ -322,10 +295,10 @@ const fr = {
     reach: "Soutien aux partenaires d'implémentation SAP en Amérique du Nord, en Europe et en Asie.",
     trackHeading: "Ce que nous suivons",
     trackItems: [
-      { title: "Statut d'exécution des tests",          desc: "Suivi de l'avancement des tests par domaine — SIT, UAT, régression."                                },
+      { title: "Statut d'exécution des tests",          desc: "Suivi de l'avancement des tests par domaine — SIT, UAT, régression."                          },
       { title: "Défauts par gravité & impact",          desc: "Surveillance des défauts ouverts par priorité pour s'assurer que les problèmes critiques sont résolus." },
-      { title: "Approbations & préparation métier",     desc: "Suivi des approbations des parties prenantes avec responsabilité et voies d'escalade."                },
-      { title: "Couverture d'automatisation",           desc: "Mesure de l'avancement de l'automatisation par rapport au périmètre de régression."                  },
+      { title: "Approbations & préparation métier",     desc: "Suivi des approbations des parties prenantes avec responsabilité et voies d'escalade."          },
+      { title: "Couverture d'automatisation",           desc: "Mesure de l'avancement de l'automatisation par rapport au périmètre de régression."            },
     ],
     decisionModel: "Modèle de décision de version",
     statuses: [
@@ -346,14 +319,7 @@ const fr = {
       "Aujourd'hui, je me concentre sur l'application de l'IA générative et des LLMs pour améliorer la conception des tests, accélérer l'automatisation et soutenir la gouvernance des versions basée sur les risques.",
     ],
     focusHeading: "Domaines de spécialisation",
-    focusAreas: [
-      "Gouvernance des tests SAP",
-      "IA pour l'ingénierie qualité",
-      "Transformation DevTestOps",
-      "Gestion des versions basée sur les risques",
-      "Développement de sites web & d'applications web",
-      "Conseil en transformation digitale",
-    ],
+    focusAreas: ["Gouvernance des tests SAP", "IA pour l'ingénierie qualité", "Transformation DevTestOps", "Gestion des versions basée sur les risques", "Développement de sites web & d'applications web", "Conseil en transformation digitale"],
   },
   contact: {
     heading: "Nous contacter",
@@ -375,8 +341,8 @@ const fr = {
     errorTitle: "Échec de l'envoi",
     errorDesc: "Une erreur s'est produite. Veuillez envoyer un e-mail directement.",
     heroStats: [
-      { value: "Consultation gratuite", label: "Sans obligation"     },
-      { value: "Réponse rapide",        label: "Garantie"            },
+      { value: "Consultation gratuite", label: "Sans obligation"        },
+      { value: "Réponse rapide",        label: "Garantie"               },
       { value: "Sans engagement",       label: "Juste une conversation" },
     ],
     stripConsultation: "Réserver une consultation gratuite",
@@ -386,9 +352,9 @@ const fr = {
     partnerHeading: "Vous cherchez un partenaire de livraison de confiance ?",
     partnerSubheading: "Nous travaillons avec des agences digitales, des partenaires SAP et des cabinets QA qui ont besoin d'un partenaire fiable.",
     partnerTypes: [
-      { title: "Agences digitales",              desc: "Besoin d'expertise QA ou SAP pour un projet client ? Nous nous intégrons sans prendre en charge la relation client." },
-      { title: "Partenaires SAP",                desc: "Vous cherchez un support UAT et QE pour un déploiement S/4HANA ? C'est notre spécialité."                          },
-      { title: "Cabinets QA",                    desc: "Demande excédentaire ou besoin de développement digital ? Nous pouvons intervenir en marque blanche ou en partenaire nommé." },
+      { title: "Agences digitales",   desc: "Besoin d'expertise QA ou SAP pour un projet client ? Nous nous intégrons sans prendre en charge la relation client." },
+      { title: "Partenaires SAP",     desc: "Vous cherchez un support UAT et QE pour un déploiement S/4HANA ? C'est notre spécialité." },
+      { title: "Cabinets QA",         desc: "Demande excédentaire ou besoin de développement digital ? Nous pouvons intervenir en marque blanche ou en partenaire nommé." },
     ],
     partnerCta: "Démarrer une conversation",
     partnerEmail: "Envoyer un email",
@@ -410,21 +376,9 @@ const fr = {
     heading: "La plupart gèrent trois prestataires. Nous sommes l'équipe unique.",
     subheading: "Développement, gouvernance SAP et QA — structurés comme un seul système de livraison. Pas de transferts. Pas de conflits entre prestataires.",
     items: [
-      {
-        title: "Un système de livraison — pas trois prestataires séparés",
-        desc: "La même équipe qui gouverne votre UAT SAP a aussi construit le tableau de bord que vos parties prenantes utilisent pour approuver.",
-        contrast: "vs. la plupart : agence dev + cabinet SAP + prestataire QA, chacun gérant son propre périmètre",
-      },
-      {
-        title: "Responsable basé au Canada, bout en bout",
-        desc: "Un responsable senior — responsable du digital, SAP et QA du lancement au go-live. Soutenu par des spécialistes en Amérique du Nord, Europe et Asie.",
-        contrast: "vs. la plupart : le commercial vend, les juniors livrent",
-      },
-      {
-        title: "Fondé sur 10+ ans de livraison Fortune 500",
-        desc: "Déploiements SAP, plateformes SaaS et programmes QA mondiaux — construit sur 10+ ans d'expérience terrain Fortune 500.",
-        contrast: "vs. la plupart : frameworks adaptés d'autres secteurs",
-      },
+      { title: "Un système de livraison — pas trois prestataires séparés", desc: "La même équipe qui gouverne votre UAT SAP a aussi construit le tableau de bord que vos parties prenantes utilisent pour approuver.", contrast: "vs. la plupart : agence dev + cabinet SAP + prestataire QA, chacun gérant son propre périmètre" },
+      { title: "Responsable basé au Canada, bout en bout",                 desc: "Un responsable senior — responsable du digital, SAP et QA du lancement au go-live. Soutenu par des spécialistes en Amérique du Nord, Europe et Asie.", contrast: "vs. la plupart : le commercial vend, les juniors livrent" },
+      { title: "Fondé sur 10+ ans de livraison Fortune 500",               desc: "Déploiements SAP, plateformes SaaS et programmes QA mondiaux — construit sur 10+ ans d'expérience terrain Fortune 500.", contrast: "vs. la plupart : frameworks adaptés d'autres secteurs" },
     ],
   },
   footer: {
@@ -448,18 +402,8 @@ const fr = {
     eyebrow: "Notre mode d'engagement",
     heading: "Structuré dès le premier jour. Flexible par conception.",
     subheading: "Chaque engagement commence par une conversation sur votre programme. Pas de retainer avant que la compatibilité soit claire.",
-    model1: {
-      label: "Modèle 1",
-      title: "Projet à prix fixe",
-      desc: "Périmètre défini, livrables clairs et une seule facture. Idéal pour les travaux limités dans le temps.",
-      tag: "Résultat défini · Coût prévisible",
-    },
-    model2: {
-      label: "Modèle 2",
-      title: "Retainer mensuel",
-      desc: "Support embarqué continu sur un ou plusieurs piliers. Idéal pour les équipes qui ont besoin d'une gouvernance qualité constante.",
-      tag: "Continu · S'adapte à votre programme",
-    },
+    model1: { label: "Modèle 1", title: "Projet à prix fixe",   desc: "Périmètre défini, livrables clairs et une seule facture. Idéal pour les travaux limités dans le temps.", tag: "Résultat défini · Coût prévisible" },
+    model2: { label: "Modèle 2", title: "Retainer mensuel",     desc: "Support embarqué continu sur un ou plusieurs piliers. Idéal pour les équipes qui ont besoin d'une gouvernance qualité constante.", tag: "Continu · S'adapte à votre programme" },
     table: {
       headers: ["Pilier", "Périmètre type", "Durée", "Modèle"],
       pillars:      { digital: "Développement digital", sap: "Gouvernance SAP",   qe: "Ingénierie qualité"   },
@@ -470,12 +414,7 @@ const fr = {
         qe:      { scope: "Framework d'automatisation ou couverture QE continue",    duration: "4–10 semaines+",  model: "Prix fixe ou retainer" },
       },
     },
-    cta: {
-      title:   "Pas sûr du modèle qui vous convient ?",
-      desc:    "Chaque engagement commence par un appel gratuit de 15 minutes — sans engagement, sans proposition avant que le périmètre soit clair.",
-      book:    "Réserver un appel gratuit",
-      message: "Envoyer un message",
-    },
+    cta: { title: "Pas sûr du modèle qui vous convient ?", desc: "Chaque engagement commence par un appel gratuit de 15 minutes — sans engagement, sans proposition avant que le périmètre soit clair.", book: "Réserver un appel gratuit", message: "Envoyer un message" },
   },
   sticky: { bookCall: "Réserver un appel", message: "Nous contacter" },
   cookie: {
