@@ -69,6 +69,7 @@ const EXPECTATION_COLOURS = [
   "text-teal-600 dark:text-teal-400",
   "text-teal-600 dark:text-teal-400",
   "text-purple-600 dark:text-purple-400",
+  "text-blue-600 dark:text-blue-400",
   "text-amber-600 dark:text-amber-400",
 ];
 
@@ -81,9 +82,10 @@ const fadeUp = (delay = 0) => ({
 
 const content = {
   en: {
-    heading: "About QualityBridge Consulting",
-    heroPills: ["Digital Development", "SAP Governance & UAT", "Test Automation & Quality"],
+    heading: "About Gagan Singh",
+    heroPills: ["Digital Development", "SAP Governance & UAT", "AI-Augmented Quality"],
     heroTitle: "10+ years. 3 continents.",
+    heroFounderLine: "Built on real programme experience — not a framework.",
     heroAccent: "One standard.",
     heroSubtitle: "Enterprise delivery built on real programmes, real outcomes, and a network of specialists who've done it before.",
     heroStats: [
@@ -119,6 +121,7 @@ const content = {
       "A single point of contact in Canada — accountable for the full engagement.",
       "Structured UAT governance and release readiness with clear go/no-go signals.",
       "Automation-first quality strategies embedded in your CI/CD pipeline.",
+      "AI-assisted test design and defect analysis applied across all engagements.",
       "Access to vetted global specialists matched to your exact programme needs.",
     ],
     howIApproach: "How We Approach Delivery",
@@ -144,9 +147,10 @@ const content = {
     founderCta2: "Connect on LinkedIn",
   },
   de: {
-    heading: "Über QualityBridge Consulting",
-    heroPills: ["Digitale Entwicklung", "SAP-Governance & UAT", "Testautomatisierung & Qualität"],
+    heading: "Über Gagan Singh",
+    heroPills: ["Digitale Entwicklung", "SAP-Governance & UAT", "KI-gestützte Qualität"],
     heroTitle: "10+ Jahre. 3 Kontinente.",
+    heroFounderLine: "Aufgebaut auf echter Programmerfahrung — kein Framework.",
     heroAccent: "Ein Standard.",
     heroSubtitle: "Enterprise-Delivery auf Basis realer Programme, echter Ergebnisse und einem Netzwerk von Spezialisten, die es schon getan haben.",
     heroStats: [
@@ -182,6 +186,7 @@ const content = {
       "Ein einziger Ansprechpartner in Kanada — verantwortlich für das gesamte Engagement.",
       "Strukturierte UAT-Governance und Release-Bereitschaft mit klaren Go/No-Go-Signalen.",
       "Automatisierungsorientierte Qualitätsstrategien in Ihrer CI/CD-Pipeline.",
+      "KI-gestütztes Testdesign und Fehleranalyse in allen Engagements.",
       "Zugang zu geprüften globalen Spezialisten, passend zu Ihren Programmanforderungen.",
     ],
     howIApproach: "Unser Delivery-Ansatz",
@@ -207,9 +212,10 @@ const content = {
     founderCta2: "Auf LinkedIn verbinden",
   },
   fr: {
-    heading: "À propos de QualityBridge Consulting",
-    heroPills: ["Développement digital", "Gouvernance SAP & UAT", "Automatisation des tests & Qualité"],
+    heading: "À propos de Gagan Singh",
+    heroPills: ["Développement digital", "Gouvernance SAP & UAT", "Qualité augmentée par l'IA"],
     heroTitle: "10+ ans. 3 continents.",
+    heroFounderLine: "Fondé sur une vraie expérience programme — pas un cadre théorique.",
     heroAccent: "Un seul standard.",
     heroSubtitle: "Une livraison d'entreprise fondée sur de vrais programmes, de vrais résultats et un réseau de spécialistes qui l'ont déjà fait.",
     heroStats: [
@@ -245,6 +251,7 @@ const content = {
       "Un seul point de contact au Canada — responsable de l'engagement complet.",
       "Gouvernance UAT structurée et préparation aux versions avec des signaux go/no-go clairs.",
       "Stratégies qualité axées sur l'automatisation intégrées dans votre pipeline CI/CD.",
+      "Conception de tests et analyse des défauts assistées par IA dans tous les engagements.",
       "Accès à des spécialistes mondiaux vérifiés adaptés à vos besoins de programme.",
     ],
     howIApproach: "Notre approche de livraison",
@@ -330,6 +337,9 @@ const About = () => {
             {a.heroTitle}{" "}<span style={{ color: "#93c5fd" }}>{a.heroAccent}</span>
           </h1>
           <p className="mx-auto mt-3 max-w-xl text-base text-primary-foreground/80 md:text-lg">{a.heroSubtitle}</p>
+          <p className="mx-auto mt-2 max-w-lg text-sm font-medium text-primary-foreground/60 md:text-base">
+            {a.heroFounderLine}
+          </p>
           <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3">
             <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto">{a.ctaBook} <ExternalLink className="ml-2 h-4 w-4" /></Button>
@@ -380,30 +390,35 @@ const About = () => {
         <div className="container mx-auto max-w-6xl px-4 pt-8 md:px-6 md:pt-10">
           <div className="grid grid-cols-1 items-start gap-5 md:gap-8 lg:grid-cols-12">
             <div className="space-y-4 lg:col-span-7">
-              <h2 className="font-display text-2xl font-bold leading-tight text-foreground md:text-4xl">{a.heading}</h2>
-              <p className="text-sm leading-relaxed text-muted-foreground md:text-base">{a.intro}</p>
-              <ul className="space-y-2">
-                {a.bullets.map((b, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <CheckCircle2 className="mt-0.5 shrink-0 text-primary" size={14} /><span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-2 rounded-xl border border-border bg-card p-5 card-shadow md:p-6">
+              {/* Founder card leads — personal credibility first */}
+              <div className="rounded-xl border border-border bg-card p-5 card-shadow md:p-6">
                 <div className="mb-4 flex items-center gap-3">
-                  <img src="/founder-avatar.jpg" alt="Gagan Singh — Founder, QualityBridge Consulting" className="h-12 w-12 rounded-full object-cover ring-2 ring-primary/20" />
+                  <img src="/founder-avatar.jpg" alt="Gagan Singh — Founder, QualityBridge Consulting" className="h-14 w-14 rounded-full object-cover ring-2 ring-primary/20" />
                   <div>
-                    <p className="text-sm font-semibold text-foreground">{a.founderName}</p>
+                    <p className="text-base font-bold text-foreground">{a.founderName}</p>
                     <p className="text-xs text-muted-foreground">{a.founderTitle} · {a.founderLocation}</p>
+                    <p className="text-xs text-primary mt-0.5">{a.founderExperience}</p>
                   </div>
                 </div>
-                <div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
-                  <p className="font-medium text-foreground italic">&ldquo;{a.paragraph1}&rdquo;</p>
+                <p className="mb-3 font-medium text-foreground italic text-sm">&ldquo;{a.paragraph1}&rdquo;</p>
+                <div className="space-y-2.5 text-sm leading-relaxed text-muted-foreground">
                   <p dangerouslySetInnerHTML={{ __html: a.paragraph1b }} />
                   <p>{a.paragraph1c}</p>
                   <p>{a.paragraph1d}</p>
                 </div>
                 <p className="mt-4 border-l-2 border-primary/30 pl-3 text-sm italic text-muted-foreground">{a.paragraph3}</p>
+              </div>
+              {/* Company context below the founder story */}
+              <div className="pt-1">
+                <h2 className="font-display text-xl font-bold leading-tight text-foreground mb-3 md:text-2xl">{a.heading}</h2>
+                <p className="text-sm leading-relaxed text-muted-foreground md:text-base">{a.intro}</p>
+                <ul className="mt-3 space-y-2">
+                  {a.bullets.map((b, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="mt-0.5 shrink-0 text-primary" size={14} /><span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
             <div className="space-y-4 lg:col-span-5">
@@ -519,7 +534,7 @@ const About = () => {
         <motion.div {...fadeUp(0)} className="relative text-center">
           <h2 className="mb-6 text-[28px] font-bold md:text-[36px] text-foreground">{a.focusAreas}</h2>
         </motion.div>
-        <Accordion type="multiple" className="relative space-y-2">
+        <Accordion type="multiple" defaultValue={["web"]} className="relative space-y-2">
           {a.focusAreasData.map((area, i) => {
             const Icon = focusIcons[i];
             const c = FOCUS_COLOURS[i];
