@@ -87,11 +87,14 @@ const Footer = () => {
                   clicking navigates to the careers section on the About
                   page without loading a new page.
               ─────────────────────────────────────────────────────── */}
-              <Link
-                to="/about#careers"
-                className="mt-1 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary group"
+              {/* Use <a> instead of <Link> so the hash anchor reliably
+                  scrolls to #careers on the About page even when navigating
+                  from a different route. */}
+              <a
+                href="/about#careers"
+                className="mt-1 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
               >
-                {/* Pulsing dot — teal to signal "open / active" */}
+                {/* Pulsing dot — teal signals role is actively open */}
                 <span className="relative flex h-2 w-2 flex-shrink-0">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-60" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-teal-500 dark:bg-teal-400" />
@@ -101,7 +104,7 @@ const Footer = () => {
                 <span className="rounded-full bg-teal-100 dark:bg-teal-900 px-1.5 py-0.5 text-[9px] font-semibold text-teal-700 dark:text-teal-300">
                   {t("footer.hiringNew")}
                 </span>
-              </Link>
+              </a>
             </div>
           </div>
 
