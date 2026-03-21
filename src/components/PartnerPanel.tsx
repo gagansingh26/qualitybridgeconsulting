@@ -39,7 +39,7 @@ const PartnerPanel = () => {
             aria-label="Open collaboration panel"
             className="flex flex-col items-center gap-2 rounded-l-xl border border-r-0 px-2 py-4 shadow-lg transition-opacity hover:opacity-90"
             style={{
-              background: "linear-gradient(135deg, #1a4fbc 0%, #1638a0 100%)",
+              background: "#006cf0",
               borderColor: "rgba(255,255,255,0.15)",
             }}
           >
@@ -69,7 +69,7 @@ const PartnerPanel = () => {
             {/* Hero-blue header */}
             <div
               className="flex items-center justify-between px-4 py-3"
-              style={{ background: "linear-gradient(135deg, #1a4fbc 0%, #1638a0 100%)" }}
+              style={{ background: "#006cf0" }}
             >
               <div className="flex items-center gap-2">
                 <Handshake className="h-4 w-4 text-white/90" />
