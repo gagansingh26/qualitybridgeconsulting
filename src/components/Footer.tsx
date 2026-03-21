@@ -12,10 +12,7 @@ const Footer = () => {
 
   const handleHiringClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    navigate("/about");
-    setTimeout(() => {
-      document.getElementById("careers")?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
+    navigate("/about", { state: { scrollTo: "careers" } });
   };
 
   const quickLinks = [
@@ -91,11 +88,12 @@ const Footer = () => {
               ))}
 
               {/* ── We're hiring link ──────────────────────────────────
-                  Uses React Router's navigate() + scrollIntoView so the
-                  #careers anchor works correctly when coming from any route.
+                  Navigates to /about and passes { scrollTo: "careers" }
+                  via router state. The About page reads this in a useEffect
+                  and scrolls to #careers once the page has mounted.
               ─────────────────────────────────────────────────────── */}
               <Link
-                to="/about#careers"
+                to="/about"
                 onClick={handleHiringClick}
                 className="mt-1 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
               >

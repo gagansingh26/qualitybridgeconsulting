@@ -6,8 +6,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Briefcase, Settings, Brain, Building2, Globe, ShieldCheck, LineChart, Sparkles, CheckCircle2, ArrowRight, ExternalLink, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { usePageMeta } from "@/hooks/use-page-meta";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
 import PartnerPanel from "@/components/PartnerPanel";
@@ -255,9 +256,26 @@ const content = {
 
 const About = () => {
   const { i18n, t } = useTranslation();
+  const location = useLocation();
+
   const lang = (i18n.language?.slice(0, 2) as keyof typeof content) in content
     ? (i18n.language?.slice(0, 2) as keyof typeof content) : "en";
   const a = content[lang];
+
+  // ── Scroll to #careers when navigated here with state { scrollTo: "careers" }
+  useEffect(() => {
+    const state = location.state as { scrollTo?: string } | null;
+    if (state?.scrollTo === "careers") {
+      // Use requestAnimationFrame to wait for the DOM to fully paint
+      const raf = requestAnimationFrame(() => {
+        const el = document.getElementById("careers");
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+      return () => cancelAnimationFrame(raf);
+    }
+  }, [location.state]);
 
   usePageMeta(
     "QualityBridge Consulting | About",
