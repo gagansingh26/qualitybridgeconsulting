@@ -400,18 +400,18 @@ const About = () => {
                     <p className="text-xs text-primary mt-0.5">{a.founderExperience}</p>
                   </div>
                 </div>
-                <p className="mb-3 font-medium text-foreground italic text-sm">&ldquo;{a.paragraph1}&rdquo;</p>
-                <div className="space-y-2.5 text-sm leading-relaxed text-muted-foreground">
+                <p className="mb-3 font-medium text-foreground italic text-sm text-justify">&ldquo;{a.paragraph1}&rdquo;</p>
+                <div className="space-y-2.5 text-sm leading-relaxed text-muted-foreground text-justify">
                   <p dangerouslySetInnerHTML={{ __html: a.paragraph1b }} />
                   <p>{a.paragraph1c}</p>
                   <p>{a.paragraph1d}</p>
                 </div>
-                <p className="mt-4 border-l-2 border-primary/30 pl-3 text-sm italic text-muted-foreground">{a.paragraph3}</p>
+                <p className="mt-4 border-l-2 border-primary/30 pl-3 text-sm italic text-muted-foreground text-justify">{a.paragraph3}</p>
               </div>
               {/* Company context below the founder story */}
               <div className="pt-1">
                 <h2 className="font-display text-xl font-bold leading-tight text-foreground mb-3 md:text-2xl">{a.heading}</h2>
-                <p className="text-sm leading-relaxed text-muted-foreground md:text-base">{a.intro}</p>
+                <p className="text-sm leading-relaxed text-muted-foreground md:text-base text-justify">{a.intro}</p>
                 <ul className="mt-3 space-y-2">
                   {a.bullets.map((b, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
