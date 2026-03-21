@@ -22,40 +22,13 @@ const principleIcons = [ShieldCheck, LineChart, Sparkles, Globe];
 const focusIcons = [Briefcase, Settings, Brain, Building2];
 
 // ─── Focus area pillar colours ────────────────────────────────────────────────
-// [0] Digital Dev = blue, [1] SAP = teal, [2] DevTestOps = purple, [3] AI = primary
 const FOCUS_COLOURS = [
-  {
-    accentBar:    "bg-blue-500 dark:bg-blue-400",
-    iconBg:       "bg-blue-100 dark:bg-blue-900",
-    iconColor:    "text-blue-700 dark:text-blue-300",
-    outcomeText:  "text-blue-700 dark:text-blue-300",
-    outcomeBorder:"border-blue-300 dark:border-blue-700",
-  },
-  {
-    accentBar:    "bg-teal-500 dark:bg-teal-400",
-    iconBg:       "bg-teal-100 dark:bg-teal-900",
-    iconColor:    "text-teal-700 dark:text-teal-300",
-    outcomeText:  "text-teal-700 dark:text-teal-300",
-    outcomeBorder:"border-teal-300 dark:border-teal-700",
-  },
-  {
-    accentBar:    "bg-purple-500 dark:bg-purple-400",
-    iconBg:       "bg-purple-100 dark:bg-purple-900",
-    iconColor:    "text-purple-700 dark:text-purple-300",
-    outcomeText:  "text-purple-700 dark:text-purple-300",
-    outcomeBorder:"border-purple-300 dark:border-purple-700",
-  },
-  {
-    // AI — cross-cutting, use primary
-    accentBar:    "bg-primary",
-    iconBg:       "bg-primary/10",
-    iconColor:    "text-primary",
-    outcomeText:  "text-primary",
-    outcomeBorder:"border-primary/30",
-  },
+  { accentBar: "bg-blue-500 dark:bg-blue-400",   iconBg: "bg-blue-100 dark:bg-blue-900",   iconColor: "text-blue-700 dark:text-blue-300",   outcomeText: "text-blue-700 dark:text-blue-300",   outcomeBorder: "border-blue-300 dark:border-blue-700"   },
+  { accentBar: "bg-teal-500 dark:bg-teal-400",   iconBg: "bg-teal-100 dark:bg-teal-900",   iconColor: "text-teal-700 dark:text-teal-300",   outcomeText: "text-teal-700 dark:text-teal-300",   outcomeBorder: "border-teal-300 dark:border-teal-700"   },
+  { accentBar: "bg-purple-500 dark:bg-purple-400", iconBg: "bg-purple-100 dark:bg-purple-900", iconColor: "text-purple-700 dark:text-purple-300", outcomeText: "text-purple-700 dark:text-purple-300", outcomeBorder: "border-purple-300 dark:border-purple-700" },
+  { accentBar: "bg-primary", iconBg: "bg-primary/10", iconColor: "text-primary", outcomeText: "text-primary", outcomeBorder: "border-primary/30" },
 ];
 
-// Principle cards: Shift-Left=purple, Metrics=teal, AI=blue, Global=amber
 const PRINCIPLE_COLOURS = [
   { accentBar: "bg-purple-500 dark:bg-purple-400", iconBg: "bg-purple-100 dark:bg-purple-900", iconColor: "text-purple-700 dark:text-purple-300" },
   { accentBar: "bg-teal-500 dark:bg-teal-400",     iconBg: "bg-teal-100 dark:bg-teal-900",     iconColor: "text-teal-700 dark:text-teal-300"   },
@@ -63,7 +36,6 @@ const PRINCIPLE_COLOURS = [
   { accentBar: "bg-amber-500 dark:bg-amber-400",   iconBg: "bg-amber-100 dark:bg-amber-900",   iconColor: "text-amber-700 dark:text-amber-300" },
 ];
 
-// What You Can Expect dot colours per item
 const EXPECTATION_COLOURS = [
   "text-blue-600 dark:text-blue-400",
   "text-teal-600 dark:text-teal-400",
@@ -82,7 +54,8 @@ const fadeUp = (delay = 0) => ({
 
 const content = {
   en: {
-    heading: "About Gagan Singh",
+    // CHANGED: "About Gagan Singh" → "About Gagan"
+    heading: "About Gagan",
     heroPills: ["Digital Development", "SAP Governance & UAT", "AI-Augmented Quality"],
     heroTitle: "10+ years. 3 continents.",
     heroFounderLine: "Built on real programme experience — not a framework.",
@@ -127,19 +100,19 @@ const content = {
     howIApproach: "How We Approach Delivery",
     approachIntro: "Every engagement follows the same model: understand the programme, embed quality early, and never let a release decision be made on gut feel.",
     principles: [
-      { title: "Shift-Left Quality", desc: "Catching issues early in the pipeline is cheaper, faster, and less disruptive than fixing them at UAT." },
-      { title: "Metrics-Driven Decisions", desc: "Release decisions backed by defect trends, coverage data, and readiness signals — not gut feel." },
-      { title: "AI-Augmented Testing", desc: "Using GenAI and LLMs to accelerate test design, surface risk, and reduce repetitive manual effort." },
+      { title: "Shift-Left Quality",            desc: "Catching issues early in the pipeline is cheaper, faster, and less disruptive than fixing them at UAT." },
+      { title: "Metrics-Driven Decisions",       desc: "Release decisions backed by defect trends, coverage data, and readiness signals — not gut feel." },
+      { title: "AI-Augmented Testing",           desc: "Using GenAI and LLMs to accelerate test design, surface risk, and reduce repetitive manual effort." },
       { title: "Global Delivery, Local Oversight", desc: "Canada-based engagement management with vetted global specialists across 3 regions." },
     ],
     toolbox: "Toolbox",
     toolboxIntro: "Tools and frameworks used across delivery engagements for automation, observability, and release governance.",
     focusAreas: "Focus Areas",
     focusAreasData: [
-      { id: "web", title: "Digital Development & Web Applications", outcome: "End-to-end digital tools delivered from prototype to production.", content: "Building modern, performant web applications and reporting dashboards — from rapid prototypes to production-grade tools. Bridging the gap between complex enterprise backends and polished, stakeholder-ready digital experiences." },
-      { id: "sap", title: "SAP & ERP Test Governance", outcome: "Release cadence improved from quarterly to bi-weekly on SAP programmes.", content: "Structured UAT governance and release readiness for SAP S/4HANA programmes — with defined quality gates, stakeholder sign-offs, and risk-based go/no-go decisions. Experienced across full S/4HANA implementation and migration lifecycles." },
-      { id: "devtestops", title: "DevTestOps & CI/CD Quality Gates", outcome: "50–70% faster regression cycles achieved across engagements.", content: "Embedding automated quality gates into CI/CD pipelines to enforce standards at every stage — from unit tests through to release readiness. Using Jenkins, GitHub Actions, and Docker to build repeatable, scalable delivery workflows." },
-      { id: "ai", title: "AI-Enabled Quality Engineering", outcome: "30–40% reduction in production defect leakage through shift-left validation.", content: "Applying Generative AI and LLMs to test design, risk identification, and automation acceleration. Reducing manual effort while improving coverage and feedback speed across complex enterprise platforms." },
+      { id: "web",        title: "Digital Development & Web Applications", outcome: "End-to-end digital tools delivered from prototype to production.",                  content: "Building modern, performant web applications and reporting dashboards — from rapid prototypes to production-grade tools. Bridging the gap between complex enterprise backends and polished, stakeholder-ready digital experiences." },
+      { id: "sap",        title: "SAP & ERP Test Governance",              outcome: "Release cadence improved from quarterly to bi-weekly on SAP programmes.",         content: "Structured UAT governance and release readiness for SAP S/4HANA programmes — with defined quality gates, stakeholder sign-offs, and risk-based go/no-go decisions. Experienced across full S/4HANA implementation and migration lifecycles." },
+      { id: "devtestops", title: "DevTestOps & CI/CD Quality Gates",       outcome: "50–70% faster regression cycles achieved across engagements.",                    content: "Embedding automated quality gates into CI/CD pipelines to enforce standards at every stage — from unit tests through to release readiness. Using Jenkins, GitHub Actions, and Docker to build repeatable, scalable delivery workflows." },
+      { id: "ai",         title: "AI-Enabled Quality Engineering",         outcome: "30–40% reduction in production defect leakage through shift-left validation.",     content: "Applying Generative AI and LLMs to test design, risk identification, and automation acceleration. Reducing manual effort while improving coverage and feedback speed across complex enterprise platforms." },
     ],
     openToConversation: "Ready to work together?",
     openToConversationBody: "Whether you're planning an ERP transformation, scaling your QA practice, or building a digital product — let's start with a conversation.",
@@ -147,7 +120,8 @@ const content = {
     founderCta2: "Connect on LinkedIn",
   },
   de: {
-    heading: "Über Gagan Singh",
+    // CHANGED: "Über Gagan Singh" → "Über Gagan"
+    heading: "Über Gagan",
     heroPills: ["Digitale Entwicklung", "SAP-Governance & UAT", "KI-gestützte Qualität"],
     heroTitle: "10+ Jahre. 3 Kontinente.",
     heroFounderLine: "Aufgebaut auf echter Programmerfahrung — kein Framework.",
@@ -192,19 +166,19 @@ const content = {
     howIApproach: "Unser Delivery-Ansatz",
     approachIntro: "Jedes Engagement folgt demselben Modell: das Programm verstehen, Qualität früh einbetten und Release-Entscheidungen nie aus dem Bauch heraus treffen.",
     principles: [
-      { title: "Shift-Left-Qualität", desc: "Probleme früh in der Pipeline zu finden ist günstiger, schneller und weniger störend als sie im UAT zu beheben." },
+      { title: "Shift-Left-Qualität",         desc: "Probleme früh in der Pipeline zu finden ist günstiger, schneller und weniger störend als sie im UAT zu beheben." },
       { title: "Datengetriebene Entscheidungen", desc: "Release-Entscheidungen auf Basis von Fehlertrends, Coverage-Daten und Bereitschaftssignalen — nicht nach Gefühl." },
-      { title: "KI-gestütztes Testen", desc: "GenAI und LLMs zur Beschleunigung des Testdesigns, Risikoerkennung und Reduzierung manueller Aufwände." },
+      { title: "KI-gestütztes Testen",         desc: "GenAI und LLMs zur Beschleunigung des Testdesigns, Risikoerkennung und Reduzierung manueller Aufwände." },
       { title: "Globale Delivery, lokale Übersicht", desc: "Engagement-Management aus Kanada mit geprüften globalen Spezialisten in 3 Regionen." },
     ],
     toolbox: "Toolbox",
     toolboxIntro: "Tools und Frameworks für Automatisierung, Observability und Release-Governance.",
     focusAreas: "Schwerpunkte",
     focusAreasData: [
-      { id: "web", title: "Digitale Entwicklung & Webanwendungen", outcome: "End-to-End-Digitaltools vom Prototyp bis zur Produktion geliefert.", content: "Moderne, performante Webanwendungen und Reporting-Dashboards — von Rapid Prototypes bis zu produktionsreifen Tools." },
-      { id: "sap", title: "SAP & ERP-Test-Governance", outcome: "Release-Kadenz von quartalsweise auf zweiwöchentlich verbessert.", content: "Strukturierte UAT-Governance und Release-Bereitschaft für SAP S/4HANA-Programme — mit definierten Qualitätstoren, Stakeholder-Abnahmen und risikobasierten Go/No-Go-Entscheidungen." },
-      { id: "devtestops", title: "DevTestOps & CI/CD-Qualitätstore", outcome: "50–70% schnellere Regressionszyklen in Engagements erreicht.", content: "Automatisierte Qualitätstore in CI/CD-Pipelines einbetten — von Unit-Tests bis zur Release-Bereitschaft." },
-      { id: "ai", title: "KI-gestütztes Quality Engineering", outcome: "30–40% weniger Produktionsfehler durch Shift-Left-Validierung.", content: "Generative KI und LLMs für Testdesign, Risikoerkennung und Automatisierungsbeschleunigung." },
+      { id: "web",        title: "Digitale Entwicklung & Webanwendungen", outcome: "End-to-End-Digitaltools vom Prototyp bis zur Produktion geliefert.",          content: "Moderne, performante Webanwendungen und Reporting-Dashboards — von Rapid Prototypes bis zu produktionsreifen Tools." },
+      { id: "sap",        title: "SAP & ERP-Test-Governance",             outcome: "Release-Kadenz von quartalsweise auf zweiwöchentlich verbessert.",            content: "Strukturierte UAT-Governance und Release-Bereitschaft für SAP S/4HANA-Programme — mit definierten Qualitätstoren, Stakeholder-Abnahmen und risikobasierten Go/No-Go-Entscheidungen." },
+      { id: "devtestops", title: "DevTestOps & CI/CD-Qualitätstore",      outcome: "50–70% schnellere Regressionszyklen in Engagements erreicht.",               content: "Automatisierte Qualitätstore in CI/CD-Pipelines einbetten — von Unit-Tests bis zur Release-Bereitschaft." },
+      { id: "ai",         title: "KI-gestütztes Quality Engineering",     outcome: "30–40% weniger Produktionsfehler durch Shift-Left-Validierung.",              content: "Generative KI und LLMs für Testdesign, Risikoerkennung und Automatisierungsbeschleunigung." },
     ],
     openToConversation: "Bereit zusammenzuarbeiten?",
     openToConversationBody: "Ob Sie eine ERP-Transformation planen, Ihre QA-Praxis skalieren oder ein digitales Produkt aufbauen — lassen Sie uns mit einem Gespräch beginnen.",
@@ -212,7 +186,8 @@ const content = {
     founderCta2: "Auf LinkedIn verbinden",
   },
   fr: {
-    heading: "À propos de Gagan Singh",
+    // CHANGED: "À propos de Gagan Singh" → "À propos de Gagan"
+    heading: "À propos de Gagan",
     heroPills: ["Développement digital", "Gouvernance SAP & UAT", "Qualité augmentée par l'IA"],
     heroTitle: "10+ ans. 3 continents.",
     heroFounderLine: "Fondé sur une vraie expérience programme — pas un cadre théorique.",
@@ -257,19 +232,19 @@ const content = {
     howIApproach: "Notre approche de livraison",
     approachIntro: "Chaque engagement suit le même modèle : comprendre le programme, intégrer la qualité tôt et ne jamais prendre une décision de version à l'instinct.",
     principles: [
-      { title: "Qualité Shift-Left", desc: "Détecter les problèmes tôt dans le pipeline est moins coûteux, plus rapide et moins perturbateur qu'au stade UAT." },
+      { title: "Qualité Shift-Left",                desc: "Détecter les problèmes tôt dans le pipeline est moins coûteux, plus rapide et moins perturbateur qu'au stade UAT." },
       { title: "Décisions basées sur les métriques", desc: "Décisions de version basées sur les tendances des défauts, les données de couverture et les signaux de préparation." },
-      { title: "Tests augmentés par l'IA", desc: "Utiliser GenAI et LLMs pour accélérer la conception des tests, identifier les risques et réduire les efforts manuels." },
+      { title: "Tests augmentés par l'IA",           desc: "Utiliser GenAI et LLMs pour accélérer la conception des tests, identifier les risques et réduire les efforts manuels." },
       { title: "Livraison globale, supervision locale", desc: "Gestion de l'engagement depuis le Canada avec des spécialistes mondiaux vérifiés dans 3 régions." },
     ],
     toolbox: "Boîte à outils",
     toolboxIntro: "Outils et frameworks utilisés pour l'automatisation, l'observabilité et la gouvernance des versions.",
     focusAreas: "Domaines de spécialisation",
     focusAreasData: [
-      { id: "web", title: "Développement digital & Applications web", outcome: "Outils digitaux end-to-end livrés du prototype à la production.", content: "Construire des applications web modernes et performantes — des prototypes rapides aux outils prêts pour la production." },
-      { id: "sap", title: "Gouvernance des tests SAP & ERP", outcome: "Cadence de version améliorée de trimestrielle à bimensuelle.", content: "Gouvernance UAT structurée et préparation aux versions pour les programmes SAP S/4HANA." },
-      { id: "devtestops", title: "DevTestOps & Portes qualité CI/CD", outcome: "50–70% de cycles de régression plus rapides atteints.", content: "Intégrer des portes qualité automatisées dans les pipelines CI/CD avec Jenkins, GitHub Actions et Docker." },
-      { id: "ai", title: "Ingénierie qualité assistée par IA", outcome: "30–40% de réduction des défauts en production grâce à la validation shift-left.", content: "Appliquer l'IA générative et les LLMs à la conception des tests, l'identification des risques et l'accélération de l'automatisation." },
+      { id: "web",        title: "Développement digital & Applications web",  outcome: "Outils digitaux end-to-end livrés du prototype à la production.",                       content: "Construire des applications web modernes et performantes — des prototypes rapides aux outils prêts pour la production." },
+      { id: "sap",        title: "Gouvernance des tests SAP & ERP",           outcome: "Cadence de version améliorée de trimestrielle à bimensuelle.",                          content: "Gouvernance UAT structurée et préparation aux versions pour les programmes SAP S/4HANA." },
+      { id: "devtestops", title: "DevTestOps & Portes qualité CI/CD",         outcome: "50–70% de cycles de régression plus rapides atteints.",                                 content: "Intégrer des portes qualité automatisées dans les pipelines CI/CD avec Jenkins, GitHub Actions et Docker." },
+      { id: "ai",         title: "Ingénierie qualité assistée par IA",        outcome: "30–40% de réduction des défauts en production grâce à la validation shift-left.",       content: "Appliquer l'IA générative et les LLMs à la conception des tests, l'identification des risques et l'accélération de l'automatisation." },
     ],
     openToConversation: "Prêt à travailler ensemble ?",
     openToConversationBody: "Que vous planifiez une transformation ERP, développiez votre pratique QA ou construisiez un produit digital — commençons par une conversation.",
@@ -337,9 +312,7 @@ const About = () => {
             {a.heroTitle}{" "}<span style={{ color: "#93c5fd" }}>{a.heroAccent}</span>
           </h1>
           <p className="mx-auto mt-3 max-w-xl text-base text-primary-foreground/80 md:text-lg">{a.heroSubtitle}</p>
-          <p className="mx-auto mt-2 max-w-lg text-sm font-medium text-primary-foreground/60 md:text-base">
-            {a.heroFounderLine}
-          </p>
+          <p className="mx-auto mt-2 max-w-lg text-sm font-medium text-primary-foreground/60 md:text-base">{a.heroFounderLine}</p>
           <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3">
             <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto">{a.ctaBook} <ExternalLink className="ml-2 h-4 w-4" /></Button>
@@ -390,7 +363,7 @@ const About = () => {
         <div className="container mx-auto max-w-6xl px-4 pt-8 md:px-6 md:pt-10">
           <div className="grid grid-cols-1 items-start gap-5 md:gap-8 lg:grid-cols-12">
             <div className="space-y-4 lg:col-span-7">
-              {/* Founder card leads — personal credibility first */}
+              {/* Founder card */}
               <div className="rounded-xl border border-border bg-card p-5 card-shadow md:p-6">
                 <div className="mb-4 flex items-center gap-3">
                   <img src="/founder-avatar.jpg" alt="Gagan Singh — Founder, QualityBridge Consulting" className="h-14 w-14 rounded-full object-cover ring-2 ring-primary/20" />
@@ -408,7 +381,7 @@ const About = () => {
                 </div>
                 <p className="mt-4 border-l-2 border-primary/30 pl-3 text-sm italic text-muted-foreground text-justify">{a.paragraph3}</p>
               </div>
-              {/* Company context below the founder story */}
+              {/* Company context */}
               <div className="pt-1">
                 <h2 className="font-display text-xl font-bold leading-tight text-foreground mb-3 md:text-2xl">{a.heading}</h2>
                 <p className="text-sm leading-relaxed text-muted-foreground md:text-base text-justify">{a.intro}</p>
@@ -515,17 +488,14 @@ const About = () => {
           <h2 className="text-[28px] font-bold md:text-[36px] text-foreground">{a.toolbox}</h2>
           <p className="mx-auto mt-1.5 max-w-2xl text-sm text-muted-foreground md:text-base">{a.toolboxIntro}</p>
           <div className="mt-5 flex flex-wrap justify-center gap-1.5">
-            {toolbox.map((tool, i) => {
-              // Automation tools (0-1) = purple, CI/CD tools (2-4) = blue, observability (5-6) = teal, governance (7-9) = amber
-              return (
-                <Badge key={tool} variant="secondary" className="text-xs">{tool}</Badge>
-              );
-            })}
+            {toolbox.map((tool) => (
+              <Badge key={tool} variant="secondary" className="text-xs">{tool}</Badge>
+            ))}
           </div>
         </motion.div>
       </SectionWrapper>
 
-      {/* ── Focus Areas — coloured accordion ── */}
+      {/* ── Focus Areas ── */}
       <SectionWrapper className="relative overflow-hidden bg-muted/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.05) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -left-14 -top-14 h-48 w-48 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
@@ -580,6 +550,7 @@ const About = () => {
           </div>
         </motion.div>
       </SectionWrapper>
+
       <PartnerPanel />
     </Layout>
   );
