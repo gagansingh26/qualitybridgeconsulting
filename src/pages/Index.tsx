@@ -5,7 +5,7 @@ import {
   ArrowRight, ExternalLink, Shield, Users, TrendingDown,
   GitBranch, Monitor, Rocket, Layers, MapPin,
   Target, ClipboardCheck, Activity, TrendingUp,
-  HelpCircle, ChevronDown, CheckCircle,
+  HelpCircle, ChevronDown, CheckCircle, Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
@@ -17,9 +17,9 @@ import PartnerPanel from "@/components/PartnerPanel";
 
 // ─── Design tokens ─────────────────────────────────────────────────────────────
 const PILLAR = [
-  { accentBar:"bg-blue-500 dark:bg-blue-400",   iconBg:"bg-blue-100 dark:bg-blue-900",   iconColor:"text-blue-600 dark:text-blue-400",   dotColor:"bg-blue-500 dark:bg-blue-400",   stepBg:"bg-blue-500",   labelColor:"text-blue-600 dark:text-blue-400"   },
-  { accentBar:"bg-teal-500 dark:bg-teal-400",   iconBg:"bg-teal-100 dark:bg-teal-900",   iconColor:"text-teal-600 dark:text-teal-400",   dotColor:"bg-teal-500 dark:bg-teal-400",   stepBg:"bg-teal-500",   labelColor:"text-teal-600 dark:text-teal-400"   },
-  { accentBar:"bg-purple-500 dark:bg-purple-400", iconBg:"bg-purple-100 dark:bg-purple-900", iconColor:"text-purple-600 dark:text-purple-400", dotColor:"bg-purple-500 dark:bg-purple-400", stepBg:"bg-purple-500", labelColor:"text-purple-600 dark:text-purple-400" },
+  { accentBar:"bg-blue-500 dark:bg-blue-400",   iconBg:"bg-blue-100 dark:bg-blue-900",   iconColor:"text-blue-600 dark:text-blue-400",   dotColor:"bg-blue-500 dark:bg-blue-400",   stepBg:"bg-blue-500",   labelColor:"text-blue-600 dark:text-blue-400",   statColor:"text-blue-600 dark:text-blue-400"   },
+  { accentBar:"bg-teal-500 dark:bg-teal-400",   iconBg:"bg-teal-100 dark:bg-teal-900",   iconColor:"text-teal-600 dark:text-teal-400",   dotColor:"bg-teal-500 dark:bg-teal-400",   stepBg:"bg-teal-500",   labelColor:"text-teal-600 dark:text-teal-400",   statColor:"text-teal-600 dark:text-teal-400"   },
+  { accentBar:"bg-purple-500 dark:bg-purple-400", iconBg:"bg-purple-100 dark:bg-purple-900", iconColor:"text-purple-600 dark:text-purple-400", dotColor:"bg-purple-500 dark:bg-purple-400", stepBg:"bg-purple-500", labelColor:"text-purple-600 dark:text-purple-400", statColor:"text-purple-600 dark:text-purple-400" },
 ];
 const OUTCOME_ACCENT = ["bg-blue-500 dark:bg-blue-400","bg-teal-500 dark:bg-teal-400","bg-purple-500 dark:bg-purple-400","bg-amber-500 dark:bg-amber-400"];
 const OUTCOME_ICON   = [
@@ -33,7 +33,6 @@ const problemIcons = [<Monitor className="h-5 w-5" />, <Shield className="h-5 w-
 const deliverIcons = [<Monitor className="h-5 w-5" />, <ClipboardCheck className="h-5 w-5" />, <Activity className="h-5 w-5" />];
 const outcomeIcons = [<Rocket className="h-5 w-5" />, <Shield className="h-5 w-5" />, <TrendingDown className="h-5 w-5" />, <Users className="h-5 w-5" />];
 const diffIcons    = [<Layers className="h-5 w-5" />, <MapPin className="h-5 w-5" />, <TrendingUp className="h-5 w-5" />];
-
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 18 },
@@ -59,8 +58,19 @@ const SH = ({ eyebrow, heading, sub }: { eyebrow?: string; heading: string; sub?
   </div>
 );
 
-// ─── Hero globe graphic — CA → EU → ASIA delivery network ───────────────────
-const HeroGraphic = () => (
+// ─── Hero globe graphic ───────────────────────────────────────────────────────
+// ─── Hero globe graphic — accepts translated labels ───────────────────────────
+// "Canada", "Europe", "Asia" are proper nouns and intentionally not translated.
+// The badge labels (One team, HQ line, regions) are translated via props.
+const HeroGraphic = ({
+  labelOneTeam,
+  labelRegions,
+  labelHQ,
+}: {
+  labelOneTeam: string;
+  labelRegions: string;
+  labelHQ: string;
+}) => (
   <motion.div
     initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.8, delay: 0.48 }}
@@ -87,159 +97,76 @@ const HeroGraphic = () => (
         .gl-float{animation:globeFloat 3s ease-in-out infinite}
         .gl-node{animation:globeNode 2.6s ease-in-out infinite}
       `}</style>
-
-      {/* ── Globe base ── */}
-      <circle cx="100" cy="100" r="58" fill="rgba(147,197,253,0.06)"
-        stroke="rgba(147,197,253,0.22)" strokeWidth="1"/>
-      {/* Latitude rings */}
-      <ellipse cx="100" cy="100" rx="58" ry="20" fill="none"
-        stroke="rgba(147,197,253,0.12)" strokeWidth="0.8"/>
-      <ellipse cx="100" cy="100" rx="58" ry="40" fill="none"
-        stroke="rgba(147,197,253,0.08)" strokeWidth="0.8"/>
-      {/* Longitude lines */}
-      <line x1="100" y1="42" x2="100" y2="158"
-        stroke="rgba(147,197,253,0.10)" strokeWidth="0.8"/>
-      <path d="M 68 48 Q 42 100 68 152"
-        fill="none" stroke="rgba(147,197,253,0.08)" strokeWidth="0.8"/>
-      <path d="M 132 48 Q 158 100 132 152"
-        fill="none" stroke="rgba(147,197,253,0.08)" strokeWidth="0.8"/>
-      {/* Animated orbit ring */}
-      <ellipse cx="100" cy="100" rx="72" ry="24"
-        fill="none" stroke="rgba(147,197,253,0.18)" strokeWidth="1"
-        className="gl-spin"/>
-
-      {/* ── Canada node — left, anchor/HQ ── */}
-      <circle className="gl-ring" cx="52" cy="88" r="16" fill="none"
-        stroke="#93c5fd" strokeWidth="0.8"/>
+      <circle cx="100" cy="100" r="58" fill="rgba(147,197,253,0.06)" stroke="rgba(147,197,253,0.22)" strokeWidth="1"/>
+      <ellipse cx="100" cy="100" rx="58" ry="20" fill="none" stroke="rgba(147,197,253,0.12)" strokeWidth="0.8"/>
+      <ellipse cx="100" cy="100" rx="58" ry="40" fill="none" stroke="rgba(147,197,253,0.08)" strokeWidth="0.8"/>
+      <line x1="100" y1="42" x2="100" y2="158" stroke="rgba(147,197,253,0.10)" strokeWidth="0.8"/>
+      <path d="M 68 48 Q 42 100 68 152" fill="none" stroke="rgba(147,197,253,0.08)" strokeWidth="0.8"/>
+      <path d="M 132 48 Q 158 100 132 152" fill="none" stroke="rgba(147,197,253,0.08)" strokeWidth="0.8"/>
+      <ellipse cx="100" cy="100" rx="72" ry="24" fill="none" stroke="rgba(147,197,253,0.18)" strokeWidth="1" className="gl-spin"/>
+      {/* Canada — anchor node */}
+      <circle className="gl-ring" cx="52" cy="88" r="16" fill="none" stroke="#93c5fd" strokeWidth="0.8"/>
       <circle className="gl-pulse" cx="52" cy="88" r="9" fill="#93c5fd"/>
-      <text x="52" y="116" fontSize="8.5" fill="rgba(255,255,255,0.9)"
-        textAnchor="middle" fontWeight="700" fontFamily="system-ui,sans-serif">Canada</text>
-      <text x="52" y="127" fontSize="7" fill="rgba(255,255,255,0.45)"
-        textAnchor="middle" fontFamily="system-ui,sans-serif">HQ · Client lead</text>
-
-      {/* ── Europe node — top-right ── */}
-      <circle className="gl-node" cx="142" cy="62" r="5" fill="#93c5fd" opacity="0.85"
-        style={{animationDelay:"0.5s"}}/>
-      <text x="142" y="50" fontSize="8" fill="rgba(255,255,255,0.8)"
-        textAnchor="middle" fontWeight="600" fontFamily="system-ui,sans-serif">Europe</text>
-
-      {/* ── Asia node — bottom-right ── */}
-      <circle className="gl-node" cx="158" cy="128" r="5" fill="#93c5fd" opacity="0.85"
-        style={{animationDelay:"1.1s"}}/>
-      <text x="158" y="148" fontSize="8" fill="rgba(255,255,255,0.8)"
-        textAnchor="middle" fontWeight="600" fontFamily="system-ui,sans-serif">Asia</text>
-
-      {/* ── Animated connection arcs ── */}
-      {/* CA → EU */}
-      <path d="M 62 82 Q 96 55 136 64"
-        fill="none" stroke="rgba(147,197,253,0.45)" strokeWidth="1.2"
-        className="gl-flow"/>
-      {/* CA → Asia */}
-      <path d="M 62 95 Q 106 118 152 126"
-        fill="none" stroke="rgba(147,197,253,0.35)" strokeWidth="1.2"
-        className="gl-flow2"/>
-      {/* EU → Asia (via globe) */}
-      <path d="M 144 68 Q 162 96 155 122"
-        fill="none" stroke="rgba(147,197,253,0.25)" strokeWidth="1"
-        className="gl-flow3"/>
-
-      {/* ── "One team" badge — floats below globe ── */}
+      {/* "Canada" is a proper noun — not translated */}
+      <text x="52" y="116" fontSize="8.5" fill="rgba(255,255,255,0.9)" textAnchor="middle" fontWeight="700" fontFamily="system-ui,sans-serif">Canada</text>
+      <text x="52" y="127" fontSize="7" fill="rgba(255,255,255,0.45)" textAnchor="middle" fontFamily="system-ui,sans-serif">{labelHQ}</text>
+      {/* Europe / Asia — proper nouns, not translated */}
+      <circle className="gl-node" cx="142" cy="62" r="5" fill="#93c5fd" opacity="0.85" style={{animationDelay:"0.5s"}}/>
+      <text x="142" y="50" fontSize="8" fill="rgba(255,255,255,0.8)" textAnchor="middle" fontWeight="600" fontFamily="system-ui,sans-serif">Europe</text>
+      <circle className="gl-node" cx="158" cy="128" r="5" fill="#93c5fd" opacity="0.85" style={{animationDelay:"1.1s"}}/>
+      <text x="158" y="148" fontSize="8" fill="rgba(255,255,255,0.8)" textAnchor="middle" fontWeight="600" fontFamily="system-ui,sans-serif">Asia</text>
+      {/* Connection arcs */}
+      <path d="M 62 82 Q 96 55 136 64" fill="none" stroke="rgba(147,197,253,0.45)" strokeWidth="1.2" className="gl-flow"/>
+      <path d="M 62 95 Q 106 118 152 126" fill="none" stroke="rgba(147,197,253,0.35)" strokeWidth="1.2" className="gl-flow2"/>
+      <path d="M 144 68 Q 162 96 155 122" fill="none" stroke="rgba(147,197,253,0.25)" strokeWidth="1" className="gl-flow3"/>
+      {/* "One team" badge — translated */}
       <g className="gl-float" style={{ transformOrigin: "100px 178px" }}>
-        <rect x="46" y="168" width="108" height="30" rx="7"
-          fill="rgba(147,197,253,0.12)" stroke="rgba(147,197,253,0.35)" strokeWidth="0.8"/>
+        <rect x="46" y="168" width="108" height="30" rx="7" fill="rgba(147,197,253,0.12)" stroke="rgba(147,197,253,0.35)" strokeWidth="0.8"/>
         <circle cx="62" cy="183" r="4" fill="#93c5fd" opacity="0.8"/>
-        <text x="72" y="180" fontSize="8" fill="rgba(255,255,255,0.9)"
-          fontWeight="700" fontFamily="system-ui,sans-serif">One team</text>
-        <text x="72" y="191" fontSize="7" fill="rgba(255,255,255,0.5)"
-          fontFamily="system-ui,sans-serif">CA · EU · Asia</text>
+        <text x="72" y="180" fontSize="8" fill="rgba(255,255,255,0.9)" fontWeight="700" fontFamily="system-ui,sans-serif">{labelOneTeam}</text>
+        <text x="72" y="191" fontSize="7" fill="rgba(255,255,255,0.5)" fontFamily="system-ui,sans-serif">{labelRegions}</text>
       </g>
     </svg>
   </motion.div>
 );
+
 // ─── Mobile collapsible section wrapper ──────────────────────────────────────
-// On mobile: shows a tappable summary row + chevron; content collapses
-// MobileCollapse — mobile: tappable header + animated collapse
-//                — desktop: no header shown (SH handles heading), content always visible
 const MobileCollapse = ({
-  label,
-  eyebrow,
-  sub,
-  children,
-  defaultOpen = false,
-  onOpen,
+  label, eyebrow, sub, children, defaultOpen = false, onOpen,
 }: {
-  label: string;
-  eyebrow?: string;
-  sub?: string;
-  children: React.ReactNode;
-  defaultOpen?: boolean;
-  onOpen?: () => void;
+  label: string; eyebrow?: string; sub?: string; children: React.ReactNode;
+  defaultOpen?: boolean; onOpen?: () => void;
 }) => {
   const [open, setOpen] = useState(defaultOpen);
-  const toggle = () => {
-    const next = !open;
-    setOpen(next);
-    if (next && onOpen) onOpen();
-  };
+  const toggle = () => { const next = !open; setOpen(next); if (next && onOpen) onOpen(); };
   return (
     <div>
-      {/* ── Mobile only: compact tappable header ── */}
       <div className="md:hidden">
-        <button
-          onClick={toggle}
-          className="w-full flex items-center justify-between py-3 px-1 text-left"
-          aria-expanded={open}
-        >
+        <button onClick={toggle} className="w-full flex items-center justify-between py-3 px-1 text-left" aria-expanded={open}>
           <div className="min-w-0 flex-1 pr-3">
-            {eyebrow && (
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-primary mb-0.5">
-                {eyebrow}
-              </p>
-            )}
+            {eyebrow && <p className="text-[10px] font-semibold uppercase tracking-widest text-primary mb-0.5">{eyebrow}</p>}
             <span className="text-base font-bold text-foreground leading-snug">{label}</span>
           </div>
-          <motion.div
-            animate={{ rotate: open ? 180 : 0 }}
-            transition={{ duration: 0.2 }}
-            className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-colors ${
-              open ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"
-            }`}
-          >
+          <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}
+            className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-colors ${open ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"}`}>
             <ChevronDown className="h-4 w-4" />
           </motion.div>
         </button>
-
-        {/* Sub shown below button when expanded */}
         <AnimatePresence initial={false}>
           {open && sub && (
-            <motion.p
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="text-xs text-muted-foreground leading-relaxed px-1 pb-2"
-            >
-              {sub}
-            </motion.p>
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}
+              className="text-xs text-muted-foreground leading-relaxed px-1 pb-2">{sub}</motion.p>
           )}
         </AnimatePresence>
-
-        {/* Collapsed content */}
         <AnimatePresence initial={false}>
           {open && (
-            <motion.div
-              key="mobile-content"
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.28, ease: "easeInOut" }}
-              className="overflow-hidden"
-            >
+            <motion.div key="mobile-content" initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.28, ease: "easeInOut" }} className="overflow-hidden">
               {children}
             </motion.div>
           )}
         </AnimatePresence>
       </div>
-
-      {/* ── Desktop: always visible, SH renders the heading above ── */}
       <div className="hidden md:block">{children}</div>
     </div>
   );
@@ -251,17 +178,12 @@ const CounterStat = ({ target, suffix, prefix = "", start, delay = 0, accent }: 
 }) => {
   const [triggered, setTriggered] = useState(false);
   useEffect(() => {
-    if (start && !triggered) {
-      const t = setTimeout(() => setTriggered(true), delay);
-      return () => clearTimeout(t);
-    }
+    if (start && !triggered) { const t = setTimeout(() => setTriggered(true), delay); return () => clearTimeout(t); }
   }, [start, delay, triggered]);
   const val = useCountUp(target, 1300, triggered);
   return (
     <div className="text-center">
-      <span className="text-2xl font-bold text-foreground tabular-nums">
-        {prefix}{val}{suffix}
-      </span>
+      <span className="text-2xl font-bold text-foreground tabular-nums">{prefix}{val}{suffix}</span>
     </div>
   );
 };
@@ -286,12 +208,68 @@ const useCountUp = (target: number, duration = 1400, start = false) => {
   return val;
 };
 
+// ─── Stats Strip (replaces quote section) ────────────────────────────────────
+// Mobile: stacks vertically with horizontal dividers
+// Tablet+: 3-column grid with vertical dividers
+// Dark mode: uses semantic tokens throughout
+const StatsStrip = ({ items }: { items: { value: string; label: string }[] }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }} transition={{ duration: 0.45 }}
+    className="border-b border-border bg-background"
+  >
+    <div className="container mx-auto px-4 py-5 md:px-6 md:py-7">
+      {/* Mobile: vertical stack with horizontal rules */}
+      <div className="flex flex-col divide-y divide-border sm:hidden rounded-xl border border-border overflow-hidden">
+        {items.map((item, i) => (
+          <div key={i} className="flex items-center gap-4 px-5 py-4 bg-card">
+            <span className={`text-[22px] font-extrabold leading-none tabular-nums shrink-0 ${PILLAR[i].statColor}`}>
+              {item.value}
+            </span>
+            <span className="text-xs text-muted-foreground leading-snug">{item.label}</span>
+          </div>
+        ))}
+      </div>
+      {/* Tablet+: 3-column grid */}
+      <div className="hidden sm:grid sm:grid-cols-3 divide-x divide-border rounded-xl border border-border overflow-hidden max-w-2xl mx-auto">
+        {items.map((item, i) => (
+          <div key={i} className="flex flex-col items-center text-center px-4 py-5 md:px-6 bg-card">
+            <span className={`text-[24px] md:text-[28px] font-extrabold leading-none tabular-nums ${PILLAR[i].statColor}`}>
+              {item.value}
+            </span>
+            <span className="mt-2 text-[11px] md:text-xs text-muted-foreground leading-snug max-w-[120px]">
+              {item.label}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </motion.div>
+);
+
+// ─── One System Banner (reinforces integration story in What We Deliver) ──────
+const OneSystemBanner = ({ title, desc }: { title: string; desc: string }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.4, delay: 0.15 }}
+    className="mt-5 md:mt-6 flex items-start gap-4 rounded-2xl border border-border bg-gradient-to-r from-blue-50 via-teal-50 to-purple-50 dark:from-blue-950/40 dark:via-teal-950/40 dark:to-purple-950/40 p-4 md:p-5"
+  >
+    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white dark:bg-background border border-border text-primary shadow-sm">
+      <Zap className="h-5 w-5" />
+    </div>
+    <div className="min-w-0 flex-1">
+      <p className="text-sm font-semibold text-foreground leading-snug mb-1">{title}</p>
+      <p className="text-xs text-muted-foreground leading-relaxed md:text-sm">{desc}</p>
+    </div>
+  </motion.div>
+);
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 const Index = () => {
   const { t } = useTranslation();
   usePageMeta(
     "QualityBridge Consulting | Structured delivery across SAP, digital, and QA",
-    "Ship reliable platforms without delivery chaos — SAP governance, digital development, and quality engineering structured as one delivery system.",
+    "Stop shipping late, risky releases. One team accountable for digital delivery, SAP governance, and quality engineering.",
     "/"
   );
 
@@ -307,21 +285,25 @@ const Index = () => {
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
+
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   const problemItems   = t("problems.items",        { returnObjects: true }) as { title: string; desc: string }[];
   const outcomeItems   = t("outcomes.items",         { returnObjects: true }) as { label: string; desc: string }[];
   const howWeWorkSteps = t("howWeWork.steps",        { returnObjects: true }) as { title: string; desc: string }[];
   const deliverCards   = t("whatWeDeliver.cards",    { returnObjects: true }) as { title: string; desc: string; detail?: string[] }[];
   const diffItems      = t("differentiation.items",  { returnObjects: true }) as { title: string; desc: string; contrast?: string }[];
+  const statsStrip     = t("hero.statsStrip",        { returnObjects: true }) as { value: string; label: string }[];
 
   return (
     <Layout>
 
       {/* ══════════════════════════════════════════════
-          1. HERO — left text + right pipeline SVG
+          1. HERO
+          Changes: hook sharpened, H1 rewritten with stakes,
+          "who this is for" tag, CTAs upgraded
       ══════════════════════════════════════════════ */}
       <section className="enterprise-gradient relative overflow-hidden py-12 md:py-16 lg:py-20">
-        {/* Background circles */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10 bg-white/[0.03] md:h-80 md:w-80" />
           <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full border border-white/[0.06] bg-white/[0.02] md:h-64 md:w-64" />
@@ -329,90 +311,80 @@ const Index = () => {
         </div>
 
         <div className="container relative mx-auto px-4 text-center md:px-6">
-          {/* Globe — absolute overlay right side, matches About.tsx pattern */}
-          <HeroGraphic />
-            {/* Pills */}
-            <motion.div
-              initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="flex flex-wrap items-center justify-center gap-1.5 mb-5"
-            >
-              {(t("hero.pills", { returnObjects: true }) as string[]).map((pill) => (
-                <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-3 py-0.5 text-[11px] font-medium text-primary-foreground/90 md:text-xs">
-                  {pill}
-                </span>
-              ))}
-            </motion.div>
+          <HeroGraphic
+            labelOneTeam={t("howWeWork.globeOneTeam")}
+            labelRegions={t("howWeWork.globeRegions")}
+            labelHQ={t("howWeWork.globeHQ")}
+          />
 
-            {/* Hook */}
-            <motion.p
-              initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.05 }}
-              className="mx-auto max-w-2xl text-sm text-primary-foreground/70 leading-relaxed md:text-base"
-            >
-              {t("hero.hook")}
-            </motion.p>
+          {/* Pills */}
+          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
+            className="flex flex-wrap items-center justify-center gap-1.5 mb-5">
+            {(t("hero.pills", { returnObjects: true }) as string[]).map((pill) => (
+              <span key={pill} className="rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-3 py-0.5 text-[11px] font-medium text-primary-foreground/90 md:text-xs">
+                {pill}
+              </span>
+            ))}
+          </motion.div>
 
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.12 }}
-              className="mt-3 text-[30px] font-bold leading-tight text-primary-foreground md:text-[42px] lg:text-[48px]"
-            >
-              {t("hero.titlePrefix")}{" "}
-              <span style={{ color: "#93c5fd" }}>{t("hero.titleAccent")}</span>
-            </motion.h1>
+          {/* Hook — sharpened with stakes */}
+          <motion.p initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.05 }}
+            className="mx-auto max-w-2xl text-sm text-primary-foreground/70 leading-relaxed md:text-base">
+            {t("hero.hook")}
+          </motion.p>
 
-            {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="mx-auto mt-3 max-w-xl text-sm text-primary-foreground/75 leading-relaxed md:text-base"
-            >
-              {t("hero.subtitle")}
-            </motion.p>
+          {/* Headline — rewritten to be more direct */}
+          <motion.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.12 }}
+            className="mt-3 text-[30px] font-bold leading-tight text-primary-foreground md:text-[42px] lg:text-[48px]">
+            {t("hero.titlePrefix")}{" "}
+            <span style={{ color: "#93c5fd" }}>{t("hero.titleAccent")}</span>
+          </motion.h1>
 
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.28 }}
-              className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
-            >
-              <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto px-8">
-                  {t("hero.ctaPrimary")} <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </a>
-              <Link to="/services" className="w-full sm:w-auto">
-                <Button size="lg" variant="outline"
-                  className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto">
-                  {t("hero.ctaSecondary")} <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </motion.div>
+          {/* Who this is for — new addition */}
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.18 }}
+            className="mt-3 flex justify-center">
+            <span className="inline-block rounded-lg border border-primary-foreground/20 bg-primary-foreground/[0.07] px-3 py-1.5 text-[11px] text-primary-foreground/65 leading-snug md:text-xs md:px-4">
+              {t("hero.whoThisIsFor")}
+            </span>
+          </motion.div>
 
-            <motion.p
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.36 }}
-              className="mt-3 text-[12px] md:text-[13px]"
-              style={{ color: "rgba(255,255,255,0.5)" }}
-            >
-              {t("hero.reach")}
-            </motion.p>
+          {/* Subtitle */}
+          <motion.p initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.22 }}
+            className="mx-auto mt-3 max-w-xl text-sm text-primary-foreground/75 leading-relaxed md:text-base">
+            {t("hero.subtitle")}
+          </motion.p>
 
-            {/* Stat bar */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.44 }}
-              className="mx-auto mt-8 flex max-w-sm items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-md md:mt-10 md:max-w-lg"
-            >
+          {/* CTAs — upgraded for conversion */}
+          <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto px-8">
+                {t("hero.ctaPrimary")} <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </a>
+            <Link to="/services" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline"
+                className="w-full border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto">
+                {t("hero.ctaSecondary")} <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </motion.div>
+
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.38 }}
+            className="mt-3 text-[12px] text-primary-foreground/50 md:text-[13px]">
+            {t("hero.reach")}
+          </motion.p>
+
+          {/* Stat bar */}
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.46 }}
+            className="mx-auto mt-8 flex max-w-sm items-center justify-center divide-x divide-white/20 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-3 backdrop-blur-sm sm:max-w-md md:mt-10 md:max-w-lg">
             {(t("hero.stats", { returnObjects: true }) as { value: string; label: string }[]).map((stat, i) => (
               <div key={i} className="flex flex-1 flex-col items-center px-3 md:px-5">
                 <span className="text-sm font-bold text-primary-foreground md:text-base leading-tight text-center">{stat.value}</span>
                 <span className="mt-0.5 text-[10px] text-primary-foreground/50 md:text-xs text-center">{stat.label}</span>
               </div>
             ))}
-            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -439,28 +411,10 @@ const Index = () => {
       </div>
 
       {/* ══════════════════════════════════════════════
-          QUOTE — between proof and problems
+          STATS STRIP — replaces quote section
+          Three hard metrics: speed / system / team
       ══════════════════════════════════════════════ */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }} transition={{ duration: 0.45 }}
-        className="relative overflow-hidden border-b border-border bg-background"
-        style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "18px 18px" }}>
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <div className="absolute -right-14 -top-14 h-48 w-48 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
-          <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
-        </div>
-        <div className="container mx-auto px-4 py-8 md:py-10">
-          <div className="mx-auto max-w-xl text-center">
-            <svg width="28" height="22" viewBox="0 0 32 24" fill="none" className="mx-auto mb-4 opacity-20" aria-hidden="true">
-              <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l1.6 2.4C10.4 3.6 7.6 6.4 7.2 10.4H12V24H0zm20 0V14.4C20 6.4 24.8 1.6 34.4 0L36 2.4C30.4 3.6 27.6 6.4 27.2 10.4H32V24H20z" fill="currentColor" className="text-primary"/>
-            </svg>
-            <p className="text-base font-medium leading-relaxed text-foreground md:text-lg">
-              {t("hero.quote")}
-            </p>
-          </div>
-        </div>
-      </motion.div>
+      <StatsStrip items={statsStrip} />
 
       {/* ══════════════════════════════════════════════
           3. PROBLEMS
@@ -477,9 +431,10 @@ const Index = () => {
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 className="flex flex-col rounded-2xl border border-border bg-card overflow-hidden">
                 <div className={`h-[3px] w-full ${PILLAR[i].accentBar}`} />
+                {/* Increased padding + spacing for breathing room (UX fix) */}
                 <div className="flex flex-col flex-1 p-5 md:p-6">
-                  <div className={`flex h-9 w-9 items-center justify-center rounded-xl mb-4 ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>{problemIcons[i]}</div>
-                  <h3 className="text-[15px] font-semibold text-foreground leading-snug mb-2">{item.title}</h3>
+                  <div className={`flex h-10 w-10 items-center justify-center rounded-xl mb-4 ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>{problemIcons[i]}</div>
+                  <h3 className="text-[15px] font-semibold text-foreground leading-snug mb-3">{item.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
               </motion.div>
@@ -495,16 +450,10 @@ const Index = () => {
       </SectionWrapper>
 
       {/* ══════════════════════════════════════════════
-          4. CASE STUDIES
+          4. WHAT WE DELIVER  (moved before case studies)
+          + One System Banner added
       ══════════════════════════════════════════════ */}
-      <div className="bg-muted/30">
-        <CaseStudies />
-      </div>
-
-      {/* ══════════════════════════════════════════════
-          5. WHAT WE DELIVER
-      ══════════════════════════════════════════════ */}
-      <SectionWrapper className="relative overflow-hidden bg-background">
+      <SectionWrapper className="relative overflow-hidden bg-muted/30">
         <SectionCircles flip />
         <motion.div {...fadeUp(0)} className="relative hidden md:block">
           <SH eyebrow={t("whatWeDeliver.eyebrow")} heading={t("whatWeDeliver.heading")} sub={t("whatWeDeliver.subheading")} />
@@ -517,8 +466,8 @@ const Index = () => {
                 className="flex flex-col rounded-2xl border border-border bg-card overflow-hidden">
                 <div className={`h-[3px] w-full ${PILLAR[i].accentBar}`} />
                 <div className="flex flex-col flex-1 p-5 md:p-6">
-                  <div className={`flex h-9 w-9 items-center justify-center rounded-xl mb-4 ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>{deliverIcons[i]}</div>
-                  <h3 className="text-[15px] font-semibold text-foreground leading-snug mb-2">{card.title}</h3>
+                  <div className={`flex h-10 w-10 items-center justify-center rounded-xl mb-4 ${PILLAR[i].iconBg} ${PILLAR[i].iconColor}`}>{deliverIcons[i]}</div>
+                  <h3 className="text-[15px] font-semibold text-foreground leading-snug mb-3">{card.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{card.desc}</p>
                   {card.detail && (
                     <ul className="mt-4 pt-4 border-t border-border space-y-2">
@@ -533,6 +482,12 @@ const Index = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* One System Banner — reinforces integration model */}
+          <OneSystemBanner
+            title={t("whatWeDeliver.oneSystemTitle")}
+            desc={t("whatWeDeliver.oneSystemDesc")}
+          />
         </MobileCollapse>
         <motion.div {...fadeUp(0.15)} className="relative mt-6 text-center">
           <Link to="/services" className="w-full sm:w-auto inline-block">
@@ -544,9 +499,16 @@ const Index = () => {
       </SectionWrapper>
 
       {/* ══════════════════════════════════════════════
+          5. CASE STUDIES  (moved after What We Deliver)
+      ══════════════════════════════════════════════ */}
+      <div className="bg-muted/30">
+        <CaseStudies />
+      </div>
+
+      {/* ══════════════════════════════════════════════
           6. WHY WE'RE DIFFERENT
       ══════════════════════════════════════════════ */}
-      <SectionWrapper className="relative overflow-hidden bg-muted/30">
+      <SectionWrapper className="relative overflow-hidden bg-background">
         <SectionCircles />
         <motion.div {...fadeUp(0)} className="relative hidden md:block">
           <SH eyebrow={t("differentiation.eyebrow")} heading={t("differentiation.heading")} sub={t("differentiation.subheading")} />
@@ -576,21 +538,17 @@ const Index = () => {
         <motion.div {...fadeUp(0)} className="relative">
           <SH eyebrow={t("howWeWork.eyebrow")} heading={t("howWeWork.heading")} sub={t("howWeWork.subheading")} />
         </motion.div>
-        {/* ── Step pills ── */}
         <div className="relative flex items-start gap-0 mb-6 mt-2">
           {howWeWorkSteps.map((step, i) => (
             <div key={i} className="flex flex-1 flex-col items-center gap-2 relative">
               {i < howWeWorkSteps.length - 1 && (
                 <div className={`absolute left-1/2 top-5 h-px w-full transition-colors duration-300 ${i < activeStep ? PILLAR[i].accentBar.replace('bg-','bg-') : 'bg-border'}`} />
               )}
-              <button
-                onClick={() => setActiveStep(i)}
+              <button onClick={() => setActiveStep(i)}
                 className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold ring-4 ring-background transition-all duration-200 ${
                   i === activeStep ? `${PILLAR[i].stepBg} text-white scale-110` :
-                  i < activeStep ? 'bg-muted text-primary border-2 border-primary/30' :
-                  'bg-muted text-muted-foreground'
-                }`}
-              >
+                  i < activeStep ? 'bg-muted text-primary border-2 border-primary/30' : 'bg-muted text-muted-foreground'
+                }`}>
                 {i < activeStep ? <CheckCircle className="h-4 w-4" /> : i + 1}
               </button>
               <span className={`text-[11px] font-medium text-center leading-tight transition-colors ${i === activeStep ? 'text-primary' : 'text-muted-foreground'}`}>
@@ -599,33 +557,26 @@ const Index = () => {
             </div>
           ))}
         </div>
-
-        {/* ── Active step card ── */}
         <AnimatePresence mode="wait">
-          <motion.div
-            key={activeStep}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.25 }}
-            className="relative rounded-2xl border border-border bg-card overflow-hidden"
-          >
+          <motion.div key={activeStep} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.25 }}
+            className="relative rounded-2xl border border-border bg-card overflow-hidden">
             <div className={`h-[3px] w-full ${PILLAR[activeStep].accentBar}`} />
             <div className="p-5 md:p-7">
               <div className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wider mb-4 ${PILLAR[activeStep].iconBg} ${PILLAR[activeStep].iconColor}`}>
-                Step {activeStep + 1} of {howWeWorkSteps.length}
+                {t("howWeWork.stepLabel")} {activeStep + 1} {t("howWeWork.stepOf")} {howWeWorkSteps.length}
               </div>
               <h3 className="text-[18px] font-bold text-foreground mb-3">{howWeWorkSteps[activeStep].title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{howWeWorkSteps[activeStep].desc}</p>
               <div className="flex justify-between items-center mt-6 pt-4 border-t border-border">
                 <Button variant="outline" size="sm" disabled={activeStep === 0}
-                  onClick={() => setActiveStep(s => s - 1)} className="gap-1.5">
-                  ← {t("howWeWork.steps")[activeStep > 0 ? activeStep - 1 : 0]?.title ?? ""}
+                  onClick={() => setActiveStep(s => s - 1)} className="gap-1.5 text-xs">
+                  ‹ {activeStep > 0 ? howWeWorkSteps[activeStep - 1]?.title : t("howWeWork.stepPrev")}
                 </Button>
-                <span className="text-xs text-muted-foreground">{activeStep + 1} / {howWeWorkSteps.length}</span>
+                <span className="text-xs text-muted-foreground tabular-nums">{activeStep + 1} / {howWeWorkSteps.length}</span>
                 <Button variant="outline" size="sm" disabled={activeStep === howWeWorkSteps.length - 1}
-                  onClick={() => setActiveStep(s => s + 1)} className="gap-1.5">
-                  {t("howWeWork.steps")[activeStep < howWeWorkSteps.length - 1 ? activeStep + 1 : activeStep]?.title ?? ""} →
+                  onClick={() => setActiveStep(s => s + 1)} className="gap-1.5 text-xs">
+                  {activeStep < howWeWorkSteps.length - 1 ? howWeWorkSteps[activeStep + 1]?.title : t("howWeWork.stepNext")} ›
                 </Button>
               </div>
             </div>
@@ -642,7 +593,6 @@ const Index = () => {
           <SH heading={t("outcomes.heading")} sub={t("outcomes.subheading")} />
         </motion.div>
         <MobileCollapse label={t("outcomes.heading")} sub={t("outcomes.subheading")} defaultOpen={false} onOpen={() => setCountersVisible(true)}>
-          {/* Animated counters — trigger once on scroll */}
           <div ref={countersRef} className="relative grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5 mt-2 md:mt-0">
             {outcomeItems.map((o, i) => {
               const targets = [70, 40, 50, 10];
@@ -679,31 +629,19 @@ const Index = () => {
           {(t("faq.items", { returnObjects: true }) as { q: string; a: string }[]).map((item, i) => (
             <motion.div key={i} {...fadeUp(i * 0.05)}
               className="relative rounded-2xl border border-border bg-card overflow-hidden">
-              <button
-                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+              <button onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left hover:bg-muted/30 transition-colors"
-                aria-expanded={openFaq === i}
-              >
+                aria-expanded={openFaq === i}>
                 <span className="text-sm font-semibold text-foreground leading-snug">{item.q}</span>
-                <motion.div
-                  animate={{ rotate: openFaq === i ? 180 : 0 }}
-                  transition={{ duration: 0.2 }}
-                  className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-colors ${
-                    openFaq === i ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"
-                  }`}
-                >
+                <motion.div animate={{ rotate: openFaq === i ? 180 : 0 }} transition={{ duration: 0.2 }}
+                  className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-colors ${openFaq === i ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"}`}>
                   <ChevronDown className="h-4 w-4" />
                 </motion.div>
               </button>
               <AnimatePresence initial={false}>
                 {openFaq === i && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25, ease: "easeInOut" }}
-                    className="overflow-hidden"
-                  >
+                  <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25, ease: "easeInOut" }} className="overflow-hidden">
                     <div className="border-t border-border px-5 pb-5 pt-3">
                       <p className="text-sm text-muted-foreground leading-relaxed">{item.a}</p>
                     </div>
@@ -717,6 +655,7 @@ const Index = () => {
 
       {/* ══════════════════════════════════════════════
           10. CTA
+          Updated button copy to match hero CTAs
       ══════════════════════════════════════════════ */}
       <SectionWrapper className="relative overflow-hidden bg-muted/30">
         <SectionCircles />
@@ -742,9 +681,7 @@ const Index = () => {
         </motion.div>
       </SectionWrapper>
 
-      {/* Partner panel — fixed right side, all pages */}
       <PartnerPanel />
-
     </Layout>
   );
 };
