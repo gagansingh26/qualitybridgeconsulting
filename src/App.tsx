@@ -14,7 +14,6 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
 import CookieBanner from "./components/CookieBanner";
-import StickyMobileCTA from "./components/StickyMobileCTA";
 
 const queryClient = new QueryClient();
 
@@ -64,7 +63,6 @@ const App = () => (
         <BrowserRouter>
           <ScrollToTop />
           <AnimatedRoutes />
-          <StickyMobileCTA />
         </BrowserRouter>
         <CookieBanner />
       </TooltipProvider>

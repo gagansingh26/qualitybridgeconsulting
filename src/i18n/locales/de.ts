@@ -8,6 +8,7 @@ const de = {
   },
   hero: {
     pills: ["Digitale Entwicklung", "SAP-Governance & UAT", "Testautomatisierung & Qualität"],
+    quote: "Die besten digitalen Tools sind für den Endnutzer unsichtbar — sie funktionieren einfach.",
     hook: "Verspätete Releases. Unsichere Go-lives. Qualität, die nicht mithalten kann. Drei Probleme, ein Programm.",
     titlePrefix: "Wir lösen alle drei —",
     titleAccent: "als ein Team.",

@@ -8,6 +8,7 @@ const fr = {
   },
   hero: {
     pills: ["Développement digital", "Gouvernance SAP & UAT", "Automatisation des tests & Qualité"],
+    quote: "Les meilleurs outils digitaux sont invisibles pour l'utilisateur final — ils fonctionnent, c'est tout.",
     hook: "Des livraisons en retard. Des go-lives incertains. Une qualité qui ne suit pas. Trois problèmes, un seul programme.",
     titlePrefix: "Nous réglons les trois —",
     titleAccent: "en une seule équipe.",

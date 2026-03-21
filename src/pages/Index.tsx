@@ -158,54 +158,81 @@ const HeroGraphic = () => (
 );
 // ─── Mobile collapsible section wrapper ──────────────────────────────────────
 // On mobile: shows a tappable summary row + chevron; content collapses
-// On desktop (md+): header hidden, content always visible
+// MobileCollapse — mobile: tappable header + animated collapse
+//                — desktop: no header shown (SH handles heading), content always visible
 const MobileCollapse = ({
   label,
+  eyebrow,
+  sub,
   children,
   defaultOpen = false,
 }: {
   label: string;
+  eyebrow?: string;
+  sub?: string;
   children: React.ReactNode;
   defaultOpen?: boolean;
 }) => {
   const [open, setOpen] = useState(defaultOpen);
   return (
     <div>
-      {/* Mobile trigger — hidden on md+ */}
-      <button
-        onClick={() => setOpen(o => !o)}
-        className="md:hidden w-full flex items-center justify-between py-3 px-1 text-left"
-        aria-expanded={open}
-      >
-        <span className="text-sm font-semibold text-foreground">{label}</span>
-        <motion.div
-          animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-colors ${
-            open ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"
-          }`}
+      {/* ── Mobile only: compact tappable header ── */}
+      <div className="md:hidden">
+        <button
+          onClick={() => setOpen(o => !o)}
+          className="w-full flex items-center justify-between py-3 px-1 text-left"
+          aria-expanded={open}
         >
-          <ChevronDown className="h-4 w-4" />
-        </motion.div>
-      </button>
-
-      {/* Mobile: animated collapse. Desktop: always visible */}
-      <AnimatePresence initial={false}>
-        {open && (
+          <div className="min-w-0 flex-1 pr-3">
+            {eyebrow && (
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-primary mb-0.5">
+                {eyebrow}
+              </p>
+            )}
+            <span className="text-base font-bold text-foreground leading-snug">{label}</span>
+          </div>
           <motion.div
-            key="mobile-content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.28, ease: "easeInOut" }}
-            className="overflow-hidden md:hidden"
+            animate={{ rotate: open ? 180 : 0 }}
+            transition={{ duration: 0.2 }}
+            className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-colors ${
+              open ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"
+            }`}
           >
-            {children}
+            <ChevronDown className="h-4 w-4" />
           </motion.div>
-        )}
-      </AnimatePresence>
+        </button>
 
-      {/* Desktop: always visible, no collapse */}
+        {/* Sub shown below button when expanded */}
+        <AnimatePresence initial={false}>
+          {open && sub && (
+            <motion.p
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="text-xs text-muted-foreground leading-relaxed px-1 pb-2"
+            >
+              {sub}
+            </motion.p>
+          )}
+        </AnimatePresence>
+
+        {/* Collapsed content */}
+        <AnimatePresence initial={false}>
+          {open && (
+            <motion.div
+              key="mobile-content"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.28, ease: "easeInOut" }}
+              className="overflow-hidden"
+            >
+              {children}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* ── Desktop: always visible, SH renders the heading above ── */}
       <div className="hidden md:block">{children}</div>
     </div>
   );
@@ -405,14 +432,38 @@ const Index = () => {
       </div>
 
       {/* ══════════════════════════════════════════════
+          QUOTE — between proof and problems
+      ══════════════════════════════════════════════ */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }} transition={{ duration: 0.45 }}
+        className="relative overflow-hidden border-b border-border bg-background"
+        style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "18px 18px" }}>
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -right-14 -top-14 h-48 w-48 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+          <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full border border-primary/[0.06] bg-primary/[0.02]" />
+        </div>
+        <div className="container mx-auto px-4 py-8 md:py-10">
+          <div className="mx-auto max-w-xl text-center">
+            <svg width="28" height="22" viewBox="0 0 32 24" fill="none" className="mx-auto mb-4 opacity-20" aria-hidden="true">
+              <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l1.6 2.4C10.4 3.6 7.6 6.4 7.2 10.4H12V24H0zm20 0V14.4C20 6.4 24.8 1.6 34.4 0L36 2.4C30.4 3.6 27.6 6.4 27.2 10.4H32V24H20z" fill="currentColor" className="text-primary"/>
+            </svg>
+            <p className="text-base font-medium leading-relaxed text-foreground md:text-lg">
+              {t("hero.quote")}
+            </p>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* ══════════════════════════════════════════════
           3. PROBLEMS
       ══════════════════════════════════════════════ */}
       <SectionWrapper className="relative overflow-hidden bg-background">
         <SectionCircles />
-        <motion.div {...fadeUp(0)} className="relative">
+        <motion.div {...fadeUp(0)} className="relative hidden md:block">
           <SH eyebrow={t("problems.eyebrow")} heading={t("problems.heading")} sub={t("problems.subheading")} />
         </motion.div>
-        <MobileCollapse label={t("problems.heading")} defaultOpen={false}>
+        <MobileCollapse label={t("problems.heading")} eyebrow={t("problems.eyebrow")} sub={t("problems.subheading")} defaultOpen={false}>
           <div className="relative grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5 mt-2 md:mt-0">
             {problemItems.map((item, i) => (
               <motion.div key={i} {...fadeUp(i * 0.08)}
@@ -448,10 +499,10 @@ const Index = () => {
       ══════════════════════════════════════════════ */}
       <SectionWrapper className="relative overflow-hidden bg-background">
         <SectionCircles flip />
-        <motion.div {...fadeUp(0)} className="relative">
+        <motion.div {...fadeUp(0)} className="relative hidden md:block">
           <SH eyebrow={t("whatWeDeliver.eyebrow")} heading={t("whatWeDeliver.heading")} sub={t("whatWeDeliver.subheading")} />
         </motion.div>
-        <MobileCollapse label={t("whatWeDeliver.heading")} defaultOpen={false}>
+        <MobileCollapse label={t("whatWeDeliver.heading")} eyebrow={t("whatWeDeliver.eyebrow")} sub={t("whatWeDeliver.subheading")} defaultOpen={false}>
           <div className="relative grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5 mt-2 md:mt-0">
             {deliverCards.map((card, i) => (
               <motion.div key={i} {...fadeUp(i * 0.08)}
@@ -490,10 +541,10 @@ const Index = () => {
       ══════════════════════════════════════════════ */}
       <SectionWrapper className="relative overflow-hidden bg-muted/30">
         <SectionCircles />
-        <motion.div {...fadeUp(0)} className="relative">
+        <motion.div {...fadeUp(0)} className="relative hidden md:block">
           <SH eyebrow={t("differentiation.eyebrow")} heading={t("differentiation.heading")} sub={t("differentiation.subheading")} />
         </motion.div>
-        <MobileCollapse label={t("differentiation.heading")} defaultOpen={false}>
+        <MobileCollapse label={t("differentiation.heading")} eyebrow={t("differentiation.eyebrow")} sub={t("differentiation.subheading")} defaultOpen={false}>
           <div className="relative flex flex-col gap-4 md:gap-5 mt-2 md:mt-0">
             {diffItems.map((item, i) => (
               <motion.div key={i} {...fadeUp(i * 0.08)}
@@ -580,10 +631,10 @@ const Index = () => {
       ══════════════════════════════════════════════ */}
       <SectionWrapper className="relative overflow-hidden bg-background">
         <SectionCircles flip />
-        <motion.div {...fadeUp(0)} className="relative">
+        <motion.div {...fadeUp(0)} className="relative hidden md:block">
           <SH heading={t("outcomes.heading")} sub={t("outcomes.subheading")} />
         </motion.div>
-        <MobileCollapse label={t("outcomes.heading")} defaultOpen={false}>
+        <MobileCollapse label={t("outcomes.heading")} sub={t("outcomes.subheading")} defaultOpen={false}>
           {/* Animated counters — trigger once on scroll */}
           <div ref={countersRef} className="relative grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5 mt-2 md:mt-0">
             {outcomeItems.map((o, i) => {
