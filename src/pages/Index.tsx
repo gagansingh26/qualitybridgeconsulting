@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight, ExternalLink, Shield, Users, TrendingDown,
   GitBranch, Monitor, Rocket, Layers, MapPin,
-  Zap, Target, ClipboardCheck, Activity, TrendingUp,
-  X, Handshake, HelpCircle, ChevronDown, CheckCircle,
+  Target, ClipboardCheck, Activity, TrendingUp,
+  HelpCircle, ChevronDown, CheckCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
@@ -13,6 +13,7 @@ import SectionWrapper from "@/components/SectionWrapper";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { useTranslation } from "react-i18next";
 import { CaseStudies } from "@/components/CaseStudies";
+import PartnerPanel from "@/components/PartnerPanel";
 
 // ─── Design tokens ─────────────────────────────────────────────────────────────
 const PILLAR = [
@@ -260,7 +261,6 @@ const Index = () => {
     "/"
   );
 
-  const [partnerOpen, setPartnerOpen] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
   const [countersVisible, setCountersVisible] = useState(false);
   const countersRef = useRef<HTMLDivElement>(null);
@@ -684,113 +684,8 @@ const Index = () => {
         </motion.div>
       </SectionWrapper>
 
-      {/* ══════════════════════════════════════════════
-          COLLAPSIBLE PARTNER PANEL — fixed right side
-      ══════════════════════════════════════════════ */}
-      <div className="fixed right-0 top-1/2 z-50 -translate-y-1/2" aria-label="Open to collaboration">
-
-        {/* Tab — always visible, click to open */}
-        <AnimatePresence initial={false}>
-          {!partnerOpen && (
-            <motion.button
-              key="tab"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              transition={{ duration: 0.2 }}
-              onClick={() => setPartnerOpen(true)}
-              className="flex flex-col items-center gap-2 rounded-l-xl border border-r-0 border-border bg-card px-2 py-4 shadow-lg hover:bg-muted/50 transition-colors"
-              aria-label="Open collaboration panel"
-            >
-              <Handshake className="h-4 w-4 text-primary" />
-              <span
-                className="text-[10px] font-semibold uppercase tracking-widest text-primary"
-                style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-              >
-                {t("contact.partnerEyebrow")}
-              </span>
-            </motion.button>
-          )}
-        </AnimatePresence>
-
-        {/* Panel — slides in from right */}
-        <AnimatePresence>
-          {partnerOpen && (
-            <motion.div
-              key="panel"
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", stiffness: 320, damping: 32 }}
-              className="w-72 rounded-l-2xl border border-r-0 border-border bg-card shadow-xl"
-            >
-              {/* Panel header */}
-              <div className="flex items-center justify-between border-b border-border px-4 py-3">
-                <div className="flex items-center gap-2">
-                  <Handshake className="h-4 w-4 text-primary" />
-                  <p className="text-[11px] font-semibold uppercase tracking-widest text-primary">
-                    {t("contact.partnerEyebrow")}
-                  </p>
-                </div>
-                <button
-                  onClick={() => setPartnerOpen(false)}
-                  className="rounded-lg p-1 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
-                  aria-label="Close panel"
-                >
-                  <X className="h-4 w-4" />
-                </button>
-              </div>
-
-              {/* Panel body */}
-              <div className="p-4 space-y-4">
-                <p className="text-sm font-semibold text-foreground leading-snug">
-                  {t("contact.partnerHeading")}
-                </p>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  {t("contact.partnerSubheading")}
-                </p>
-
-                {/* Three partner types — compact */}
-                <div className="space-y-2">
-                  {(t("contact.partnerTypes", { returnObjects: true }) as { title: string; desc: string }[]).map((type, i) => {
-                    const colours = [
-                      "bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400",
-                      "bg-teal-100 dark:bg-teal-900 text-teal-600 dark:text-teal-400",
-                      "bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400",
-                    ];
-                    const bars = [
-                      "bg-blue-500 dark:bg-blue-400",
-                      "bg-teal-500 dark:bg-teal-400",
-                      "bg-purple-500 dark:bg-purple-400",
-                    ];
-                    return (
-                      <div key={i} className="flex items-start gap-2 rounded-xl border border-border bg-background p-3 overflow-hidden relative">
-                        <div className={`absolute left-0 top-0 bottom-0 w-[3px] ${bars[i]}`} />
-                        <div className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg ml-2 ${colours[i]}`}>
-                          <Users className="h-3.5 w-3.5" />
-                        </div>
-                        <p className="text-xs font-medium text-foreground leading-snug">{type.title}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* CTA */}
-                <Link to="/contact" onClick={() => setPartnerOpen(false)} className="block">
-                  <Button size="sm" className="w-full gap-1.5">
-                    {t("contact.partnerCta")} <ArrowRight className="h-3.5 w-3.5" />
-                  </Button>
-                </Link>
-
-                {/* Note */}
-                <p className="text-[11px] text-muted-foreground text-center">
-                  {t("contact.partnerNote")}
-                </p>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+      {/* Partner panel — fixed right side, all pages */}
+      <PartnerPanel />
 
     </Layout>
   );

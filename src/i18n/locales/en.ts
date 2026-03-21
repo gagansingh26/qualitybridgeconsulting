@@ -110,9 +110,9 @@ const en = {
     ],
   },
   problems: {
-    eyebrow: "Where programmes break",
-    heading: "Sound familiar?",
-    subheading: "Most enterprise programmes fail for one of three reasons.",
+    eyebrow: "Common delivery problems",
+    heading: "Three problems we see on every engagement.",
+    subheading: "Slow releases, uncertain go-lives, and quality that can't keep pace. We fix all three.",
     sampleEngagement: "View case studies",
     items: [
       {

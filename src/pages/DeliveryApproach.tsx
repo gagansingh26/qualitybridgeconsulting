@@ -9,13 +9,17 @@ import StatusBadge from "@/components/StatusBadge";
 import { EngagementOverview } from "@/components/EngagementOverview";
 import { usePageMeta } from "@/hooks/use-page-meta";
 import { useTranslation } from "react-i18next";
+import PartnerPanel from "@/components/PartnerPanel";
 
 type TabKey = "digital" | "sap" | "quality";
 
 // ─── Pillar colour tokens ─────────────────────────────────────────────────────
-const BLUE   = { accentBar: "bg-blue-500 dark:bg-blue-400",   headerBg: "bg-blue-50 dark:bg-blue-950",   iconBg: "bg-blue-100 dark:bg-blue-900",   iconColor: "text-blue-700 dark:text-blue-300"   };
-const TEAL   = { accentBar: "bg-teal-500 dark:bg-teal-400",   headerBg: "bg-teal-50 dark:bg-teal-950",   iconBg: "bg-teal-100 dark:bg-teal-900",   iconColor: "text-teal-700 dark:text-teal-300"   };
-const PURPLE = { accentBar: "bg-purple-500 dark:bg-purple-400", headerBg: "bg-purple-50 dark:bg-purple-950", iconBg: "bg-purple-100 dark:bg-purple-900", iconColor: "text-purple-700 dark:text-purple-300" };
+const BLUE   = { accentBar: "bg-blue-500 dark:bg-blue-400",
+   iconBg: "bg-blue-100 dark:bg-blue-900",   iconColor: "text-blue-700 dark:text-blue-300"   };
+const TEAL   = { accentBar: "bg-teal-500 dark:bg-teal-400",
+   iconBg: "bg-teal-100 dark:bg-teal-900",   iconColor: "text-teal-700 dark:text-teal-300"   };
+const PURPLE = { accentBar: "bg-purple-500 dark:bg-purple-400",
+ iconBg: "bg-purple-100 dark:bg-purple-900", iconColor: "text-purple-700 dark:text-purple-300" };
 
 // Coloured card helper — used for ALL tab content cards
 const PillarCard = ({ icon, title, desc, colour, delay = 0 }: { icon: React.ReactNode; title?: string; desc?: string; colour: typeof BLUE; delay?: number }) => (
@@ -23,7 +27,7 @@ const PillarCard = ({ icon, title, desc, colour, delay = 0 }: { icon: React.Reac
     whileHover={{ y: -4, transition: { duration: 0.25 } }} whileTap={{ y: -4, transition: { duration: 0.25 } }}
     className="flex flex-col rounded-lg border border-border bg-card overflow-hidden card-shadow">
     <div className={`h-[3px] w-full ${colour.accentBar}`} />
-    <div className={`${colour.headerBg} p-3 md:p-4 flex items-center gap-2.5`}>
+    <div className={`p-3 md:p-4 flex items-center gap-2.5`}>
       <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${colour.iconBg} ${colour.iconColor}`}>{icon}</div>
       {title && <h3 className="text-xs font-semibold text-foreground md:text-sm">{title}</h3>}
     </div>
@@ -166,7 +170,7 @@ const DeliveryApproach = () => {
                   <PillarCard key={i} icon={digitalServiceIcons[i]} title={item.title} desc={item.desc} colour={BLUE} delay={i * 0.08} />
                 ))}
               </div>
-              <motion.div {...fadeIn(0.2)} className="relative mt-6 rounded-xl border border-blue-200 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-950/30 px-5 py-4 md:mt-8 text-left">
+              <motion.div {...fadeIn(0.2)} className="relative mt-6 rounded-xl border border-border bg-muted/40 px-5 py-4 md:mt-8 text-left">
                 <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-2">Engagement</p>
                 <p className="text-sm text-foreground mb-1">{t("services.digitalEngagementFor")}</p>
                 <p className="text-xs text-muted-foreground">{t("services.digitalEngagementScope")}</p>
@@ -180,7 +184,7 @@ const DeliveryApproach = () => {
                 <p className="mx-auto mt-1.5 max-w-2xl text-center text-sm text-muted-foreground md:text-base">{t("services.digitalStackIntro")}</p>
               </motion.div>
               <div className="mt-5 flex flex-wrap justify-center gap-2 md:mt-6">
-                {digitalStack.map((badge, i) => (<motion.span key={i} {...fadeIn(i * 0.04)} className="rounded-full border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950 px-3 py-1 text-xs font-medium text-blue-700 dark:text-blue-300 card-shadow md:text-sm">{badge}</motion.span>))}
+                {digitalStack.map((badge, i) => (<motion.span key={i} {...fadeIn(i * 0.04)} className="rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-card-foreground card-shadow md:text-sm">{badge}</motion.span>))}
               </div>
             </SectionWrapper>
 
@@ -219,7 +223,7 @@ const DeliveryApproach = () => {
                   </div>
                   <AnimatePresence mode="wait">
                     <motion.div key={activePhase} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.2 }} {...hoverLiftSm}
-                      className="mt-3 rounded-xl border border-teal-200 dark:border-teal-800 bg-teal-50 dark:bg-teal-950 p-4 card-shadow">
+                      className="mt-3 rounded-xl border border-border bg-card p-4 card-shadow">
                       <div className="flex items-center gap-2"><span className={`h-3 w-3 rounded-full ${phaseColors[activePhase]}`} /><h3 className="font-semibold text-foreground">{phases[activePhase].name}</h3></div>
                       <p className="mt-2 text-sm text-muted-foreground">{phases[activePhase].desc}</p>
                     </motion.div>
@@ -231,7 +235,7 @@ const DeliveryApproach = () => {
                     {phases.map((phase, i) => (
                       <motion.div key={i} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4, delay: i * 0.1 }} {...hoverLiftSm} className="relative flex gap-4">
                         <div className={`absolute -left-12 mt-1.5 h-4 w-4 rounded-full ${phaseColors[i]} ring-4 ring-background`} />
-                        <div className="flex-1 rounded-xl border border-teal-200 dark:border-teal-800 bg-teal-50 dark:bg-teal-950 p-5 card-shadow">
+                        <div className="flex-1 rounded-xl border border-border bg-card p-5 card-shadow">
                           <h3 className="font-semibold text-foreground">{phase.name}</h3>
                           <p className="mt-2 text-sm text-muted-foreground">{phase.desc}</p>
                         </div>
@@ -244,7 +248,7 @@ const DeliveryApproach = () => {
                 </div>
               </div>
 
-              <motion.div {...fadeIn(0.2)} className="relative mt-6 rounded-xl border border-teal-200 dark:border-teal-800 bg-teal-50/50 dark:bg-teal-950/30 px-5 py-4 md:mt-8 text-left">
+              <motion.div {...fadeIn(0.2)} className="relative mt-6 rounded-xl border border-border bg-muted/40 px-5 py-4 md:mt-8 text-left">
                 <p className="text-xs font-semibold uppercase tracking-widest text-teal-600 dark:text-teal-400 mb-2">Engagement</p>
                 <p className="text-sm text-foreground mb-1">{t("services.sapEngagementFor")}</p>
                 <p className="text-xs text-muted-foreground">{t("services.sapEngagementScope")}</p>
@@ -255,7 +259,7 @@ const DeliveryApproach = () => {
             <SectionWrapper className="bg-muted/50" style={{ backgroundImage: "radial-gradient(circle, rgba(59,130,246,0.04) 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
               <h2 className="mb-4 text-[28px] font-bold md:text-[36px] text-foreground">{t("uat.operatingModel")}</h2>
               <div className="grid grid-cols-2 gap-2 md:hidden">
-                {uatPhases.map((phase, i) => (<motion.div key={i} {...hoverLiftSm} className="rounded-xl border border-teal-200 dark:border-teal-800 bg-teal-50 dark:bg-teal-950 p-3 card-shadow"><h3 className="text-xs font-semibold text-teal-700 dark:text-teal-300">{phase.name}</h3><p className="mt-1 text-xs leading-snug text-muted-foreground">{phase.desc}</p></motion.div>))}
+                {uatPhases.map((phase, i) => (<motion.div key={i} {...hoverLiftSm} className="rounded-xl border border-border bg-card p-3 card-shadow"><h3 className="text-xs font-semibold text-foreground">{phase.name}</h3><p className="mt-1 text-xs leading-snug text-muted-foreground">{phase.desc}</p></motion.div>))}
               </div>
               <div className="hidden md:block">
                 <div className="mb-5 hidden overflow-x-auto lg:flex">{uatPhases.map((phase, i) => (<div key={i} className="flex items-center"><div className="flex h-10 items-center rounded-lg bg-teal-500 dark:bg-teal-600 px-4 text-sm font-semibold text-white">{phase.name}</div>{i < uatPhases.length - 1 && <ArrowRight className="mx-1.5 h-4 w-4 text-muted-foreground" />}</div>))}</div>
@@ -297,7 +301,7 @@ const DeliveryApproach = () => {
               <div className="grid gap-3 sm:grid-cols-3 md:gap-4">
                 {releaseStatuses.map((s, i) => (<motion.div key={i} {...fadeIn(i * 0.1)} {...hoverLiftSm} className="rounded-lg border border-border bg-card p-4 card-shadow md:p-5"><div className="mb-2 md:mb-3"><StatusBadge variant={s.variant} label={s.label} /></div><p className="text-xs text-muted-foreground md:text-sm">{s.desc}</p></motion.div>))}
               </div>
-              <motion.div {...fadeIn(0.1)} className="mt-5 rounded-xl border border-teal-200 dark:border-teal-800 bg-teal-50/50 dark:bg-teal-950/30 p-5 md:mt-6 md:p-6">
+              <motion.div {...fadeIn(0.1)} className="mt-5 rounded-xl border border-border bg-muted/40 p-5 md:mt-6 md:p-6">
                 <h3 className="text-[22px] font-bold text-foreground md:text-[26px]">{t("release.governanceHeading")}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:mt-3 md:text-base">{t("release.governanceBody")}</p>
               </motion.div>
@@ -328,7 +332,7 @@ const DeliveryApproach = () => {
                 </div>
               </div>
 
-              <motion.div {...fadeIn(0.2)} className="relative mt-6 rounded-xl border border-purple-200 dark:border-purple-800 bg-purple-50/50 dark:bg-purple-950/30 px-5 py-4 md:mt-8 text-left">
+              <motion.div {...fadeIn(0.2)} className="relative mt-6 rounded-xl border border-border bg-muted/40 px-5 py-4 md:mt-8 text-left">
                 <p className="text-xs font-semibold uppercase tracking-widest text-purple-600 dark:text-purple-400 mb-2">Engagement</p>
                 <p className="text-sm text-foreground mb-1">{t("services.qualityEngagementFor")}</p>
                 <p className="text-xs text-muted-foreground">{t("services.qualityEngagementScope")}</p>
@@ -358,6 +362,7 @@ const DeliveryApproach = () => {
         )}
 
       </AnimatePresence>
+      <PartnerPanel />
     </Layout>
   );
 };

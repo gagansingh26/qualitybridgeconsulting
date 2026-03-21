@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import SectionWrapper from "@/components/SectionWrapper";
+import PartnerPanel from "@/components/PartnerPanel";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/gagansingh26/";
 
@@ -25,7 +26,6 @@ const focusIcons = [Briefcase, Settings, Brain, Building2];
 const FOCUS_COLOURS = [
   {
     accentBar:    "bg-blue-500 dark:bg-blue-400",
-    headerBg:     "bg-blue-50 dark:bg-blue-950",
     iconBg:       "bg-blue-100 dark:bg-blue-900",
     iconColor:    "text-blue-700 dark:text-blue-300",
     outcomeText:  "text-blue-700 dark:text-blue-300",
@@ -33,7 +33,6 @@ const FOCUS_COLOURS = [
   },
   {
     accentBar:    "bg-teal-500 dark:bg-teal-400",
-    headerBg:     "bg-teal-50 dark:bg-teal-950",
     iconBg:       "bg-teal-100 dark:bg-teal-900",
     iconColor:    "text-teal-700 dark:text-teal-300",
     outcomeText:  "text-teal-700 dark:text-teal-300",
@@ -41,7 +40,6 @@ const FOCUS_COLOURS = [
   },
   {
     accentBar:    "bg-purple-500 dark:bg-purple-400",
-    headerBg:     "bg-purple-50 dark:bg-purple-950",
     iconBg:       "bg-purple-100 dark:bg-purple-900",
     iconColor:    "text-purple-700 dark:text-purple-300",
     outcomeText:  "text-purple-700 dark:text-purple-300",
@@ -50,7 +48,6 @@ const FOCUS_COLOURS = [
   {
     // AI — cross-cutting, use primary
     accentBar:    "bg-primary",
-    headerBg:     "bg-primary/5 dark:bg-primary/10",
     iconBg:       "bg-primary/10",
     iconColor:    "text-primary",
     outcomeText:  "text-primary",
@@ -505,15 +502,8 @@ const About = () => {
           <div className="mt-5 flex flex-wrap justify-center gap-1.5">
             {toolbox.map((tool, i) => {
               // Automation tools (0-1) = purple, CI/CD tools (2-4) = blue, observability (5-6) = teal, governance (7-9) = amber
-              const toolColour = i <= 1
-                ? "border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-950 text-purple-700 dark:text-purple-300"
-                : i <= 4
-                ? "border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300"
-                : i <= 6
-                ? "border-teal-200 dark:border-teal-800 bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300"
-                : "border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-300";
               return (
-                <Badge key={tool} variant="outline" className={`text-xs border ${toolColour}`}>{tool}</Badge>
+                <Badge key={tool} variant="secondary" className="text-xs">{tool}</Badge>
               );
             })}
           </div>
@@ -575,6 +565,7 @@ const About = () => {
           </div>
         </motion.div>
       </SectionWrapper>
+      <PartnerPanel />
     </Layout>
   );
 };

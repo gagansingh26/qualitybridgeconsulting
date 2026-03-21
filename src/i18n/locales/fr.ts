@@ -113,8 +113,8 @@ const fr = {
     ],
   },
   problems: {
-    eyebrow: "Où les programmes échouent",
-    heading: "Ça vous parle ?",
+    eyebrow: "Problèmes de livraison courants",
+    heading: "Trois problèmes que nous observons dans chaque engagement.",
     subheading: "La plupart des programmes enterprise échouent pour l'une de ces trois raisons.",
     sampleEngagement: "Voir les études de cas",
     items: [

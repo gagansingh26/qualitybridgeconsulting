@@ -113,8 +113,8 @@ const de = {
     ],
   },
   problems: {
-    eyebrow: "Wo Programme scheitern",
-    heading: "Kommt Ihnen das bekannt vor?",
+    eyebrow: "Häufige Delivery-Probleme",
+    heading: "Drei Probleme, die wir in jedem Engagement sehen.",
     subheading: "Die meisten Enterprise-Programme scheitern aus einem von drei Gründen.",
     sampleEngagement: "Fallstudien ansehen",
     items: [
