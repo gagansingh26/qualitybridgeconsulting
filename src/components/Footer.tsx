@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Mail, MapPin, Calendar, ExternalLink, Languages, Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -8,6 +8,15 @@ const APPLY_EMAIL   = "mailto:qualitybridgeconsulting.ca@gmail.com";
 
 const Footer = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const handleHiringClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate("/about");
+    setTimeout(() => {
+      document.getElementById("careers")?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
 
   const quickLinks = [
     { label: t("nav.home"),     path: "/" },
@@ -82,16 +91,12 @@ const Footer = () => {
               ))}
 
               {/* ── We're hiring link ──────────────────────────────────
-                  Sits below the nav links. Pulsing green dot signals
-                  the role is actively open. Links to /about#careers so
-                  clicking navigates to the careers section on the About
-                  page without loading a new page.
+                  Uses React Router's navigate() + scrollIntoView so the
+                  #careers anchor works correctly when coming from any route.
               ─────────────────────────────────────────────────────── */}
-              {/* Use <a> instead of <Link> so the hash anchor reliably
-                  scrolls to #careers on the About page even when navigating
-                  from a different route. */}
-              <a
-                href="/about#careers"
+              <Link
+                to="/about#careers"
+                onClick={handleHiringClick}
                 className="mt-1 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
               >
                 {/* Pulsing dot — teal signals role is actively open */}
@@ -104,7 +109,7 @@ const Footer = () => {
                 <span className="rounded-full bg-teal-100 dark:bg-teal-900 px-1.5 py-0.5 text-[9px] font-semibold text-teal-700 dark:text-teal-300">
                   {t("footer.hiringNew")}
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
 
