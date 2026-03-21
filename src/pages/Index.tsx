@@ -166,20 +166,27 @@ const MobileCollapse = ({
   sub,
   children,
   defaultOpen = false,
+  onOpen,
 }: {
   label: string;
   eyebrow?: string;
   sub?: string;
   children: React.ReactNode;
   defaultOpen?: boolean;
+  onOpen?: () => void;
 }) => {
   const [open, setOpen] = useState(defaultOpen);
+  const toggle = () => {
+    const next = !open;
+    setOpen(next);
+    if (next && onOpen) onOpen();
+  };
   return (
     <div>
       {/* ── Mobile only: compact tappable header ── */}
       <div className="md:hidden">
         <button
-          onClick={() => setOpen(o => !o)}
+          onClick={toggle}
           className="w-full flex items-center justify-between py-3 px-1 text-left"
           aria-expanded={open}
         >
@@ -634,7 +641,7 @@ const Index = () => {
         <motion.div {...fadeUp(0)} className="relative hidden md:block">
           <SH heading={t("outcomes.heading")} sub={t("outcomes.subheading")} />
         </motion.div>
-        <MobileCollapse label={t("outcomes.heading")} sub={t("outcomes.subheading")} defaultOpen={false}>
+        <MobileCollapse label={t("outcomes.heading")} sub={t("outcomes.subheading")} defaultOpen={false} onOpen={() => setCountersVisible(true)}>
           {/* Animated counters — trigger once on scroll */}
           <div ref={countersRef} className="relative grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5 mt-2 md:mt-0">
             {outcomeItems.map((o, i) => {
