@@ -534,7 +534,7 @@ const About = () => {
         <motion.div {...fadeUp(0)} className="relative text-center">
           <h2 className="mb-6 text-[28px] font-bold md:text-[36px] text-foreground">{a.focusAreas}</h2>
         </motion.div>
-        <Accordion type="multiple" defaultValue={["web"]} className="relative space-y-2">
+        <Accordion type="multiple" className="relative space-y-2">
           {a.focusAreasData.map((area, i) => {
             const Icon = focusIcons[i];
             const c = FOCUS_COLOURS[i];
