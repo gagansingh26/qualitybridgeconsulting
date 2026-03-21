@@ -421,6 +421,8 @@ const de = {
       { text: "<strong>Kanada-basiert</strong>, aktiv in Nordamerika, Europa &amp; Asien"            },
       { text: "<strong>50–70% schnellere</strong> Regressionszyklen in QA-Engagements"               },
     ],
+    weAreHiring: "Wir stellen ein",
+    hiringNew: "Neu",
   },
   lang: { en: "Englisch", de: "Deutsch", fr: "Französisch" },
   engagement: {
@@ -464,5 +466,25 @@ const de = {
     ],
   },
 };
+
+  careers: {
+    eyebrow: "Wir stellen ein",
+    heading: "Kommen Sie zu QualityBridge — helfen Sie uns, die Pipeline aufzubauen.",
+    sub: "Wir suchen einen motivierten Business Development Representative, der die richtigen Kunden findet und Gespräche vereinbart. Vollständig remote, weltweit.",
+    roleTitle: "Business Development Representative",
+    remote: "Vollständig remote · Weltweit",
+    contract: "Teilzeit zum Start",
+    pillar: "Wachstum",
+    desc: "QualityBridge ist noch jung — Sie wären unser erster Mitarbeiter, und wir suchen jemanden, der das als Chance sieht, nicht als Risiko. Wenn Sie jemals beim Aufbau von etwas mit echtem kommerziellem Potenzial von Anfang an dabei sein wollten, ist das Ihre Gelegenheit. Ihre Aufgabe ist klar: die richtigen Kunden finden, die Beziehung aufbauen und einen Einführungsanruf mit unserem Team vereinbaren. Wenn ein Deal abgeschlossen wird, verdienen Sie 5–10% des gesamten Projektwertes (ohne Steuern) — 50% bei der ersten Kundenrechnung, 50% bei Projektabschluss. Kein Grundgehalt. Reine Leistung.",
+    bullets: [
+      "Outbound-Prospecting auf LinkedIn — SAP-Programmmanager, QA-Leads, Agenturainhaber",
+      "Partner-Outreach — SAP-Implementierungspartner und QA-Beratungen",
+      "Qualifizierung eingehender Leads und Buchung von Discovery Calls",
+      "1–3 Jahre B2B-Erfahrung, idealerweise in Enterprise-Software oder IT-Services",
+      "Lernbereit, organisiert und neugierig auf die Probleme, die wir lösen",
+    ],
+    cta: "Bewerben — E-Mail senden",
+    note: "Provision: 5–10% des abgeschlossenen Projektwertes · 50% bei erster Rechnung, 50% bei Projektabschluss · Kein Grundgehalt · Vollständig remote · Nur Direktbewerbungen — keine Personalvermittler oder Agenturen.",
+  },
 
 export default de;

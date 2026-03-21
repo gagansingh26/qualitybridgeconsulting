@@ -455,6 +455,8 @@ const en = {
       { text: "<strong>Canada-based</strong>, serving North America, Europe &amp; Asia"                   },
       { text: "<strong>50–70% faster</strong> regression cycles on QA engagements"                        },
     ],
+    weAreHiring: "We're hiring",
+    hiringNew: "New",
   },
   lang: { en: "English", de: "German", fr: "French" },
   engagement: {
@@ -498,5 +500,25 @@ const en = {
     ],
   },
 };
+
+  careers: {
+    eyebrow: "We're hiring",
+    heading: "Join QualityBridge — help us build the pipeline.",
+    sub: "We're looking for a driven Business Development Representative to find the right clients and get them on a call. Fully remote, global.",
+    roleTitle: "Business Development Representative",
+    remote: "Fully remote · Global",
+    contract: "Part-time to start",
+    pillar: "Growth",
+    desc: "QualityBridge is early stage — you'd be our first hire, and we're looking for someone who sees that as an opportunity, not a risk. If you've ever wanted to get in at the ground floor of something with real commercial potential, this is it. Your role is straightforward: find the right clients, build the relationship, and schedule an introductory call with our team. When a deal closes, you earn 5–10% of the total project value (excluding taxes) — 50% paid on the first client invoice, 50% on project completion. No base salary. Pure performance.",
+    bullets: [
+      "Outbound prospecting on LinkedIn — SAP programme managers, QA leads, digital agency owners",
+      "Partner outreach — SAP implementation partners and QA consultancies",
+      "Qualifying inbound leads from the website and booking discovery calls",
+      "1–3 years B2B experience, ideally in enterprise software or IT services",
+      "Coachable, organised, and genuinely curious about the problems we solve",
+    ],
+    cta: "Apply — send us an email",
+    note: "Commission: 5–10% of closed project value · 50% on first invoice, 50% on completion · No base · Fully remote · Direct applications only — no recruiters or agencies.",
+  },
 
 export default en;

@@ -421,6 +421,8 @@ const fr = {
       { text: "<strong>Basé au Canada</strong>, actif en Amérique du Nord, Europe &amp; Asie"          },
       { text: "<strong>50–70% plus rapide</strong> sur les cycles de régression QA"                    },
     ],
+    weAreHiring: "Nous recrutons",
+    hiringNew: "Nouveau",
   },
   lang: { en: "Anglais", de: "Allemand", fr: "Français" },
   engagement: {
@@ -464,5 +466,25 @@ const fr = {
     ],
   },
 };
+
+  careers: {
+    eyebrow: "Nous recrutons",
+    heading: "Rejoignez QualityBridge — aidez-nous à construire le pipeline.",
+    sub: "Nous recherchons un Business Development Representative motivé pour trouver les bons clients et organiser des appels. Entièrement remote, mondial.",
+    roleTitle: "Business Development Representative",
+    remote: "Entièrement remote · Mondial",
+    contract: "Temps partiel pour commencer",
+    pillar: "Croissance",
+    desc: "QualityBridge est en phase de démarrage — vous seriez notre premier recrutement, et nous cherchons quelqu'un qui voit cela comme une opportunité, pas un risque. Si vous avez toujours voulu rejoindre quelque chose avec un vrai potentiel commercial dès le début, c'est votre chance. Votre rôle est simple : trouver les bons clients, construire la relation et planifier un appel d'introduction avec notre équipe. Lorsqu'un contrat est conclu, vous gagnez 5 à 10% de la valeur totale du projet (hors taxes) — 50% à la première facture client, 50% à la fin du projet. Pas de salaire de base. Pure performance.",
+    bullets: [
+      "Prospection sortante sur LinkedIn — responsables SAP, leads QA, dirigeants d'agences digitales",
+      "Outreach partenaires — partenaires d'implémentation SAP et cabinets QA",
+      "Qualification des leads entrants et prise de rendez-vous pour des appels de découverte",
+      "1 à 3 ans d'expérience B2B, idéalement en logiciels d'entreprise ou services IT",
+      "Curieux, organisé et réellement intéressé par les problèmes que nous résolvons",
+    ],
+    cta: "Postuler — nous envoyer un e-mail",
+    note: "Commission : 5–10% de la valeur du projet clôturé · 50% à la première facture, 50% à la fin du projet · Pas de salaire de base · Entièrement remote · Candidatures directes uniquement — pas de recruteurs ni d'agences.",
+  },
 
 export default fr;

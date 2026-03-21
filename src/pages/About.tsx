@@ -254,7 +254,7 @@ const content = {
 };
 
 const About = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const lang = (i18n.language?.slice(0, 2) as keyof typeof content) in content
     ? (i18n.language?.slice(0, 2) as keyof typeof content) : "en";
   const a = content[lang];
@@ -529,6 +529,96 @@ const About = () => {
             );
           })}
         </Accordion>
+      </SectionWrapper>
+
+      {/* ── Careers ─────────────────────────────────────────────────────────
+           id="careers" is the anchor target for /about#careers links.
+           Sits between Focus Areas and the bottom CTA.
+      ────────────────────────────────────────────────────────────────── */}
+      <SectionWrapper id="careers" className="relative overflow-hidden bg-muted/30">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute -right-14 -top-14 h-48 w-48 rounded-full border border-primary/[0.07] bg-primary/[0.02]" />
+          <div className="absolute -left-10 -bottom-10 h-36 w-36 rounded-full border border-primary/[0.05] bg-primary/[0.02]" />
+        </div>
+        <motion.div {...fadeUp(0)} className="relative">
+          {/* Eyebrow with pulsing dot */}
+          <div className="flex items-center gap-2 mb-3">
+            <span className="relative flex h-2 w-2 flex-shrink-0">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-teal-500 dark:bg-teal-400" />
+            </span>
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-teal-600 dark:text-teal-400">
+              {t("careers.eyebrow")}
+            </p>
+          </div>
+          <h2 className="text-[24px] font-bold text-foreground leading-tight mb-2 md:text-[30px]">
+            {t("careers.heading")}
+          </h2>
+          <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl mb-6">
+            {t("careers.sub")}
+          </p>
+
+          {/* Role card */}
+          <div className="rounded-2xl border border-border bg-card overflow-hidden">
+            <div className="h-[3px] bg-teal-500 dark:bg-teal-400" />
+            <div className="p-5 md:p-6">
+              {/* Role header */}
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between mb-4">
+                <div>
+                  <h3 className="text-[15px] font-semibold text-foreground mb-2">
+                    {t("careers.roleTitle")}
+                  </h3>
+                  <div className="flex flex-wrap gap-1.5">
+                    {/* Remote tag */}
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-teal-200 dark:border-teal-800 bg-teal-50 dark:bg-teal-950/50 px-2.5 py-0.5 text-[11px] font-medium text-teal-700 dark:text-teal-300">
+                      <span className="h-1.5 w-1.5 rounded-full bg-teal-500 dark:bg-teal-400 flex-shrink-0" />
+                      {t("careers.remote")}
+                    </span>
+                    {/* Contract type tag */}
+                    <span className="inline-flex items-center rounded-full border border-border bg-muted/50 px-2.5 py-0.5 text-[11px] text-muted-foreground">
+                      {t("careers.contract")}
+                    </span>
+                    {/* Pillar tag */}
+                    <span className="inline-flex items-center rounded-full border border-border bg-muted/50 px-2.5 py-0.5 text-[11px] text-muted-foreground">
+                      {t("careers.pillar")}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                {t("careers.desc")}
+              </p>
+
+              {/* Bullets */}
+              <ul className="space-y-2 mb-5 pt-4 border-t border-border">
+                {(t("careers.bullets", { returnObjects: true }) as string[]).map((b, i) => (
+                  <li key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                    <span className="h-1.5 w-1.5 rounded-full bg-teal-500 dark:bg-teal-400 flex-shrink-0 mt-2" />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+
+              {/* CTA */}
+              <a
+                href="mailto:qualitybridgeconsulting.ca@gmail.com"
+                className="inline-flex items-center gap-2 rounded-lg bg-teal-600 dark:bg-teal-500 px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              >
+                {t("careers.cta")}
+                <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </a>
+
+              {/* No recruiters note */}
+              <p className="mt-3 text-[11px] text-muted-foreground/70 leading-relaxed">
+                {t("careers.note")}
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </SectionWrapper>
 
       {/* ── Bottom CTA ── */}
