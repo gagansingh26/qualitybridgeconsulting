@@ -198,6 +198,31 @@ const fr = {
     heroPrefix: "Nos spécialisations ·",
     heroAccent: "Un seul standard.",
     heroSubtitle: "Développement digital, Livraison & Gouvernance SAP et Ingénierie qualité — livrés dans un seul engagement, gérés depuis le Canada.",
+    // ── Bandeau de pills (visible sur les trois onglets) ──
+    pillStrip: [
+      { label: "Développement web" },
+      { label: "Web design" },
+      { label: "Tests logiciels" },
+      { label: "Développement sur mesure" },
+      { label: "Développement d'applications" },
+      { label: "Support technique" },
+      { label: "Applications mobiles" },
+      { label: "Conseil IT" },
+    ],
+    // ── Phrases IA intégrées dans les intros de chaque onglet ──
+    digitalIntroAi: "La génération de code assistée par IA accélère chaque cycle de build.",
+    sapIntroAi: "Les LLMs génèrent des scripts UAT depuis les exigences — réduisant considérablement l'effort de scripting.",
+    qualityIntroAi: "Conception de tests et triage des défauts assistés par IA dans chaque engagement.",
+    // ── Nouvelle carte IA pour l'onglet QE ──
+    aiQeCard: {
+      title: "Ingénierie qualité augmentée par l'IA",
+      desc: "GenAI et LLMs appliqués à la conception des tests, l'analyse de couverture et la priorisation des défauts — réduisant l'effort manuel à chaque cycle de régression.",
+      detail: [
+        "Génération de cas de test assistée par IA depuis les exigences et user stories",
+        "Détection prédictive des défauts via des patterns ML — signale les zones à risque tôt",
+        "Triage des défauts priorisé par IA — risques les plus élevés détectés en premier, décisions go/no-go basées sur les données",
+      ],
+    },
     heroStats: [
       { value: "Technologies modernes", label: "Développement digital"     },
       { value: "SAP S/4HANA",          label: "Livraison & Gouvernance"    },

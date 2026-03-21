@@ -219,6 +219,31 @@ const en = {
     heroPrefix: "Expert Specialisations ·",
     heroAccent: "One Standard.",
     heroSubtitle: "Digital Development, SAP Delivery & Governance, and Quality Engineering — delivered under one engagement, managed from Canada.",
+    // ── Services pill strip (shown on all three tabs) ──
+    pillStrip: [
+      { label: "Web Development" },
+      { label: "Web Design" },
+      { label: "Software Testing" },
+      { label: "Custom Software Development" },
+      { label: "Application Development" },
+      { label: "Technical Support" },
+      { label: "Mobile App Development" },
+      { label: "IT Consulting" },
+    ],
+    // ── AI inline sentences woven into each tab intro ──
+    digitalIntroAi: "AI-assisted code generation accelerates every build cycle.",
+    sapIntroAi: "LLMs generate UAT scripts from requirements — cutting scripting effort significantly.",
+    qualityIntroAi: "AI-assisted test design and defect triage applied across every engagement.",
+    // ── New QE AI card (added to quality engineering tab) ──
+    aiQeCard: {
+      title: "AI-Augmented Quality Engineering",
+      desc: "GenAI and LLMs applied to test design, coverage analysis, and defect prioritisation — reducing manual effort across every regression cycle.",
+      detail: [
+        "AI-assisted test case generation from requirements and user stories",
+        "Predictive defect detection using ML patterns — flags high-risk areas early",
+        "AI-prioritised defect triage surfaces highest-risk failures first — data-led go/no-go decisions, not gut feel",
+      ],
+    },
     heroStats: [
       { value: "Modern Tech",           label: "Digital Development"   },
       { value: "SAP S/4HANA",           label: "Delivery & Governance" },

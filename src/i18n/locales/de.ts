@@ -198,6 +198,31 @@ const de = {
     heroPrefix: "Unsere Spezialisierungen ·",
     heroAccent: "Ein Standard.",
     heroSubtitle: "Digitale Entwicklung, SAP-Lieferung & Governance und Qualitätssicherung — in einem Engagement, aus Kanada gemanagt.",
+    // ── Leistungs-Pill-Streifen (auf allen drei Tabs sichtbar) ──
+    pillStrip: [
+      { label: "Webentwicklung" },
+      { label: "Webdesign" },
+      { label: "Software-Testing" },
+      { label: "Custom Software Development" },
+      { label: "Anwendungsentwicklung" },
+      { label: "Technischer Support" },
+      { label: "Mobile App-Entwicklung" },
+      { label: "IT-Beratung" },
+    ],
+    // ── KI-Sätze in Tab-Intros eingebettet ──
+    digitalIntroAi: "KI-gestützte Code-Generierung beschleunigt jeden Build-Zyklus.",
+    sapIntroAi: "LLMs generieren UAT-Skripte aus Anforderungen — Scripting-Aufwand erheblich reduziert.",
+    qualityIntroAi: "KI-gestütztes Testdesign und Fehler-Triage in jedem Engagement.",
+    // ── Neue KI-Karte für den QE-Tab ──
+    aiQeCard: {
+      title: "KI-gestütztes Quality Engineering",
+      desc: "GenAI und LLMs für Testdesign, Abdeckungsanalyse und Fehlerpriorisierung — reduziert manuellen Aufwand in jedem Regressionszyklus.",
+      detail: [
+        "KI-gestützte Testfall-Generierung aus Anforderungen und User Stories",
+        "Prädiktive Fehlererkennung mittels ML-Mustern — markiert Hochrisikobereiche frühzeitig",
+        "KI-priorisierte Fehler-Triage identifiziert höchste Risiken zuerst — datenbasierte Go/No-Go-Entscheidungen",
+      ],
+    },
     heroStats: [
       { value: "Moderne Technologien", label: "Digitale Entwicklung"      },
       { value: "SAP S/4HANA",          label: "Lieferung & Governance"    },
