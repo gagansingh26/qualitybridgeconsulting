@@ -407,7 +407,7 @@ const fr = {
     ],
   },
   footer: {
-    tagline: "Livraison structurée en gouvernance SAP, développement digital et ingénierie qualité — géré depuis le Canada, livré à l'échelle mondiale.",
+    tagline: "Développement digital · Livraison & Gouvernance SAP · Qualité augmentée par l'IA — géré depuis le Canada, livré à l'échelle mondiale.",
     quickLinks: "Liens rapides",
     contact: "Contact",
     rights: "Tous droits réservés.",
@@ -483,7 +483,7 @@ const fr = {
       "Curieux, organisé et réellement intéressé par les problèmes que nous résolvons",
     ],
     cta: "Postuler — nous envoyer un e-mail",
-    note: "Commission : 5–10% de la valeur du projet clôturé · 50% à la première facture, 50% à la fin du projet · Pas de salaire de base · Entièrement remote · Candidatures directes uniquement — pas de recruteurs ni d'agences.",
+    note: "Commission : 10% de la valeur du projet clôturé · 50% à la première facture, 50% à la fin du projet · Pas de salaire de base · Entièrement remote · Candidatures directes uniquement — pas de recruteurs ni d'agences.",
   },
 };
 

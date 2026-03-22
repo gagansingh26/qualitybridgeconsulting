@@ -441,7 +441,7 @@ const en = {
     ],
   },
   footer: {
-    tagline: "Structured delivery across SAP governance, digital development, and quality engineering — managed from Canada, delivered globally.",
+    tagline: "Digital Development · SAP Delivery & Governance · AI-Augmented Quality — managed from Canada, delivered globally.",
     quickLinks: "Quick Links",
     contact: "Contact",
     rights: "All rights reserved.",
@@ -507,7 +507,7 @@ const en = {
     remote: "Fully remote · Global",
     contract: "Part-time to start",
     pillar: "Growth",
-    desc: "QualityBridge is early stage — you'd be our first hire, and we're looking for someone who sees that as an opportunity, not a risk. Your role is straightforward: identify the right clients across digital development, SAP programmes, and quality engineering — build the relationship, and connect them with our team. When a deal closes, you earn 5–10% of the total project value (excluding taxes) — 50% on the first client invoice, 50% on project completion. No base salary. Pure performance.",
+    desc: "QualityBridge is early stage — you'd be our first hire, and we're looking for someone who sees that as an opportunity, not a risk. Your role is straightforward: identify the right clients across digital development, SAP programmes, and quality engineering — build the relationship, and connect them with our team. When a deal closes, you earn 10% of the total project value (excluding taxes) — 50% on the first client invoice, 50% on project completion. No base salary. Pure performance.",
     bullets: [
       "Digital Development — prospect web agencies, SaaS teams, and businesses needing web platforms, dashboards, or application development",
       "SAP & ERP — identify SAP programme managers, implementation partners, and organisations running S/4HANA transformations",
@@ -517,7 +517,7 @@ const en = {
       "Coachable, organised, and genuinely curious about the problems we solve",
     ],
     cta: "Apply — send us an email",
-    note: "Commission: 5–10% of closed project value · 50% on first invoice, 50% on completion · No base · Fully remote · Direct applications only — no recruiters or agencies.",
+    note: "Commission: 10% of closed project value · 50% on first invoice, 50% on completion · No base · Fully remote · Direct applications only — no recruiters or agencies.",
   },
 };
 

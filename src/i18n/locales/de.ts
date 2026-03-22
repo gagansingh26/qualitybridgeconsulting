@@ -407,7 +407,7 @@ const de = {
     ],
   },
   footer: {
-    tagline: "Strukturierte Lieferung in SAP-Governance, digitaler Entwicklung und Qualitätssicherung — aus Kanada gemanagt, global geliefert.",
+    tagline: "Digitale Entwicklung · SAP-Lieferung & Governance · KI-gestützte Qualität — aus Kanada gemanagt, global geliefert.",
     quickLinks: "Schnellzugriff",
     contact: "Kontakt",
     rights: "Alle Rechte vorbehalten.",
@@ -473,7 +473,7 @@ const de = {
     remote: "Vollständig remote · Weltweit",
     contract: "Teilzeit zum Start",
     pillar: "Wachstum",
-    desc: "QualityBridge ist noch jung — Sie wären unser erster Mitarbeiter, und wir suchen jemanden, der das als Chance sieht, nicht als Risiko. Ihre Aufgabe ist klar: die richtigen Kunden in den Bereichen Digitale Entwicklung, SAP-Programme und Quality Engineering identifizieren — die Beziehung aufbauen und sie mit unserem Team verbinden. Wenn ein Deal abgeschlossen wird, verdienen Sie 5–10% des gesamten Projektwertes (ohne Steuern) — 50% bei der ersten Kundenrechnung, 50% bei Projektabschluss. Kein Grundgehalt. Reine Leistung.",
+    desc: "QualityBridge ist noch jung — Sie wären unser erster Mitarbeiter, und wir suchen jemanden, der das als Chance sieht, nicht als Risiko. Ihre Aufgabe ist klar: die richtigen Kunden in den Bereichen Digitale Entwicklung, SAP-Programme und Quality Engineering identifizieren — die Beziehung aufbauen und sie mit unserem Team verbinden. Wenn ein Deal abgeschlossen wird, verdienen Sie 10% des gesamten Projektwertes (ohne Steuern) — 50% bei der ersten Kundenrechnung, 50% bei Projektabschluss. Kein Grundgehalt. Reine Leistung.",
     bullets: [
       "Digitale Entwicklung — Web-Agenturen, SaaS-Teams und Unternehmen ansprechen, die Web-Plattformen, Dashboards oder Anwendungsentwicklung benötigen",
       "SAP & ERP — SAP-Programmmanager, Implementierungspartner und Organisationen mit S/4HANA-Transformationen identifizieren",
@@ -483,7 +483,7 @@ const de = {
       "Lernbereit, organisiert und neugierig auf die Probleme, die wir lösen",
     ],
     cta: "Bewerben — E-Mail senden",
-    note: "Provision: 5–10% des abgeschlossenen Projektwertes · 50% bei erster Rechnung, 50% bei Projektabschluss · Kein Grundgehalt · Vollständig remote · Nur Direktbewerbungen — keine Personalvermittler oder Agenturen.",
+    note: "Provision: 10% des abgeschlossenen Projektwertes · 50% bei erster Rechnung, 50% bei Projektabschluss · Kein Grundgehalt · Vollständig remote · Nur Direktbewerbungen — keine Personalvermittler oder Agenturen.",
   },
 };
 
