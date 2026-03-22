@@ -128,11 +128,11 @@ const Footer = () => {
                 <ExternalLink className="h-3 w-3 shrink-0" />
               </a>
               <a
-                href="mailto:qualitybridgeconsulting.ca@gmail.com"
+                href="mailto:info@qualitybridgeconsulting.com"
                 className="flex items-start gap-2 break-all transition-colors hover:text-primary"
               >
                 <Mail className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-                <span>qualitybridgeconsulting.ca@gmail.com</span>
+                <span>info@qualitybridgeconsulting.com</span>
               </a>
               <a
                 href={LINKEDIN_URL}

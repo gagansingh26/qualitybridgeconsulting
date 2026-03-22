@@ -621,7 +621,7 @@ const About = () => {
 
               {/* CTA */}
               <a
-                href="mailto:qualitybridgeconsulting.ca@gmail.com"
+                href="mailto:info@qualitybridgeconsulting.com"
                 className="inline-flex items-center gap-2 rounded-lg bg-teal-600 dark:bg-teal-500 px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
               >
                 {t("careers.cta")}

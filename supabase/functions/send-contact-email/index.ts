@@ -90,7 +90,7 @@ serve(async (req) => {
       },
       body: JSON.stringify({
         from: "QualityBridge Contact <onboarding@resend.dev>",
-        to: ["qualitybridgeconsulting.ca@gmail.com"],
+        to: ["info@qualitybridgeconsulting.com"],
         subject: `Website inquiry from ${safeName}`,
         reply_to: email.trim(),
         html: `
