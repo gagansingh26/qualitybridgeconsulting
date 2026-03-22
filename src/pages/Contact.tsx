@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { useTranslation } from "react-i18next";
 
-const EMAIL_TO = "qualitybridgeconsulting.ca@gmail.com";
+const EMAIL_TO = "info@qualitybridgeconsulting.com";
 const BOOK_CALL_URL = "https://cal.com/gagan.singh/15min";
 const LINKEDIN_URL = "https://www.linkedin.com/company/qualitybridgeconsulting";
 
