@@ -332,7 +332,7 @@ const About = () => {
           <p className="mx-auto mt-3 max-w-xl text-base text-primary-foreground/80 md:text-lg">{a.heroSubtitle}</p>
           <p className="mx-auto mt-2 max-w-lg text-sm font-medium text-primary-foreground/60 md:text-base">{a.heroFounderLine}</p>
           <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center sm:gap-3">
-            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            <a href="https://cal.com/qualitybridgeconsulting/book" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto">{a.ctaBook} <ExternalLink className="ml-2 h-4 w-4" /></Button>
             </a>
             <Link to="/services" className="w-full sm:w-auto">
@@ -649,7 +649,7 @@ const About = () => {
           <h2 className="text-[28px] font-bold md:text-[36px] text-foreground">{a.openToConversation}</h2>
           <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground md:mt-3 md:text-base">{a.openToConversationBody}</p>
           <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:justify-center md:mt-8 md:gap-3">
-            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            <a href="https://cal.com/qualitybridgeconsulting/book" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button size="lg" className="w-full font-semibold sm:w-auto">{a.ctaBook} <ExternalLink className="ml-2 h-4 w-4" /></Button>
             </a>
             <Link to="/services" className="w-full sm:w-auto">

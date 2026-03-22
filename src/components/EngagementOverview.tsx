@@ -292,7 +292,7 @@ export function EngagementOverview() {
               </p>
             </div>
             <div className="flex flex-col gap-2.5 sm:flex-row shrink-0">
-              <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <a href="https://cal.com/qualitybridgeconsulting/book" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <Button size="lg" className="w-full font-semibold sm:w-auto">
                   {t("engagement.cta.book")} <ExternalLink className="ml-2 h-4 w-4" />
                 </Button>

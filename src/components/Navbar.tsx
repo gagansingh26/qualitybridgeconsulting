@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
 import { FlagGB, FlagDE, FlagFR } from "@/components/FlagIcons";
 
-const BOOK_CALL_URL = "https://cal.com/gagan.singh/15min";
+const BOOK_CALL_URL = "https://cal.com/qualitybridgeconsulting/book";
 
 const LANGUAGES = [
   { code: "en", label: "EN", Flag: FlagGB, full: "English" },

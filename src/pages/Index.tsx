@@ -344,7 +344,7 @@ const Index = () => {
           {/* CTAs */}
           <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
             className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            <a href="https://cal.com/qualitybridgeconsulting/book" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto px-8">
                 {t("hero.ctaPrimary")} <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -663,7 +663,7 @@ const Index = () => {
           <h2 className="text-[26px] font-bold text-foreground leading-tight md:text-[34px]">{t("cta.heading")}</h2>
           <p className="mx-auto mt-4 max-w-lg text-sm text-muted-foreground leading-relaxed md:text-base">{t("cta.body")}</p>
           <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            <a href="https://cal.com/qualitybridgeconsulting/book" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button size="lg" className="w-full font-semibold sm:w-auto px-8">
                 {t("cta.bookConsultation")} <ExternalLink className="ml-2 h-4 w-4" />
               </Button>

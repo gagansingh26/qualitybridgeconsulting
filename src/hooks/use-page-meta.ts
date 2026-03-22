@@ -1,15 +1,32 @@
 import { useEffect } from "react";
 
-const BASE_URL = "https://qualitybridgeconsulting.lovable.app";
+// ── Update this whenever the production domain changes ──────────────────────
+const BASE_URL = "https://qualitybridgeconsulting.com";
 
 export function usePageMeta(title: string, description: string, path = "") {
   useEffect(() => {
+    // ── Page title ────────────────────────────────────────────────────────
     document.title = title;
 
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute("content", description);
+    // ── Helper: get-or-create a <meta> tag ────────────────────────────────
+    const setOrCreateMeta = (
+      attrKey: string,
+      attrVal: string,
+      contentVal: string
+    ) => {
+      let el = document.querySelector(`meta[${attrKey}="${attrVal}"]`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(attrKey, attrVal);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", contentVal);
+    };
 
-    // Canonical
+    // ── Standard meta description ─────────────────────────────────────────
+    setOrCreateMeta("name", "description", description);
+
+    // ── Canonical link ────────────────────────────────────────────────────
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement("link");
@@ -18,15 +35,13 @@ export function usePageMeta(title: string, description: string, path = "") {
     }
     canonical.href = `${BASE_URL}${path}`;
 
-    // OG
-    const setMeta = (sel: string, val: string) => {
-      const el = document.querySelector(sel);
-      if (el) el.setAttribute("content", val);
-    };
-    setMeta('meta[property="og:title"]', title);
-    setMeta('meta[property="og:description"]', description);
-    setMeta('meta[property="og:url"]', `${BASE_URL}${path}`);
-    setMeta('meta[name="twitter:title"]', title);
-    setMeta('meta[name="twitter:description"]', description);
+    // ── Open Graph ────────────────────────────────────────────────────────
+    setOrCreateMeta("property", "og:title",       title);
+    setOrCreateMeta("property", "og:description", description);
+    setOrCreateMeta("property", "og:url",         `${BASE_URL}${path}`);
+
+    // ── Twitter / X card ──────────────────────────────────────────────────
+    setOrCreateMeta("name", "twitter:title",       title);
+    setOrCreateMeta("name", "twitter:description", description);
   }, [title, description, path]);
 }

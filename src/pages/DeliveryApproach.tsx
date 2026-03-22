@@ -225,7 +225,7 @@ const Services = () => {
             {t("services.heroSubtitle")}
           </p>
           <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            <a href="https://cal.com/qualitybridgeconsulting/book" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button size="lg" variant="secondary" className="w-full font-semibold sm:w-auto">
                 {t("hero.ctaPrimary")} <ExternalLink className="ml-2 h-4 w-4" />
               </Button>
@@ -378,7 +378,7 @@ const Services = () => {
                 <motion.div {...fadeUp(0.15)} className="mt-6 text-center">
                   <h3 className="text-lg font-bold text-foreground mb-2">{t("services.digitalCtaHeading")}</h3>
                   <p className="text-sm text-muted-foreground mb-4">{t("services.digitalCtaBody")}</p>
-                  <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer">
+                  <a href="https://cal.com/qualitybridgeconsulting/book" target="_blank" rel="noopener noreferrer">
                     <Button className="gap-1.5">
                       {t("hero.ctaPrimary")} <ExternalLink className="h-3.5 w-3.5" />
                     </Button>
@@ -750,7 +750,7 @@ const Services = () => {
           <h3 className="text-base font-semibold text-foreground mb-1">{t("engagement.cta.title")}</h3>
           <p className="text-sm text-muted-foreground mb-4">{t("engagement.cta.desc")}</p>
           <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-center">
-            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            <a href="https://cal.com/qualitybridgeconsulting/book" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button className="w-full sm:w-auto gap-1.5">
                 {t("engagement.cta.book")} <ExternalLink className="h-3.5 w-3.5" />
               </Button>
@@ -773,7 +773,7 @@ const Services = () => {
           <h2 className="text-[26px] font-bold text-foreground md:text-[34px]">{t("cta.heading")}</h2>
           <p className="mx-auto mt-4 max-w-lg text-sm text-muted-foreground leading-relaxed md:text-base">{t("cta.body")}</p>
           <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <a href="https://cal.com/gagan.singh/15min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            <a href="https://cal.com/qualitybridgeconsulting/book" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <Button size="lg" className="w-full font-semibold sm:w-auto px-8">
                 {t("cta.bookConsultation")} <ExternalLink className="ml-2 h-4 w-4" />
               </Button>

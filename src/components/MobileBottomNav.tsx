@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Home, Briefcase, Mail, CalendarCheck } from "lucide-react";
 import { motion } from "framer-motion";
 
-const BOOK_CALL_URL = "https://cal.com/gagan.singh/15min";
+const BOOK_CALL_URL = "https://cal.com/qualitybridgeconsulting/book";
 
 const MobileBottomNav = () => {
   const location = useLocation();

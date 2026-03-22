@@ -3,7 +3,7 @@ import { ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-const BOOK_CALL_URL = "https://cal.com/gagan.singh/15min";
+const BOOK_CALL_URL = "https://cal.com/qualitybridgeconsulting/book";
 const SCROLL_THRESHOLD = 300;
 
 const MobileBookCallFAB = () => {

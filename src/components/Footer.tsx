@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Mail, MapPin, Calendar, ExternalLink, Languages, Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-const BOOK_CALL_URL = "https://cal.com/gagan.singh/15min";
+const BOOK_CALL_URL = "https://cal.com/qualitybridgeconsulting/book";
 const LINKEDIN_URL  = "https://www.linkedin.com/company/qualitybridgeconsulting";
 const APPLY_EMAIL   = "mailto:info@qualitybridgeconsulting.com";
 

@@ -13,7 +13,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useTranslation } from "react-i18next";
 
 const EMAIL_TO = "info@qualitybridgeconsulting.com";
-const BOOK_CALL_URL = "https://cal.com/gagan.singh/15min";
+const BOOK_CALL_URL = "https://cal.com/qualitybridgeconsulting/book";
 const LINKEDIN_URL = "https://www.linkedin.com/company/qualitybridgeconsulting";
 
 // ─── Contact card colours — left accent bar + icon only, NO tinted card bg ────
