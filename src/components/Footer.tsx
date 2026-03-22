@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 const BOOK_CALL_URL = "https://cal.com/gagan.singh/15min";
 const LINKEDIN_URL  = "https://www.linkedin.com/company/qualitybridgeconsulting";
-const APPLY_EMAIL   = "mailto:qualitybridgeconsulting.ca@gmail.com";
+const APPLY_EMAIL   = "mailto:info@qualitybridgeconsulting.com";
 
 const Footer = () => {
   const { t } = useTranslation();
