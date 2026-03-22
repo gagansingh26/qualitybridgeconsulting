@@ -3,6 +3,7 @@ const de = {
     home: "Startseite",
     services: "Leistungen",
     about: "Über uns",
+    blog: "Blog",
     contact: "Kontakt",
     bookCall: "Beratung buchen",
   },

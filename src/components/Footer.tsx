@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 const BOOK_CALL_URL = "https://cal.com/qualitybridgeconsulting/book";
 const LINKEDIN_URL  = "https://www.linkedin.com/company/qualitybridgeconsulting";
-const APPLY_EMAIL   = "mailto:info@qualitybridgeconsulting.com";
+const BLOG_URL      = "https://blog.qualitybridgeconsulting.com";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -71,7 +71,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Col 2 — Quick links + hiring */}
+          {/* Col 2 — Quick links + blog + hiring */}
           <div>
             <h4 className="mb-3 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
               {t("footer.quickLinks")}
@@ -86,6 +86,17 @@ const Footer = () => {
                   {l.label}
                 </Link>
               ))}
+
+              {/* ── Blog link ─────────────────────────────────────────── */}
+              <a
+                href={BLOG_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-primary"
+              >
+                {t("nav.blog")}
+                <ExternalLink className="h-3 w-3 shrink-0" />
+              </a>
 
               {/* ── We're hiring link ──────────────────────────────────
                   Navigates to /about and passes { scrollTo: "careers" }
@@ -187,6 +198,14 @@ const Footer = () => {
             © {new Date().getFullYear()} QualityBridge Consulting. {t("footer.rights")}
           </p>
           <div className="flex items-center gap-3 text-[11px] text-muted-foreground md:text-xs">
+            <a
+              href={BLOG_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-primary"
+            >
+              {t("nav.blog")}
+            </a>
             <a
               href={LINKEDIN_URL}
               target="_blank"

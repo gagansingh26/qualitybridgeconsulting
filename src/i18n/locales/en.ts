@@ -3,6 +3,7 @@ const en = {
     home: "Home",
     services: "Services",
     about: "About",
+    blog: "Blog",
     contact: "Contact",
     bookCall: "Book a Consultation",
   },

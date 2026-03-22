@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ExternalLink, Moon, Sun, ChevronDown } from "lucide-react";
+import { Menu, X, ExternalLink, Moon, Sun, ChevronDown, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import { useTranslation } from "react-i18next";
@@ -8,6 +8,7 @@ import i18n from "@/i18n";
 import { FlagGB, FlagDE, FlagFR } from "@/components/FlagIcons";
 
 const BOOK_CALL_URL = "https://cal.com/qualitybridgeconsulting/book";
+const BLOG_URL      = "https://blog.qualitybridgeconsulting.com";
 
 const LANGUAGES = [
   { code: "en", label: "EN", Flag: FlagGB, full: "English" },
@@ -34,10 +35,10 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { label: t("nav.home"), path: "/" },
+    { label: t("nav.home"),     path: "/" },
     { label: t("nav.services"), path: "/services" },
-    { label: t("nav.about"), path: "/about" },
-    { label: t("nav.contact"), path: "/contact" },
+    { label: t("nav.about"),    path: "/about" },
+    { label: t("nav.contact"),  path: "/contact" },
   ];
 
   const linkClasses = (path: string) =>
@@ -68,6 +69,17 @@ const Navbar = () => {
               {item.label}
             </Link>
           ))}
+
+          {/* ── Blog link — external, opens in new tab ── */}
+          <a
+            href={BLOG_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-md px-3 py-1.5 text-[14px] font-medium whitespace-nowrap text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground flex items-center gap-1"
+          >
+            {t("nav.blog")}
+            <ExternalLink className="h-3 w-3 shrink-0 opacity-60" />
+          </a>
         </div>
 
         {/* Right-side actions — desktop */}
@@ -206,6 +218,19 @@ const Navbar = () => {
                 {item.label}
               </Link>
             ))}
+
+            {/* ── Blog link — mobile menu ── */}
+            <a
+              href={BLOG_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="rounded-md px-4 py-[14px] text-[16px] font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground flex items-center gap-2"
+            >
+              <BookOpen className="h-4 w-4 shrink-0" />
+              {t("nav.blog")}
+              <ExternalLink className="h-3.5 w-3.5 shrink-0 opacity-60 ml-auto" />
+            </a>
 
             <a
               href={BOOK_CALL_URL}
