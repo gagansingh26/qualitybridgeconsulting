@@ -128,12 +128,12 @@ const de = {
   },
   cta: {
     heading: "Nicht sicher, wo Ihre Lieferung hakt?",
-    body: "Eine kostenlose 15-minütige Risikoanalyse der Lieferung identifiziert die genauen Lücken in Ihrem SAP-, QA- oder digitalen Release-Prozess — keine Verpflichtung, kein Angebot bis der Scope klar ist.",
+    body: "Eine kostenlose 30-minütige Risikoanalyse der Lieferung identifiziert die genauen Lücken in Ihrem SAP-, QA- oder digitalen Release-Prozess — keine Verpflichtung, kein Angebot bis der Scope klar ist.",
     bookConsultation: "Risikoanalyse der Lieferung anfragen",
     viewApproach: "Unsere Leistungen ansehen",
     getInTouch: "Kontakt aufnehmen",
     message: "Nachricht senden",
-    subtext: "Kostenlos · 15 Minuten · Keine Verpflichtung",
+    subtext: "Kostenlos · 30 Minuten · Keine Verpflichtung",
   },
   caseStudies: {
     eyebrow: "Beispielprojekte",

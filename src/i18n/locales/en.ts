@@ -149,12 +149,12 @@ const en = {
   },
   cta: {
     heading: "Not sure where your delivery is breaking?",
-    body: "A free 15-minute delivery risk assessment identifies the exact gaps in your SAP, QA, or digital release process — no commitment, no proposal until the scope is clear.",
+    body: "A free 30-minute delivery risk assessment identifies the exact gaps in your SAP, QA, or digital release process — no commitment, no proposal until the scope is clear.",
     bookConsultation: "Get a Delivery Risk Assessment",
     viewApproach: "View Our Services",
     getInTouch: "Get in Touch",
     message: "Send us a message",
-    subtext: "Free · 15 minutes · No commitment required",
+    subtext: "Free · 30 minutes · No commitment required",
   },
   caseStudies: {
     eyebrow: "Sample Engagements",

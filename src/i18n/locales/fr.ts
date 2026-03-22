@@ -128,12 +128,12 @@ const fr = {
   },
   cta: {
     heading: "Vous ne savez pas où votre livraison bloque ?",
-    body: "Un audit des risques de livraison gratuit de 15 minutes identifie les lacunes exactes dans votre processus SAP, QA ou de release digital — sans engagement, sans proposition tant que le périmètre n'est pas clair.",
+    body: "Un audit des risques de livraison gratuit de 30 minutes identifie les lacunes exactes dans votre processus SAP, QA ou de release digital — sans engagement, sans proposition tant que le périmètre n'est pas clair.",
     bookConsultation: "Obtenir un audit des risques de livraison",
     viewApproach: "Voir nos services",
     getInTouch: "Nous contacter",
     message: "Nous envoyer un message",
-    subtext: "Gratuit · 15 minutes · Sans engagement",
+    subtext: "Gratuit · 30 minutes · Sans engagement",
   },
   caseStudies: {
     eyebrow: "Exemples de missions",
@@ -441,7 +441,7 @@ const fr = {
         qe:      { scope: "Framework d'automatisation ou couverture QE continue",    duration: "4–10 semaines+",  model: "Prix fixe ou retainer" },
       },
     },
-    cta: { title: "Pas sûr du modèle qui vous convient ?", desc: "Chaque engagement commence par un appel gratuit de 15 minutes — sans engagement, sans proposition avant que le périmètre soit clair.", book: "Réserver un appel gratuit", message: "Envoyer un message" },
+    cta: { title: "Pas sûr du modèle qui vous convient ?", desc: "Chaque engagement commence par un appel gratuit de 30 minutes — sans engagement, sans proposition avant que le périmètre soit clair.", book: "Réserver un appel gratuit", message: "Envoyer un message" },
   },
   sticky: { bookCall: "Réserver un appel", message: "Nous contacter" },
   cookie: {
@@ -460,7 +460,7 @@ const fr = {
       { q: "Travaillez-vous uniquement avec SAP ou avec d'autres plateformes ?",                         a: "SAP S/4HANA est une spécialité, mais nous travaillons aussi avec Salesforce, Workday, Microsoft Dynamics 365 et des plateformes personnalisées." },
       { q: "Comment fonctionne le modèle d'engagement — prix fixe ou régie ?",                          a: "Les deux, selon le périmètre. Les engagements courts sont généralement à prix fixe. Les embeds plus longs sont en régie avec des jalons définis." },
       { q: "Nous sommes basés en Europe — pouvez-vous nous accompagner ?",                               a: "Oui. Nous gérons depuis le Canada mais avons des spécialistes en Amérique du Nord, en Europe et en Asie." },
-      { q: "Que comprend un audit des risques de livraison ?",                                           a: "Une conversation de 15 minutes pour comprendre votre programme. Vous repartirez avec une vision claire des risques. Pas de proposition, pas de présentation." },
+      { q: "Que comprend un audit des risques de livraison ?",                                           a: "Une conversation de 30 minutes pour comprendre votre programme. Vous repartirez avec une vision claire des risques. Pas de proposition, pas de présentation." },
       { q: "Dans quel délai pouvez-vous démarrer ?",                                                     a: "Pour la plupart des engagements, nous pouvons démarrer dans les 1 à 2 semaines suivant l'accord. Pour un support go-live urgent, nous avons démarré en 48 heures." },
       { q: "Utilisez-vous l'IA dans votre travail ?",                                                    a: "Oui, dans les trois piliers — mais uniquement là où c'est pratique. En développement digital, en gouvernance SAP et en ingénierie qualité, l'IA accélère chaque étape." },
     ],
